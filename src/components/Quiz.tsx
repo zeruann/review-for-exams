@@ -3,8 +3,15 @@ import type { Subject } from "../types/quiz";
 
 interface QuizProps {
   subject: Subject;
+  shuffleQuestions: boolean;
   onFinish: (correctCount: number, totalCount: number) => void;
   onExit: () => void;
+}
+
+interface AnswerState {
+  selected: string[];
+  revealed: boolean;
+  skipped: boolean;
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -16,19 +23,52 @@ function shuffle<T>(arr: T[]): T[] {
   return copy;
 }
 
-export default function Quiz({ subject, onFinish, onExit }: QuizProps) {
-  const questions = useMemo(() => shuffle(subject.questions), [subject]);
+const EMPTY_STATE: AnswerState = { selected: [], revealed: false, skipped: false };
+
+export default function Quiz({
+  subject,
+  shuffleQuestions,
+  onFinish,
+  onExit,
+}: QuizProps) {
+  const questions = useMemo(
+    () => (shuffleQuestions ? shuffle(subject.questions) : subject.questions),
+    [subject, shuffleQuestions]
+  );
   const [index, setIndex] = useState(0);
-  const [selected, setSelected] = useState<string[]>([]);
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [correctCount, setCorrectCount] = useState(0);
+  const [answersByIndex, setAnswersByIndex] = useState<Record<number, AnswerState>>({});
 
   const current = questions[index];
   const isLast = index === questions.length - 1;
+  const isFirst = index === 0;
   const isMulti = Boolean(current?.answers && current.answers.length > 0);
   const correctSet = current
     ? new Set(isMulti ? current.answers : [current.answer])
     : new Set<string>();
+
+  const currentState = answersByIndex[index] ?? EMPTY_STATE;
+  const { selected, revealed } = currentState;
+
+  function correctSetFor(i: number): Set<string> {
+    const q = questions[i];
+    const multi = Boolean(q.answers && q.answers.length > 0);
+    return new Set(multi ? q.answers : [q.answer]);
+  }
+
+  function isSelectionCorrect(i: number, sel: string[]): boolean {
+    const cs = correctSetFor(i);
+    if (sel.length !== cs.size) return false;
+    return sel.every((c) => cs.has(c));
+  }
+
+  // Live running score across all questions answered so far (excludes skips).
+  const answeredEntries = Object.entries(answersByIndex).filter(
+    ([, s]) => s.revealed && !s.skipped
+  );
+  const runningCorrect = answeredEntries.filter(([i, s]) =>
+    isSelectionCorrect(Number(i), s.selected)
+  ).length;
+  const runningAnswered = answeredEntries.length;
 
   if (!current) {
     return (
@@ -44,38 +84,51 @@ export default function Quiz({ subject, onFinish, onExit }: QuizProps) {
     );
   }
 
+  function updateCurrent(patch: Partial<AnswerState>) {
+    setAnswersByIndex((prev) => ({
+      ...prev,
+      [index]: { ...(prev[index] ?? EMPTY_STATE), ...patch },
+    }));
+  }
+
   function toggleChoice(choice: string) {
-    if (showAnswer) return;
+    if (revealed) return;
     if (!isMulti) {
-      setSelected([choice]);
+      updateCurrent({ selected: [choice] });
       return;
     }
-    setSelected((prev) =>
-      prev.includes(choice) ? prev.filter((c) => c !== choice) : [...prev, choice]
-    );
+    const next = selected.includes(choice)
+      ? selected.filter((c) => c !== choice)
+      : [...selected, choice];
+    updateCurrent({ selected: next });
   }
 
-  function isCorrectSubmission() {
-    if (selected.length !== correctSet.size) return false;
-    return selected.every((c) => correctSet.has(c));
-  }
-
-  function handleSubmit() {
+  function handleCheck() {
     if (selected.length === 0) return;
-    setShowAnswer(true);
-    if (isCorrectSubmission()) {
-      setCorrectCount((c) => c + 1);
-    }
+    updateCurrent({ revealed: true, skipped: false });
+  }
+
+  function handleSkip() {
+    updateCurrent({ revealed: true, skipped: true, selected: [] });
+  }
+
+  function handlePrevious() {
+    if (!isFirst) setIndex((i) => i - 1);
   }
 
   function handleNext() {
     if (isLast) {
+      let correctCount = 0;
+      questions.forEach((_, i) => {
+        const st = answersByIndex[i];
+        if (st?.revealed && !st.skipped && isSelectionCorrect(i, st.selected)) {
+          correctCount++;
+        }
+      });
       onFinish(correctCount, questions.length);
       return;
     }
     setIndex((i) => i + 1);
-    setSelected([]);
-    setShowAnswer(false);
   }
 
   return (
@@ -86,6 +139,9 @@ export default function Quiz({ subject, onFinish, onExit }: QuizProps) {
         </button>
         <span>
           Question {index + 1} / {questions.length}
+        </span>
+        <span className="font-medium text-indigo-400">
+          Score: {runningCorrect}/{runningAnswered}
         </span>
       </div>
 
@@ -120,7 +176,7 @@ export default function Quiz({ subject, onFinish, onExit }: QuizProps) {
             const isCorrectChoice = correctSet.has(choice);
             let style =
               "border-slate-600 hover:border-slate-400 hover:bg-slate-700/50";
-            if (showAnswer) {
+            if (revealed) {
               if (isCorrectChoice) {
                 style = "border-emerald-500 bg-emerald-500/10 text-emerald-300";
               } else if (isSelected && !isCorrectChoice) {
@@ -135,7 +191,7 @@ export default function Quiz({ subject, onFinish, onExit }: QuizProps) {
               <button
                 key={choice}
                 onClick={() => toggleChoice(choice)}
-                disabled={showAnswer}
+                disabled={revealed}
                 className={`w-full text-left px-4 py-3 rounded-xl border transition whitespace-pre-line ${style}`}
               >
                 {choice}
@@ -144,28 +200,52 @@ export default function Quiz({ subject, onFinish, onExit }: QuizProps) {
           })}
         </div>
 
-        {current.explanation && showAnswer && (
+        {revealed && currentState.skipped && (
+          <p className="mt-4 text-xs text-amber-400">
+            Skipped — correct answer shown above.
+          </p>
+        )}
+
+        {current.explanation && revealed && (
           <p className="mt-4 text-sm text-slate-400 bg-slate-900/60 rounded-lg p-3">
             {current.explanation}
           </p>
         )}
 
-        {!showAnswer ? (
+        <div className="mt-5 flex gap-3">
           <button
-            onClick={handleSubmit}
-            disabled={selected.length === 0}
-            className="mt-5 w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed font-medium"
+            onClick={handlePrevious}
+            disabled={isFirst}
+            className="flex-1 py-3 rounded-xl bg-slate-700 hover:bg-slate-600 disabled:opacity-30 disabled:cursor-not-allowed font-medium"
           >
-            Check answer
+            ← Previous
           </button>
-        ) : (
-          <button
-            onClick={handleNext}
-            className="mt-5 w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-medium"
-          >
-            {isLast ? "Finish" : "Next question"}
-          </button>
-        )}
+
+          {!revealed ? (
+            <>
+              <button
+                onClick={handleSkip}
+                className="flex-1 py-3 rounded-xl bg-slate-700 hover:bg-slate-600 font-medium"
+              >
+                Skip
+              </button>
+              <button
+                onClick={handleCheck}
+                disabled={selected.length === 0}
+                className="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed font-medium"
+              >
+                Check
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={handleNext}
+              className="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-medium"
+            >
+              {isLast ? "Finish" : "Next"}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

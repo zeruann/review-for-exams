@@ -4,18 +4,32 @@ import type { SubjectProgress } from "../hooks/useProgress";
 interface SubjectListProps {
   subjects: Subject[];
   progress: Record<string, SubjectProgress>;
+  shuffleQuestions: boolean;
+  onToggleShuffle: (value: boolean) => void;
   onSelect: (subject: Subject) => void;
 }
 
 export default function SubjectList({
   subjects,
   progress,
+  shuffleQuestions,
+  onToggleShuffle,
   onSelect,
 }: SubjectListProps) {
   return (
     <div className="max-w-xl mx-auto">
       <h1 className="text-2xl font-bold text-slate-100 mb-1">Exam Review</h1>
-      <p className="text-slate-400 mb-6">Pick a subject to start reviewing.</p>
+      <p className="text-slate-400 mb-4">Pick a subject to start reviewing.</p>
+
+      <label className="flex items-center gap-2 mb-6 text-sm text-slate-300 select-none">
+        <input
+          type="checkbox"
+          checked={shuffleQuestions}
+          onChange={(e) => onToggleShuffle(e.target.checked)}
+          className="w-4 h-4 accent-indigo-500"
+        />
+        Shuffle questions
+      </label>
 
       <div className="space-y-3">
         {subjects.map((subject) => {
