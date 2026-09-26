@@ -1,0 +1,21 @@
+[
+  {
+    "id": "pc-1",
+    "question": "Which communication model views communication as a two-way, simultaneous process?",
+    "choices": ["Linear Model", "Transactional Model", "Interactive Model", "Aristotle's Model"],
+    "answer": "Transactional Model",
+    "explanation": "The Transactional Model treats sender and receiver as simultaneously exchanging messages, with both giving and receiving feedback at the same time."
+  },
+  {
+    "id": "pc-2",
+    "question": "What is the primary goal of purposive communication?",
+    "choices": [
+      "To memorize grammar rules",
+      "To communicate effectively and appropriately for a specific purpose and audience",
+      "To translate text between languages",
+      "To avoid using technology in communication"
+    ],
+    "answer": "To communicate effectively and appropriately for a specific purpose and audience",
+    "explanation": "Purposive communication focuses on producing clear, purpose-driven messages suited to context, audience, and culture."
+  }
+]

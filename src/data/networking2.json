@@ -1,0 +1,523 @@
+[
+  {
+    "id": "net2-1",
+    "question": "A DHCP-enabled client PC has just booted. During which two steps will the client PC use broadcast messages when communicating with a DHCP server? (Choose two.)",
+    "choices": ["DHCPDISCOVER", "DHCPACK", "DHCPOFFER", "DHCPREQUEST", "DHCPNAK"],
+    "answers": ["DHCPDISCOVER", "DHCPREQUEST"],
+    "answer": "DHCPDISCOVER",
+    "explanation": "All DHCP messages between a client and server use broadcast until after DHCPACK. DHCPDISCOVER and DHCPREQUEST are the only messages sent by the client, so those are the two broadcasts it sends."
+  },
+  {
+    "id": "net2-2",
+    "question": "An administrator issues the following commands on a router interface. What is the administrator trying to achieve?",
+    "exhibit": "Router(config)# interface g0/1\nRouter(config-if)# ip address dhcp",
+    "choices": [
+      "configuring the router to act as a DHCPv4 server",
+      "configuring the router to obtain IP parameters from a DHCPv4 server",
+      "configuring the router to act as a relay agent",
+      "configuring the router to resolve IP address conflicts"
+    ],
+    "answer": "configuring the router to obtain IP parameters from a DHCPv4 server",
+    "explanation": "The 'ip address dhcp' interface command configures that interface as a DHCP client, so it will obtain its own IP parameters from a DHCPv4 server."
+  },
+  {
+    "id": "net2-3",
+    "question": "When a client is requesting an initial address lease from a DHCP server, why is the DHCPREQUEST message sent as a broadcast?",
+    "choices": [
+      "The client does not yet know the IP address of the DHCP server that sent the offer.",
+      "The DHCP server may be on a different subnet, so the request must be sent as a broadcast.",
+      "The client does not have a MAC address assigned yet, so it cannot send a unicast message at Layer 2.",
+      "The client may have received offers from multiple servers, and the broadcast serves to implicitly decline those other offers."
+    ],
+    "answer": "The client may have received offers from multiple servers, and the broadcast serves to implicitly decline those other offers.",
+    "explanation": "The broadcast DHCPREQUEST tells every DHCP server that offered a lease which one was accepted, so the other servers know their offers were declined."
+  },
+  {
+    "id": "net2-4",
+    "question": "Which DHCP IPv4 message contains the following information: Destination address 255.255.255.255, Client IPv4 address 0.0.0.0, Default gateway address 0.0.0.0, Subnet mask 0.0.0.0?",
+    "choices": ["DHCPACK", "DHCPDISCOVER", "DHCPOFFER", "DHCPREQUEST"],
+    "answer": "DHCPDISCOVER",
+    "explanation": "A client that has no IP information yet broadcasts a DHCPDISCOVER message using 0.0.0.0 as its own address and 255.255.255.255 as the destination."
+  },
+  {
+    "id": "net2-5",
+    "question": "Which sequence correctly places the DHCPv4 message exchange in order, from a client first looking for a server to the server confirming the lease?",
+    "choices": [
+      "DHCPDISCOVER → DHCPOFFER → DHCPREQUEST → DHCPACK",
+      "DHCPDISCOVER → DHCPREQUEST → DHCPOFFER → DHCPACK",
+      "DHCPOFFER → DHCPDISCOVER → DHCPACK → DHCPREQUEST",
+      "DHCPREQUEST → DHCPDISCOVER → DHCPOFFER → DHCPACK"
+    ],
+    "answer": "DHCPDISCOVER → DHCPOFFER → DHCPREQUEST → DHCPACK",
+    "explanation": "Client broadcasts DHCPDISCOVER, a server responds with DHCPOFFER, the client accepts via broadcast DHCPREQUEST, and the server confirms with DHCPACK."
+  },
+  {
+    "id": "net2-6",
+    "question": "Which protocol automates assignment of IP addresses on a network, and which port number does it use? (Choose two.)",
+    "choices": ["DHCP", "DNS", "SMB", "53", "67", "80"],
+    "answers": ["DHCP", "67"],
+    "answer": "DHCP",
+    "explanation": "DHCP automates IP address assignment and its server side uses UDP port 67 (client side uses port 68). DNS uses port 53, HTTP uses port 80, and SMB uses port 445."
+  },
+  {
+    "id": "net2-7",
+    "question": "Refer to the exhibit. PC1 is configured to obtain a dynamic IP address from the DHCP server. PC1 has been shut down for two weeks. When PC1 boots and tries to request an available IP address, which destination IP address will PC1 place in the IP header?",
+    "image": "/exhibits/q7-topology.svg",
+    "choices": ["192.168.1.1", "192.168.1.255", "255.255.255.255", "192.168.1.8"],
+    "answer": "255.255.255.255",
+    "explanation": "A booting host with no known DHCP server sends a broadcast DHCPDISCOVER to destination IP 255.255.255.255 and MAC FF:FF:FF:FF:FF:FF."
+  },
+  {
+    "id": "net2-8",
+    "question": "Which message does an IPv4 host use to reply when it receives a DHCPOFFER message from a DHCP server?",
+    "choices": ["DHCPOFFER", "DHCPDISCOVER", "DHCPREQUEST", "DHCPACK"],
+    "answer": "DHCPREQUEST",
+    "explanation": "After receiving a DHCPOFFER, the client replies with a broadcast DHCPREQUEST to accept the offer and notify other servers their offers are declined."
+  },
+  {
+    "id": "net2-9",
+    "question": "Which command, issued in interface configuration mode of a router, enables the interface to acquire an IPv4 address automatically from an ISP when the link is enabled?",
+    "choices": ["service dhcp", "ip address dhcp", "ip helper-address", "ip dhcp pool"],
+    "answer": "ip address dhcp",
+    "explanation": "'ip address dhcp' configures an interface as a DHCP client. 'service dhcp' enables the DHCP server process, 'ip helper-address' enables relay, and 'ip dhcp pool' creates a server address pool."
+  },
+  {
+    "id": "net2-10",
+    "question": "Which kind of message is sent by a DHCP client when its IP address lease has expired?",
+    "choices": [
+      "a DHCPDISCOVER unicast message",
+      "a DHCPREQUEST broadcast message",
+      "a DHCPREQUEST unicast message",
+      "a DHCPDISCOVER broadcast message"
+    ],
+    "answer": "a DHCPREQUEST unicast message",
+    "explanation": "When the lease time expires, the client sends a unicast DHCPREQUEST directly to the server that originally offered the address, trying to renew it."
+  },
+  {
+    "id": "net2-11",
+    "question": "A host PC is attempting to lease an address through DHCP. What message is sent by the server to let the client know it is able to use the provided IP information?",
+    "choices": ["DHCPDISCOVER", "DHCPOFFER", "DHCPREQUEST", "DHCPACK", "DHCPNACK"],
+    "answer": "DHCPACK",
+    "explanation": "DHCPACK is the server's confirmation that finalizes the lease and tells the client it can use the offered IP information."
+  },
+  {
+    "id": "net2-12",
+    "question": "What is one indication that a Windows computer did not receive an IPv4 address from a DHCP server?",
+    "choices": [
+      "The computer cannot ping 127.0.0.1.",
+      "The computer receives an IP address that starts with 169.254.",
+      "Windows displays a DHCP timeout message.",
+      "The computer cannot ping other devices on the same network with IP addresses in the 169.254.0.0/16 range."
+    ],
+    "answer": "The computer receives an IP address that starts with 169.254.",
+    "explanation": "When it cannot reach a DHCP server, Windows self-assigns an Automatic Private IP Address (APIPA) in the 169.254.0.0/16 range."
+  },
+  {
+    "id": "net2-13",
+    "question": "Which DHCPv4 message will a client send to accept an IPv4 address that is offered by a DHCP server?",
+    "choices": ["broadcast DHCPACK", "broadcast DHCPREQUEST", "unicast DHCPACK", "unicast DHCPREQUEST"],
+    "answer": "broadcast DHCPREQUEST",
+    "explanation": "The client accepts an offer with a broadcast DHCPREQUEST — broadcast so it both accepts one offer and implicitly declines any others."
+  },
+  {
+    "id": "net2-14",
+    "question": "A small coffee shop offers free Wi-Fi via a wireless router and a DSL modem connected to the phone company. What method is typically used to configure the connection to the phone company?",
+    "choices": [
+      "Set the WAN connection in the wireless router as a DHCP client.",
+      "Set the connection between the wireless router and the DSL modem as a private IP network.",
+      "Set the DSL modem as a DHCP client to get a public IP address from the wireless router.",
+      "Set the DSL modem as a DHCP client to the phone company and a DHCP server for the internal connection."
+    ],
+    "answer": "Set the DSL modem as a DHCP client to the phone company and a DHCP server for the internal connection.",
+    "explanation": "In a SOHO setup, the wireless router's WAN side is typically the DHCP client to the ISP, obtaining a public address, while it acts as a DHCP server for the internal LAN."
+  },
+  {
+    "id": "net2-15",
+    "question": "A company uses DHCP relay agents to forward DHCP requests from workstations to DHCP servers in the data center. Which two UDP ports are used to forward DHCP traffic? (Choose two.)",
+    "choices": ["23", "53", "67", "68", "80"],
+    "answers": ["67", "68"],
+    "answer": "67",
+    "explanation": "DHCP uses UDP port 67 as the destination port for DHCP servers, and DHCP clients use UDP port 68."
+  },
+  {
+    "id": "net2-16",
+    "question": "A client device on an Ethernet segment needs an IP address to communicate on the network. A DHCP server with IP address 192.168.1.1 is configured and enabled. How will the client obtain a usable IP address?",
+    "choices": [
+      "Send a DHCPACK packet to the default gateway address.",
+      "Use a statically configured IP address from the pool offered by the DHCP server.",
+      "Send a DHCPDISCOVER message to physical address FF-FF-FF-FF-FF-FF.",
+      "Send a DHCPREQUEST packet to IP address 255.255.255.255."
+    ],
+    "answer": "Send a DHCPDISCOVER message to physical address FF-FF-FF-FF-FF-FF.",
+    "explanation": "The client has no knowledge of any DHCP server's address, so it broadcasts a DHCPDISCOVER frame to the special all-hosts MAC address FF-FF-FF-FF-FF-FF."
+  },
+  {
+    "id": "net2-17",
+    "question": "What is an advantage of configuring a Cisco router as a DHCP relay agent?",
+    "choices": [
+      "It can provide relay services for multiple UDP services.",
+      "It reduces the response time from a DHCP server.",
+      "It can forward both broadcast and multicast messages on behalf of clients.",
+      "It will allow DHCPDISCOVER messages to pass without alteration."
+    ],
+    "answer": "It can provide relay services for multiple UDP services.",
+    "explanation": "By default, the 'ip helper-address' command relays 8 UDP services, including DHCP, DNS, TFTP, TACACS, and NetBIOS, not just DHCP."
+  },
+  {
+    "id": "net2-18",
+    "question": "Which statement is true about DHCP operation?",
+    "choices": [
+      "When a device that is configured to use DHCP boots, the client broadcasts a DHCPDISCOVER message to identify any available DHCP servers on the network.",
+      "A client must wait for lease expiration before it sends another DHCPREQUEST message.",
+      "If the client receives several DHCPOFFER messages from different servers, it sends a unicast DHCPREQUEST message to the server it chooses.",
+      "The DHCPDISCOVER message contains the IP address and subnet mask to be assigned, the DNS server address, and the default gateway address."
+    ],
+    "answer": "When a device that is configured to use DHCP boots, the client broadcasts a DHCPDISCOVER message to identify any available DHCP servers on the network.",
+    "explanation": "The client broadcasts DHCPDISCOVER to find servers; the server replies with DHCPOFFER containing the lease details, and DHCPREQUEST is also sent as a broadcast, not a unicast."
+  },
+  {
+    "id": "net2-19",
+    "question": "A network administrator configures a router to send RA messages with M flag 0 and O flag 1. What effect does this have when a PC configures its IPv6 address?",
+    "choices": [
+      "It should contact a DHCPv6 server for the prefix, prefix-length, and a random, unique interface ID.",
+      "It should use the information in the RA message and contact a DHCPv6 server for additional information.",
+      "It should use the information in the RA message exclusively.",
+      "It should contact a DHCPv6 server for all the information it needs."
+    ],
+    "answer": "It should use the information in the RA message and contact a DHCPv6 server for additional information.",
+    "explanation": "M=0, O=1 signals stateless DHCPv6: the client self-configures its address from the RA but queries a DHCPv6 server for extra parameters like DNS."
+  },
+  {
+    "id": "net2-20",
+    "question": "Refer to the exhibit. What should be done to allow PC-A to receive an IPv6 address from the DHCPv6 server?",
+    "image": "/exhibits/q21-dhcpv6-topology.svg",
+    "exhibit": "RTR1# show running-config\ninterface FastEthernet0/0\n ip address dhcp\n duplex auto\n speed auto\n ipv6 address 2001:DB8:1234:5678::1/64\n ipv6 nd managed-config-flag\ninterface FastEthernet0/1\n no ip address\n duplex auto\n speed auto\n ipv6 address 2001:DB8:1234:ABCD::1/64",
+    "choices": [
+      "Add the ipv6 dhcp relay command to interface Fa0/0.",
+      "Change the ipv6 nd managed-config-flag command to ipv6 nd other-config-flag.",
+      "Configure the ipv6 nd managed-config-flag command on interface Fa0/1.",
+      "Add the IPv6 address 2001:DB8:1234:5678::10/64 to the DHCPv6 server's interface configuration."
+    ],
+    "answer": "Add the ipv6 dhcp relay command to interface Fa0/0.",
+    "explanation": "DHCPv6 client messages use a link-local multicast, so they won't cross to the server's subnet on Fa0/1. Relaying with 'ipv6 dhcp relay' on the client-facing interface (Fa0/0) forwards those messages to the server."
+  },
+  {
+    "id": "net2-21",
+    "question": "A network administrator is implementing stateless DHCPv6. Clients configure IPv6 addresses correctly but never get the DNS server address or domain name from the DHCP pool. What could be the cause?",
+    "choices": [
+      "The DNS server address is not on the same network as the clients.",
+      "The router is configured for SLAAC operation.",
+      "The GigabitEthernet interface is not activated.",
+      "The clients cannot communicate with the DHCPv6 server."
+    ],
+    "answer": "The router is configured for SLAAC operation.",
+    "explanation": "Without a command to change the RA flags, both M and O default to 0 (pure SLAAC). To get stateless DHCPv6 info like DNS, the interface needs 'ipv6 nd other-config-flag'."
+  },
+  {
+    "id": "net2-22",
+    "question": "A stateless DHCPv6 client sends which message as step 3 of the process, after receiving the router's RA?",
+    "choices": ["Router Solicitation (RS)", "Router Advertisement (RA)", "DHCPv6 INFORMATION-REQUEST", "DHCPv6 REPLY"],
+    "answer": "DHCPv6 INFORMATION-REQUEST",
+    "explanation": "In stateless DHCPv6, the client self-assigns its address from the RA (steps 1–2), then sends an INFORMATION-REQUEST (step 3) to get extra parameters like DNS, and the server answers with REPLY (step 4)."
+  },
+  {
+    "id": "net2-23",
+    "question": "A company uses SLAAC to configure IPv6 addresses for employee workstations. Which address will a client use as its default gateway?",
+    "choices": [
+      "the global unicast address of the router interface attached to the network",
+      "the unique local address of the router interface attached to the network",
+      "the all-routers multicast address",
+      "the link-local address of the router interface attached to the network"
+    ],
+    "answer": "the link-local address of the router interface attached to the network",
+    "explanation": "SLAAC clients form their address from the RA's prefix plus a self-generated interface ID, and use the router's link-local address (the source of the RA) as their default gateway."
+  },
+  {
+    "id": "net2-24",
+    "question": "Refer to the exhibit. A network administrator is configuring a router for DHCPv6 operation. Which conclusion can be drawn from the commands shown?",
+    "exhibit": "R1# configure terminal\nR1(config)# ipv6 unicast-routing\nR1(config)# ipv6 dhcp pool ACAD_CLASS\nR1(config-dhcp)# dns-server 2001:DB8:acad:a1::10\nR1(config-dhcp)# domain-name netacad.net\nR1(config-dhcp)# exit\nR1(config)# interface gigabitEthernet 0/0\nR1(config-if)# ipv6 address 2001:DB8:acad:1::1/64\nR1(config-if)# ipv6 dhcp server ACAD_CLASS\nR1(config-if)# ipv6 nd other-config-flag\nR1(config-if)# end",
+    "choices": [
+      "The router is configured for stateful DHCPv6 operation, but the DHCP pool configuration is incomplete.",
+      "The DHCPv6 server name is ACAD_CLASS.",
+      "Clients would configure interface IDs above 0010.",
+      "The router is configured for stateless DHCPv6 operation."
+    ],
+    "answer": "The router is configured for stateless DHCPv6 operation.",
+    "explanation": "The O flag is set to 1 via 'ipv6 nd other-config-flag' while M stays at its default of 0, which indicates stateless DHCPv6 — clients self-assign addresses and only query the server for extras like DNS. ACAD_CLASS is the pool name, not a server name."
+  },
+  {
+    "id": "net2-25",
+    "question": "Which statement describes a feature associated with HSRP?",
+    "choices": [
+      "HSRP uses active and standby routers.",
+      "HSRP is nonproprietary.",
+      "It allows load balancing between a group of redundant routers.",
+      "It uses ICMP messages to assign the default gateway to hosts."
+    ],
+    "answer": "HSRP uses active and standby routers.",
+    "explanation": "HSRP is a Cisco-proprietary FHRP that designates one active and one (or more) standby routers. VRRP is the nonproprietary equivalent, and GLBP (also Cisco) is the one that adds load balancing."
+  },
+  {
+    "id": "net2-26",
+    "question": "Refer to the exhibit. What protocol can be configured on gateway routers R1 and R2 to load-balance traffic from the internal LAN across both gateways to the Internet?",
+    "image": "/exhibits/q27-fhrp-topology.svg",
+    "choices": ["GLBP", "PVST+", "PVST", "STP"],
+    "answer": "GLBP",
+    "explanation": "GLBP (Gateway Load Balancing Protocol) lets multiple routers act as a single virtual gateway while actively load-balancing traffic across them on a per-host basis — unlike HSRP/VRRP, which use only one active forwarder at a time."
+  },
+  {
+    "id": "net2-27",
+    "question": "Refer to the exhibit. A network engineer is troubleshooting host connectivity on a LAN that uses a first hop redundancy protocol. Which IPv4 gateway address should be configured on the host?",
+    "exhibit": "FastEthernet0/1 - Group 1\nState is Active\nVirtual IP address is 192.168.2.100\nHello time 3 sec, hold time 10 sec\nActive is local\nStandby is 192.168.2.2, priority 100\nGroup members:\n  001e.7aa3.5e71 (192.168.2.1) local\n  001e.7aa3.5f31 (192.168.2.2)",
+    "choices": ["192.168.2.0", "192.168.2.1", "192.168.2.2", "192.168.2.100"],
+    "answer": "192.168.2.100",
+    "explanation": "The host's default gateway should always be the FHRP virtual IP address (here 192.168.2.100), not either physical router's own address, so failover between routers is transparent to the host."
+  },
+  {
+    "id": "net2-28",
+    "question": "Refer to the exhibit. Which destination MAC address is used when frames are sent from the workstation to the default gateway?",
+    "image": "/exhibits/q29-virtual-router.svg",
+    "choices": [
+      "MAC address of the virtual router",
+      "MAC address of the standby router",
+      "MAC addresses of both the forwarding and standby routers",
+      "MAC address of the forwarding router"
+    ],
+    "answer": "MAC address of the virtual router",
+    "explanation": "The virtual router acts as the default gateway for all hosts, so ARP resolves the gateway IP to the virtual router's MAC address, regardless of which physical router (forwarding or standby) is currently active."
+  },
+  {
+    "id": "net2-29",
+    "question": "Which statement about HSRP is accurate?",
+    "choices": [
+      "HSRP is a Cisco-proprietary protocol designed to allow transparent failover of a first-hop IPv4 device.",
+      "HSRP allows load balancing between a group of redundant routers by default.",
+      "HSRP is an open, nonproprietary standard supported by all vendors.",
+      "HSRP uses ICMP messages to assign the default gateway to hosts."
+    ],
+    "answer": "HSRP is a Cisco-proprietary protocol designed to allow transparent failover of a first-hop IPv4 device.",
+    "explanation": "HSRP is Cisco-proprietary and focuses purely on active/standby failover for IPv4 — load balancing across routers is GLBP's feature, not HSRP's, and IRDP (not HSRP) uses ICMP."
+  },
+  {
+    "id": "net2-30",
+    "question": "Which FHRP implementation is a Cisco-proprietary protocol that supports IPv4 load sharing?",
+    "choices": ["IRDP", "GLBP", "VRRPv3", "GLBP for IPv6"],
+    "answer": "GLBP",
+    "explanation": "GLBP is Cisco-proprietary and supports IPv4 load sharing across a group of redundant routers, unlike HSRP/VRRP which use only one active forwarder."
+  },
+  {
+    "id": "net2-31",
+    "question": "The address pool of a DHCP server is configured with 10.92.71.0/25. The administrator reserves 8 IP addresses for servers. How many IP addresses are left in the pool for other hosts?",
+    "choices": ["122", "118", "119", "108", "116"],
+    "answer": "118",
+    "explanation": "A /25 network has 126 usable host addresses. Subtracting the 8 reserved for servers leaves 126 - 8 = 118."
+  },
+  {
+    "id": "net2-32",
+    "question": "Which DHCPv4 message immediately follows the DHCPOFFER in a normal successful lease exchange?",
+    "choices": ["DHCPACK", "DHCPREQUEST", "DHCPNAK", "DHCPDISCOVER"],
+    "answer": "DHCPREQUEST",
+    "explanation": "After receiving DHCPOFFER, the client replies with a broadcast DHCPREQUEST accepting the offer; the server then finalizes the lease with DHCPACK."
+  },
+  {
+    "id": "net2-33",
+    "question": "After a host generates an IPv6 address via DHCPv6 or SLAAC, how does it verify the address is unique and usable?",
+    "choices": [
+      "It sends an ICMPv6 echo request to the address and checks for a reply.",
+      "It sends an ICMPv6 neighbor solicitation to the address and checks for a neighbor advertisement.",
+      "It checks the local neighbor cache; if the address isn't cached, it's considered unique.",
+      "It sends an ARP broadcast to the local link and checks for a reply."
+    ],
+    "answer": "It sends an ICMPv6 neighbor solicitation to the address and checks for a neighbor advertisement.",
+    "explanation": "This process is called Duplicate Address Detection (DAD). If no neighbor advertisement comes back, the host considers the address unique and configures it on its interface."
+  },
+  {
+    "id": "net2-34",
+    "question": "Which statement describes HSRP correctly?",
+    "choices": [
+      "It is used within a group of routers for selecting an active device and a standby device to provide gateway services to a LAN.",
+      "It uses ICMP to allow IPv4 hosts to locate routers that provide connectivity to remote IP networks.",
+      "If the virtual router master fails, one router is elected as the new virtual router master with the others acting as backups.",
+      "It is an open standard protocol."
+    ],
+    "answer": "It is used within a group of routers for selecting an active device and a standby device to provide gateway services to a LAN.",
+    "explanation": "HSRP is Cisco-proprietary, not an open standard; the 'virtual router master' election language belongs to VRRP, and IRDP (not HSRP) uses ICMP for router discovery."
+  },
+  {
+    "id": "net2-35",
+    "question": "In a Packet Tracer activity connecting a PC, switches, a router, and web/DNS servers, what is the keyword displayed on www.netacad.com after correctly configuring stateless DHCPv6?",
+    "choices": ["DHCP", "switch", "Router", "networking", "Cisco", "IPv6"],
+    "answer": "Router",
+    "explanation": "The activity requires adding 'ipv6 nd other-config-flag' to the router's interface so the host uses stateless DHCPv6 to retrieve the DNS server address needed to resolve www.netacad.com."
+  },
+  {
+    "id": "net2-36",
+    "question": "Which DHCP message is used to identify the explicit server and lease offer that a client is accepting?",
+    "choices": ["DHCPDISCOVER", "DHCPOFFER", "DHCPREQUEST", "DHCPNAK"],
+    "answer": "DHCPREQUEST",
+    "explanation": "DHCPDISCOVER locates any DHCP server, DHCPOFFER suggests a lease, DHCPREQUEST identifies the specific server/lease being accepted, and DHCPACK finalizes it."
+  },
+  {
+    "id": "net2-37",
+    "question": "Which sequence correctly orders the stateful DHCPv6 process when a client first connects to an IPv6 network?",
+    "choices": [
+      "DHCPv6 SOLICIT → DHCPv6 ADVERTISE → DHCPv6 REQUEST → DHCPv6 REPLY",
+      "DHCPv6 ADVERTISE → DHCPv6 SOLICIT → DHCPv6 REQUEST → DHCPv6 REPLY",
+      "DHCPv6 SOLICIT → DHCPv6 REQUEST → DHCPv6 ADVERTISE → DHCPv6 REPLY",
+      "DHCPv6 REQUEST → DHCPv6 SOLICIT → DHCPv6 ADVERTISE → DHCPv6 REPLY"
+    ],
+    "answer": "DHCPv6 SOLICIT → DHCPv6 ADVERTISE → DHCPv6 REQUEST → DHCPv6 REPLY",
+    "explanation": "Mirrors DHCPv4's DISCOVER/OFFER/REQUEST/ACK flow: the client SOLICITs a server, the server ADVERTISEs a lease, the client REQUESTs it, and the server REPLYs to confirm."
+  },
+  {
+    "id": "net2-38",
+    "question": "Which sequence correctly orders the stages of the HSRP failover process?",
+    "choices": [
+      "The forwarding router fails → the standby router stops seeing hello messages → the standby router assumes the forwarding role → the new forwarding router assumes the virtual router's IP and MAC addresses.",
+      "The standby router stops seeing hello messages → the forwarding router fails → the new forwarding router assumes the virtual router's IP and MAC addresses → the standby router assumes the forwarding role.",
+      "The new forwarding router assumes the virtual router's IP and MAC addresses → the forwarding router fails → the standby router stops seeing hello messages → the standby router assumes the forwarding role.",
+      "The forwarding router fails → the new forwarding router assumes the virtual router's IP and MAC addresses → the standby router stops seeing hello messages → the standby router assumes the forwarding role."
+    ],
+    "answer": "The forwarding router fails → the standby router stops seeing hello messages → the standby router assumes the forwarding role → the new forwarding router assumes the virtual router's IP and MAC addresses.",
+    "explanation": "Failover starts when the active router goes down, is detected by missed hellos, the standby takes over forwarding duty, and finally assumes the shared virtual IP/MAC so hosts see no interruption."
+  },
+  {
+    "id": "net2-39",
+    "question": "Which FHRP implementation provides redundancy through the use of a virtual router master and one or more backup routers, and is a nonproprietary standard?",
+    "choices": ["HSRP", "GLBP", "VRRP", "IRDP"],
+    "answer": "VRRP",
+    "explanation": "VRRP is the open, nonproprietary FHRP standard. It elects a virtual router master with one or more routers acting as backups — HSRP and GLBP are Cisco-proprietary equivalents."
+  },
+  {
+    "id": "net2-40",
+    "question": "Refer to the exhibit. Based on the output shown, what kind of IPv6 addressing is being configured?",
+    "exhibit": "R1# show running-config\nipv6 dhcp pool IPV6\n dns-server 2001:DB8:1234:5678::100\n domain-name netacad.com\n!\ninterface FastEthernet0/0\n ipv6 nd other-config-flag\n ipv6 dhcp server IPV6",
+    "choices": ["stateless DHCPv6", "SLAAC", "static link-local", "stateful DHCPv6"],
+    "answer": "stateless DHCPv6",
+    "explanation": "Only the O flag is set ('ipv6 nd other-config-flag') and the pool only defines DNS server and domain name (no address prefix), which are the marks of stateless DHCPv6."
+  },
+  {
+    "id": "net2-41",
+    "question": "Which FHRP implementation is a Cisco-proprietary protocol that supports IPv6 load balancing?",
+    "choices": ["GLBP", "GLBP for IPv6", "VRRPv3", "VRRPv2"],
+    "answer": "GLBP for IPv6",
+    "explanation": "GLBP for IPv6 extends Cisco's Gateway Load Balancing Protocol to IPv6 networks. Plain GLBP is IPv4-only; VRRP versions are the nonproprietary alternative."
+  },
+  {
+    "id": "net2-42",
+    "question": "Which set of commands configures a router as a DHCP server assigning IPv4 addresses to the 192.168.100.0/23 LAN, reserving the first 10 and last address for static assignment?",
+    "choices": [
+      "ip dhcp excluded-address 192.168.100.1 192.168.100.10\nip dhcp excluded-address 192.168.101.254\nip dhcp pool LAN-POOL-100\nnetwork 192.168.100.0 255.255.254.0\ndefault-router 192.168.100.1",
+      "ip dhcp excluded-address 192.168.100.1 192.168.100.9\nip dhcp excluded-address 192.168.101.254\nip dhcp pool LAN-POOL-100\nip network 192.168.100.0 255.255.254.0\nip default-gateway 192.168.100.1",
+      "dhcp pool LAN-POOL-100\nip dhcp excluded-address 192.168.100.1 192.168.100.9\nip dhcp excluded-address 192.168.100.254\nnetwork 192.168.100.0 255.255.254.0\ndefault-router 192.168.101.1",
+      "ip dhcp excluded-address 192.168.100.1 192.168.100.10\nip dhcp excluded-address 192.168.100.254\nip dhcp pool LAN-POOL-100\nnetwork 192.168.100.0 255.255.255.0\nip default-gateway 192.168.100.1"
+    ],
+    "answer": "ip dhcp excluded-address 192.168.100.1 192.168.100.10\nip dhcp excluded-address 192.168.101.254\nip dhcp pool LAN-POOL-100\nnetwork 192.168.100.0 255.255.254.0\ndefault-router 192.168.100.1",
+    "explanation": "/23 maps to mask 255.255.254.0, covering 192.168.100.1–192.168.101.254. Excluding the first 10 addresses and the last address reserves them, and 'network' + 'default-router' (not 'ip network'/'ip default-gateway') are the valid DHCP pool commands."
+  },
+  {
+    "id": "net2-43",
+    "question": "What is a result when the DHCP servers are not operational in a network?",
+    "choices": [
+      "Workstations are assigned the IP address 127.0.0.1.",
+      "Workstations are assigned IP addresses in the 10.0.0.0/8 network.",
+      "Workstations are assigned IP addresses in the 169.254.0.0/16 network.",
+      "Workstations are assigned the IP address 0.0.0.0."
+    ],
+    "answer": "Workstations are assigned IP addresses in the 169.254.0.0/16 network.",
+    "explanation": "When DHCP is unreachable, Windows hosts self-assign an APIPA address from the 169.254.0.0/16 range so they can at least talk to other similarly-affected hosts on the segment."
+  },
+  {
+    "id": "net2-44",
+    "question": "A company uses SLAAC for workstation IPv6 addressing. The router's LAN interface has an IPv6 address and is UP, but workstations aren't getting the correct prefix/prefix length. Which additional configuration is needed?",
+    "choices": [
+      "ipv6 dhcp pool (on the interface)",
+      "ipv6 enable (on the interface)",
+      "ipv6 unicast-routing (global configuration)",
+      "ipv6 nd other-config-flag (on the interface)"
+    ],
+    "answer": "ipv6 unicast-routing (global configuration)",
+    "explanation": "For a router to send the RA messages that SLAAC clients need, IPv6 routing must be enabled globally first with 'ipv6 unicast-routing' — without it, RAs aren't sent at all."
+  },
+  {
+    "id": "net2-45",
+    "question": "Which FHRP implementation is a nonproprietary protocol that relies on ICMP to provide IPv4 redundancy?",
+    "choices": ["VRRPv3", "GLBP for IPv6", "IRDP", "GLBP"],
+    "answer": "IRDP",
+    "explanation": "IRDP (ICMP Router Discovery Protocol) uses ICMP messages to let hosts discover routers providing connectivity to other networks."
+  },
+  {
+    "id": "net2-46",
+    "question": "Refer to the exhibit. PC-A is unable to receive an IPv6 address from the stateful DHCPv6 server. What is the problem?",
+    "image": "/exhibits/q21-dhcpv6-topology.svg",
+    "exhibit": "RTR1(config-if)# interface GigabitEthernet0/0\n ipv6 address 2001:DB8:1234:5678::1/64\n ipv6 enable\n ipv6 nd managed-config-flag\nRTR1(config-if)# interface GigabitEthernet0/1\n ipv6 address 2001:DB8:1234:ABCD::1/64\n ipv6 enable\n ipv6 dhcp relay destination 2001:DB8:1234:ABCD::10\n GigabitEthernet0/1",
+    "choices": [
+      "The ipv6 dhcp relay command should be applied to interface Gig0/0.",
+      "The ipv6 nd managed-config-flag should be applied to interface Gig0/1.",
+      "The ipv6 dhcp relay command should use the link-local address of the DHCP server.",
+      "The ipv6 nd managed-config-flag command should be ipv6 nd other-config-flag."
+    ],
+    "answer": "The ipv6 dhcp relay command should be applied to interface Gig0/0.",
+    "explanation": "The relay command must sit on the interface where the DHCPv6 clients are located (Gig0/0, PC-A's subnet), not the interface toward the server. The managed-config-flag correctly signals stateful DHCPv6 and belongs on the client-facing interface too."
+  },
+  {
+    "id": "net2-47",
+    "question": "Refer to the exhibit. A router is configured as a DHCPv6 server, and the administrator checks it with 'show ipv6 dhcp pool'. Why is the number of active clients 0?",
+    "exhibit": "R1# show ipv6 dhcp pool\nDHCPv6 pool: ACAD_CLASS\n DNS server: 2001:DB8:ACAD:A1::10\n Domain name: netacad.net\n Active clients: 0",
+    "choices": [
+      "The default gateway address is not provided in the pool.",
+      "No clients have communicated with the DHCPv6 server yet.",
+      "The IPv6 DHCP pool configuration has no IPv6 address range specified.",
+      "The state is not maintained by the DHCPv6 server under stateless DHCPv6 operation."
+    ],
+    "answer": "The state is not maintained by the DHCPv6 server under stateless DHCPv6 operation.",
+    "explanation": "This pool is stateless (only DNS server/domain name, no address range, O flag set), and stateless DHCPv6 servers don't track client address state at all — so 'Active clients' always reads 0 regardless of actual usage."
+  },
+  {
+    "id": "net2-48",
+    "question": "Which FHRP implementation is Cisco-proprietary and permits only one router in a group to forward IPv6 packets at a time?",
+    "choices": ["VRRPv3", "HSRP", "HSRP for IPv6", "VRRPv2"],
+    "answer": "HSRP for IPv6",
+    "explanation": "HSRP for IPv6 is Cisco's proprietary active/standby FHRP for IPv6 — only the active router forwards traffic, unlike GLBP which load-shares across the group."
+  },
+  {
+    "id": "net2-49",
+    "question": "Which FHRP implementation is a nonproprietary, IPv4-only election protocol that has one master router per group?",
+    "choices": ["HSRP for IPv6", "GLBP", "VRRPv2", "VRRPv3"],
+    "answer": "VRRPv2",
+    "explanation": "VRRPv2 is the nonproprietary, IPv4-only version of VRRP, electing a single master router per group. VRRPv3 supports both IPv4 and IPv6."
+  },
+  {
+    "id": "net2-50",
+    "question": "The address pool of a DHCP server is configured with 172.18.93.0/25. The administrator reserves 10 IP addresses for web servers. How many IP addresses are left in the pool for other hosts?",
+    "choices": ["106", "117", "114", "120", "116"],
+    "answer": "116",
+    "explanation": "A /25 network provides 126 usable host addresses. Subtracting the 10 reserved for web servers leaves 126 - 10 = 116."
+  },
+  {
+    "id": "net2-51",
+    "question": "Which FHRP implementation is a nonproprietary, IPv4-only election protocol with limited scalability?",
+    "choices": ["VRRPv2", "GLBP", "GLBP for IPv6", "IRDP"],
+    "answer": "VRRPv2",
+    "explanation": "VRRPv2 is IPv4-only, nonproprietary, and limited to a simple master/backup election, giving it less scalability than GLBP's load-sharing model."
+  },
+  {
+    "id": "net2-52",
+    "question": "The address pool of a DHCP server is configured with 172.21.121.0/25. The administrator reserves 12 IP addresses for web servers. How many IP addresses are left in the pool for other hosts?",
+    "choices": ["115", "114", "118", "104", "112"],
+    "answer": "114",
+    "explanation": "A /25 network provides 126 usable host addresses. Subtracting the 12 reserved leaves 126 - 12 = 114."
+  },
+  {
+    "id": "net2-53",
+    "question": "Which kind of message is sent by a DHCP client when its IP address lease is about to expire (but hasn't expired yet)?",
+    "choices": [
+      "a DHCPREQUEST broadcast message",
+      "a DHCPDISCOVER unicast message",
+      "a DHCPDISCOVER broadcast message",
+      "a DHCPREQUEST unicast message"
+    ],
+    "answer": "a DHCPREQUEST unicast message",
+    "explanation": "Before the lease fully expires, the client tries to renew it by sending a unicast DHCPREQUEST directly to the server that originally issued the lease."
+  }
+]

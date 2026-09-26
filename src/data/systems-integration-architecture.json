@@ -1,0 +1,21 @@
+[
+  {
+    "id": "sia-1",
+    "question": "What is the main goal of systems integration?",
+    "choices": [
+      "To build a single monolithic application",
+      "To make different subsystems work together as a unified whole",
+      "To delete legacy systems",
+      "To write documentation only"
+    ],
+    "answer": "To make different subsystems work together as a unified whole",
+    "explanation": "Systems integration combines separate components or subsystems into one functioning, cohesive system."
+  },
+  {
+    "id": "sia-2",
+    "question": "Which architecture style structures an application as small, independently deployable services?",
+    "choices": ["Monolithic Architecture", "Microservices Architecture", "Layered Architecture", "Client-Server Architecture"],
+    "answer": "Microservices Architecture",
+    "explanation": "Microservices architecture breaks an application into small, independent services that communicate over a network, each deployable on its own."
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "adb-1",
+    "question": "Which normal form eliminates transitive dependencies?",
+    "choices": ["1NF", "2NF", "3NF", "BCNF"],
+    "answer": "3NF",
+    "explanation": "Third Normal Form (3NF) requires that non-key attributes depend only on the primary key, removing transitive dependencies."
+  },
+  {
+    "id": "adb-2",
+    "question": "What is the main purpose of database sharding?",
+    "choices": [
+      "Encrypting sensitive data",
+      "Horizontally partitioning data across servers for scalability",
+      "Creating backup copies of a database",
+      "Normalizing a database schema"
+    ],
+    "answer": "Horizontally partitioning data across servers for scalability",
+    "explanation": "Sharding splits a large database into smaller pieces (shards) distributed across multiple servers to improve performance and scalability."
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ias-1",
+    "question": "Which of the CIA triad principles ensures information is accurate and unaltered?",
+    "choices": ["Confidentiality", "Integrity", "Availability", "Authentication"],
+    "answer": "Integrity",
+    "explanation": "Integrity ensures data has not been tampered with or altered without authorization."
+  },
+  {
+    "id": "ias-2",
+    "question": "What type of attack involves overwhelming a system with traffic to make it unavailable?",
+    "choices": ["Phishing", "SQL Injection", "Denial of Service (DoS)", "Man-in-the-Middle"],
+    "answer": "Denial of Service (DoS)",
+    "explanation": "A DoS attack floods a system with traffic or requests, exhausting resources so legitimate users cannot access the service."
+  }
+]

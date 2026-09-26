@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ipt2-1",
+    "question": "What is the primary purpose of an API?",
+    "choices": [
+      "To design user interfaces",
+      "To allow different software systems to communicate with each other",
+      "To store data permanently",
+      "To compile source code"
+    ],
+    "answer": "To allow different software systems to communicate with each other",
+    "explanation": "An API (Application Programming Interface) defines how software components should interact, enabling integration between systems."
+  },
+  {
+    "id": "ipt2-2",
+    "question": "Which data format is most commonly used for REST API responses?",
+    "choices": ["XML only", "CSV", "JSON", "Plain text only"],
+    "answer": "JSON",
+    "explanation": "JSON (JavaScript Object Notation) is lightweight and widely used as the standard data format for REST APIs."
+  }
+]

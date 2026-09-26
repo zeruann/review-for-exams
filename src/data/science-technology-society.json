@@ -1,0 +1,21 @@
+[
+  {
+    "id": "sts-1",
+    "question": "STS as a field primarily studies the relationship between what three elements?",
+    "choices": [
+      "Science, Technology, and Society",
+      "Statistics, Trade, and Sociology",
+      "Space, Time, and Speed",
+      "Systems, Theories, and Structures"
+    ],
+    "answer": "Science, Technology, and Society",
+    "explanation": "Science, Technology, and Society (STS) examines how scientific and technological development shapes, and is shaped by, social, political, and cultural factors."
+  },
+  {
+    "id": "sts-2",
+    "question": "Which term refers to technology's unintended negative side effects on society or environment?",
+    "choices": ["Technological determinism", "Technological backlash", "Technology transfer", "Technological convergence"],
+    "answer": "Technological backlash",
+    "explanation": "Technological backlash refers to negative reactions or consequences arising from the unintended effects of technology on society."
+  }
+]
