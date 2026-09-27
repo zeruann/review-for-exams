@@ -14,3 +14,9 @@ export interface Subject {
   name: string;
   questions: Question[];
 }
+
+export interface MatchPair {
+  id: string;
+  left: string;
+  right: string;
+}

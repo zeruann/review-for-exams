@@ -682,20 +682,19 @@
     "answer": "DHCPDISCOVER, DHCPOFFER, DHCPREQUEST, DHCPACK",
     "explanation": "DHCPDISCOVER identifies any DHCP server on the network, DHCPOFFER is the server's suggested lease, DHCPREQUEST identifies the specific server/lease being accepted, and DHCPACK finalizes it."
   },
-  {
-    "id": "net2-55",
-    "question": "Match each DHCP message type with its description: which message is used by a client to initiate a message to find a DHCP server?",
-    "image": "/exhibits/q37-matching.png",
-    "choices": [
-      "DHCPDISCOVER",
-      "DHCPOFFER",
-      "DHCPREQUEST",
-      "DHCPACK",
-      "DHCPNAK"
-    ],
-    "answer": "DHCPDISCOVER",
-    "explanation": "DHCPDISCOVER is the client's first broadcast, sent to locate any DHCP server on the network. DHCPOFFER responds to it, DHCPREQUEST accepts an offer, and DHCPACK/DHCPNAK finalize or deny the lease."
-  },
+{
+  "id": "net2-55",
+  "type": "matching",
+  "question": "Match each DHCP message type with its description.",
+  "explanation": "DHCPDISCOVER locates a server, DHCPOFFER suggests a lease, DHCPREQUEST accepts a specific offer, DHCPACK finalizes it, and DHCPNAK denies it.",
+  "pairs": [
+    { "id": "d1", "left": "DHCPDISCOVER", "right": "The client broadcasts this to locate any available DHCP server on the network." },
+    { "id": "d2", "left": "DHCPOFFER", "right": "A DHCP server responds to the client's discovery with a suggested IP lease." },
+    { "id": "d3", "left": "DHCPREQUEST", "right": "The client broadcasts this to accept a specific server's offered lease." },
+    { "id": "d4", "left": "DHCPACK", "right": "The server sends this to confirm and finalize the IP address lease." },
+    { "id": "d5", "left": "DHCPNAK", "right": "The server sends this to deny a request, forcing the client to restart the process." }
+  ]
+},
   {
     "id": "net2-56",
     "question": "Match the purpose with its DHCP message type: which message is used by a server to acknowledge that a lease is successful and finalize it with a client?",
@@ -709,18 +708,17 @@
     "answer": "DHCPACK",
     "explanation": "DHCPACK is sent by the server to finalize a successful lease. DHCPDISCOVER locates servers, DHCPOFFER suggests a lease, DHCPREQUEST accepts a specific offer, and DHCPNAK denies/invalidates one."
   },
-  {
-    "id": "net2-57",
-    "question": "Match the FHRP protocol to its correct description.",
-    "choices": [
-      "GLBP = load sharing plus redundancy \u00b7 HSRP = active/standby device redundancy \u00b7 VRRP = open-standard virtual router master + backups",
-      "HSRP = load sharing plus redundancy \u00b7 GLBP = active/standby device redundancy \u00b7 VRRP = open-standard virtual router master + backups",
-      "VRRP = load sharing plus redundancy \u00b7 HSRP = open-standard virtual router master + backups \u00b7 GLBP = active/standby device redundancy",
-      "GLBP = open-standard virtual router master + backups \u00b7 HSRP = load sharing plus redundancy \u00b7 VRRP = active/standby device redundancy"
-    ],
-    "answer": "GLBP = load sharing plus redundancy \u00b7 HSRP = active/standby device redundancy \u00b7 VRRP = open-standard virtual router master + backups",
-    "explanation": "GLBP (Cisco) adds load sharing on top of redundancy. HSRP (Cisco) uses one active + one standby device. VRRP is the nonproprietary standard using a virtual router master plus one or more backups."
-  },
+{
+  "id": "net2-57",
+  "type": "matching",
+  "question": "Match each FHRP protocol to its correct description.",
+  "explanation": "GLBP (Cisco) adds load sharing on top of redundancy. HSRP (Cisco) uses one active and one standby router. VRRP is the nonproprietary standard using a virtual router master plus backups.",
+  "pairs": [
+    { "id": "f1", "left": "GLBP", "right": "Provides load sharing across a group of routers in addition to redundancy." },
+    { "id": "f2", "left": "HSRP", "right": "Uses one active and one standby router for gateway redundancy (Cisco-proprietary)." },
+    { "id": "f3", "left": "VRRP", "right": "An open, nonproprietary standard that elects a virtual router master with backup routers." }
+  ]
+},
   {
     "id": "net2-58",
     "question": "The address pool of a DHCP server is configured with 192.168.234.0/27. The administrator reserves 22 IP addresses for IP phones. How many IP addresses are left in the pool for other hosts?",
