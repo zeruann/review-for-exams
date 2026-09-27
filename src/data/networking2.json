@@ -799,13 +799,14 @@
   "categories": ["Stateless DHCPv6", "Stateful DHCPv6"],
   "items": [
     { "id": "i1", "text": "enabled in RA messages with the ipv6 nd other-config-flag command", "category": "Stateless DHCPv6" },
-    { "id": "i2", "text": "clients communicate with the DHCPv6 server by the use of RA messages", "category": "Stateless DHCPv6" },
+    { "id": "i2", "text": "clients communicate with the DHCPv6 server by the use of RA messages", "category": null },
     { "id": "i3", "text": "clients send only DHCPv6 INFORMATION-REQUEST messages to the server", "category": "Stateless DHCPv6" },
-    { "id": "i4", "text": "the M flag is set to 1 in RA messages", "category": "Stateful DHCPv6" },
-    { "id": "i5", "text": "uses the address command to create a pool of addresses for clients", "category": "Stateful DHCPv6" },
-    { "id": "i6", "text": "enabled on the client with the ipv6 address dhcp command", "category": "Stateful DHCPv6" }
+    { "id": "i4", "text": "enabled on the client with the ipv6 address autoconfig command", "category": "Stateless DHCPv6" },
+    { "id": "i5", "text": "the M flag is set to 1 in RA messages", "category": "Stateful DHCPv6" },
+    { "id": "i6", "text": "uses the address command to create a pool of addresses for clients", "category": "Stateful DHCPv6" },
+    { "id": "i7", "text": "enabled on the client with the ipv6 address dhcp command", "category": "Stateful DHCPv6" }
   ],
-  "explanation": "Stateless DHCPv6 (O flag = 1) uses RA messages plus an INFORMATION-REQUEST/REPLY exchange for extras like DNS. Stateful DHCPv6 (M flag = 1) fully manages addressing: the server pool uses the address command, and the client is configured with ipv6 address dhcp."
+  "explanation": "Stateless DHCPv6 (O flag = 1) uses RA messages plus an INFORMATION-REQUEST/REPLY exchange for extras like DNS. Stateful DHCPv6 (M flag = 1) fully manages addressing: the server pool uses the address command, and the client is configured with ipv6 address dhcp. The RA-messages statement is a distractor — RA messages come from the router, not the DHCPv6 server itself, so it doesn't belong in either bucket."
 },
   {
     "id": "net2-65",

@@ -56,8 +56,16 @@ function isMatchCorrect(pairs: MatchPair[], matches: Record<string, string | nul
   return pairs.every((p) => matches[p.id] === p.id);
 }
 
+// Treats `undefined` (never assigned) and `null` (distractor's correct home)
+// as the same "unplaced" state, so comparisons work whichever item type it is.
+function isPlacementCorrect(item: SortItem, assignments: Record<string, string | null>): boolean {
+  const assigned = assignments[item.id] ?? null;
+  const correct = item.category ?? null;
+  return assigned === correct;
+}
+
 function isSortCorrect(items: SortItem[], assignments: Record<string, string | null>): boolean {
-  return items.every((it) => assignments[it.id] === it.category);
+  return items.every((it) => isPlacementCorrect(it, assignments));
 }
 
 function CheckIcon() {
@@ -251,23 +259,25 @@ function SortingBoard({
     setSelectedItemId(null);
   }
 
-  function itemBoxStyle(item: SortItem, containerCategory: string | null): React.CSSProperties {
-    const isSelected = selectedItemId === item.id;
-    if (revealed) {
-      const isCorrect = assignments[item.id] === item.category;
-      if (isCorrect) {
-        return { borderColor: "var(--good)", backgroundColor: "var(--good-soft)", color: "var(--good)" };
-      }
-      if (containerCategory) {
-        return { borderColor: "var(--low)", backgroundColor: "var(--low-soft)", color: "var(--low)" };
-      }
-      return { borderColor: "var(--border)", color: "var(--ink-faint)", opacity: 0.7 };
+function itemBoxStyle(item: SortItem, containerCategory: string | null): React.CSSProperties {
+  const isSelected = selectedItemId === item.id;
+  if (revealed) {
+    const isCorrect = isPlacementCorrect(item, assignments);
+    if (isCorrect) {
+      return { borderColor: "var(--good)", backgroundColor: "var(--good-soft)", color: "var(--good)" };
     }
-    if (isSelected) {
-      return { borderColor: "var(--accent)", backgroundColor: "var(--good-soft)", color: "var(--ink)" };
+    if (containerCategory) {
+      // sitting in a category — either the wrong one, or a distractor that shouldn't be here at all
+      return { borderColor: "var(--low)", backgroundColor: "var(--low-soft)", color: "var(--low)" };
     }
-    return { borderColor: "var(--border)", color: "var(--ink)", backgroundColor: "var(--surface)" };
+    // sitting unplaced in the pool, but it needed a category — also wrong
+    return { borderColor: "var(--low)", backgroundColor: "var(--low-soft)", color: "var(--low)", opacity: 0.85 };
   }
+  if (isSelected) {
+    return { borderColor: "var(--accent)", backgroundColor: "var(--good-soft)", color: "var(--ink)" };
+  }
+  return { borderColor: "var(--border)", color: "var(--ink)", backgroundColor: "var(--surface)" };
+}
 
   return (
     <div className="grid grid-cols-2 gap-3">
@@ -317,11 +327,7 @@ function SortingBoard({
                   >
                     <span className="flex-1">{item.text}</span>
                     {revealed &&
-                      (assignments[item.id] === item.category ? (
-                        <CheckIcon />
-                      ) : (
-                        <CrossIcon />
-                      ))}
+                    (isPlacementCorrect(item, assignments) ? <CheckIcon /> : <CrossIcon />)}
                   </div>
                 ))}
               </div>
@@ -366,6 +372,8 @@ function SortingBoard({
               style={itemBoxStyle(item, null)}
             >
               <span className="flex-1">{item.text}</span>
+              {revealed &&
+                (isPlacementCorrect(item, assignments) ? <CheckIcon /> : <CrossIcon />)}
             </div>
           ))}
         </div>
@@ -576,11 +584,18 @@ export default function Quiz({
     ? Object.values(currentAssignments).filter(Boolean).length
     : 0;
 
-  const canCheck = matching
-    ? matchedCount === (current.pairs as MatchPair[]).length
-    : sorting
-    ? assignedCount === (current.items as SortItem[]).length
-    : selected.length > 0;
+    const requiredSortItems = sorting
+  ? (current.items as SortItem[]).filter((it) => it.category !== null)
+  : [];
+const assignedRequiredCount = sorting
+  ? requiredSortItems.filter((it) => currentAssignments[it.id]).length
+  : 0;
+
+const canCheck = matching
+  ? matchedCount === (current.pairs as MatchPair[]).length
+  : sorting
+  ? assignedRequiredCount === requiredSortItems.length
+  : selected.length > 0;
 
   function handleCheck() {
     if (!canCheck) return;
@@ -693,7 +708,7 @@ export default function Quiz({
         )}
         {sorting && !revealed && (
           <p className="text-sm mb-3" style={{ color: "var(--accent)" }}>
-            {assignedCount}/{(current.items as SortItem[]).length} sorted — drag a
+            {assignedRequiredCount}/{requiredSortItems.length} sorted — drag a
             description onto its type, or tap one then tap a type.
           </p>
         )}

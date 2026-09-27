@@ -7,7 +7,7 @@ export interface MatchPair {
 export interface SortItem {
   id: string;
   text: string;
-  category: string; // must exactly match one entry in the question's `categories`
+  category: string | null; // null = distractor; correct placement is to leave it unsorted in the pool
 }
 
 export interface Question {
