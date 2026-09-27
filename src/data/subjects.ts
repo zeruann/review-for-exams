@@ -10,7 +10,7 @@ import scienceTechnologySociety from "./science-technology-society.json";
 // To add or update questions: just edit the matching .json file in this folder.
 // Each file is a plain array of Question objects (see types/quiz.ts).
 export const subjects: Subject[] = [
-  { id: "networking2", name: "Networking 2", questions: networking2 as Question[] },
+  { id: "networking2", name: "Networking 2 - Module 7 to 9", questions: networking2 as Question[] },
   {
     id: "advanced-database-systems",
     name: "Advanced Database Systems",
