@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { Subject, MatchPair } from "../types/quiz";
+import type { Subject, MatchPair, SortItem } from "../types/quiz";
 
 interface QuizProps {
   subject: Subject;
@@ -14,7 +14,8 @@ interface AnswerState {
   selected: string[];
   revealed: boolean;
   skipped: boolean;
-  matches?: Record<string, string | null>; // matching-question pairId -> assigned rightId
+  matches?: Record<string, string | null>;
+  assignments?: Record<string, string | null>;
 }
 
 const TIMER_DURATION_SECONDS = 60 * 60;
@@ -41,8 +42,22 @@ function isMatchingQuestion(q: any): boolean {
   return q?.type === "matching" && Array.isArray(q.pairs) && q.pairs.length > 0;
 }
 
+function isSortingQuestion(q: any): boolean {
+  return (
+    q?.type === "sorting" &&
+    Array.isArray(q.items) &&
+    q.items.length > 0 &&
+    Array.isArray(q.categories) &&
+    q.categories.length > 0
+  );
+}
+
 function isMatchCorrect(pairs: MatchPair[], matches: Record<string, string | null>): boolean {
   return pairs.every((p) => matches[p.id] === p.id);
+}
+
+function isSortCorrect(items: SortItem[], assignments: Record<string, string | null>): boolean {
+  return items.every((it) => assignments[it.id] === it.category);
 }
 
 function CheckIcon() {
@@ -156,7 +171,6 @@ function MatchingBoard({
             } else if (assignedByLeftId) {
               style = { borderColor: "var(--low)", backgroundColor: "var(--low-soft)", color: "var(--low)" };
             } else if (ownerAssignedElsewhere) {
-              // nobody claimed the description that belongs to a mismatched term — reveal it
               style = { borderColor: "var(--good)", backgroundColor: "var(--good-soft)", color: "var(--good)" };
             } else {
               style = { borderColor: "var(--border)", color: "var(--ink-faint)", opacity: 0.6 };
@@ -184,6 +198,177 @@ function MatchingBoard({
             </button>
           );
         })}
+      </div>
+    </div>
+  );
+}
+
+// --- Sorting UI (two columns: types | descriptions, drag-and-drop) --------
+
+interface SortingBoardProps {
+  categories: string[];
+  items: SortItem[];
+  assignments: Record<string, string | null>;
+  revealed: boolean;
+  onAssign: (itemId: string, category: string | null) => void;
+}
+
+function SortingBoard({
+  categories,
+  items,
+  assignments,
+  revealed,
+  onAssign,
+}: SortingBoardProps) {
+  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [dragOverZone, setDragOverZone] = useState<string | null>(null);
+
+  const pool = items.filter((it) => !assignments[it.id]);
+  const byCategory = (cat: string) => items.filter((it) => assignments[it.id] === cat);
+
+  function handleDragStart(e: React.DragEvent, itemId: string) {
+    if (revealed) return;
+    e.dataTransfer.setData("text/plain", itemId);
+    e.dataTransfer.effectAllowed = "move";
+  }
+
+  function handleDrop(e: React.DragEvent, target: string | null) {
+    e.preventDefault();
+    setDragOverZone(null);
+    if (revealed) return;
+    const itemId = e.dataTransfer.getData("text/plain");
+    if (itemId) onAssign(itemId, target);
+  }
+
+  function handleItemTap(itemId: string) {
+    if (revealed) return;
+    setSelectedItemId((prev) => (prev === itemId ? null : itemId));
+  }
+
+  function handleZoneTap(target: string | null) {
+    if (revealed || !selectedItemId) return;
+    onAssign(selectedItemId, target);
+    setSelectedItemId(null);
+  }
+
+  function itemBoxStyle(item: SortItem, containerCategory: string | null): React.CSSProperties {
+    const isSelected = selectedItemId === item.id;
+    if (revealed) {
+      const isCorrect = assignments[item.id] === item.category;
+      if (isCorrect) {
+        return { borderColor: "var(--good)", backgroundColor: "var(--good-soft)", color: "var(--good)" };
+      }
+      if (containerCategory) {
+        return { borderColor: "var(--low)", backgroundColor: "var(--low-soft)", color: "var(--low)" };
+      }
+      return { borderColor: "var(--border)", color: "var(--ink-faint)", opacity: 0.7 };
+    }
+    if (isSelected) {
+      return { borderColor: "var(--accent)", backgroundColor: "var(--good-soft)", color: "var(--ink)" };
+    }
+    return { borderColor: "var(--border)", color: "var(--ink)", backgroundColor: "var(--surface)" };
+  }
+
+  return (
+    <div className="grid grid-cols-2 gap-3">
+      <div className="space-y-2">
+        <p className="text-xs" style={{ color: "var(--ink-faint)" }}>
+          Types
+        </p>
+        {categories.map((cat) => {
+          const catItems = byCategory(cat);
+          const isDragOver = dragOverZone === cat;
+          return (
+            <div
+              key={cat}
+              onDragOver={(e) => {
+                e.preventDefault();
+                if (!revealed) setDragOverZone(cat);
+              }}
+              onDragLeave={() => setDragOverZone((z) => (z === cat ? null : z))}
+              onDrop={(e) => handleDrop(e, cat)}
+              onClick={() => handleZoneTap(cat)}
+              className="rounded-xl border-2 border-dashed p-2.5 min-h-[64px] transition"
+              style={{
+                borderColor: isDragOver ? "var(--accent)" : "var(--border)",
+                backgroundColor: isDragOver ? "var(--good-soft)" : "transparent",
+              }}
+            >
+              <p className="text-sm font-semibold mb-2" style={{ color: "var(--ink)" }}>
+                {cat}
+              </p>
+              <div className="space-y-2">
+                {catItems.length === 0 && (
+                  <p className="text-xs italic" style={{ color: "var(--ink-faint)" }}>
+                    Drop here
+                  </p>
+                )}
+                {catItems.map((item) => (
+                  <div
+                    key={item.id}
+                    draggable={!revealed}
+                    onDragStart={(e) => handleDragStart(e, item.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleItemTap(item.id);
+                    }}
+                    className="flex items-center gap-2 text-left px-2.5 py-2 rounded-lg border text-sm transition cursor-grab active:cursor-grabbing"
+                    style={itemBoxStyle(item, cat)}
+                  >
+                    <span className="flex-1">{item.text}</span>
+                    {revealed &&
+                      (assignments[item.id] === item.category ? (
+                        <CheckIcon />
+                      ) : (
+                        <CrossIcon />
+                      ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="space-y-2">
+        <p className="text-xs" style={{ color: "var(--ink-faint)" }}>
+          Descriptions
+        </p>
+        <div
+          onDragOver={(e) => {
+            e.preventDefault();
+            if (!revealed) setDragOverZone("pool");
+          }}
+          onDragLeave={() => setDragOverZone((z) => (z === "pool" ? null : z))}
+          onDrop={(e) => handleDrop(e, null)}
+          onClick={() => handleZoneTap(null)}
+          className="rounded-xl border-2 border-dashed p-2.5 min-h-[64px] space-y-2 transition"
+          style={{
+            borderColor: dragOverZone === "pool" ? "var(--accent)" : "var(--border)",
+            backgroundColor: dragOverZone === "pool" ? "var(--good-soft)" : "transparent",
+          }}
+        >
+          {pool.length === 0 && (
+            <p className="text-xs italic" style={{ color: "var(--ink-faint)" }}>
+              All sorted
+            </p>
+          )}
+          {pool.map((item) => (
+            <div
+              key={item.id}
+              draggable={!revealed}
+              onDragStart={(e) => handleDragStart(e, item.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleItemTap(item.id);
+              }}
+              className="flex items-center gap-2 text-left px-2.5 py-2 rounded-lg border text-sm transition cursor-grab active:cursor-grabbing"
+              style={itemBoxStyle(item, null)}
+            >
+              <span className="flex-1">{item.text}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -218,19 +403,39 @@ export default function Quiz({
   const isLast = index === questions.length - 1;
   const isFirst = index === 0;
   const matching = isMatchingQuestion(current);
-  const isMulti = !matching && Boolean(current?.answers && current.answers.length > 0);
-  const correctSet = !matching && current
+  const sorting = isSortingQuestion(current);
+  const isMulti = !matching && !sorting && Boolean(current?.answers && current.answers.length > 0);
+  const correctSet = !matching && !sorting && current
     ? new Set(isMulti ? current.answers : [current.answer])
     : new Set<string>();
 
   const currentState = answersByIndex[index] ?? EMPTY_STATE;
   const { selected, revealed } = currentState;
   const currentMatches = currentState.matches ?? {};
+  const currentAssignments = currentState.assignments ?? {};
+
+  // Choices are shuffled once per question (keyed on `index`, which only
+  // changes on navigation) so the correct answer isn't always in the same
+  // position, but the order stays stable while the user is answering.
+  const shuffledChoices = useMemo(() => {
+    if (matching || sorting || !current?.choices) return [];
+    return shuffle(current.choices as string[]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index]);
 
   const shuffledRight = useMemo(() => {
     if (!matching) return [];
     return shuffle(current.pairs as MatchPair[]);
-  }, [current, matching]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, matching]);
+
+  // Same idea for sorting items — otherwise the pool order (which usually
+  // groups items by category in the source JSON) gives the answer away.
+  const shuffledItems = useMemo(() => {
+    if (!sorting) return [];
+    return shuffle(current.items as SortItem[]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, sorting]);
 
   useEffect(() => {
     setSelectedLeftId(null);
@@ -238,7 +443,7 @@ export default function Quiz({
 
   function correctSetFor(i: number): Set<string> {
     const q = questions[i] as any;
-    if (isMatchingQuestion(q)) return new Set();
+    if (isMatchingQuestion(q) || isSortingQuestion(q)) return new Set();
     const multi = Boolean(q.answers && q.answers.length > 0);
     return new Set(multi ? q.answers : [q.answer]);
   }
@@ -252,6 +457,7 @@ export default function Quiz({
   function isAnswerCorrect(i: number, state: AnswerState): boolean {
     const q = questions[i] as any;
     if (isMatchingQuestion(q)) return isMatchCorrect(q.pairs, state.matches ?? {});
+    if (isSortingQuestion(q)) return isSortCorrect(q.items, state.assignments ?? {});
     return isSelectionCorrect(i, state.selected);
   }
 
@@ -357,11 +563,23 @@ export default function Quiz({
     }
   }
 
+  function handleSortAssign(itemId: string, category: string | null) {
+    if (revealed) return;
+    const assignments = { ...currentAssignments, [itemId]: category };
+    updateCurrent({ assignments });
+  }
+
   const matchedCount = matching
     ? Object.values(currentMatches).filter(Boolean).length
     : 0;
+  const assignedCount = sorting
+    ? Object.values(currentAssignments).filter(Boolean).length
+    : 0;
+
   const canCheck = matching
     ? matchedCount === (current.pairs as MatchPair[]).length
+    : sorting
+    ? assignedCount === (current.items as SortItem[]).length
     : selected.length > 0;
 
   function handleCheck() {
@@ -375,6 +593,7 @@ export default function Quiz({
       skipped: true,
       selected: [],
       matches: matching ? {} : undefined,
+      assignments: sorting ? {} : undefined,
     });
     setSelectedLeftId(null);
   }
@@ -472,6 +691,12 @@ export default function Quiz({
             Tap a term, then tap its matching description.
           </p>
         )}
+        {sorting && !revealed && (
+          <p className="text-sm mb-3" style={{ color: "var(--accent)" }}>
+            {assignedCount}/{(current.items as SortItem[]).length} sorted — drag a
+            description onto its type, or tap one then tap a type.
+          </p>
+        )}
 
         {current.image && (
           <img
@@ -505,9 +730,17 @@ export default function Quiz({
             onLeftClick={handleLeftClick}
             onRightClick={handleRightClick}
           />
+        ) : sorting ? (
+          <SortingBoard
+            categories={current.categories as string[]}
+            items={shuffledItems}
+            assignments={currentAssignments}
+            revealed={revealed}
+            onAssign={handleSortAssign}
+          />
         ) : (
           <div className="space-y-3">
-            {current.choices.map((choice: string) => {
+            {shuffledChoices.map((choice: string) => {
               const isSelected = selected.includes(choice);
               const isCorrectChoice = correctSet.has(choice);
 
@@ -562,7 +795,7 @@ export default function Quiz({
 
         {revealed && currentState.skipped && (
           <p className="mt-4 text-sm" style={{ color: "var(--okay)" }}>
-            Skipped — correct {matching ? "matches" : "answer"} shown above.
+            Skipped — correct {matching || sorting ? "groupings" : "answer"} shown above.
           </p>
         )}
 

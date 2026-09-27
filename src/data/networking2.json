@@ -792,19 +792,21 @@
     "answer": "The router will exclude 15 IP addresses from being leased to DHCP clients.",
     "explanation": "'ip dhcp excluded-address' takes a first and last address and excludes the entire inclusive range - 10.0.15.1 through 10.0.15.15 is 15 addresses, not just the two endpoints."
   },
-  {
-    "id": "net2-64",
-    "question": "Match the description to the corresponding DHCPv6 server type: which type is enabled on the client with the 'ipv6 address dhcp' command and uses the 'address' command on the server to create a pool for clients?",
-    "image": "/exhibits/q49-matching.png",
-    "choices": [
-      "Stateless DHCPv6",
-      "Stateful DHCPv6",
-      "SLAAC",
-      "Static link-local"
-    ],
-    "answer": "Stateful DHCPv6",
-    "explanation": "Stateful DHCPv6 fully manages client addresses: the server pool uses the 'address' command to hand out prefixes, and the M flag (set to 1, via 'ipv6 nd managed-config-flag') tells clients to use 'ipv6 address dhcp' and get their full address from the server."
-  },
+{
+  "id": "net2-64",
+  "type": "sorting",
+  "question": "Match the description to the corresponding DHCPv6 server type.",
+  "categories": ["Stateless DHCPv6", "Stateful DHCPv6"],
+  "items": [
+    { "id": "i1", "text": "enabled in RA messages with the ipv6 nd other-config-flag command", "category": "Stateless DHCPv6" },
+    { "id": "i2", "text": "clients communicate with the DHCPv6 server by the use of RA messages", "category": "Stateless DHCPv6" },
+    { "id": "i3", "text": "clients send only DHCPv6 INFORMATION-REQUEST messages to the server", "category": "Stateless DHCPv6" },
+    { "id": "i4", "text": "the M flag is set to 1 in RA messages", "category": "Stateful DHCPv6" },
+    { "id": "i5", "text": "uses the address command to create a pool of addresses for clients", "category": "Stateful DHCPv6" },
+    { "id": "i6", "text": "enabled on the client with the ipv6 address dhcp command", "category": "Stateful DHCPv6" }
+  ],
+  "explanation": "Stateless DHCPv6 (O flag = 1) uses RA messages plus an INFORMATION-REQUEST/REPLY exchange for extras like DNS. Stateful DHCPv6 (M flag = 1) fully manages addressing: the server pool uses the address command, and the client is configured with ipv6 address dhcp."
+},
   {
     "id": "net2-65",
     "question": "The address pool of a DHCP server is configured with 10.3.2.0/24. The administrator reserves 3 IP addresses for printers. How many IP addresses are left in the pool for other hosts?",

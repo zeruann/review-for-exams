@@ -4,21 +4,31 @@ export interface MatchPair {
   right: string;
 }
 
+export interface SortItem {
+  id: string;
+  text: string;
+  category: string; // must exactly match one entry in the question's `categories`
+}
+
 export interface Question {
   id: string;
   question: string;
   explanation?: string;
-  exhibit?: string; // monospace text block (CLI output, config, etc.)
-  image?: string; // path to an image/diagram in /public, e.g. "/exhibits/q7-topology.svg"
+  exhibit?: string;
+  image?: string;
 
-  // Standard multiple-choice fields — omit these for matching questions
   choices?: string[];
-  answer?: string; // must exactly match one of the choices (ignored if `answers` is set)
-  answers?: string[]; // set this instead of `answer` for "choose two/more" questions
+  answer?: string;
+  answers?: string[];
 
-  // Matching-question fields — set these instead of choices/answer/answers
-  type?: "matching";
+  type?: "matching" | "sorting";
+
+  // matching fields
   pairs?: MatchPair[];
+
+  // sorting fields
+  categories?: string[];
+  items?: SortItem[];
 }
 
 export interface Subject {
