@@ -580,9 +580,9 @@ export default function Quiz({
   const matchedCount = matching
     ? Object.values(currentMatches).filter(Boolean).length
     : 0;
-  const assignedCount = sorting
-    ? Object.values(currentAssignments).filter(Boolean).length
-    : 0;
+  // const assignedCount = sorting
+  //   ? Object.values(currentAssignments).filter(Boolean).length
+  //   : 0;
 
     const requiredSortItems = sorting
   ? (current.items as SortItem[]).filter((it) => it.category !== null)
