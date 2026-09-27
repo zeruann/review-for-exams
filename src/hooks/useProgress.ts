@@ -8,27 +8,69 @@ export interface SubjectProgress {
 
 type ProgressMap = Record<string, SubjectProgress>;
 
-const STORAGE_KEY = "exam-review-progress";
+const LEGACY_KEY = "exam-review-progress";
+const MIGRATION_FLAG_KEY = "exam-review-legacy-migrated";
 
-function loadProgress(): ProgressMap {
+function storageKeyFor(profileName: string): string {
+  return `${LEGACY_KEY}:${profileName}`;
+}
+
+function loadProgress(key: string): ProgressMap {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(key);
     return raw ? (JSON.parse(raw) as ProgressMap) : {};
   } catch {
     return {};
   }
 }
 
-export function useProgress() {
-  const [progress, setProgress] = useState<ProgressMap>(() => loadProgress());
+// Runs at most once per device, ever. If pre-profile progress exists under
+// the old key, it's adopted by whichever profile is created first; every
+// later profile just starts fresh.
+function migrateLegacyIfNeeded(profileName: string): ProgressMap | null {
+  try {
+    if (localStorage.getItem(MIGRATION_FLAG_KEY)) return null;
+    localStorage.setItem(MIGRATION_FLAG_KEY, "true");
+
+    const legacyRaw = localStorage.getItem(LEGACY_KEY);
+    if (!legacyRaw) return null;
+
+    const legacyData = JSON.parse(legacyRaw) as ProgressMap;
+    if (!legacyData || Object.keys(legacyData).length === 0) return null;
+
+    localStorage.setItem(storageKeyFor(profileName), legacyRaw);
+    return legacyData;
+  } catch {
+    return null;
+  }
+}
+
+export function useProgress(profileName: string | null) {
+  const key = profileName ? storageKeyFor(profileName) : null;
+
+  const [progress, setProgress] = useState<ProgressMap>(() => {
+    if (!key || !profileName) return {};
+    return migrateLegacyIfNeeded(profileName) ?? loadProgress(key);
+  });
+
+  // Reload whenever the active profile changes (switching users).
+  useEffect(() => {
+    if (!key || !profileName) {
+      setProgress({});
+      return;
+    }
+    setProgress(migrateLegacyIfNeeded(profileName) ?? loadProgress(key));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
 
   useEffect(() => {
+    if (!key) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      localStorage.setItem(key, JSON.stringify(progress));
     } catch {
       // ignore storage errors (e.g. private browsing)
     }
-  }, [progress]);
+  }, [key, progress]);
 
   const recordAttempt = useCallback(
     (subjectId: string, correctCount: number, totalCount: number) => {

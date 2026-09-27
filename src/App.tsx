@@ -2,11 +2,14 @@ import { useState } from "react";
 import { subjects } from "./data/subjects";
 import type { Subject } from "./types/quiz";
 import { useProgress } from "./hooks/useProgress";
+import { useProfiles } from "./hooks/useProfiles";
 import { usePersistedBoolean } from "./hooks/usePersistedBoolean";
 import { usePersistedString } from "./hooks/usePersistedString";
 import SubjectList from "./components/SubjectList";
 import Quiz from "./components/Quiz";
 import Results from "./components/Results";
+import ProfileGate from "./components/ProfileGate";
+import ProfileSwitcher from "./components/ProfileSwitcher";
 
 type ViewState =
   | { screen: "list" }
@@ -20,8 +23,6 @@ type ViewState =
 
 type Theme = "dark" | "light";
 
-// Single source of truth for both palettes. Add a color once here and
-// every component that reads var(--token) picks it up automatically.
 const THEME_VARS: Record<Theme, React.CSSProperties> = {
   dark: {
     ["--bg" as string]: "#171B24",
@@ -61,7 +62,12 @@ const THEME_VARS: Record<Theme, React.CSSProperties> = {
 
 export default function App() {
   const [view, setView] = useState<ViewState>({ screen: "list" });
-  const { progress, recordAttempt } = useProgress();
+  const { profiles, activeProfile, selectProfile, switchToGate, deleteProfile } = useProfiles();
+
+
+
+  
+  const { progress, recordAttempt } = useProgress(activeProfile);
   const [shuffleQuestions, setShuffleQuestions] = usePersistedBoolean(
     "exam-review-shuffle",
     true
@@ -79,6 +85,18 @@ export default function App() {
   const questionLimitNumber =
     questionLimit === "all" ? null : Number(questionLimit);
 
+  if (!activeProfile) {
+    return (
+      <div style={THEME_VARS[activeTheme]}>
+        <ProfileGate
+          profiles={profiles}
+          onSelect={selectProfile}
+          onDelete={deleteProfile}
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className="min-h-screen px-4 py-8"
@@ -89,7 +107,9 @@ export default function App() {
         fontFamily: "'Atkinson Hyperlegible', system-ui, sans-serif",
       }}
     >
-      <div className="max-w-xl mx-auto mb-4 flex justify-end">
+      <div className="max-w-xl mx-auto mb-4 flex justify-between items-center gap-3">
+        <ProfileSwitcher activeProfile={activeProfile} onSwitch={switchToGate} />
+
         <div
           role="radiogroup"
           aria-label="Color theme"
