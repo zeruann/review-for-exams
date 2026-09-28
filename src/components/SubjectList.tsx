@@ -5,12 +5,6 @@ import type { SubjectProgress } from "../hooks/useProgress";
 interface SubjectListProps {
   subjects: Subject[];
   progress: Record<string, SubjectProgress>;
-  shuffleQuestions: boolean;
-  onToggleShuffle: (value: boolean) => void;
-  questionLimit: string;
-  onChangeQuestionLimit: (value: string) => void;
-  timerEnabled: boolean;
-  onToggleTimer: (value: boolean) => void;
   onSelect: (subject: Subject) => void;
 }
 
@@ -45,12 +39,6 @@ function statusMeta(score: number) {
 export default function SubjectList({
   subjects,
   progress,
-  shuffleQuestions,
-  onToggleShuffle,
-  questionLimit,
-  onChangeQuestionLimit,
-  timerEnabled,
-  onToggleTimer,
   onSelect,
 }: SubjectListProps) {
   const [query, setQuery] = useState("");

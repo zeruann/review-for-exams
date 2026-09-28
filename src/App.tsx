@@ -205,17 +205,19 @@ const handleSelectSubject = (subject: Subject) => {
         />
       )}
 
-      {view.screen === "setup" && (
-        <QuizSetup
-  subject={view.subject}
-  shuffleQuestions={usesQuizOptions(view.subject) ? shuffleQuestions : true}
-  questionLimit={usesQuizOptions(view.subject) ? questionLimitNumber : null}
-  timerEnabled={usesQuizOptions(view.subject) ? timerEnabled : false}
-          onToggleTimer={setTimerEnabled}
-          onBack={() => setView({ screen: "list" })}
-          onStart={() => setView({ screen: "quiz", subject: view.subject })}
-        />
-      )}
+{view.screen === "setup" && (
+  <QuizSetup
+    subject={view.subject}
+    shuffleQuestions={shuffleQuestions}
+    onToggleShuffle={setShuffleQuestions}
+    questionLimit={questionLimit}
+    onChangeQuestionLimit={setQuestionLimit}
+    timerEnabled={timerEnabled}
+    onToggleTimer={setTimerEnabled}
+    onBack={() => setView({ screen: "list" })}
+    onStart={() => setView({ screen: "quiz", subject: view.subject })}
+  />
+)}
 
       {view.screen === "results" && (
         <Results
