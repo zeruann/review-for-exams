@@ -25,57 +25,7 @@
     "answer": "C/C++",
     "explanation": "GCC is a compiler for C/C++. Python code is run by Python's interpreter."
   },
-  {
-    "id": "ipt2-102",
-    "topic": "Software Environment",
-    "question": "Which two are Database Management Systems (DBMS)? (Choose two.)",
-    "choices": [
-      "MySQL",
-      "Jenkins",
-      "PostgreSQL",
-      "Selenium"
-    ],
-    "answers": [
-      "MySQL",
-      "PostgreSQL"
-    ],
-    "answer": "MySQL",
-    "explanation": "DBMS software manages databases and gives users and applications an interface to the data. Examples: MySQL, PostgreSQL, MongoDB, Oracle DB."
-  },
-  {
-    "id": "ipt2-103",
-    "topic": "Software Environment",
-    "question": "Which two are version control tools? (Choose two.)",
-    "choices": [
-      "Git",
-      "Docker",
-      "Subversion (SVN)",
-      "Maven"
-    ],
-    "answers": [
-      "Git",
-      "Subversion (SVN)"
-    ],
-    "answer": "Git",
-    "explanation": "Version control systems manage changes to source code over time. Examples: Git (with GitHub or GitLab) and Subversion (SVN)."
-  },
-  {
-    "id": "ipt2-104",
-    "topic": "Software Environment",
-    "question": "Which two are CI/CD tools? (Choose two.)",
-    "choices": [
-      "Jenkins",
-      "NumPy",
-      "GitLab CI/CD",
-      "PyCharm"
-    ],
-    "answers": [
-      "Jenkins",
-      "GitLab CI/CD"
-    ],
-    "answer": "Jenkins",
-    "explanation": "CI/CD tools such as Jenkins, Travis CI, and GitLab CI/CD automate testing and deploying software to production."
-  },
+
   {
     "id": "ipt2-105",
     "topic": "Software Environment",
@@ -89,23 +39,7 @@
     "answer": "Virtual machine",
     "explanation": "Virtual machines like the JVM allow software to run on different hardware platforms. Containerization (e.g., Docker) is a different kind of runtime environment."
   },
-  {
-    "id": "ipt2-106",
-    "topic": "Software Environment",
-    "question": "Which two are UI frameworks named in the lesson? (Choose two.)",
-    "choices": [
-      "Angular",
-      "Flutter",
-      "Nagios",
-      "Boost"
-    ],
-    "answers": [
-      "Angular",
-      "Flutter"
-    ],
-    "answer": "Angular",
-    "explanation": "UI frameworks facilitate building graphical user interfaces. Examples: Angular (JavaScript), Flutter (Dart), and WPF (Windows Presentation Foundation)."
-  },
+ 
   {
     "id": "ipt2-107",
     "topic": "Software Environment",
@@ -119,23 +53,7 @@
     "answer": "Elasticsearch, Logstash, Kibana",
     "explanation": "Monitoring and logging tools: Prometheus (monitoring), ELK Stack (Elasticsearch, Logstash, Kibana) for logging, and Nagios for network monitoring."
   },
-  {
-    "id": "ipt2-108",
-    "topic": "Software Environment",
-    "question": "Which two are cloud services and platforms? (Choose two.)",
-    "choices": [
-      "Amazon Web Services (AWS)",
-      "Microsoft Azure",
-      "JUnit",
-      "TCP/IP"
-    ],
-    "answers": [
-      "Amazon Web Services (AWS)",
-      "Microsoft Azure"
-    ],
-    "answer": "Amazon Web Services (AWS)",
-    "explanation": "Cloud platforms such as AWS, Microsoft Azure, and Google Cloud Platform provide infrastructure, platforms, and software services over the internet."
-  },
+  
   {
     "id": "ipt2-109",
     "topic": "Software Environment",
@@ -214,117 +132,8 @@
     "answer": "Efficiency",
     "explanation": "Efficiency is about having the tools to develop and deploy quickly."
   },
-  {
-    "id": "ipt2-115",
-    "topic": "Software Environment",
-    "type": "matching",
-    "question": "Match each software environment component to an example.",
-    "explanation": "OS: Windows/Linux/macOS/Unix. DBMS: MySQL/PostgreSQL/MongoDB/Oracle. Package managers: npm/pip/Maven. Testing tools: JUnit/PyTest/Selenium. Containerization: Docker.",
-    "pairs": [
-      {
-        "id": "p1",
-        "left": "Operating System",
-        "right": "Linux"
-      },
-      {
-        "id": "p2",
-        "left": "DBMS",
-        "right": "MongoDB"
-      },
-      {
-        "id": "p3",
-        "left": "Package Manager",
-        "right": "pip"
-      },
-      {
-        "id": "p4",
-        "left": "Testing Tool",
-        "right": "JUnit"
-      },
-      {
-        "id": "p5",
-        "left": "Containerization",
-        "right": "Docker"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-116",
-    "topic": "Software Environment",
-    "type": "sorting",
-    "question": "Sort each item as a Framework or a Library.",
-    "explanation": "Frameworks provide a foundation to build upon (.NET, Spring, Django, React). Libraries are pre-written code for common tasks (NumPy, jQuery, Boost).",
-    "categories": [
-      "Framework",
-      "Library"
-    ],
-    "items": [
-      {
-        "id": "s1",
-        "text": "Django",
-        "category": "Framework"
-      },
-      {
-        "id": "s2",
-        "text": "React",
-        "category": "Framework"
-      },
-      {
-        "id": "s3",
-        "text": "Spring",
-        "category": "Framework"
-      },
-      {
-        "id": "s4",
-        "text": "NumPy",
-        "category": "Library"
-      },
-      {
-        "id": "s5",
-        "text": "jQuery",
-        "category": "Library"
-      },
-      {
-        "id": "s6",
-        "text": "Boost",
-        "category": "Library"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-117",
-    "topic": "Software Environment",
-    "type": "matching",
-    "question": "Match each tool category to its example.",
-    "explanation": "Each category is a component of the software environment listed in Lesson 1.1.",
-    "pairs": [
-      {
-        "id": "p1",
-        "left": "Middleware",
-        "right": "RabbitMQ"
-      },
-      {
-        "id": "p2",
-        "left": "IDE",
-        "right": "IntelliJ IDEA"
-      },
-      {
-        "id": "p3",
-        "left": "CI/CD Tool",
-        "right": "Travis CI"
-      },
-      {
-        "id": "p4",
-        "left": "Monitoring Tool",
-        "right": "Prometheus"
-      },
-      {
-        "id": "p5",
-        "left": "Cloud Platform",
-        "right": "Google Cloud Platform"
-      }
-    ]
-  },
+  
+  
   {
     "id": "ipt2-118",
     "topic": "Software Environment",
@@ -403,51 +212,7 @@
     "answer": "Staging",
     "explanation": "Staging mirrors production so the app can be checked against the workload it will face."
   },
-  {
-    "id": "ipt2-124",
-    "topic": "Software Environment",
-    "type": "sorting",
-    "question": "Sort each statement under the environment it describes.",
-    "explanation": "Local = isolated feature work; Integration = merging code; Staging = production look-alike; Production = live for end-users.",
-    "categories": [
-      "Local Development",
-      "Integration",
-      "Staging",
-      "Production"
-    ],
-    "items": [
-      {
-        "id": "s1",
-        "text": "Developers work on a unique version of the project on their own computers",
-        "category": "Local Development"
-      },
-      {
-        "id": "s2",
-        "text": "Tests often fail because isolated work is now being merged",
-        "category": "Integration"
-      },
-      {
-        "id": "s3",
-        "text": "Closely mirrors production hardware and architecture",
-        "category": "Staging"
-      },
-      {
-        "id": "s4",
-        "text": "Supports the application for real end-users",
-        "category": "Production"
-      },
-      {
-        "id": "s5",
-        "text": "Developers return here to fix issues after a failed merge",
-        "category": "Local Development"
-      },
-      {
-        "id": "s6",
-        "text": "Organization may use the app internally (dogfooding) here",
-        "category": "Staging"
-      }
-    ]
-  },
+ 
   {
     "id": "ipt2-125",
     "topic": "Software Environment",
@@ -604,23 +369,7 @@
     "answer": "A/B testing deployment",
     "explanation": "A/B testing compares the performance of both versions before deciding which to roll out to everyone."
   },
-  {
-    "id": "ipt2-137",
-    "topic": "Deployment Strategies",
-    "question": "Which two strategies provide zero downtime but can be slow to roll back? (Choose two.)",
-    "choices": [
-      "Ramped deployment",
-      "Rolling deployment",
-      "Recreate deployment",
-      "Big Bang deployment"
-    ],
-    "answers": [
-      "Ramped deployment",
-      "Rolling deployment"
-    ],
-    "answer": "Ramped deployment",
-    "explanation": "Ramped and rolling deployments update servers gradually with zero downtime, but rollback means updating servers one by one."
-  },
+  
   {
     "id": "ipt2-138",
     "topic": "Deployment Strategies",
@@ -725,107 +474,7 @@
     "answer": "Big Bang deployment",
     "explanation": "Big bang needs extensive coordination and intense testing in a short time frame."
   },
-  {
-    "id": "ipt2-146",
-    "topic": "Deployment Strategies",
-    "type": "matching",
-    "question": "Match each deployment strategy to a key characteristic.",
-    "explanation": "Each strategy has its own way of managing risk, cost, and downtime.",
-    "pairs": [
-      {
-        "id": "p1",
-        "left": "Rolling",
-        "right": "Updates servers one at a time"
-      },
-      {
-        "id": "p2",
-        "left": "Ramped",
-        "right": "Increases the percentage of updated servers progressively"
-      },
-      {
-        "id": "p3",
-        "left": "A/B Testing",
-        "right": "Compares two versions using selected user groups"
-      },
-      {
-        "id": "p4",
-        "left": "Continuous Deployment",
-        "right": "Automatically releases to production after passing tests"
-      },
-      {
-        "id": "p5",
-        "left": "Blue-Green",
-        "right": "Switches traffic between two environments using a load balancer"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-147",
-    "topic": "Deployment Strategies",
-    "type": "matching",
-    "question": "Match each factor in choosing a deployment strategy to its description.",
-    "explanation": "The lesson lists these four factors.",
-    "pairs": [
-      {
-        "id": "p1",
-        "left": "Size and Complexity",
-        "right": "Larger projects may need canary or A/B testing"
-      },
-      {
-        "id": "p2",
-        "left": "Availability and Scalability",
-        "right": "High traffic and fast rollbacks favor rolling updates"
-      },
-      {
-        "id": "p3",
-        "left": "Resources",
-        "right": "Team resources and experience influence the choice"
-      },
-      {
-        "id": "p4",
-        "left": "End-User Impact",
-        "right": "Minimize downtime for users"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-148",
-    "topic": "Deployment Strategies",
-    "type": "sorting",
-    "question": "Sort each strategy by whether it runs the old and new versions at the same time.",
-    "explanation": "Blue-green, canary, and shadow keep the old version live alongside the new one. Big bang and recreate replace the old version.",
-    "categories": [
-      "Runs both versions",
-      "Replaces the old version"
-    ],
-    "items": [
-      {
-        "id": "s1",
-        "text": "Blue-Green deployment",
-        "category": "Runs both versions"
-      },
-      {
-        "id": "s2",
-        "text": "Canary deployment",
-        "category": "Runs both versions"
-      },
-      {
-        "id": "s3",
-        "text": "Shadow deployment",
-        "category": "Runs both versions"
-      },
-      {
-        "id": "s4",
-        "text": "Big Bang deployment",
-        "category": "Replaces the old version"
-      },
-      {
-        "id": "s5",
-        "text": "Recreate deployment",
-        "category": "Replaces the old version"
-      }
-    ]
-  },
+
   {
     "id": "ipt2-149",
     "topic": "Deployment Strategies",
@@ -995,108 +644,8 @@
     "answer": "Retrieve any version at any time and compare what changed, who made changes, or who reported an issue",
     "explanation": "Git tracks versions so you can always review what was changed and by whom."
   },
-  {
-    "id": "ipt2-162",
-    "topic": "Version Control (Git & GitHub)",
-    "type": "matching",
-    "question": "Match each Git file state to where the file is located.",
-    "explanation": "The state of a file determines where Git places it.",
-    "pairs": [
-      {
-        "id": "p1",
-        "left": "Modified",
-        "right": "Working directory"
-      },
-      {
-        "id": "p2",
-        "left": "Staged",
-        "right": "Staging area (index)"
-      },
-      {
-        "id": "p3",
-        "left": "Committed",
-        "right": "Git directory (.git)"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-163",
-    "topic": "Version Control (Git & GitHub)",
-    "type": "sorting",
-    "question": "Sort each statement under the Git location it describes.",
-    "explanation": "Modified → working directory; staged → staging area; committed → Git directory.",
-    "categories": [
-      "Working Directory",
-      "Staging Area",
-      "Git Directory"
-    ],
-    "items": [
-      {
-        "id": "s1",
-        "text": "Any folder on your system can serve as this",
-        "category": "Working Directory"
-      },
-      {
-        "id": "s2",
-        "text": "Also called the index",
-        "category": "Staging Area"
-      },
-      {
-        "id": "s3",
-        "text": "What gets copied when you clone a repository",
-        "category": "Git Directory"
-      },
-      {
-        "id": "s4",
-        "text": "Holds files ready to be committed",
-        "category": "Staging Area"
-      },
-      {
-        "id": "s5",
-        "text": "Holds modified files",
-        "category": "Working Directory"
-      },
-      {
-        "id": "s6",
-        "text": "Stores object databases and metadata",
-        "category": "Git Directory"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-164",
-    "topic": "Version Control (Git & GitHub)",
-    "type": "matching",
-    "question": "Match each GitHub Pages step to what you do.",
-    "explanation": "Follow the five steps in order to publish a repository as a website.",
-    "pairs": [
-      {
-        "id": "p1",
-        "left": "Step 1",
-        "right": "Make sure the main HTML file is index.html"
-      },
-      {
-        "id": "p2",
-        "left": "Step 2",
-        "right": "Open the repository's Settings tab"
-      },
-      {
-        "id": "p3",
-        "left": "Step 3",
-        "right": "Go to the Pages section"
-      },
-      {
-        "id": "p4",
-        "left": "Step 4",
-        "right": "Change the Source branch from none to master"
-      },
-      {
-        "id": "p5",
-        "left": "Step 5",
-        "right": "See your site live at your-username.github.io"
-      }
-    ]
-  },
+ 
+ 
   {
     "id": "ipt2-165",
     "topic": "Version Control (Git & GitHub)",
@@ -1177,23 +726,7 @@
     "answer": "Event-driven (asynchronous)",
     "explanation": "Event-driven architectures emit events that other systems subscribe to and react to asynchronously."
   },
-  {
-    "id": "ipt2-171",
-    "topic": "Software-to-Software Communication",
-    "question": "Which two are asynchronous communication styles? (Choose two.)",
-    "choices": [
-      "Message queues",
-      "Event-driven architectures",
-      "HTTP requests",
-      "Remote Procedure Calls"
-    ],
-    "answers": [
-      "Message queues",
-      "Event-driven architectures"
-    ],
-    "answer": "Message queues",
-    "explanation": "Asynchronous communication sends messages that are processed independently, without waiting for a response."
-  },
+
   {
     "id": "ipt2-172",
     "topic": "Software-to-Software Communication",
@@ -1220,83 +753,8 @@
     "answer": "A web application fetching data from a database",
     "explanation": "Web apps, mobile apps calling cloud services, and microservices are examples in the lesson."
   },
-  {
-    "id": "ipt2-174",
-    "topic": "Software-to-Software Communication",
-    "type": "matching",
-    "question": "Match each protocol or technology to its typical use.",
-    "explanation": "Microservices often use HTTP/HTTPS, gRPC, or message queues; IoT devices often use MQTT or CoAP.",
-    "pairs": [
-      {
-        "id": "p1",
-        "left": "HTTP/HTTPS",
-        "right": "Client-server communication between browser and server"
-      },
-      {
-        "id": "p2",
-        "left": "gRPC",
-        "right": "Communication between microservices"
-      },
-      {
-        "id": "p3",
-        "left": "MQTT",
-        "right": "IoT devices communicating with cloud platforms"
-      },
-      {
-        "id": "p4",
-        "left": "CoAP",
-        "right": "IoT device communication"
-      },
-      {
-        "id": "p5",
-        "left": "Message queues",
-        "right": "Asynchronous communication processed at the receiver's pace"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-175",
-    "topic": "Software-to-Software Communication",
-    "type": "sorting",
-    "question": "Sort each item as a Challenge or a Future Trend.",
-    "explanation": "Challenges: interoperability, security, latency. Future trends: edge computing, 5G, and AI/ML integration.",
-    "categories": [
-      "Challenge",
-      "Future Trend"
-    ],
-    "items": [
-      {
-        "id": "s1",
-        "text": "Interoperability",
-        "category": "Challenge"
-      },
-      {
-        "id": "s2",
-        "text": "Security",
-        "category": "Challenge"
-      },
-      {
-        "id": "s3",
-        "text": "Latency",
-        "category": "Challenge"
-      },
-      {
-        "id": "s4",
-        "text": "Edge Computing",
-        "category": "Future Trend"
-      },
-      {
-        "id": "s5",
-        "text": "5G Networks",
-        "category": "Future Trend"
-      },
-      {
-        "id": "s6",
-        "text": "AI and Machine Learning Integration",
-        "category": "Future Trend"
-      }
-    ]
-  },
+ 
+ 
   {
     "id": "ipt2-176",
     "topic": "Software-to-Software Communication",
@@ -1492,23 +950,7 @@
     "answer": "PUT",
     "explanation": "PUT is idempotent; POST is not."
   },
-  {
-    "id": "ipt2-191",
-    "topic": "Server-Side Scripting & HTTP",
-    "question": "Which two methods are idempotent but NOT safe? (Choose two.)",
-    "choices": [
-      "PUT",
-      "DELETE",
-      "GET",
-      "HEAD"
-    ],
-    "answers": [
-      "PUT",
-      "DELETE"
-    ],
-    "answer": "PUT",
-    "explanation": "GET and HEAD are safe (read-only). PUT and DELETE change server state but are idempotent."
-  },
+
   {
     "id": "ipt2-192",
     "topic": "Server-Side Scripting & HTTP",
@@ -1613,116 +1055,8 @@
     "answer": "For client-side frameworks to render, reducing server processing and data sent",
     "explanation": "This reduces the processing burden on the server and the amount of data that needs to be sent."
   },
-  {
-    "id": "ipt2-200",
-    "topic": "Server-Side Scripting & HTTP",
-    "type": "matching",
-    "question": "Match each benefit of server-side programming to its example.",
-    "explanation": "Benefits: efficient storage and delivery, customized experience, controlled access, performance, notifications, data analysis, easy to update.",
-    "pairs": [
-      {
-        "id": "p1",
-        "left": "Efficient storage and delivery",
-        "right": "Amazon storing products in a database and building pages dynamically"
-      },
-      {
-        "id": "p2",
-        "left": "Customized user experience",
-        "right": "Google Maps using saved locations for routing"
-      },
-      {
-        "id": "p3",
-        "left": "Notifications and communication",
-        "right": "Facebook sending emails and SMS about new communications"
-      },
-      {
-        "id": "p4",
-        "left": "Data analysis",
-        "right": "Amazon advertising based on previous searches and purchases"
-      },
-      {
-        "id": "p5",
-        "left": "Easy to update",
-        "right": "Changing two template files instead of every .html file"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-201",
-    "topic": "Server-Side Scripting & HTTP",
-    "type": "sorting",
-    "question": "Sort each HTTP method as Safe or Not Safe.",
-    "explanation": "Safe methods are read-only: GET, HEAD, OPTIONS.",
-    "categories": [
-      "Safe",
-      "Not Safe"
-    ],
-    "items": [
-      {
-        "id": "s1",
-        "text": "GET",
-        "category": "Safe"
-      },
-      {
-        "id": "s2",
-        "text": "HEAD",
-        "category": "Safe"
-      },
-      {
-        "id": "s3",
-        "text": "OPTIONS",
-        "category": "Safe"
-      },
-      {
-        "id": "s4",
-        "text": "POST",
-        "category": "Not Safe"
-      },
-      {
-        "id": "s5",
-        "text": "PUT",
-        "category": "Not Safe"
-      },
-      {
-        "id": "s6",
-        "text": "DELETE",
-        "category": "Not Safe"
-      }
-    ]
-  },
-  {
-    "id": "ipt2-202",
-    "topic": "Server-Side Scripting & HTTP",
-    "type": "sorting",
-    "question": "Sort each HTTP method as Cacheable or Not Cacheable.",
-    "explanation": "GET and HEAD are cacheable; PUT and DELETE results cannot be cached.",
-    "categories": [
-      "Cacheable",
-      "Not Cacheable"
-    ],
-    "items": [
-      {
-        "id": "s1",
-        "text": "GET",
-        "category": "Cacheable"
-      },
-      {
-        "id": "s2",
-        "text": "HEAD",
-        "category": "Cacheable"
-      },
-      {
-        "id": "s3",
-        "text": "PUT",
-        "category": "Not Cacheable"
-      },
-      {
-        "id": "s4",
-        "text": "DELETE",
-        "category": "Not Cacheable"
-      }
-    ]
-  },
+
+ 
   {
     "id": "ipt2-203",
     "topic": "Server-Side Scripting & HTTP",
@@ -1973,39 +1307,7 @@
     "answer": "Protobuf",
     "explanation": "Protobuf is compact and efficient."
   },
-  {
-    "id": "ipt2-222",
-    "topic": "Data Exchange Formats",
-    "type": "sorting",
-    "question": "Sort each format as Hierarchical or Flat.",
-    "explanation": "CSV is flat and does not support nested or hierarchical data; JSON, XML, and YAML can nest.",
-    "categories": [
-      "Hierarchical",
-      "Flat"
-    ],
-    "items": [
-      {
-        "id": "s1",
-        "text": "JSON",
-        "category": "Hierarchical"
-      },
-      {
-        "id": "s2",
-        "text": "XML",
-        "category": "Hierarchical"
-      },
-      {
-        "id": "s3",
-        "text": "YAML",
-        "category": "Hierarchical"
-      },
-      {
-        "id": "s4",
-        "text": "CSV",
-        "category": "Flat"
-      }
-    ]
-  },
+ 
   {
     "id": "ipt2-223",
     "topic": "Data Exchange Formats",
@@ -2109,23 +1411,7 @@
     "answer": "YAML",
     "explanation": "YAML is human-readable and supports comments."
   },
-  {
-    "id": "ipt2-229",
-    "topic": "Data Exchange Formats",
-    "question": "Which two are listed as other data formats in the lesson? (Choose two.)",
-    "choices": [
-      "Apache Parquet",
-      "INTERLIS",
-      "SQL",
-      "HTML"
-    ],
-    "answers": [
-      "Apache Parquet",
-      "INTERLIS"
-    ],
-    "answer": "Apache Parquet",
-    "explanation": "The lesson lists XML, GML, CSV, JSON, Apache Parquet, YAML, REBOL, RDF, Gellish English, GMT grid file format, INTERLIS, and ATOM."
-  },
+
   {
     "id": "ipt2-230",
     "topic": "Data Exchange Formats",
