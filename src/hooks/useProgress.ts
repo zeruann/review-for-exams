@@ -9,7 +9,7 @@ export interface SubjectProgress {
 type ProgressMap = Record<string, SubjectProgress>;
 
 const LEGACY_KEY = "exam-review-progress";
-const MIGRATION_FLAG_KEY = "exam-review-legacy-migrated";
+// const MIGRATION_FLAG_KEY = "exam-review-legacy-migrated";
 
 function storageKeyFor(profileName: string): string {
   return `${LEGACY_KEY}:${profileName}`;
@@ -27,23 +27,23 @@ function loadProgress(key: string): ProgressMap {
 // Runs at most once per device, ever. If pre-profile progress exists under
 // the old key, it's adopted by whichever profile is created first; every
 // later profile just starts fresh.
-function migrateLegacyIfNeeded(profileName: string): ProgressMap | null {
-  try {
-    if (localStorage.getItem(MIGRATION_FLAG_KEY)) return null;
-    localStorage.setItem(MIGRATION_FLAG_KEY, "true");
+// function migrateLegacyIfNeeded(profileName: string): ProgressMap | null {
+//   try {
+//     if (localStorage.getItem(MIGRATION_FLAG_KEY)) return null;
+//     localStorage.setItem(MIGRATION_FLAG_KEY, "true");
 
-    const legacyRaw = localStorage.getItem(LEGACY_KEY);
-    if (!legacyRaw) return null;
+//     const legacyRaw = localStorage.getItem(LEGACY_KEY);
+//     if (!legacyRaw) return null;
 
-    const legacyData = JSON.parse(legacyRaw) as ProgressMap;
-    if (!legacyData || Object.keys(legacyData).length === 0) return null;
+//     const legacyData = JSON.parse(legacyRaw) as ProgressMap;
+//     if (!legacyData || Object.keys(legacyData).length === 0) return null;
 
-    localStorage.setItem(storageKeyFor(profileName), legacyRaw);
-    return legacyData;
-  } catch {
-    return null;
-  }
-}
+//     localStorage.setItem(storageKeyFor(profileName), legacyRaw);
+//     return legacyData;
+//   } catch {
+//     return null;
+//   }
+// }
 
 export function useProgress(profileName: string | null) {
   const key = profileName ? storageKeyFor(profileName) : null;
