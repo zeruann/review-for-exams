@@ -6,6 +6,12 @@ import { useProfiles } from "./hooks/useProfiles";
 import { usePersistedBoolean } from "./hooks/usePersistedBoolean";
 import { usePersistedString } from "./hooks/usePersistedString";
 import SubjectList from "./components/SubjectList";
+import QuizSetup, { usesQuizOptions } from "./components/QuizSetup";
+
+import TopicList, {
+  filterSubjectByTopic,
+  getTopics,
+} from "./components/TopicList";
 import Quiz from "./components/Quiz";
 import Results from "./components/Results";
 import ProfileGate from "./components/ProfileGate";
@@ -13,7 +19,9 @@ import ProfileSwitcher from "./components/ProfileSwitcher";
 
 type ViewState =
   | { screen: "list" }
+  | { screen: "topics"; subject: Subject }
   | { screen: "quiz"; subject: Subject }
+  | { screen: "setup"; subject: Subject }
   | {
       screen: "results";
       subject: Subject;
@@ -60,14 +68,16 @@ const THEME_VARS: Record<Theme, React.CSSProperties> = {
   },
 };
 
+const PROFILES_ENABLED: boolean = false;
+const GUEST_PROFILE = "__guest__";
+
 export default function App() {
   const [view, setView] = useState<ViewState>({ screen: "list" });
-  const { profiles, activeProfile, selectProfile, switchToGate, deleteProfile } = useProfiles();
+  const { profiles, activeProfile, selectProfile, switchToGate, deleteProfile } =
+    useProfiles();
 
-
-
-  
-  const { progress, recordAttempt } = useProgress(activeProfile);
+const profile = PROFILES_ENABLED ? activeProfile : GUEST_PROFILE;
+const { progress, recordAttempt } = useProgress(profile);
   const [shuffleQuestions, setShuffleQuestions] = usePersistedBoolean(
     "exam-review-shuffle",
     true
@@ -85,7 +95,7 @@ export default function App() {
   const questionLimitNumber =
     questionLimit === "all" ? null : Number(questionLimit);
 
-  if (!activeProfile) {
+if (!profile) {
     return (
       <div style={THEME_VARS[activeTheme]}>
         <ProfileGate
@@ -96,6 +106,17 @@ export default function App() {
       </div>
     );
   }
+
+  // Subjects with only one topic skip the picker and go straight to the quiz.
+const handleSelectSubject = (subject: Subject) => {
+  if (usesQuizOptions(subject)) {
+    setView({ screen: "setup", subject });
+  } else if (getTopics(subject).length > 1) {
+    setView({ screen: "topics", subject });
+  } else {
+    setView({ screen: "quiz", subject });
+  }
+};
 
   return (
     <div
@@ -108,7 +129,11 @@ export default function App() {
       }}
     >
       <div className="max-w-xl mx-auto mb-4 flex justify-between items-center gap-3">
-        <ProfileSwitcher activeProfile={activeProfile} onSwitch={switchToGate} />
+        {PROFILES_ENABLED ? (
+          <ProfileSwitcher activeProfile={profile} onSwitch={switchToGate} />
+        ) : (
+          <span />
+        )}
 
         <div
           role="radiogroup"
@@ -144,22 +169,29 @@ export default function App() {
         <SubjectList
           subjects={subjects}
           progress={progress}
-          shuffleQuestions={shuffleQuestions}
-          onToggleShuffle={setShuffleQuestions}
-          questionLimit={questionLimit}
-          onChangeQuestionLimit={setQuestionLimit}
-          timerEnabled={timerEnabled}
-          onToggleTimer={setTimerEnabled}
-          onSelect={(subject) => setView({ screen: "quiz", subject })}
+          onSelect={handleSelectSubject}
+        />
+      )}
+
+      {view.screen === "topics" && (
+        <TopicList
+          subject={view.subject}
+          onBack={() => setView({ screen: "list" })}
+          onSelect={(topic) =>
+            setView({
+              screen: "quiz",
+              subject: filterSubjectByTopic(view.subject, topic),
+            })
+          }
         />
       )}
 
       {view.screen === "quiz" && (
         <Quiz
-          subject={view.subject}
-          shuffleQuestions={shuffleQuestions}
-          questionLimit={questionLimitNumber}
-          timerEnabled={timerEnabled}
+  subject={view.subject}
+  shuffleQuestions={usesQuizOptions(view.subject) ? shuffleQuestions : true}
+  questionLimit={usesQuizOptions(view.subject) ? questionLimitNumber : null}
+  timerEnabled={usesQuizOptions(view.subject) ? timerEnabled : false}
           onExit={() => setView({ screen: "list" })}
           onFinish={(correctCount, totalCount) => {
             recordAttempt(view.subject.id, correctCount, totalCount);
@@ -170,6 +202,18 @@ export default function App() {
               totalCount,
             });
           }}
+        />
+      )}
+
+      {view.screen === "setup" && (
+        <QuizSetup
+  subject={view.subject}
+  shuffleQuestions={usesQuizOptions(view.subject) ? shuffleQuestions : true}
+  questionLimit={usesQuizOptions(view.subject) ? questionLimitNumber : null}
+  timerEnabled={usesQuizOptions(view.subject) ? timerEnabled : false}
+          onToggleTimer={setTimerEnabled}
+          onBack={() => setView({ screen: "list" })}
+          onStart={() => setView({ screen: "quiz", subject: view.subject })}
         />
       )}
 

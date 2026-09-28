@@ -55,8 +55,6 @@ export default function SubjectList({
 }: SubjectListProps) {
   const [query, setQuery] = useState("");
 
-  const maxQuestions = Math.max(0, ...subjects.map((s) => s.questions.length));
-  const showQuizOptions = maxQuestions > 10;
 
   const filtered = useMemo(
     () =>
@@ -111,54 +109,7 @@ export default function SubjectList({
         />
       )}
 
-      {showQuizOptions && (
-        <div
-          className="flex flex-wrap items-center gap-x-6 gap-y-4 mb-6 text-[15px] rounded-lg border p-4"
-          style={{
-            backgroundColor: "var(--surface)",
-            borderColor: "var(--border)",
-            color: "var(--ink)",
-          }}
-        >
-          <label className="flex items-center gap-2.5 select-none cursor-pointer">
-            <input
-              type="checkbox"
-              checked={shuffleQuestions}
-              onChange={(e) => onToggleShuffle(e.target.checked)}
-              className="w-5 h-5 accent-[var(--accent)]"
-            />
-            Shuffle questions
-          </label>
 
-          <label className="flex items-center gap-2.5 select-none cursor-pointer">
-            Questions per quiz:
-            <select
-              value={questionLimit}
-              onChange={(e) => onChangeQuestionLimit(e.target.value)}
-              className="border rounded-md px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-              style={{
-                backgroundColor: "var(--bg)",
-                borderColor: "var(--border)",
-                color: "var(--ink)",
-              }}
-            >
-              <option value="all">All</option>
-              <option value="30">30 (exam-length)</option>
-              <option value="40">40 (exam-length)</option>
-            </select>
-          </label>
-
-          <label className="flex items-center gap-2.5 select-none cursor-pointer">
-            <input
-              type="checkbox"
-              checked={timerEnabled}
-              onChange={(e) => onToggleTimer(e.target.checked)}
-              className="w-5 h-5 accent-[var(--accent)]"
-            />
-            60-minute timer
-          </label>
-        </div>
-      )}
 
       <div className="space-y-4">
         {filtered.length === 0 && (

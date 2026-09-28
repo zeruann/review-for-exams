@@ -1,21 +1,2181 @@
 [
   {
-    "id": "ipt2-1",
-    "question": "What is the primary purpose of an API?",
+    "id": "ipt2-100",
+    "topic": "Software Environment",
+    "question": "Which tools convert source code into executable code or run the code directly?",
     "choices": [
-      "To design user interfaces",
-      "To allow different software systems to communicate with each other",
-      "To store data permanently",
-      "To compile source code"
+      "Package managers",
+      "Compilers and interpreters",
+      "Middleware",
+      "Version control systems"
     ],
-    "answer": "To allow different software systems to communicate with each other",
-    "explanation": "An API (Application Programming Interface) defines how software components should interact, enabling integration between systems."
+    "answer": "Compilers and interpreters",
+    "explanation": "Compilers and interpreters convert source code into executable code or run it directly. Examples: GCC for C/C++ and Python's interpreter."
   },
   {
-    "id": "ipt2-2",
-    "question": "Which data format is most commonly used for REST API responses?",
-    "choices": ["XML only", "CSV", "JSON", "Plain text only"],
-    "answer": "JSON",
-    "explanation": "JSON (JavaScript Object Notation) is lightweight and widely used as the standard data format for REST APIs."
+    "id": "ipt2-101",
+    "topic": "Software Environment",
+    "question": "GCC (GNU Compiler Collection) is used for which languages?",
+    "choices": [
+      "Python",
+      "JavaScript",
+      "C/C++",
+      "Java only"
+    ],
+    "answer": "C/C++",
+    "explanation": "GCC is a compiler for C/C++. Python code is run by Python's interpreter."
+  },
+  {
+    "id": "ipt2-102",
+    "topic": "Software Environment",
+    "question": "Which two are Database Management Systems (DBMS)? (Choose two.)",
+    "choices": [
+      "MySQL",
+      "Jenkins",
+      "PostgreSQL",
+      "Selenium"
+    ],
+    "answers": [
+      "MySQL",
+      "PostgreSQL"
+    ],
+    "answer": "MySQL",
+    "explanation": "DBMS software manages databases and gives users and applications an interface to the data. Examples: MySQL, PostgreSQL, MongoDB, Oracle DB."
+  },
+  {
+    "id": "ipt2-103",
+    "topic": "Software Environment",
+    "question": "Which two are version control tools? (Choose two.)",
+    "choices": [
+      "Git",
+      "Docker",
+      "Subversion (SVN)",
+      "Maven"
+    ],
+    "answers": [
+      "Git",
+      "Subversion (SVN)"
+    ],
+    "answer": "Git",
+    "explanation": "Version control systems manage changes to source code over time. Examples: Git (with GitHub or GitLab) and Subversion (SVN)."
+  },
+  {
+    "id": "ipt2-104",
+    "topic": "Software Environment",
+    "question": "Which two are CI/CD tools? (Choose two.)",
+    "choices": [
+      "Jenkins",
+      "NumPy",
+      "GitLab CI/CD",
+      "PyCharm"
+    ],
+    "answers": [
+      "Jenkins",
+      "GitLab CI/CD"
+    ],
+    "answer": "Jenkins",
+    "explanation": "CI/CD tools such as Jenkins, Travis CI, and GitLab CI/CD automate testing and deploying software to production."
+  },
+  {
+    "id": "ipt2-105",
+    "topic": "Software Environment",
+    "question": "The Java Virtual Machine (JVM) is an example of which type of runtime environment?",
+    "choices": [
+      "Containerization",
+      "Virtual machine",
+      "Package manager",
+      "Middleware"
+    ],
+    "answer": "Virtual machine",
+    "explanation": "Virtual machines like the JVM allow software to run on different hardware platforms. Containerization (e.g., Docker) is a different kind of runtime environment."
+  },
+  {
+    "id": "ipt2-106",
+    "topic": "Software Environment",
+    "question": "Which two are UI frameworks named in the lesson? (Choose two.)",
+    "choices": [
+      "Angular",
+      "Flutter",
+      "Nagios",
+      "Boost"
+    ],
+    "answers": [
+      "Angular",
+      "Flutter"
+    ],
+    "answer": "Angular",
+    "explanation": "UI frameworks facilitate building graphical user interfaces. Examples: Angular (JavaScript), Flutter (Dart), and WPF (Windows Presentation Foundation)."
+  },
+  {
+    "id": "ipt2-107",
+    "topic": "Software Environment",
+    "question": "The ELK Stack, used for logging, consists of which tools?",
+    "choices": [
+      "Elasticsearch, Logstash, Kibana",
+      "Eclipse, Linux, Kubernetes",
+      "Express, Laravel, Knockout",
+      "Etcd, Lua, Kafka"
+    ],
+    "answer": "Elasticsearch, Logstash, Kibana",
+    "explanation": "Monitoring and logging tools: Prometheus (monitoring), ELK Stack (Elasticsearch, Logstash, Kibana) for logging, and Nagios for network monitoring."
+  },
+  {
+    "id": "ipt2-108",
+    "topic": "Software Environment",
+    "question": "Which two are cloud services and platforms? (Choose two.)",
+    "choices": [
+      "Amazon Web Services (AWS)",
+      "Microsoft Azure",
+      "JUnit",
+      "TCP/IP"
+    ],
+    "answers": [
+      "Amazon Web Services (AWS)",
+      "Microsoft Azure"
+    ],
+    "answer": "Amazon Web Services (AWS)",
+    "explanation": "Cloud platforms such as AWS, Microsoft Azure, and Google Cloud Platform provide infrastructure, platforms, and software services over the internet."
+  },
+  {
+    "id": "ipt2-109",
+    "topic": "Software Environment",
+    "question": "Which of the following is NOT an operating system?",
+    "choices": [
+      "Linux",
+      "Unix",
+      "PostgreSQL",
+      "macOS"
+    ],
+    "answer": "PostgreSQL",
+    "explanation": "PostgreSQL is a DBMS. Windows, Linux, macOS, and Unix are operating systems."
+  },
+  {
+    "id": "ipt2-110",
+    "topic": "Software Environment",
+    "question": "Firewalls, VPNs, and TCP/IP stacks belong to which component of the software environment?",
+    "choices": [
+      "Networking software",
+      "Package managers",
+      "UI frameworks",
+      "Testing tools"
+    ],
+    "answer": "Networking software",
+    "explanation": "Networking software includes tools and protocols that enable communication over a network, such as TCP/IP stacks, network APIs, firewalls, and VPNs."
+  },
+  {
+    "id": "ipt2-111",
+    "topic": "Software Environment",
+    "question": "Antivirus programs, encryption libraries, and security monitoring tools belong to which component?",
+    "choices": [
+      "Middleware",
+      "Security software",
+      "Runtime environments",
+      "Development tools"
+    ],
+    "answer": "Security software",
+    "explanation": "Security software ensures the security of the software environment."
+  },
+  {
+    "id": "ipt2-112",
+    "topic": "Software Environment",
+    "question": "Which type of API is custom-built within an organization so its different software systems can communicate?",
+    "choices": [
+      "Public API",
+      "Internal API",
+      "Cloud API",
+      "Runtime API"
+    ],
+    "answer": "Internal API",
+    "explanation": "Internal APIs are custom-built within your organization. Public APIs are external services or data sources your software interacts with."
+  },
+  {
+    "id": "ipt2-113",
+    "topic": "Software Environment",
+    "question": "A well-documented, standardized software environment makes systems easier to update over time. Which importance is this?",
+    "choices": [
+      "Compatibility",
+      "Security",
+      "Maintainability",
+      "Efficiency"
+    ],
+    "answer": "Maintainability",
+    "explanation": "Maintainability: a well-documented and standardized environment makes it easier to maintain and update systems."
+  },
+  {
+    "id": "ipt2-114",
+    "topic": "Software Environment",
+    "question": "Which importance of the software environment provides the tools needed to develop and deploy software quickly?",
+    "choices": [
+      "Efficiency",
+      "Compatibility",
+      "Security",
+      "Maintainability"
+    ],
+    "answer": "Efficiency",
+    "explanation": "Efficiency is about having the tools to develop and deploy quickly."
+  },
+  {
+    "id": "ipt2-115",
+    "topic": "Software Environment",
+    "type": "matching",
+    "question": "Match each software environment component to an example.",
+    "explanation": "OS: Windows/Linux/macOS/Unix. DBMS: MySQL/PostgreSQL/MongoDB/Oracle. Package managers: npm/pip/Maven. Testing tools: JUnit/PyTest/Selenium. Containerization: Docker.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "Operating System",
+        "right": "Linux"
+      },
+      {
+        "id": "p2",
+        "left": "DBMS",
+        "right": "MongoDB"
+      },
+      {
+        "id": "p3",
+        "left": "Package Manager",
+        "right": "pip"
+      },
+      {
+        "id": "p4",
+        "left": "Testing Tool",
+        "right": "JUnit"
+      },
+      {
+        "id": "p5",
+        "left": "Containerization",
+        "right": "Docker"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-116",
+    "topic": "Software Environment",
+    "type": "sorting",
+    "question": "Sort each item as a Framework or a Library.",
+    "explanation": "Frameworks provide a foundation to build upon (.NET, Spring, Django, React). Libraries are pre-written code for common tasks (NumPy, jQuery, Boost).",
+    "categories": [
+      "Framework",
+      "Library"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "Django",
+        "category": "Framework"
+      },
+      {
+        "id": "s2",
+        "text": "React",
+        "category": "Framework"
+      },
+      {
+        "id": "s3",
+        "text": "Spring",
+        "category": "Framework"
+      },
+      {
+        "id": "s4",
+        "text": "NumPy",
+        "category": "Library"
+      },
+      {
+        "id": "s5",
+        "text": "jQuery",
+        "category": "Library"
+      },
+      {
+        "id": "s6",
+        "text": "Boost",
+        "category": "Library"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-117",
+    "topic": "Software Environment",
+    "type": "matching",
+    "question": "Match each tool category to its example.",
+    "explanation": "Each category is a component of the software environment listed in Lesson 1.1.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "Middleware",
+        "right": "RabbitMQ"
+      },
+      {
+        "id": "p2",
+        "left": "IDE",
+        "right": "IntelliJ IDEA"
+      },
+      {
+        "id": "p3",
+        "left": "CI/CD Tool",
+        "right": "Travis CI"
+      },
+      {
+        "id": "p4",
+        "left": "Monitoring Tool",
+        "right": "Prometheus"
+      },
+      {
+        "id": "p5",
+        "left": "Cloud Platform",
+        "right": "Google Cloud Platform"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-118",
+    "topic": "Software Environment",
+    "question": "In which environment are end-to-end tests less common, with external services simulated?",
+    "choices": [
+      "Local development environment",
+      "Production environment",
+      "Staging environment",
+      "Integration environment"
+    ],
+    "answer": "Local development environment",
+    "explanation": "In the local environment developers can run unit and integration tests with simulated external services; end-to-end tests are less common."
+  },
+  {
+    "id": "ipt2-119",
+    "topic": "Software Environment",
+    "question": "Which environment usually requires less infrastructure than production and runs unit, integration, and end-to-end tests?",
+    "choices": [
+      "Staging",
+      "Testing/QA",
+      "Local development",
+      "Integration"
+    ],
+    "answer": "Testing/QA",
+    "explanation": "The testing/QA environment usually requires less infrastructure than production."
+  },
+  {
+    "id": "ipt2-120",
+    "topic": "Software Environment",
+    "question": "In the email client example, what happens in the integration environment?",
+    "choices": [
+      "Developers try to merge their finished features into the shared codebase at the same time",
+      "The client is released to 10% of real users",
+      "Each developer tests one feature alone on their own computer",
+      "The client runs on the same hardware as production"
+    ],
+    "answer": "Developers try to merge their finished features into the shared codebase at the same time",
+    "explanation": "The integration environment is where developers merge changes into a unified codebase, usually with Git."
+  },
+  {
+    "id": "ipt2-121",
+    "topic": "Software Environment",
+    "question": "A phased rollout where only 10% of users get a new feature, increased gradually to 100%, happens in which environment?",
+    "choices": [
+      "Local development",
+      "Testing/QA",
+      "Staging",
+      "Production"
+    ],
+    "answer": "Production",
+    "explanation": "Production deployment strategies like phased rollouts and canary deployments test the app with real users in the full production environment."
+  },
+  {
+    "id": "ipt2-122",
+    "topic": "Software Environment",
+    "question": "Which environment must be robust enough to handle high traffic, cyber-attacks, and hardware failures?",
+    "choices": [
+      "Production",
+      "Local development",
+      "Integration",
+      "Testing/QA"
+    ],
+    "answer": "Production",
+    "explanation": "The production environment supports the application for end-users and is scaled for real-world use."
+  },
+  {
+    "id": "ipt2-123",
+    "topic": "Software Environment",
+    "question": "Which environment closely resembles production in computational load, hardware, and architecture?",
+    "choices": [
+      "Local development",
+      "Integration",
+      "Staging",
+      "Testing/QA"
+    ],
+    "answer": "Staging",
+    "explanation": "Staging mirrors production so the app can be checked against the workload it will face."
+  },
+  {
+    "id": "ipt2-124",
+    "topic": "Software Environment",
+    "type": "sorting",
+    "question": "Sort each statement under the environment it describes.",
+    "explanation": "Local = isolated feature work; Integration = merging code; Staging = production look-alike; Production = live for end-users.",
+    "categories": [
+      "Local Development",
+      "Integration",
+      "Staging",
+      "Production"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "Developers work on a unique version of the project on their own computers",
+        "category": "Local Development"
+      },
+      {
+        "id": "s2",
+        "text": "Tests often fail because isolated work is now being merged",
+        "category": "Integration"
+      },
+      {
+        "id": "s3",
+        "text": "Closely mirrors production hardware and architecture",
+        "category": "Staging"
+      },
+      {
+        "id": "s4",
+        "text": "Supports the application for real end-users",
+        "category": "Production"
+      },
+      {
+        "id": "s5",
+        "text": "Developers return here to fix issues after a failed merge",
+        "category": "Local Development"
+      },
+      {
+        "id": "s6",
+        "text": "Organization may use the app internally (dogfooding) here",
+        "category": "Staging"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-125",
+    "topic": "Software Environment",
+    "question": "Which of the following is a common source of bugs according to the lesson's summary?",
+    "choices": [
+      "Differences between environments, such as web server configuration locally versus in production",
+      "Using too many comments in code",
+      "Having more than one developer",
+      "Using an IDE"
+    ],
+    "answer": "Differences between environments, such as web server configuration locally versus in production",
+    "explanation": "Differences in environments are a common source of bugs, which is why development is split into separate environments."
+  },
+  {
+    "id": "ipt2-126",
+    "topic": "Software Environment",
+    "question": "What does the lesson say software testing ensures?",
+    "choices": [
+      "That code functions correctly before release to users in production",
+      "That code is written in a single language",
+      "That developers never make mistakes",
+      "That the UI has no colors"
+    ],
+    "answer": "That code functions correctly before release to users in production",
+    "explanation": "Testing is an essential phase in the SDLC and is crucial before code is released to the production environment."
+  },
+  {
+    "id": "ipt2-127",
+    "topic": "Deployment Strategies",
+    "question": "Which statement correctly contrasts Continuous Deployment with Continuous Delivery?",
+    "choices": [
+      "Continuous Deployment releases to production automatically once tests pass; Continuous Delivery may involve manual steps first",
+      "Continuous Delivery is fully automatic; Continuous Deployment requires manual approval",
+      "Both always require manual approval",
+      "Both always cause downtime"
+    ],
+    "answer": "Continuous Deployment releases to production automatically once tests pass; Continuous Delivery may involve manual steps first",
+    "explanation": "Continuous Deployment removes manual testing/approval. Continuous Delivery might involve manual steps before production deployment."
+  },
+  {
+    "id": "ipt2-128",
+    "topic": "Deployment Strategies",
+    "question": "Which deployment strategy does NOT require a load balancer because traffic is never shifted between versions?",
+    "choices": [
+      "Recreate deployment",
+      "Blue-Green deployment",
+      "Canary deployment",
+      "A/B testing deployment"
+    ],
+    "answer": "Recreate deployment",
+    "explanation": "Recreate shuts down the old version, deploys the new one, and restarts, so no traffic shifting or load balancer is needed."
+  },
+  {
+    "id": "ipt2-129",
+    "topic": "Deployment Strategies",
+    "question": "Which strategy requires both environments to share the same database schema or have a way to synchronize schema versions?",
+    "choices": [
+      "Blue-Green deployment",
+      "Recreate deployment",
+      "Big Bang deployment",
+      "Rolling deployment"
+    ],
+    "answer": "Blue-Green deployment",
+    "explanation": "Blue-green runs old and new versions at once, so the schema must be shared or synchronized."
+  },
+  {
+    "id": "ipt2-130",
+    "topic": "Deployment Strategies",
+    "question": "In Blue-Green deployment, which version is labeled blue (or red)?",
+    "choices": [
+      "The new version",
+      "The older, stable version",
+      "The shadow version",
+      "The canary version"
+    ],
+    "answer": "The older, stable version",
+    "explanation": "The older stable version is blue (or red); the new version is green (or black)."
+  },
+  {
+    "id": "ipt2-131",
+    "topic": "Deployment Strategies",
+    "question": "What is a downside of Canary deployment?",
+    "choices": [
+      "It requires robust test environment management and can be more time-consuming",
+      "It has no way to roll back",
+      "It causes full downtime",
+      "It cannot be monitored"
+    ],
+    "answer": "It requires robust test environment management and can be more time-consuming",
+    "explanation": "Canary allows easier rollback, but it requires robust test environment management and takes longer than other techniques."
+  },
+  {
+    "id": "ipt2-132",
+    "topic": "Deployment Strategies",
+    "question": "In Canary deployment, who receives the new version in Phase 1?",
+    "choices": [
+      "A small group of users (canaries)",
+      "All users at once",
+      "Only the development team's laptops",
+      "No users; it runs in shadow"
+    ],
+    "answer": "A small group of users (canaries)",
+    "explanation": "Phase 1 targets a small group (canaries); if all goes well, Phase 2 rolls out to the rest."
+  },
+  {
+    "id": "ipt2-133",
+    "topic": "Deployment Strategies",
+    "question": "What risk must be carefully handled in Shadow deployment?",
+    "choices": [
+      "The shadow system creating duplicate live requests",
+      "The old version being shut down",
+      "Users being forced to update",
+      "No monitoring being possible"
+    ],
+    "answer": "The shadow system creating duplicate live requests",
+    "explanation": "Shadow deployment can be complex and costly, and must prevent the shadow system from creating duplicate live requests."
+  },
+  {
+    "id": "ipt2-134",
+    "topic": "Deployment Strategies",
+    "question": "Which tool is mentioned as facilitating rolling deployments through 'rolling updates'?",
+    "choices": [
+      "Kubernetes",
+      "Selenium",
+      "GitHub Pages",
+      "Protobuf"
+    ],
+    "answer": "Kubernetes",
+    "explanation": "Kubernetes supports rolling deployments with rolling updates so teams can gradually roll out new versions."
+  },
+  {
+    "id": "ipt2-135",
+    "topic": "Deployment Strategies",
+    "question": "How does Ramped deployment differ from Rolling deployment?",
+    "choices": [
+      "Ramped updates a small percentage of servers and progressively increases it; rolling updates servers one at a time",
+      "Ramped shuts everything down first; rolling does not",
+      "Ramped uses two full environments; rolling uses one",
+      "They are identical"
+    ],
+    "answer": "Ramped updates a small percentage of servers and progressively increases it; rolling updates servers one at a time",
+    "explanation": "Both update subsets of servers gradually, but ramped increases the percentage over time while rolling goes server by server, testing each."
+  },
+  {
+    "id": "ipt2-136",
+    "topic": "Deployment Strategies",
+    "question": "Which strategy makes the new version available only to users selected by location, device type, or operating system so the two versions can be compared?",
+    "choices": [
+      "A/B testing deployment",
+      "Big Bang deployment",
+      "Recreate deployment",
+      "Continuous Deployment"
+    ],
+    "answer": "A/B testing deployment",
+    "explanation": "A/B testing compares the performance of both versions before deciding which to roll out to everyone."
+  },
+  {
+    "id": "ipt2-137",
+    "topic": "Deployment Strategies",
+    "question": "Which two strategies provide zero downtime but can be slow to roll back? (Choose two.)",
+    "choices": [
+      "Ramped deployment",
+      "Rolling deployment",
+      "Recreate deployment",
+      "Big Bang deployment"
+    ],
+    "answers": [
+      "Ramped deployment",
+      "Rolling deployment"
+    ],
+    "answer": "Ramped deployment",
+    "explanation": "Ramped and rolling deployments update servers gradually with zero downtime, but rollback means updating servers one by one."
+  },
+  {
+    "id": "ipt2-138",
+    "topic": "Deployment Strategies",
+    "question": "Which factor says simpler strategies may suit smaller or less experienced teams?",
+    "choices": [
+      "Resources",
+      "End-user impact",
+      "Size and complexity",
+      "Availability and scalability"
+    ],
+    "answer": "Resources",
+    "explanation": "The availability of team resources influences strategy choice."
+  },
+  {
+    "id": "ipt2-139",
+    "topic": "Deployment Strategies",
+    "question": "Which factor is about strategies like Big Bang causing longer downtimes?",
+    "choices": [
+      "End-user impact",
+      "Resources",
+      "Size and complexity",
+      "Environment naming"
+    ],
+    "answer": "End-user impact",
+    "explanation": "Consider how the strategy affects end-users and choose one with minimal downtime."
+  },
+  {
+    "id": "ipt2-140",
+    "topic": "Deployment Strategies",
+    "question": "For smaller, less complex projects, which strategies may suffice?",
+    "choices": [
+      "Simpler ones like blue-green or rolling",
+      "Only canary and A/B testing",
+      "Only big bang",
+      "Only shadow"
+    ],
+    "answer": "Simpler ones like blue-green or rolling",
+    "explanation": "Larger, more complex projects might benefit from advanced strategies like canary deployment or A/B testing."
+  },
+  {
+    "id": "ipt2-141",
+    "topic": "Deployment Strategies",
+    "question": "Which is the correct order of the automated Continuous Deployment pipeline shown in the lesson?",
+    "choices": [
+      "Code → Unit Tests → Integrate → Build → Story Tests → Prod Deploy",
+      "Code → Build → Prod Deploy → Unit Tests → Integrate → Story Tests",
+      "Unit Tests → Code → Integrate → Prod Deploy → Build → Story Tests",
+      "Prod Deploy → Code → Unit Tests → Build → Integrate → Story Tests"
+    ],
+    "answer": "Code → Unit Tests → Integrate → Build → Story Tests → Prod Deploy",
+    "explanation": "Each stage is automated and changes reach production as soon as they pass testing and validation."
+  },
+  {
+    "id": "ipt2-142",
+    "topic": "Deployment Strategies",
+    "question": "What is the contrast to a big bang deployment?",
+    "choices": [
+      "Phased or incremental deployments that roll out in stages or smaller batches",
+      "Recreate deployments",
+      "Deployments without testing",
+      "Deployments on a local machine"
+    ],
+    "answer": "Phased or incremental deployments that roll out in stages or smaller batches",
+    "explanation": "Big bang deploys everything at once; phased or incremental deployments release changes gradually."
+  },
+  {
+    "id": "ipt2-143",
+    "topic": "Deployment Strategies",
+    "question": "What benefit does Shadow deployment offer?",
+    "choices": [
+      "Testing new features without waiting for the traditional, lengthy QA process",
+      "Zero cost",
+      "Instant rollback of every server",
+      "No monitoring needed"
+    ],
+    "answer": "Testing new features without waiting for the traditional, lengthy QA process",
+    "explanation": "Shadow lets the team see how the new version handles copies of real requests while users still use the old version."
+  },
+  {
+    "id": "ipt2-144",
+    "topic": "Deployment Strategies",
+    "question": "When is Recreate deployment typically used?",
+    "choices": [
+      "When a complete overhaul of the application is required",
+      "When downtime must be zero",
+      "When only 5% of users should be affected",
+      "When two versions must run simultaneously"
+    ],
+    "answer": "When a complete overhaul of the application is required",
+    "explanation": "Recreate is cost-effective for complete overhauls, but the downtime affects end-users."
+  },
+  {
+    "id": "ipt2-145",
+    "topic": "Deployment Strategies",
+    "question": "Which strategy is high-risk because rolling back is challenging after all updates deploy simultaneously?",
+    "choices": [
+      "Big Bang deployment",
+      "Canary deployment",
+      "Rolling deployment",
+      "Ramped deployment"
+    ],
+    "answer": "Big Bang deployment",
+    "explanation": "Big bang needs extensive coordination and intense testing in a short time frame."
+  },
+  {
+    "id": "ipt2-146",
+    "topic": "Deployment Strategies",
+    "type": "matching",
+    "question": "Match each deployment strategy to a key characteristic.",
+    "explanation": "Each strategy has its own way of managing risk, cost, and downtime.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "Rolling",
+        "right": "Updates servers one at a time"
+      },
+      {
+        "id": "p2",
+        "left": "Ramped",
+        "right": "Increases the percentage of updated servers progressively"
+      },
+      {
+        "id": "p3",
+        "left": "A/B Testing",
+        "right": "Compares two versions using selected user groups"
+      },
+      {
+        "id": "p4",
+        "left": "Continuous Deployment",
+        "right": "Automatically releases to production after passing tests"
+      },
+      {
+        "id": "p5",
+        "left": "Blue-Green",
+        "right": "Switches traffic between two environments using a load balancer"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-147",
+    "topic": "Deployment Strategies",
+    "type": "matching",
+    "question": "Match each factor in choosing a deployment strategy to its description.",
+    "explanation": "The lesson lists these four factors.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "Size and Complexity",
+        "right": "Larger projects may need canary or A/B testing"
+      },
+      {
+        "id": "p2",
+        "left": "Availability and Scalability",
+        "right": "High traffic and fast rollbacks favor rolling updates"
+      },
+      {
+        "id": "p3",
+        "left": "Resources",
+        "right": "Team resources and experience influence the choice"
+      },
+      {
+        "id": "p4",
+        "left": "End-User Impact",
+        "right": "Minimize downtime for users"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-148",
+    "topic": "Deployment Strategies",
+    "type": "sorting",
+    "question": "Sort each strategy by whether it runs the old and new versions at the same time.",
+    "explanation": "Blue-green, canary, and shadow keep the old version live alongside the new one. Big bang and recreate replace the old version.",
+    "categories": [
+      "Runs both versions",
+      "Replaces the old version"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "Blue-Green deployment",
+        "category": "Runs both versions"
+      },
+      {
+        "id": "s2",
+        "text": "Canary deployment",
+        "category": "Runs both versions"
+      },
+      {
+        "id": "s3",
+        "text": "Shadow deployment",
+        "category": "Runs both versions"
+      },
+      {
+        "id": "s4",
+        "text": "Big Bang deployment",
+        "category": "Replaces the old version"
+      },
+      {
+        "id": "s5",
+        "text": "Recreate deployment",
+        "category": "Replaces the old version"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-149",
+    "topic": "Deployment Strategies",
+    "question": "In the scenario where a company skipped testing and staging, which strategy would have reduced risk by exposing the update to a small group first?",
+    "choices": [
+      "Canary deployment",
+      "Big Bang deployment",
+      "Recreate deployment",
+      "Skipping QA"
+    ],
+    "answer": "Canary deployment",
+    "explanation": "Canary introduces the new version gradually, allowing performance monitoring and easier rollback."
+  },
+  {
+    "id": "ipt2-150",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "What is the working directory in Git?",
+    "choices": [
+      "The local folder where a project's files are stored",
+      "The folder Git creates to store its object database",
+      "A web page on GitHub",
+      "A file that lists staged changes"
+    ],
+    "answer": "The local folder where a project's files are stored",
+    "explanation": "Any folder on your system can be a working directory. It is distinct from the .git directory."
+  },
+  {
+    "id": "ipt2-151",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Where do committed files live?",
+    "choices": [
+      "The Git directory (.git repository)",
+      "The working directory",
+      "The staging area",
+      "The remote URL only"
+    ],
+    "answer": "The Git directory (.git repository)",
+    "explanation": "Files in the committed state are stored in the Git directory."
+  },
+  {
+    "id": "ipt2-152",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Which alternate name does Git use for the staging area?",
+    "choices": [
+      "Index",
+      "Origin",
+      "Master",
+      "Remote"
+    ],
+    "answer": "Index",
+    "explanation": "The staging area, also known as the 'index', is usually found within the .git directory."
+  },
+  {
+    "id": "ipt2-153",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Which command renames an existing remote?",
+    "choices": [
+      "git remote rename",
+      "git remote add",
+      "git push -u",
+      "git clone -o"
+    ],
+    "answer": "git remote rename",
+    "explanation": "'git remote rename theCurrentURLName yourNewURLName' changes the short name locally."
+  },
+  {
+    "id": "ipt2-154",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "What does 'git clone -o yourPreferredName' do?",
+    "choices": [
+      "Names the cloned remote something other than the default origin",
+      "Deletes the remote",
+      "Pushes the master branch",
+      "Shows the remote URLs"
+    ],
+    "answer": "Names the cloned remote something other than the default origin",
+    "explanation": "When you clone a remote repository, Git names its URL origin automatically; -o lets you choose another name."
+  },
+  {
+    "id": "ipt2-155",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "What does 'git push -u origin master' push?",
+    "choices": [
+      "Your local master branch to the remote master branch at origin",
+      "The remote master branch to your local machine",
+      "Only the staging area",
+      "Every file in the working directory, staged or not"
+    ],
+    "answer": "Your local master branch to the remote master branch at origin",
+    "explanation": "The command pushes the local master branch to the remote at the URL nicknamed origin, and -u links the two branches."
+  },
+  {
+    "id": "ipt2-156",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "What is the format of a site published with GitHub Pages?",
+    "choices": [
+      "https://your-username.github.io/your-github-repo-name/",
+      "https://github.com/your-username/pages",
+      "https://pages.git/your-repo",
+      "http://localhost/your-repo"
+    ],
+    "answer": "https://your-username.github.io/your-github-repo-name/",
+    "explanation": "After changing the Source branch, GitHub shows a notification that your site is published at this URL."
+  },
+  {
+    "id": "ipt2-157",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "What does GitHub provide that encourages participation in open-source projects?",
+    "choices": [
+      "A secure way to edit files in another user's repository",
+      "Free hardware",
+      "Automatic bug fixing",
+      "A compiler"
+    ],
+    "answer": "A secure way to edit files in another user's repository",
+    "explanation": "GitHub facilitates sharing and collaboration and encourages broader participation in open-source projects."
+  },
+  {
+    "id": "ipt2-158",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Which step in hosting on GitHub uses 'git remote -v'?",
+    "choices": [
+      "Confirm the connection",
+      "Sign up for an account",
+      "Create a remote repository",
+      "Confirm the upload"
+    ],
+    "answer": "Confirm the connection",
+    "explanation": "After connecting, run git remote -v and check that the displayed URL is the intended remote URL."
+  },
+  {
+    "id": "ipt2-159",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Which step comes right after signing up for a GitHub account?",
+    "choices": [
+      "Create a remote repository",
+      "Push the local repository",
+      "Publish with GitHub Pages",
+      "Confirm the upload"
+    ],
+    "answer": "Create a remote repository",
+    "explanation": "Create a 'home' (repository) on GitHub for the Git repository you want to share."
+  },
+  {
+    "id": "ipt2-160",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "What should you do after pushing to confirm the upload worked?",
+    "choices": [
+      "Go to your GitHub repository page (refresh if needed)",
+      "Delete the local repository",
+      "Rename origin",
+      "Run git clone -o"
+    ],
+    "answer": "Go to your GitHub repository page (refresh if needed)",
+    "explanation": "You may need to refresh the remote repository's page for the changes to appear."
+  },
+  {
+    "id": "ipt2-161",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "What can Git do with a file's versions?",
+    "choices": [
+      "Retrieve any version at any time and compare what changed, who made changes, or who reported an issue",
+      "Only store the latest version",
+      "Only store the first version",
+      "Automatically delete old versions"
+    ],
+    "answer": "Retrieve any version at any time and compare what changed, who made changes, or who reported an issue",
+    "explanation": "Git tracks versions so you can always review what was changed and by whom."
+  },
+  {
+    "id": "ipt2-162",
+    "topic": "Version Control (Git & GitHub)",
+    "type": "matching",
+    "question": "Match each Git file state to where the file is located.",
+    "explanation": "The state of a file determines where Git places it.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "Modified",
+        "right": "Working directory"
+      },
+      {
+        "id": "p2",
+        "left": "Staged",
+        "right": "Staging area (index)"
+      },
+      {
+        "id": "p3",
+        "left": "Committed",
+        "right": "Git directory (.git)"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-163",
+    "topic": "Version Control (Git & GitHub)",
+    "type": "sorting",
+    "question": "Sort each statement under the Git location it describes.",
+    "explanation": "Modified → working directory; staged → staging area; committed → Git directory.",
+    "categories": [
+      "Working Directory",
+      "Staging Area",
+      "Git Directory"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "Any folder on your system can serve as this",
+        "category": "Working Directory"
+      },
+      {
+        "id": "s2",
+        "text": "Also called the index",
+        "category": "Staging Area"
+      },
+      {
+        "id": "s3",
+        "text": "What gets copied when you clone a repository",
+        "category": "Git Directory"
+      },
+      {
+        "id": "s4",
+        "text": "Holds files ready to be committed",
+        "category": "Staging Area"
+      },
+      {
+        "id": "s5",
+        "text": "Holds modified files",
+        "category": "Working Directory"
+      },
+      {
+        "id": "s6",
+        "text": "Stores object databases and metadata",
+        "category": "Git Directory"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-164",
+    "topic": "Version Control (Git & GitHub)",
+    "type": "matching",
+    "question": "Match each GitHub Pages step to what you do.",
+    "explanation": "Follow the five steps in order to publish a repository as a website.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "Step 1",
+        "right": "Make sure the main HTML file is index.html"
+      },
+      {
+        "id": "p2",
+        "left": "Step 2",
+        "right": "Open the repository's Settings tab"
+      },
+      {
+        "id": "p3",
+        "left": "Step 3",
+        "right": "Go to the Pages section"
+      },
+      {
+        "id": "p4",
+        "left": "Step 4",
+        "right": "Change the Source branch from none to master"
+      },
+      {
+        "id": "p5",
+        "left": "Step 5",
+        "right": "See your site live at your-username.github.io"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-165",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Refer to the exhibit. What should 'yourreponame' be replaced with?",
+    "exhibit": "git remote add origin https://github.com/yourusername/yourreponame.git",
+    "choices": [
+      "The name of the remote repository you want to connect to",
+      "Your GitHub password",
+      "The local folder path",
+      "The name of the branch"
+    ],
+    "answer": "The name of the remote repository you want to connect to",
+    "explanation": "Replace yourusername with your GitHub username and yourreponame with the remote repository's name."
+  },
+  {
+    "id": "ipt2-166",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Refer to the exhibit. What is 'origin' in this command?",
+    "exhibit": "git push -u origin master",
+    "choices": [
+      "The short name for the remote URL",
+      "The branch name",
+      "The GitHub username",
+      "The file to be pushed"
+    ],
+    "answer": "The short name for the remote URL",
+    "explanation": "In 'git push -u origin master', origin is the nickname for the remote and master is the branch."
+  },
+  {
+    "id": "ipt2-167",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Which file state means the changes are selected and ready to be saved in the next commit?",
+    "choices": [
+      "Staged",
+      "Modified",
+      "Cloned",
+      "Pushed"
+    ],
+    "answer": "Staged",
+    "explanation": "Staging a file means you explicitly told Git to keep track of this version for the next commit."
+  },
+  {
+    "id": "ipt2-168",
+    "topic": "Version Control (Git & GitHub)",
+    "question": "Which statement about Git and GitHub is true?",
+    "choices": [
+      "You can use Git independently of GitHub",
+      "GitHub is required to run Git",
+      "Git hosts repositories online",
+      "GitHub tracks local file versions on your machine"
+    ],
+    "answer": "You can use Git independently of GitHub",
+    "explanation": "Git runs locally; GitHub hosts Git repositories online."
+  },
+  {
+    "id": "ipt2-169",
+    "topic": "Software-to-Software Communication",
+    "question": "A browser requests a page from a server and waits for the response before continuing. Which communication type is this?",
+    "choices": [
+      "Synchronous",
+      "Asynchronous",
+      "Event-driven",
+      "Queued"
+    ],
+    "answer": "Synchronous",
+    "explanation": "Synchronous communication is real-time request and wait, like an HTTP request."
+  },
+  {
+    "id": "ipt2-170",
+    "topic": "Software-to-Software Communication",
+    "question": "An order service emits an 'order placed' event that other services react to independently. Which style is this?",
+    "choices": [
+      "Event-driven (asynchronous)",
+      "Synchronous RPC",
+      "Big bang",
+      "Blue-green"
+    ],
+    "answer": "Event-driven (asynchronous)",
+    "explanation": "Event-driven architectures emit events that other systems subscribe to and react to asynchronously."
+  },
+  {
+    "id": "ipt2-171",
+    "topic": "Software-to-Software Communication",
+    "question": "Which two are asynchronous communication styles? (Choose two.)",
+    "choices": [
+      "Message queues",
+      "Event-driven architectures",
+      "HTTP requests",
+      "Remote Procedure Calls"
+    ],
+    "answers": [
+      "Message queues",
+      "Event-driven architectures"
+    ],
+    "answer": "Message queues",
+    "explanation": "Asynchronous communication sends messages that are processed independently, without waiting for a response."
+  },
+  {
+    "id": "ipt2-172",
+    "topic": "Software-to-Software Communication",
+    "question": "Where can software-to-software communication occur?",
+    "choices": [
+      "Over a network or within a single system",
+      "Only over the internet",
+      "Only between two computers",
+      "Only inside a database"
+    ],
+    "answer": "Over a network or within a single system",
+    "explanation": "It can happen between applications or components over a network or within one system."
+  },
+  {
+    "id": "ipt2-173",
+    "topic": "Software-to-Software Communication",
+    "question": "Which is a real-world example of a mobile app or web app using software-to-software communication?",
+    "choices": [
+      "A web application fetching data from a database",
+      "A user printing a document",
+      "A keyboard connecting to a computer",
+      "A monitor displaying video"
+    ],
+    "answer": "A web application fetching data from a database",
+    "explanation": "Web apps, mobile apps calling cloud services, and microservices are examples in the lesson."
+  },
+  {
+    "id": "ipt2-174",
+    "topic": "Software-to-Software Communication",
+    "type": "matching",
+    "question": "Match each protocol or technology to its typical use.",
+    "explanation": "Microservices often use HTTP/HTTPS, gRPC, or message queues; IoT devices often use MQTT or CoAP.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "HTTP/HTTPS",
+        "right": "Client-server communication between browser and server"
+      },
+      {
+        "id": "p2",
+        "left": "gRPC",
+        "right": "Communication between microservices"
+      },
+      {
+        "id": "p3",
+        "left": "MQTT",
+        "right": "IoT devices communicating with cloud platforms"
+      },
+      {
+        "id": "p4",
+        "left": "CoAP",
+        "right": "IoT device communication"
+      },
+      {
+        "id": "p5",
+        "left": "Message queues",
+        "right": "Asynchronous communication processed at the receiver's pace"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-175",
+    "topic": "Software-to-Software Communication",
+    "type": "sorting",
+    "question": "Sort each item as a Challenge or a Future Trend.",
+    "explanation": "Challenges: interoperability, security, latency. Future trends: edge computing, 5G, and AI/ML integration.",
+    "categories": [
+      "Challenge",
+      "Future Trend"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "Interoperability",
+        "category": "Challenge"
+      },
+      {
+        "id": "s2",
+        "text": "Security",
+        "category": "Challenge"
+      },
+      {
+        "id": "s3",
+        "text": "Latency",
+        "category": "Challenge"
+      },
+      {
+        "id": "s4",
+        "text": "Edge Computing",
+        "category": "Future Trend"
+      },
+      {
+        "id": "s5",
+        "text": "5G Networks",
+        "category": "Future Trend"
+      },
+      {
+        "id": "s6",
+        "text": "AI and Machine Learning Integration",
+        "category": "Future Trend"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-176",
+    "topic": "Software-to-Software Communication",
+    "question": "Protecting data during transmission over public networks using encryption and secure protocols addresses which challenge?",
+    "choices": [
+      "Security",
+      "Latency",
+      "Interoperability",
+      "Scalability"
+    ],
+    "answer": "Security",
+    "explanation": "Security is a challenge especially over public networks."
+  },
+  {
+    "id": "ipt2-177",
+    "topic": "Software-to-Software Communication",
+    "question": "Which future trend moves processing closer to the data source?",
+    "choices": [
+      "Edge computing",
+      "5G networks",
+      "AI integration",
+      "Big bang"
+    ],
+    "answer": "Edge computing",
+    "explanation": "Edge computing reduces latency and improves communication efficiency."
+  },
+  {
+    "id": "ipt2-178",
+    "topic": "Software-to-Software Communication",
+    "question": "Which future trend provides faster, more reliable communication, especially for IoT and mobile?",
+    "choices": [
+      "5G networks",
+      "Edge computing",
+      "Message queues",
+      "RPC"
+    ],
+    "answer": "5G networks",
+    "explanation": "5G improves communication between devices."
+  },
+  {
+    "id": "ipt2-179",
+    "topic": "Software-to-Software Communication",
+    "question": "Which future trend enables protocols that optimize interactions based on context?",
+    "choices": [
+      "AI and Machine Learning integration",
+      "Edge computing",
+      "5G networks",
+      "Recreate deployment"
+    ],
+    "answer": "AI and Machine Learning integration",
+    "explanation": "AI/ML integration enables smarter, more adaptive communication protocols and systems."
+  },
+  {
+    "id": "ipt2-180",
+    "topic": "Software-to-Software Communication",
+    "question": "Why is efficient software communication important today?",
+    "choices": [
+      "It lets applications work together to provide integrated, cohesive user experiences",
+      "It removes the need for databases",
+      "It makes every app run offline",
+      "It replaces testing"
+    ],
+    "answer": "It lets applications work together to provide integrated, cohesive user experiences",
+    "explanation": "Systems can share information even if built with different technologies."
+  },
+  {
+    "id": "ipt2-181",
+    "topic": "Software-to-Software Communication",
+    "question": "Which architecture has multiple independent services communicating to form a larger application?",
+    "choices": [
+      "Microservices architecture",
+      "Monolithic desktop app",
+      "Static website",
+      "Local development environment"
+    ],
+    "answer": "Microservices architecture",
+    "explanation": "Microservices often use HTTP/HTTPS, gRPC, or message queues."
+  },
+  {
+    "id": "ipt2-182",
+    "topic": "Software-to-Software Communication",
+    "question": "Which communication style does not require the sender to wait for a response?",
+    "choices": [
+      "Asynchronous",
+      "Synchronous",
+      "HTTP GET",
+      "RPC"
+    ],
+    "answer": "Asynchronous",
+    "explanation": "In asynchronous communication, messages are processed independently."
+  },
+  {
+    "id": "ipt2-183",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Server-side scripting is a technique used in which kind of development?",
+    "choices": [
+      "Backend development",
+      "Front-end styling only",
+      "Hardware design",
+      "Network cabling"
+    ],
+    "answer": "Backend development",
+    "explanation": "Scripts run on a web server and respond to client requests via HTTP."
+  },
+  {
+    "id": "ipt2-184",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which of the following is NOT part of an HTTP request?",
+    "choices": [
+      "A URL identifying the resource",
+      "A method defining the action",
+      "Optional URL parameters, POST data, or cookies",
+      "The server's database password"
+    ],
+    "answer": "The server's database password",
+    "explanation": "Requests include a URL, a method, and may include URL parameters, POST data, or cookies."
+  },
+  {
+    "id": "ipt2-185",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "How is data passed in a GET request such as .../search?client=safari&q=photography?",
+    "choices": [
+      "As a query string in the URL",
+      "In a cookie only",
+      "In the request body",
+      "In the response header"
+    ],
+    "answer": "As a query string in the URL",
+    "explanation": "URL parameters are field-value pairs sent via a query string."
+  },
+  {
+    "id": "ipt2-186",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which status code category is 200 OK?",
+    "choices": [
+      "2xx success",
+      "1xx informational",
+      "4xx client error",
+      "5xx server error"
+    ],
+    "answer": "2xx success",
+    "explanation": "1xx informational, 2xx success, 3xx redirect, 4xx client error, 5xx server error."
+  },
+  {
+    "id": "ipt2-187",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which category is 303 See Other?",
+    "choices": [
+      "3xx redirect",
+      "2xx success",
+      "4xx client error",
+      "5xx server error"
+    ],
+    "answer": "3xx redirect",
+    "explanation": "303 means the resource moved; see the location header."
+  },
+  {
+    "id": "ipt2-188",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which category does 500 Server Error belong to?",
+    "choices": [
+      "5xx server error",
+      "4xx client error",
+      "3xx redirect",
+      "2xx success"
+    ],
+    "answer": "5xx server error",
+    "explanation": "5xx codes are server errors."
+  },
+  {
+    "id": "ipt2-189",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "What does an HTTP DELETE request do?",
+    "choices": [
+      "Deletes the specified resource",
+      "Retrieves headers",
+      "Replaces a resource",
+      "Sends form data"
+    ],
+    "answer": "Deletes the specified resource",
+    "explanation": "DELETE is idempotent, and its results cannot be cached."
+  },
+  {
+    "id": "ipt2-190",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which HTTP method replaces a representation of the target resource with the request payload?",
+    "choices": [
+      "PUT",
+      "POST",
+      "HEAD",
+      "OPTIONS"
+    ],
+    "answer": "PUT",
+    "explanation": "PUT is idempotent; POST is not."
+  },
+  {
+    "id": "ipt2-191",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which two methods are idempotent but NOT safe? (Choose two.)",
+    "choices": [
+      "PUT",
+      "DELETE",
+      "GET",
+      "HEAD"
+    ],
+    "answers": [
+      "PUT",
+      "DELETE"
+    ],
+    "answer": "PUT",
+    "explanation": "GET and HEAD are safe (read-only). PUT and DELETE change server state but are idempotent."
+  },
+  {
+    "id": "ipt2-192",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which methods are safe (do not change server state)?",
+    "choices": [
+      "GET, HEAD, and OPTIONS",
+      "POST, PUT, and DELETE",
+      "PUT and DELETE only",
+      "POST only"
+    ],
+    "answer": "GET, HEAD, and OPTIONS",
+    "explanation": "Safe methods are read-only operations."
+  },
+  {
+    "id": "ipt2-193",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which statement about idempotent methods is correct?",
+    "choices": [
+      "Repeating an identical request leaves the server in the same state",
+      "They always return the same status code",
+      "They can never change server state",
+      "POST is idempotent"
+    ],
+    "answer": "Repeating an identical request leaves the server in the same state",
+    "explanation": "Only the back-end state is considered; status codes may differ (e.g., DELETE returns 200 then 404)."
+  },
+  {
+    "id": "ipt2-194",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Why should developers avoid implementing 'delete last entry' with DELETE in a RESTful API?",
+    "choices": [
+      "DELETE is idempotent, so repeated calls should not delete different resources",
+      "DELETE is not allowed by HTTP",
+      "DELETE always returns 500",
+      "DELETE only works with HTML"
+    ],
+    "answer": "DELETE is idempotent, so repeated calls should not delete different resources",
+    "explanation": "An idempotent method should have the same effect if repeated."
+  },
+  {
+    "id": "ipt2-195",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which statement about cacheable responses is correct?",
+    "choices": [
+      "PUT and DELETE results cannot be cached",
+      "POST is always cached",
+      "DELETE is always cached",
+      "Nothing can be cached"
+    ],
+    "answer": "PUT and DELETE results cannot be cached",
+    "explanation": "Only GET and HEAD are typically cacheable; POST or PATCH responses can be cached in rare cases."
+  },
+  {
+    "id": "ipt2-196",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "What does a conditional GET reduce?",
+    "choices": [
+      "Unnecessary network usage",
+      "Server security",
+      "The number of HTTP methods",
+      "Database size"
+    ],
+    "answer": "Unnecessary network usage",
+    "explanation": "Conditional GET (If-Modified-Since, If-None-Match, etc.) transfers the entity only under described circumstances so cached copies can be refreshed."
+  },
+  {
+    "id": "ipt2-197",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "In the client-server flow, what does the web application do with the database and HTML templates?",
+    "choices": [
+      "Reads/writes data and builds HTML to return through the web server",
+      "Only stores static images",
+      "Only sends cookies",
+      "Compiles the browser"
+    ],
+    "answer": "Reads/writes data and builds HTML to return through the web server",
+    "explanation": "The web application processes request data, interacts with the database, and returns HTML built from templates."
+  },
+  {
+    "id": "ipt2-198",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Static resources like CSS, JavaScript, and images are served by which component?",
+    "choices": [
+      "The web server, from files",
+      "The browser only",
+      "The database",
+      "The compiler"
+    ],
+    "answer": "The web server, from files",
+    "explanation": "In the diagram, static resources come from files through the web server."
+  },
+  {
+    "id": "ipt2-199",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Why might a server return JSON or XML instead of full HTML?",
+    "choices": [
+      "For client-side frameworks to render, reducing server processing and data sent",
+      "Because browsers cannot read HTML",
+      "Because JSON is binary",
+      "To disable caching"
+    ],
+    "answer": "For client-side frameworks to render, reducing server processing and data sent",
+    "explanation": "This reduces the processing burden on the server and the amount of data that needs to be sent."
+  },
+  {
+    "id": "ipt2-200",
+    "topic": "Server-Side Scripting & HTTP",
+    "type": "matching",
+    "question": "Match each benefit of server-side programming to its example.",
+    "explanation": "Benefits: efficient storage and delivery, customized experience, controlled access, performance, notifications, data analysis, easy to update.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "Efficient storage and delivery",
+        "right": "Amazon storing products in a database and building pages dynamically"
+      },
+      {
+        "id": "p2",
+        "left": "Customized user experience",
+        "right": "Google Maps using saved locations for routing"
+      },
+      {
+        "id": "p3",
+        "left": "Notifications and communication",
+        "right": "Facebook sending emails and SMS about new communications"
+      },
+      {
+        "id": "p4",
+        "left": "Data analysis",
+        "right": "Amazon advertising based on previous searches and purchases"
+      },
+      {
+        "id": "p5",
+        "left": "Easy to update",
+        "right": "Changing two template files instead of every .html file"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-201",
+    "topic": "Server-Side Scripting & HTTP",
+    "type": "sorting",
+    "question": "Sort each HTTP method as Safe or Not Safe.",
+    "explanation": "Safe methods are read-only: GET, HEAD, OPTIONS.",
+    "categories": [
+      "Safe",
+      "Not Safe"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "GET",
+        "category": "Safe"
+      },
+      {
+        "id": "s2",
+        "text": "HEAD",
+        "category": "Safe"
+      },
+      {
+        "id": "s3",
+        "text": "OPTIONS",
+        "category": "Safe"
+      },
+      {
+        "id": "s4",
+        "text": "POST",
+        "category": "Not Safe"
+      },
+      {
+        "id": "s5",
+        "text": "PUT",
+        "category": "Not Safe"
+      },
+      {
+        "id": "s6",
+        "text": "DELETE",
+        "category": "Not Safe"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-202",
+    "topic": "Server-Side Scripting & HTTP",
+    "type": "sorting",
+    "question": "Sort each HTTP method as Cacheable or Not Cacheable.",
+    "explanation": "GET and HEAD are cacheable; PUT and DELETE results cannot be cached.",
+    "categories": [
+      "Cacheable",
+      "Not Cacheable"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "GET",
+        "category": "Cacheable"
+      },
+      {
+        "id": "s2",
+        "text": "HEAD",
+        "category": "Cacheable"
+      },
+      {
+        "id": "s3",
+        "text": "PUT",
+        "category": "Not Cacheable"
+      },
+      {
+        "id": "s4",
+        "text": "DELETE",
+        "category": "Not Cacheable"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-203",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Refer to the exhibit. Which HTTP methods does the server allow?",
+    "exhibit": "HTTP/1.1 204 No Content\nAllow: OPTIONS, GET, HEAD, POST\nCache-Control: max-age=604800\nDate: Thu, 13 Oct 2016 11:45:00 GMT\nServer: EOS (lax004/2813)",
+    "choices": [
+      "OPTIONS, GET, HEAD, POST",
+      "PUT and DELETE only",
+      "GET only",
+      "All HTTP methods"
+    ],
+    "answer": "OPTIONS, GET, HEAD, POST",
+    "explanation": "The Allow header holds the allowed methods."
+  },
+  {
+    "id": "ipt2-204",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Refer to the exhibit. What does the query string carry?",
+    "exhibit": "GET http://www.google.com/search?client=safari&rls=en&q=photography&ie=UTF-8&oe=UTF-8",
+    "choices": [
+      "Field-value pairs such as client=safari and q=photography",
+      "The response body",
+      "The server's headers",
+      "A binary file"
+    ],
+    "answer": "Field-value pairs such as client=safari and q=photography",
+    "explanation": "GET passes data as a query string in the URL."
+  },
+  {
+    "id": "ipt2-205",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Refer to the exhibit. Why is POST not idempotent?",
+    "exhibit": "POST /add_row HTTP/1.1\nPOST /add_row HTTP/1.1  -> Adds a 2nd row\nPOST /add_row HTTP/1.1  -> Adds a 3rd row",
+    "choices": [
+      "Each POST adds another row",
+      "The status code changes",
+      "The server crashes",
+      "POST is safe"
+    ],
+    "answer": "Each POST adds another row",
+    "explanation": "Successive identical POSTs may have additional effects."
+  },
+  {
+    "id": "ipt2-206",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Server-side programming supports customizing content for a user's location, time of day, and language. Which benefit is this?",
+    "choices": [
+      "Customized user experience",
+      "Controlled access to content",
+      "Performance",
+      "Easy to update"
+    ],
+    "answer": "Customized user experience",
+    "explanation": "Dynamic websites display different content depending on demographics, time of day, location, language settings, habits, and interests."
+  },
+  {
+    "id": "ipt2-207",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which benefit says server-compiled code can run faster than code built on the client, especially when pages are cached?",
+    "choices": [
+      "Performance",
+      "Data analysis",
+      "Notifications and communication",
+      "Easy to update"
+    ],
+    "answer": "Performance",
+    "explanation": "Performance is a listed benefit of server-side programming."
+  },
+  {
+    "id": "ipt2-208",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which benefit includes warnings sent to site administrators about low memory or suspicious activity?",
+    "choices": [
+      "Notifications and communication",
+      "Controlled access to content",
+      "Performance",
+      "Easy to update"
+    ],
+    "answer": "Notifications and communication",
+    "explanation": "Servers can send notifications by website, email, SMS, instant messaging, video conversations, and more."
+  },
+  {
+    "id": "ipt2-209",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "Which pair consists of server-side scripting languages named in the lesson?",
+    "choices": [
+      "Python and Ruby",
+      "HTML and CSS",
+      "Selenium and JUnit",
+      "Prometheus and Nagios"
+    ],
+    "answer": "Python and Ruby",
+    "explanation": "Popular tools include PHP, ASP.NET, Node.js, Java, Ruby, Perl, and Python."
+  },
+  {
+    "id": "ipt2-210",
+    "topic": "Server-Side Scripting & HTTP",
+    "question": "What does a 404 status code mean?",
+    "choices": [
+      "Not Found: the resource doesn't exist",
+      "Server error",
+      "Success",
+      "Redirect"
+    ],
+    "answer": "Not Found: the resource doesn't exist",
+    "explanation": "404 belongs to the 4xx client error category."
+  },
+  {
+    "id": "ipt2-211",
+    "topic": "Data Exchange Formats",
+    "question": "Which characteristic means data exchange formats can be used across different operating systems, languages, and hardware?",
+    "choices": [
+      "Platform independence",
+      "Human readability",
+      "Hierarchical representation",
+      "Binary encoding"
+    ],
+    "answer": "Platform independence",
+    "explanation": "Formats are designed to be platform-agnostic."
+  },
+  {
+    "id": "ipt2-212",
+    "topic": "Data Exchange Formats",
+    "question": "What is JSON's file extension?",
+    "choices": [
+      ".json",
+      ".js",
+      ".txt",
+      ".jsn"
+    ],
+    "answer": ".json",
+    "explanation": "JSON uses .json, application/json, and public.json."
+  },
+  {
+    "id": "ipt2-213",
+    "topic": "Data Exchange Formats",
+    "question": "What is JSON's Uniform Type Identifier?",
+    "choices": [
+      "public.json",
+      "application/json",
+      "text/json",
+      "json.public"
+    ],
+    "answer": "public.json",
+    "explanation": "application/json is the Internet media type; public.json is the Uniform Type Identifier."
+  },
+  {
+    "id": "ipt2-214",
+    "topic": "Data Exchange Formats",
+    "question": "In XML, what is the root element?",
+    "choices": [
+      "The element that encapsulates all the information about a record",
+      "The last nested element",
+      "The first attribute",
+      "The comment"
+    ],
+    "answer": "The element that encapsulates all the information about a record",
+    "explanation": "In the student example, <student> is the root element."
+  },
+  {
+    "id": "ipt2-215",
+    "topic": "Data Exchange Formats",
+    "question": "What does SOAP stand for?",
+    "choices": [
+      "Simple Object Access Protocol",
+      "Structured Object Application Program",
+      "Simple Online Access Package",
+      "System Object Access Process"
+    ],
+    "answer": "Simple Object Access Protocol",
+    "explanation": "XML is often used in SOAP web services for structured data communication."
+  },
+  {
+    "id": "ipt2-216",
+    "topic": "Data Exchange Formats",
+    "question": "What does YAML stand for?",
+    "choices": [
+      "YAML Ain't Markup Language",
+      "Yet Another Markup Language",
+      "Yielding Access Markup Language",
+      "Young Applied Markup Language"
+    ],
+    "answer": "YAML Ain't Markup Language",
+    "explanation": "YAML is a human-readable data serialization format, described in the lesson as a superset of JSON."
+  },
+  {
+    "id": "ipt2-217",
+    "topic": "Data Exchange Formats",
+    "question": "Which CSV row usually contains the column names?",
+    "choices": [
+      "The first row",
+      "The last row",
+      "Every row",
+      "There are none"
+    ],
+    "answer": "The first row",
+    "explanation": "The first row often contains headers that define column names."
+  },
+  {
+    "id": "ipt2-218",
+    "topic": "Data Exchange Formats",
+    "question": "Which Protobuf feature reduces errors when exchanging data between systems?",
+    "choices": [
+      "Type safety (strongly typed data)",
+      "Human readability",
+      "Comments",
+      "Indentation"
+    ],
+    "answer": "Type safety (strongly typed data)",
+    "explanation": "Protobuf supports strongly-typed data."
+  },
+  {
+    "id": "ipt2-219",
+    "topic": "Data Exchange Formats",
+    "question": "Which Protobuf feature enables backward and forward compatibility as data structures evolve?",
+    "choices": [
+      "Its schema (.proto file)",
+      "Its file extension",
+      "Its indentation",
+      "Its commas"
+    ],
+    "answer": "Its schema (.proto file)",
+    "explanation": "The schema clearly specifies the types and organization of the data."
+  },
+  {
+    "id": "ipt2-220",
+    "topic": "Data Exchange Formats",
+    "question": "What is gRPC?",
+    "choices": [
+      "Google's RPC framework that commonly uses Protobuf",
+      "A spreadsheet format",
+      "A markup language",
+      "A JavaScript library"
+    ],
+    "answer": "Google's RPC framework that commonly uses Protobuf",
+    "explanation": "Protobuf is often used in APIs, especially gRPC, to serialize and deserialize request and response messages."
+  },
+  {
+    "id": "ipt2-221",
+    "topic": "Data Exchange Formats",
+    "question": "Which format is generally faster and smaller than text-based JSON or XML because it uses binary encoding?",
+    "choices": [
+      "Protobuf",
+      "CSV",
+      "YAML",
+      "XML"
+    ],
+    "answer": "Protobuf",
+    "explanation": "Protobuf is compact and efficient."
+  },
+  {
+    "id": "ipt2-222",
+    "topic": "Data Exchange Formats",
+    "type": "sorting",
+    "question": "Sort each format as Hierarchical or Flat.",
+    "explanation": "CSV is flat and does not support nested or hierarchical data; JSON, XML, and YAML can nest.",
+    "categories": [
+      "Hierarchical",
+      "Flat"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "JSON",
+        "category": "Hierarchical"
+      },
+      {
+        "id": "s2",
+        "text": "XML",
+        "category": "Hierarchical"
+      },
+      {
+        "id": "s3",
+        "text": "YAML",
+        "category": "Hierarchical"
+      },
+      {
+        "id": "s4",
+        "text": "CSV",
+        "category": "Flat"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-223",
+    "topic": "Data Exchange Formats",
+    "type": "matching",
+    "question": "Match each use to the best-fitting format.",
+    "explanation": "Each format has typical uses listed in the lesson.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "RESTful API data exchange",
+        "right": "JSON"
+      },
+      {
+        "id": "p2",
+        "left": "RSS feeds and Microsoft Office files",
+        "right": "XML"
+      },
+      {
+        "id": "p3",
+        "left": "Docker Compose and Kubernetes configuration",
+        "right": "YAML"
+      },
+      {
+        "id": "p4",
+        "left": "Importing/exporting spreadsheet data",
+        "right": "CSV"
+      },
+      {
+        "id": "p5",
+        "left": "Efficient microservice communication",
+        "right": "Protobuf"
+      }
+    ]
+  },
+  {
+    "id": "ipt2-224",
+    "topic": "Data Exchange Formats",
+    "question": "Refer to the exhibit. What does 'syntax = \"proto3\";' specify?",
+    "exhibit": "syntax = \"proto3\";",
+    "choices": [
+      "The Protobuf version used",
+      "The data type of a field",
+      "The name of the message",
+      "The file extension"
+    ],
+    "answer": "The Protobuf version used",
+    "explanation": "Protobuf 3 is the most commonly used version today."
+  },
+  {
+    "id": "ipt2-225",
+    "topic": "Data Exchange Formats",
+    "question": "Refer to the exhibit. What is the Name message used for?",
+    "exhibit": "message Name {\n    string first_name = 1;\n    string last_name = 2;\n}",
+    "choices": [
+      "Structuring the student's name",
+      "Holding the subject list",
+      "Specifying the Protobuf version",
+      "Storing credits"
+    ],
+    "answer": "Structuring the student's name",
+    "explanation": "Name and Subject are nested messages defining the structure of the name and each subject."
+  },
+  {
+    "id": "ipt2-226",
+    "topic": "Data Exchange Formats",
+    "question": "Refer to the exhibit. What does <subjects> contain?",
+    "exhibit": "<subjects>\n  <subject>\n    <subject_code>CS101</subject_code>\n  </subject>\n</subjects>",
+    "choices": [
+      "A list of <subject> elements",
+      "Only the student's ID",
+      "A single string",
+      "The root element"
+    ],
+    "answer": "A list of <subject> elements",
+    "explanation": "Each <subject> includes <subject_code>, <subject_name>, and <credits>."
+  },
+  {
+    "id": "ipt2-227",
+    "topic": "Data Exchange Formats",
+    "question": "Refer to the exhibit. What do the square brackets [] represent in JSON?",
+    "exhibit": "\"subjects\": [\n  { \"subject_code\": \"CS101\" },\n  { \"subject_code\": \"MATH201\" }\n]",
+    "choices": [
+      "An ordered list (array)",
+      "An object",
+      "A comment",
+      "A string"
+    ],
+    "answer": "An ordered list (array)",
+    "explanation": "Square brackets hold arrays; curly braces hold objects."
+  },
+  {
+    "id": "ipt2-228",
+    "topic": "Data Exchange Formats",
+    "question": "Which format allows comments, making it useful for documenting configuration files?",
+    "choices": [
+      "YAML",
+      "JSON",
+      "CSV",
+      "Protobuf"
+    ],
+    "answer": "YAML",
+    "explanation": "YAML is human-readable and supports comments."
+  },
+  {
+    "id": "ipt2-229",
+    "topic": "Data Exchange Formats",
+    "question": "Which two are listed as other data formats in the lesson? (Choose two.)",
+    "choices": [
+      "Apache Parquet",
+      "INTERLIS",
+      "SQL",
+      "HTML"
+    ],
+    "answers": [
+      "Apache Parquet",
+      "INTERLIS"
+    ],
+    "answer": "Apache Parquet",
+    "explanation": "The lesson lists XML, GML, CSV, JSON, Apache Parquet, YAML, REBOL, RDF, Gellish English, GMT grid file format, INTERLIS, and ATOM."
+  },
+  {
+    "id": "ipt2-230",
+    "topic": "Data Exchange Formats",
+    "question": "What does RDF stand for?",
+    "choices": [
+      "Resource Description Framework",
+      "Relational Data Format",
+      "Remote Data File",
+      "Rapid Development Framework"
+    ],
+    "answer": "Resource Description Framework",
+    "explanation": "RDF is listed among the other data formats in the lesson."
+  },
+  {
+    "id": "ipt2-231",
+    "topic": "Data Exchange Formats",
+    "question": "What does REBOL stand for?",
+    "choices": [
+      "Relative Expression Based Object Language",
+      "Remote Extensible Binary Object Language",
+      "Random Expression Based Output Language",
+      "Relational Entity Based Object Library"
+    ],
+    "answer": "Relative Expression Based Object Language",
+    "explanation": "REBOL is listed among the other data formats."
+  },
+  {
+    "id": "ipt2-232",
+    "topic": "Data Exchange Formats",
+    "question": "Which CSV feature makes it compatible with tools like Microsoft Excel and Google Sheets?",
+    "choices": [
+      "It is a simple, widely adopted plain-text format",
+      "It is binary encoded",
+      "It requires a schema file",
+      "It uses XML tags"
+    ],
+    "answer": "It is a simple, widely adopted plain-text format",
+    "explanation": "CSV is lightweight, plain text, and widely supported."
+  },
+  {
+    "id": "ipt2-233",
+    "topic": "Data Exchange Formats",
+    "question": "Why are data exchange formats essential?",
+    "choices": [
+      "They enable interoperability across different platforms and languages",
+      "They replace databases",
+      "They compile code",
+      "They store passwords"
+    ],
+    "answer": "They enable interoperability across different platforms and languages",
+    "explanation": "They are standardized structures so different systems can understand and process data correctly."
   }
 ]

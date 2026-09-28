@@ -50,7 +50,7 @@ export function useProgress(profileName: string | null) {
 
   const [progress, setProgress] = useState<ProgressMap>(() => {
     if (!key || !profileName) return {};
-    return migrateLegacyIfNeeded(profileName) ?? loadProgress(key);
+    return loadProgress(key);
   });
 
   // Reload whenever the active profile changes (switching users).
@@ -59,7 +59,7 @@ export function useProgress(profileName: string | null) {
       setProgress({});
       return;
     }
-    setProgress(migrateLegacyIfNeeded(profileName) ?? loadProgress(key));
+     setProgress(loadProgress(key));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
