@@ -1,21 +1,1629 @@
 [
   {
     "id": "adb-1",
-    "question": "Which normal form eliminates transitive dependencies?",
-    "choices": ["1NF", "2NF", "3NF", "BCNF"],
-    "answer": "3NF",
-    "explanation": "Third Normal Form (3NF) requires that non-key attributes depend only on the primary key, removing transitive dependencies."
+    "topic": "MongoDB CRUD Operations",
+    "question": "What does CRUD stand for in the context of MongoDB (mongosh)?",
+    "choices": [
+      "Create, Read, Update, Delete",
+      "Connect, Retrieve, Undo, Drop",
+      "Copy, Rename, Upload, Download",
+      "Collect, Route, Update, Define"
+    ],
+    "answer": "Create, Read, Update, Delete",
+    "explanation": "The lesson walks through Create, Read, Update, and Delete operations in mongosh."
   },
   {
     "id": "adb-2",
-    "question": "What is the main purpose of database sharding?",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which method inserts a single document into a collection?",
     "choices": [
-      "Encrypting sensitive data",
-      "Horizontally partitioning data across servers for scalability",
-      "Creating backup copies of a database",
-      "Normalizing a database schema"
+      "insertOne()",
+      "insertMany()",
+      "updateOne()",
+      "findOne()"
     ],
-    "answer": "Horizontally partitioning data across servers for scalability",
-    "explanation": "Sharding splits a large database into smaller pieces (shards) distributed across multiple servers to improve performance and scalability."
+    "answer": "insertOne()",
+    "explanation": "insertOne() adds a single document and generates the collection automatically if it doesn't exist."
+  },
+  {
+    "id": "adb-3",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which method inserts an array of documents in a single network round-trip?",
+    "choices": [
+      "insertMany()",
+      "insertOne()",
+      "updateMany()",
+      "createIndex()"
+    ],
+    "answer": "insertMany()",
+    "explanation": "insertMany() inserts an array of documents efficiently in one round-trip, and returns a map of array indexes to insertedIds."
+  },
+  {
+    "id": "adb-4",
+    "topic": "MongoDB CRUD Operations",
+    "question": "If a document is inserted without an _id field, what does MongoDB do?",
+    "choices": [
+      "It automatically generates a 12-byte ObjectId",
+      "It rejects the insert",
+      "It sets _id to null",
+      "It asks the user to supply one before continuing"
+    ],
+    "answer": "It automatically generates a 12-byte ObjectId",
+    "explanation": "An automatic 12-byte ObjectId is generated whenever _id is omitted from the inserted document."
+  },
+  {
+    "id": "adb-5",
+    "topic": "MongoDB CRUD Operations",
+    "question": "What does a successful insertOne() return, besides acknowledged: true?",
+    "choices": [
+      "The generated insertedId",
+      "The entire updated collection",
+      "The previous document",
+      "A cursor object"
+    ],
+    "answer": "The generated insertedId",
+    "explanation": "insertOne() returns acknowledged: true and the insertedId (auto-generated if _id was omitted)."
+  },
+  {
+    "id": "adb-6",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which two comparison operators check whether a field's value is greater than (or equal to) a given value?",
+    "choices": [
+      "$gt / $gte",
+      "$lt / $lte",
+      "$in / $nin",
+      "$and / $or"
+    ],
+    "answer": "$gt / $gte",
+    "explanation": "$gt (greater than) and $gte (greater than or equal) are the comparison filters for values above a threshold."
+  },
+  {
+    "id": "adb-7",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which operator checks whether a field's value exists inside a given array of allowed values?",
+    "choices": [
+      "$in",
+      "$and",
+      "$elemMatch",
+      "$all"
+    ],
+    "answer": "$in",
+    "explanation": "$in matches documents whose field value is inside the given array; $nin is its opposite."
+  },
+  {
+    "id": "adb-8",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which logical operator requires ALL listed conditions to match?",
+    "choices": [
+      "$and",
+      "$or",
+      "$nor",
+      "$not"
+    ],
+    "answer": "$and",
+    "explanation": "$and requires every condition to match. $or requires at least one; $nor fails if any listed condition matches."
+  },
+  {
+    "id": "adb-9",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which operator matches an array field that contains an element satisfying ALL of the given conditions at once?",
+    "choices": [
+      "$elemMatch",
+      "$all",
+      "$in",
+      "dot notation"
+    ],
+    "answer": "$elemMatch",
+    "explanation": "$elemMatch matches documents where at least one array element meets every listed condition simultaneously."
+  },
+  {
+    "id": "adb-10",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which operator matches arrays that contain ALL of the specified items, regardless of order?",
+    "choices": [
+      "$all",
+      "$elemMatch",
+      "$in",
+      "$and"
+    ],
+    "answer": "$all",
+    "explanation": "$all matches arrays containing every specified item, without regard to order or extra items."
+  },
+  {
+    "id": "adb-11",
+    "topic": "MongoDB CRUD Operations",
+    "question": "How do you access a nested field such as a manufacturer inside a 'details' sub-document?",
+    "choices": [
+      "Dot notation, e.g. \"details.manufacturer\"",
+      "Square-bracket notation, e.g. details[manufacturer]",
+      "The $nested operator",
+      "You cannot query nested fields directly"
+    ],
+    "answer": "Dot notation, e.g. \"details.manufacturer\"",
+    "explanation": "MongoDB lets you query deep into sub-documents using dot notation in quotes."
+  },
+  {
+    "id": "adb-12",
+    "topic": "MongoDB CRUD Operations",
+    "question": "In a projection like { name: 1, _id: 0 }, what does the 1 mean?",
+    "choices": [
+      "Include this field in the result",
+      "Exclude this field from the result",
+      "Sort ascending by this field",
+      "Set this field's value to 1"
+    ],
+    "answer": "Include this field in the result",
+    "explanation": "Projections use 1 to include and 0 to exclude a field. _id is included by default unless explicitly set to 0."
+  },
+  {
+    "id": "adb-13",
+    "topic": "MongoDB CRUD Operations",
+    "question": "What is true about the _id field in a projection if you don't mention it at all?",
+    "choices": [
+      "It is included by default",
+      "It is excluded by default",
+      "It causes an error",
+      "It is renamed to id"
+    ],
+    "answer": "It is included by default",
+    "explanation": "_id is included by default unless explicitly excluded with _id: 0."
+  },
+  {
+    "id": "adb-14",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which cursor modifier sorts results in descending order?",
+    "choices": [
+      "sort({ field: -1 })",
+      "sort({ field: 1 })",
+      "limit(-1)",
+      "skip(-1)"
+    ],
+    "answer": "sort({ field: -1 })",
+    "explanation": "-1 sorts descending and 1 sorts ascending in a sort() modifier."
+  },
+  {
+    "id": "adb-15",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which pair of cursor modifiers is used together for pagination?",
+    "choices": [
+      "skip(n) and limit(n)",
+      "sort(n) and project(n)",
+      "find(n) and insert(n)",
+      "$and and $or"
+    ],
+    "answer": "skip(n) and limit(n)",
+    "explanation": "skip(n) skips a number of results and limit(n) caps how many are returned — the standard pagination pair."
+  },
+  {
+    "id": "adb-16",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which field update operator sets or creates a specified field's value?",
+    "choices": [
+      "$set",
+      "$inc",
+      "$unset",
+      "$rename"
+    ],
+    "answer": "$set",
+    "explanation": "$set sets (or creates) the specified field's value without replacing the whole document."
+  },
+  {
+    "id": "adb-17",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which operator increments or decrements a numeric field?",
+    "choices": [
+      "$inc",
+      "$set",
+      "$unset",
+      "$push"
+    ],
+    "answer": "$inc",
+    "explanation": "$inc increases or decreases a numeric field by the given amount (negative values decrement)."
+  },
+  {
+    "id": "adb-18",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which operator removes a field from a document entirely?",
+    "choices": [
+      "$unset",
+      "$set",
+      "$inc",
+      "$pull"
+    ],
+    "answer": "$unset",
+    "explanation": "$unset removes the specified field from the document."
+  },
+  {
+    "id": "adb-19",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which option, when set to true in an update, inserts a new document if no document matches the filter?",
+    "choices": [
+      "upsert: true",
+      "multi: true",
+      "ordered: true",
+      "acknowledged: true"
+    ],
+    "answer": "upsert: true",
+    "explanation": "upsert: true causes the update to insert a new document when no existing document matches the query filter."
+  },
+  {
+    "id": "adb-20",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which method applies an update to every document that matches a filter, not just the first one?",
+    "choices": [
+      "updateMany()",
+      "updateOne()",
+      "insertMany()",
+      "findOne()"
+    ],
+    "answer": "updateMany()",
+    "explanation": "updateMany() applies the given update to all matching documents, while updateOne() only updates the first match."
+  },
+  {
+    "id": "adb-21",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which method removes only the first document that matches a query filter?",
+    "choices": [
+      "deleteOne()",
+      "deleteMany()",
+      "drop()",
+      "findOneAndDelete()"
+    ],
+    "answer": "deleteOne()",
+    "explanation": "deleteOne() removes the first matching document; deleteMany() removes all matches."
+  },
+  {
+    "id": "adb-22",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which method both deletes a document and returns it in the same operation?",
+    "choices": [
+      "findOneAndDelete()",
+      "deleteOne()",
+      "deleteMany()",
+      "drop()"
+    ],
+    "answer": "findOneAndDelete()",
+    "explanation": "findOneAndDelete() deletes the matching document and also returns it, unlike deleteOne() which just removes it."
+  },
+  {
+    "id": "adb-23",
+    "topic": "MongoDB CRUD Operations",
+    "question": "What does db.collection.drop() do?",
+    "choices": [
+      "Drops the entire collection and its indexes",
+      "Deletes one document",
+      "Removes only the indexes, keeping documents",
+      "Deletes the whole database"
+    ],
+    "answer": "Drops the entire collection and its indexes",
+    "explanation": "drop() removes the entire collection, including its indexes — a more drastic operation than deleteMany()."
+  },
+  {
+    "id": "adb-24",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Refer to the exhibit. Which mongosh command produced this result?",
+    "exhibit": "{\n  acknowledged: true,\n  insertedId: ObjectId(\"651f2a3c9d1e4b0012a34567\")\n}",
+    "choices": [
+      "db.col.insertOne({ name: \"A\" })",
+      "db.col.find({ name: \"A\" })",
+      "db.col.updateOne({ name: \"A\" }, { $set: { name: \"A\" } })",
+      "db.col.deleteOne({ name: \"A\" })"
+    ],
+    "answer": "db.col.insertOne({ name: \"A\" })",
+    "explanation": "acknowledged: true with a generated insertedId is the signature response of a successful insertOne()."
+  },
+  {
+    "id": "adb-25",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which two of the following are Read operation methods in mongosh? (Choose two.)",
+    "choices": [
+      "find()",
+      "findOne()",
+      "insertOne()",
+      "deleteOne()"
+    ],
+    "answers": [
+      "find()",
+      "findOne()"
+    ],
+    "answer": "find()",
+    "explanation": "find() and findOne() are Read methods. insertOne() is Create, and deleteOne() is Delete."
+  },
+  {
+    "id": "adb-26",
+    "topic": "MongoDB CRUD Operations",
+    "question": "Which two of the following are valid ways to remove data in MongoDB? (Choose two.)",
+    "choices": [
+      "deleteMany()",
+      "db.collection.drop()",
+      "insertMany()",
+      "$set"
+    ],
+    "answers": [
+      "deleteMany()",
+      "db.collection.drop()"
+    ],
+    "answer": "deleteMany()",
+    "explanation": "deleteMany() removes matching documents; drop() removes the entire collection. insertMany() creates data, and $set modifies a field."
+  },
+  {
+    "id": "adb-27",
+    "topic": "MongoDB Query Operators",
+    "question": "In the sample 'products' collection, which two products have status \"Active\"?",
+    "choices": [
+      "Notebook and Pen",
+      "Mouse and Keyboard",
+      "Notebook and Mouse",
+      "Pen and Keyboard"
+    ],
+    "answer": "Notebook and Mouse",
+    "explanation": "products: Notebook(Active), Pen(Active), Mouse(Active), Keyboard(Discontinued) — so three are Active (Notebook, Pen, Mouse); of the choices given, Notebook and Mouse are both Active."
+  },
+  {
+    "id": "adb-28",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result from the products collection?",
+    "exhibit": "[ { name: \"Notebook\" }, { name: \"Pen\" }, { name: \"Mouse\" } ]",
+    "choices": [
+      "db.products.find({status:{$eq:\"Active\"}},{_id:0,name:1})",
+      "db.products.find({status:{$ne:\"Active\"}},{_id:0,name:1})",
+      "db.products.find({status:{$in:[\"Discontinued\"]}},{_id:0,name:1})",
+      "db.products.find({status:{$not:{$eq:\"Active\"}}},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({status:{$eq:\"Active\"}},{_id:0,name:1})",
+    "explanation": "$eq matches documents whose status is exactly \"Active\": Notebook, Pen, and Mouse."
+  },
+  {
+    "id": "adb-29",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Keyboard\" } ]",
+    "choices": [
+      "db.products.find({status:{$ne:\"Active\"}},{_id:0,name:1})",
+      "db.products.find({status:{$eq:\"Active\"}},{_id:0,name:1})",
+      "db.products.find({status:\"Discontinued\"},{name:0})",
+      "db.products.find({status:{$in:[\"Active\"]}},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({status:{$ne:\"Active\"}},{_id:0,name:1})",
+    "explanation": "$ne (not equal) excludes Active products, leaving only Keyboard (Discontinued)."
+  },
+  {
+    "id": "adb-30",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query, run against products, produced this result?",
+    "exhibit": "[ { name: \"Keyboard\" } ]",
+    "choices": [
+      "db.products.find({price:{$gt:350}},{_id:0,name:1})",
+      "db.products.find({price:{$gte:350}},{_id:0,name:1})",
+      "db.products.find({price:{$lt:350}},{_id:0,name:1})",
+      "db.products.find({price:{$lte:350}},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({price:{$gt:350}},{_id:0,name:1})",
+    "explanation": "$gt 350 matches only prices strictly greater than 350 — only the Keyboard (900)."
+  },
+  {
+    "id": "adb-31",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Mouse\" }, { name: \"Keyboard\" } ]",
+    "choices": [
+      "db.products.find({price:{$gte:350}},{_id:0,name:1})",
+      "db.products.find({price:{$gt:350}},{_id:0,name:1})",
+      "db.products.find({price:{$lte:350}},{_id:0,name:1})",
+      "db.products.find({price:{$eq:350}},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({price:{$gte:350}},{_id:0,name:1})",
+    "explanation": "$gte 350 includes prices equal to 350 or greater, so both Mouse (350) and Keyboard (900) are returned."
+  },
+  {
+    "id": "adb-32",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Pen\" } ]",
+    "choices": [
+      "db.products.find({price:{$lt:45}},{_id:0,name:1})",
+      "db.products.find({price:{$lte:45}},{_id:0,name:1})",
+      "db.products.find({price:{$gt:45}},{_id:0,name:1})",
+      "db.products.find({price:{$eq:45}},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({price:{$lt:45}},{_id:0,name:1})",
+    "explanation": "$lt 45 matches prices strictly less than 45 — only Pen (15)."
+  },
+  {
+    "id": "adb-33",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Notebook\" }, { name: \"Pen\" } ]",
+    "choices": [
+      "db.products.find({price:{$lte:45}},{_id:0,name:1})",
+      "db.products.find({price:{$lt:45}},{_id:0,name:1})",
+      "db.products.find({price:{$gte:45}},{_id:0,name:1})",
+      "db.products.find({price:45},{name:0})"
+    ],
+    "answer": "db.products.find({price:{$lte:45}},{_id:0,name:1})",
+    "explanation": "$lte 45 includes prices equal to 45 or below: Notebook (45) and Pen (15)."
+  },
+  {
+    "id": "adb-34",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Notebook\" }, { name: \"Pen\" } ]",
+    "choices": [
+      "db.products.find({category:{$in:[\"School\"]}},{_id:0,name:1})",
+      "db.products.find({category:{$nin:[\"School\"]}},{_id:0,name:1})",
+      "db.products.find({category:\"Electronics\"},{_id:0,name:1})",
+      "db.products.find({category:{$all:[\"School\"]}},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({category:{$in:[\"School\"]}},{_id:0,name:1})",
+    "explanation": "$in matches products whose category is inside the given list — Notebook and Pen are both School items."
+  },
+  {
+    "id": "adb-35",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Notebook\" }, { name: \"Mouse\" } ]",
+    "choices": [
+      "db.products.find({$and:[{status:\"Active\"},{stock:{$gt:0}}]},{_id:0,name:1})",
+      "db.products.find({$or:[{status:\"Active\"},{stock:{$gt:0}}]},{_id:0,name:1})",
+      "db.products.find({$and:[{status:\"Active\"},{stock:{$lt:0}}]},{_id:0,name:1})",
+      "db.products.find({status:\"Active\"},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({$and:[{status:\"Active\"},{stock:{$gt:0}}]},{_id:0,name:1})",
+    "explanation": "$and requires both conditions: Active status AND stock greater than 0. Notebook and Mouse qualify; Pen is Active but has 0 stock."
+  },
+  {
+    "id": "adb-36",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Pen\" }, { name: \"Keyboard\" } ]",
+    "choices": [
+      "db.products.find({$or:[{stock:0},{status:\"Discontinued\"}]},{_id:0,name:1})",
+      "db.products.find({$and:[{stock:0},{status:\"Discontinued\"}]},{_id:0,name:1})",
+      "db.products.find({$nor:[{stock:0},{status:\"Discontinued\"}]},{_id:0,name:1})",
+      "db.products.find({stock:0},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({$or:[{stock:0},{status:\"Discontinued\"}]},{_id:0,name:1})",
+    "explanation": "$or requires at least one condition to be true: Pen has 0 stock, Keyboard is Discontinued."
+  },
+  {
+    "id": "adb-37",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Keyboard\" } ]",
+    "choices": [
+      "db.products.find({$nor:[{category:\"School\"},{price:{$lt:500}}]},{_id:0,name:1})",
+      "db.products.find({$or:[{category:\"School\"},{price:{$lt:500}}]},{_id:0,name:1})",
+      "db.products.find({$and:[{category:\"School\"},{price:{$lt:500}}]},{_id:0,name:1})",
+      "db.products.find({category:{$ne:\"School\"}},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({$nor:[{category:\"School\"},{price:{$lt:500}}]},{_id:0,name:1})",
+    "explanation": "$nor only returns documents where NEITHER listed condition matches: not School, and not priced below 500 — only Keyboard qualifies."
+  },
+  {
+    "id": "adb-38",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Notebook\" }, { name: \"Pen\" } ]",
+    "choices": [
+      "db.products.find({price:{$not:{$gt:100}}},{_id:0,name:1})",
+      "db.products.find({price:{$gt:100}},{_id:0,name:1})",
+      "db.products.find({price:{$not:{$lt:100}}},{_id:0,name:1})",
+      "db.products.find({price:100},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({price:{$not:{$gt:100}}},{_id:0,name:1})",
+    "explanation": "$not reverses the inner condition: NOT greater than 100 leaves Notebook (45) and Pen (15)."
+  },
+  {
+    "id": "adb-39",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query produced this result?",
+    "exhibit": "[ { name: \"Mouse\" } ]",
+    "choices": [
+      "db.products.find({name:{$regex:\"^m\",$options:\"i\"}},{_id:0,name:1})",
+      "db.products.find({name:{$regex:\"m$\",$options:\"i\"}},{_id:0,name:1})",
+      "db.products.find({name:{$regex:\"^m\"}},{_id:0,name:1})",
+      "db.products.find({name:\"mouse\"},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({name:{$regex:\"^m\",$options:\"i\"}},{_id:0,name:1})",
+    "explanation": "The ^ anchors to the start of the string, so \"^m\" means starting with m; \"i\" makes it case-insensitive, matching \"Mouse\"."
+  },
+  {
+    "id": "adb-40",
+    "topic": "MongoDB Query Operators",
+    "question": "In the regex pattern {$regex:\"^m\",$options:\"i\"}, what does the caret (^) mean?",
+    "choices": [
+      "The name must start with the given letter",
+      "The name must end with the given letter",
+      "The match should be case-sensitive",
+      "The field must not contain the letter"
+    ],
+    "answer": "The name must start with the given letter",
+    "explanation": "^ anchors the pattern to the beginning of the string, so \"^m\" means the name starts with m."
+  },
+  {
+    "id": "adb-41",
+    "topic": "MongoDB Query Operators",
+    "question": "What does {$options:\"i\"} do in a $regex query?",
+    "choices": [
+      "Makes the match case-insensitive",
+      "Makes the match case-sensitive only",
+      "Limits results to one match",
+      "Sorts results alphabetically"
+    ],
+    "answer": "Makes the match case-insensitive",
+    "explanation": "The \"i\" option means the pattern will match both uppercase and lowercase letters, e.g. m or M."
+  },
+  {
+    "id": "adb-42",
+    "topic": "MongoDB Query Operators",
+    "question": "Which two steps are required before you can use $text to search a field for a word?",
+    "choices": [
+      "Create a text index on that field, then use $text with $search",
+      "Use $regex first, then $text",
+      "Use $in with the word as a value",
+      "No setup is required for $text"
+    ],
+    "answer": "Create a text index on that field, then use $text with $search",
+    "explanation": "The lesson creates a text index with createIndex({description:\"text\"}) before running the $text search."
+  },
+  {
+    "id": "adb-43",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query, run after creating a text index on 'description', produced this result?",
+    "exhibit": "[ { name: \"Keyboard\" } ]",
+    "choices": [
+      "db.products.find({$text:{$search:\"mechanical\"}},{_id:0,name:1})",
+      "db.products.find({description:\"mechanical\"},{_id:0,name:1})",
+      "db.products.find({description:{$regex:\"mechanical\"}},{_id:0,name:1})",
+      "db.products.find({$text:{$search:\"wireless\"}},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({$text:{$search:\"mechanical\"}},{_id:0,name:1})",
+    "explanation": "The Keyboard's description is \"Wired mechanical keyboard\", so a text search for \"mechanical\" matches only it."
+  },
+  {
+    "id": "adb-44",
+    "topic": "MongoDB Query Operators",
+    "question": "Refer to the exhibit. Which query, using a JavaScript expression, produced this result (price more than ten times stock)?",
+    "exhibit": "[ { name: \"Pen\" }, { name: \"Mouse\" }, { name: \"Keyboard\" } ]",
+    "choices": [
+      "db.products.find({$where:\"this.price > this.stock * 10\"},{_id:0,name:1})",
+      "db.products.find({$where:\"this.price < this.stock * 10\"},{_id:0,name:1})",
+      "db.products.find({price:{$gt:10}},{_id:0,name:1})",
+      "db.products.find({$where:\"this.stock > this.price * 10\"},{_id:0,name:1})"
+    ],
+    "answer": "db.products.find({$where:\"this.price > this.stock * 10\"},{_id:0,name:1})",
+    "explanation": "Checking each product: Notebook 45 > 30×10=300 is false; Pen 15 > 0×10=0 is true; Mouse 350 > 12×10=120 is true; Keyboard 900 > 5×10=50 is true."
+  },
+  {
+    "id": "adb-45",
+    "topic": "MongoDB Query Operators",
+    "question": "Why does the lesson advise preferring normal operators (like $gt) over $where when possible?",
+    "choices": [
+      "$where runs arbitrary JavaScript per document, which is generally slower and less optimizable than standard query operators",
+      "$where does not exist in MongoDB",
+      "$where cannot compare two fields",
+      "$where always returns every document"
+    ],
+    "answer": "$where runs arbitrary JavaScript per document, which is generally slower and less optimizable than standard query operators",
+    "explanation": "The lesson explicitly notes '$where — use a JavaScript rule... Prefer normal operators when possible.'"
+  },
+  {
+    "id": "adb-46",
+    "topic": "MongoDB Query Operators",
+    "question": "Which two of the following are comparison operators (rather than logical operators)? (Choose two.)",
+    "choices": [
+      "$gt",
+      "$lte",
+      "$and",
+      "$or"
+    ],
+    "answers": [
+      "$gt",
+      "$lte"
+    ],
+    "answer": "$gt",
+    "explanation": "$gt and $lte compare a field's value. $and and $or are logical operators that combine multiple conditions."
+  },
+  {
+    "id": "adb-47",
+    "topic": "MongoDB Query Operators",
+    "question": "Which two operators can be used to check membership in (or exclusion from) a list of values? (Choose two.)",
+    "choices": [
+      "$in",
+      "$nin",
+      "$set",
+      "$push"
+    ],
+    "answers": [
+      "$in",
+      "$nin"
+    ],
+    "answer": "$in",
+    "explanation": "$in matches values inside a given array; $nin matches values outside it. $set and $push are update operators, not query operators."
+  },
+  {
+    "id": "adb-48",
+    "topic": "MongoDB Update Operators",
+    "question": "Which operator adds a field containing the current date and time?",
+    "choices": [
+      "$currentDate",
+      "$set",
+      "$inc",
+      "$rename"
+    ],
+    "answer": "$currentDate",
+    "explanation": "db.students.updateOne({_id:1},{$currentDate:{updatedAt:true}}) adds an updatedAt field with the current date."
+  },
+  {
+    "id": "adb-49",
+    "topic": "MongoDB Update Operators",
+    "question": "Ana Cruz's score starts at 80. After running { $inc: { score: 5 } }, what is her new score?",
+    "choices": [
+      "85",
+      "80",
+      "5",
+      "75"
+    ],
+    "answer": "85",
+    "explanation": "$inc adds the given amount (5) to the existing numeric field (80), giving 85."
+  },
+  {
+    "id": "adb-50",
+    "topic": "MongoDB Update Operators",
+    "question": "Refer to the exhibit. Which update produced this change to Ana's document (course was \"BSIT\")?",
+    "exhibit": "before: { course: \"BSIT\" }\nafter:  { program: \"BSIT\" }",
+    "choices": [
+      "db.students.updateOne({_id:1},{$rename:{course:\"program\"}})",
+      "db.students.updateOne({_id:1},{$set:{course:\"program\"}})",
+      "db.students.updateOne({_id:1},{$unset:{course:\"\"}})",
+      "db.students.updateOne({_id:1},{$set:{program:\"course\"}})"
+    ],
+    "answer": "db.students.updateOne({_id:1},{$rename:{course:\"program\"}})",
+    "explanation": "$rename changes only the field's name (course → program) while keeping its value (\"BSIT\") unchanged."
+  },
+  {
+    "id": "adb-51",
+    "topic": "MongoDB Update Operators",
+    "question": "Which operator was used to change Ana's status from \"Active\" to \"Completed\"?",
+    "choices": [
+      "$set",
+      "$inc",
+      "$rename",
+      "$currentDate"
+    ],
+    "answer": "$set",
+    "explanation": "db.students.updateOne({_id:1},{$set:{status:\"Completed\"}}) directly assigns the new value."
+  },
+  {
+    "id": "adb-52",
+    "topic": "MongoDB Update Operators",
+    "question": "Which operator removes the temporaryNote field from a document entirely?",
+    "choices": [
+      "$unset",
+      "$set",
+      "$pull",
+      "$pop"
+    ],
+    "answer": "$unset",
+    "explanation": "db.students.updateOne({_id:1},{$unset:{temporaryNote:\"\"}}) deletes the field; the value given doesn't matter."
+  },
+  {
+    "id": "adb-53",
+    "topic": "MongoDB Update Operators",
+    "question": "Ana's skills array starts as [\"HTML\",\"CSS\"]. After { $addToSet: { skills: \"MongoDB\" } }, what is the array?",
+    "choices": [
+      "[\"HTML\",\"CSS\",\"MongoDB\"]",
+      "[\"HTML\",\"CSS\",\"MongoDB\",\"MongoDB\"]",
+      "[\"MongoDB\"]",
+      "[\"HTML\",\"CSS\"]"
+    ],
+    "answer": "[\"HTML\",\"CSS\",\"MongoDB\"]",
+    "explanation": "$addToSet only adds a value if it isn't already present, avoiding duplicates."
+  },
+  {
+    "id": "adb-54",
+    "topic": "MongoDB Update Operators",
+    "question": "According to the lesson, what's the problem with trying to add multiple values with $addToSet directly, e.g. { $addToSet: { skills: [\"MongoDB\",\"Java\"] } }?",
+    "choices": [
+      "You can't add multiple values this way — you need to use $each inside $addToSet",
+      "$addToSet can only be used once per document ever",
+      "$addToSet deletes the whole array first",
+      "It works exactly the same as passing one value"
+    ],
+    "answer": "You can't add multiple values this way — you need to use $each inside $addToSet",
+    "explanation": "The lesson notes: \"You can't add multiple Skills using $addToSet instead use $each\", shown as $addToSet:{skills:{$each:[\"MongoDB\",\"Java\"]}}."
+  },
+  {
+    "id": "adb-55",
+    "topic": "MongoDB Update Operators",
+    "question": "What does $each do when used inside $addToSet or $push?",
+    "choices": [
+      "Lets you add multiple array values in a single operator call",
+      "Removes each matching array element",
+      "Renames each field in the array",
+      "Counts each element in the array"
+    ],
+    "answer": "Lets you add multiple array values in a single operator call",
+    "explanation": "{ $addToSet: { skills: { $each: [\"MongoDB\",\"Java\"] } } } adds both values (skipping any already present) in one update."
+  },
+  {
+    "id": "adb-56",
+    "topic": "MongoDB Update Operators",
+    "question": "In { $pop: { tasks: -1 } }, what does the -1 mean?",
+    "choices": [
+      "Remove the first element of the array",
+      "Remove the last element of the array",
+      "Remove all elements",
+      "Add a new element at the start"
+    ],
+    "answer": "Remove the first element of the array",
+    "explanation": "-1 removes the first (index 0) element; 1 removes the last element of the array."
+  },
+  {
+    "id": "adb-57",
+    "topic": "MongoDB Update Operators",
+    "question": "tasks starts as [\"Quiz\",\"Lab\",\"Project\"]. After { $pop: { tasks: -1 } }, what is the array?",
+    "choices": [
+      "[\"Lab\",\"Project\"]",
+      "[\"Quiz\",\"Lab\"]",
+      "[\"Quiz\",\"Project\"]",
+      "[]"
+    ],
+    "answer": "[\"Lab\",\"Project\"]",
+    "explanation": "-1 removes the first element (\"Quiz\"), leaving [\"Lab\",\"Project\"]."
+  },
+  {
+    "id": "adb-58",
+    "topic": "MongoDB Update Operators",
+    "question": "Starting from tasks = [\"Lab\",\"Project\"], what does { $pull: { tasks: \"Lab\" } } leave in the array?",
+    "choices": [
+      "[\"Project\"]",
+      "[\"Lab\"]",
+      "[]",
+      "[\"Lab\",\"Project\"]"
+    ],
+    "answer": "[\"Project\"]",
+    "explanation": "$pull removes every array element equal to the given value — \"Lab\" is removed, leaving [\"Project\"]."
+  },
+  {
+    "id": "adb-59",
+    "topic": "MongoDB Update Operators",
+    "question": "What is the difference between $pull and $pop?",
+    "choices": [
+      "$pull removes every element matching a given value anywhere in the array; $pop removes only the first or last element",
+      "$pop removes matching values; $pull removes only the first or last element",
+      "They are exactly the same operator under two names",
+      "$pull only works on numbers"
+    ],
+    "answer": "$pull removes every element matching a given value anywhere in the array; $pop removes only the first or last element",
+    "explanation": "$pull targets values by match; $pop targets a fixed position (-1 first, 1 last)."
+  },
+  {
+    "id": "adb-60",
+    "topic": "MongoDB Update Operators",
+    "question": "Which operator appends a new value to the end of an array field?",
+    "choices": [
+      "$push",
+      "$pull",
+      "$pop",
+      "$addToSet"
+    ],
+    "answer": "$push",
+    "explanation": "db.students.updateOne({_id:1},{$push:{skills:\"JavaScript\"}}) appends \"JavaScript\" to the end of skills."
+  },
+  {
+    "id": "adb-61",
+    "topic": "MongoDB Update Operators",
+    "question": "What is the key difference between $push and $addToSet?",
+    "choices": [
+      "$push always adds the value, even if it's already in the array; $addToSet only adds it if it isn't already present",
+      "$addToSet always adds the value, even if duplicate; $push checks for duplicates first",
+      "$push only works on numbers",
+      "$addToSet removes values instead of adding them"
+    ],
+    "answer": "$push always adds the value, even if it's already in the array; $addToSet only adds it if it isn't already present",
+    "explanation": "$addToSet prevents duplicates by design; $push does not check for duplicates."
+  },
+  {
+    "id": "adb-62",
+    "topic": "MongoDB Update Operators",
+    "question": "Refer to the exhibit. Which single update call combines all of these changes at once?",
+    "exhibit": "result: score 95; Python added; status Graduated; date refreshed",
+    "choices": [
+      "db.students.updateOne({_id:1},{$inc:{score:10},$addToSet:{skills:\"Python\"},$set:{status:\"Graduated\"},$currentDate:{updatedAt:true}})",
+      "db.students.updateMany({},{$inc:{score:10}})",
+      "db.students.updateOne({_id:1},{$set:{score:10,skills:\"Python\",status:\"Graduated\"}})",
+      "db.students.updateOne({_id:1},{$push:{score:10}})"
+    ],
+    "answer": "db.students.updateOne({_id:1},{$inc:{score:10},$addToSet:{skills:\"Python\"},$set:{status:\"Graduated\"},$currentDate:{updatedAt:true}})",
+    "explanation": "A single update document can combine multiple operators: $inc, $addToSet, $set, and $currentDate all run in one call."
+  },
+  {
+    "id": "adb-63",
+    "topic": "MongoDB Update Operators",
+    "question": "Which two of the following are array operators (rather than field operators)? (Choose two.)",
+    "choices": [
+      "$push",
+      "$pull",
+      "$set",
+      "$inc"
+    ],
+    "answers": [
+      "$push",
+      "$pull"
+    ],
+    "answer": "$push",
+    "explanation": "$push and $pull modify array fields. $set and $inc modify ordinary (non-array) fields directly."
+  },
+  {
+    "id": "adb-64",
+    "topic": "MongoDB Update Operators",
+    "question": "Which two operators can add a value to an array field? (Choose two.)",
+    "choices": [
+      "$push",
+      "$addToSet",
+      "$pop",
+      "$pull"
+    ],
+    "answers": [
+      "$push",
+      "$addToSet"
+    ],
+    "answer": "$push",
+    "explanation": "$push always appends; $addToSet appends only if the value isn't already present. $pop and $pull both remove values instead."
+  },
+  {
+    "id": "adb-65",
+    "topic": "MongoDB Aggregations",
+    "question": "What is an aggregation pipeline in MongoDB?",
+    "choices": [
+      "A sequence of stages that process documents in order, each stage's output feeding the next",
+      "A single query that only filters documents",
+      "A method for creating indexes",
+      "A way to rename a collection"
+    ],
+    "answer": "A sequence of stages that process documents in order, each stage's output feeding the next",
+    "explanation": "The lesson repeatedly shows stages like $match and $group working in order inside an aggregate([...]) array."
+  },
+  {
+    "id": "adb-66",
+    "topic": "MongoDB Aggregations",
+    "question": "Which aggregation stage filters documents, keeping only those that meet a condition?",
+    "choices": [
+      "$match",
+      "$group",
+      "$project",
+      "$sort"
+    ],
+    "answer": "$match",
+    "explanation": "$match works like a filter, e.g. { $match: { status: \"Paid\" } } keeps only paid orders."
+  },
+  {
+    "id": "adb-67",
+    "topic": "MongoDB Aggregations",
+    "question": "Which stage groups documents by a specified field and can compute values like sums per group?",
+    "choices": [
+      "$group",
+      "$match",
+      "$sort",
+      "$limit"
+    ],
+    "answer": "$group",
+    "explanation": "$group uses an _id to group by (e.g. \"$category\") and accumulator operators like $sum to compute totals per group."
+  },
+  {
+    "id": "adb-68",
+    "topic": "MongoDB Aggregations",
+    "question": "In { $group: { _id: \"$category\", sales: { $sum: \"$total\" } } }, what does $sum: \"$total\" do?",
+    "choices": [
+      "Adds up the total field for all documents in each group",
+      "Counts the number of documents only",
+      "Multiplies the total field by the count",
+      "Removes the total field"
+    ],
+    "answer": "Adds up the total field for all documents in each group",
+    "explanation": "$sum accumulates the value of the total field across all documents sharing the same _id (category)."
+  },
+  {
+    "id": "adb-69",
+    "topic": "MongoDB Aggregations",
+    "question": "Refer to the exhibit. Given these paid orders — 101 (School, 450), 103 (School, 150), 104 (Electronics, 900) — what does this pipeline return?",
+    "exhibit": "db.orders.aggregate([\n  { $match: { status: \"Paid\" } },\n  { $group: { _id: \"$category\", sales: { $sum: \"$total\" } } }\n])",
+    "choices": [
+      "School: 600, Electronics: 900",
+      "School: 450, Electronics: 900",
+      "School: 600, Electronics: 1250",
+      "School: 150, Electronics: 900"
+    ],
+    "answer": "School: 600, Electronics: 900",
+    "explanation": "$match keeps only Paid orders, then $group sums total per category: School = 450+150=600, Electronics = 900 (order 102, Electronics/Pending, is excluded)."
+  },
+  {
+    "id": "adb-70",
+    "topic": "MongoDB Aggregations",
+    "question": "Refer to the exhibit. This pipeline has NO $match stage. Given ALL orders — 101 (School,450,Paid), 102 (Electronics,350,Pending), 103 (School,150,Paid), 104 (Electronics,900,Paid) — what does it return?",
+    "exhibit": "db.orders.aggregate([\n  { $group: { _id: \"$category\", sales: { $sum: \"$total\" } } }\n])",
+    "choices": [
+      "School: 600, Electronics: 1250",
+      "School: 600, Electronics: 900",
+      "School: 450, Electronics: 1250",
+      "School: 150, Electronics: 350"
+    ],
+    "answer": "School: 600, Electronics: 1250",
+    "explanation": "Without a $match filter, every order counts regardless of status: School = 450+150=600, Electronics = 350+900=1250."
+  },
+  {
+    "id": "adb-71",
+    "topic": "MongoDB Aggregations",
+    "question": "Which stage limits the number of documents that pass through the pipeline?",
+    "choices": [
+      "$limit",
+      "$match",
+      "$group",
+      "$count"
+    ],
+    "answer": "$limit",
+    "explanation": "$limit(2) keeps only the first 2 documents remaining after any earlier stages, such as a $sort."
+  },
+  {
+    "id": "adb-72",
+    "topic": "MongoDB Aggregations",
+    "question": "Refer to the exhibit. Order totals are 101:450, 102:350, 103:150, 104:900. What does this pipeline return?",
+    "exhibit": "db.orders.aggregate([\n  { $sort: { total: -1 } },\n  { $limit: 2 },\n  { $project: { _id: 1, total: 1 } }\n])",
+    "choices": [
+      "Order 104: 900, Order 101: 450",
+      "Order 101: 450, Order 102: 350",
+      "Order 104: 900, Order 103: 150",
+      "All four orders sorted"
+    ],
+    "answer": "Order 104: 900, Order 101: 450",
+    "explanation": "$sort by total descending puts 104 (900) first and 101 (450) second; $limit: 2 then keeps only those two."
+  },
+  {
+    "id": "adb-73",
+    "topic": "MongoDB Aggregations",
+    "question": "Which stage chooses which fields appear in the output, and can also rename or compute fields?",
+    "choices": [
+      "$project",
+      "$match",
+      "$group",
+      "$sort"
+    ],
+    "answer": "$project",
+    "explanation": "$project selects which fields to show; it can also rename fields, e.g. { orderId: \"$_id\" }."
+  },
+  {
+    "id": "adb-74",
+    "topic": "MongoDB Aggregations",
+    "question": "In $project, what does the value 1 mean for a field like { category: 1 }?",
+    "choices": [
+      "Include that field in the output",
+      "Exclude that field from the output",
+      "Sort by that field ascending",
+      "Multiply the field by 1"
+    ],
+    "answer": "Include that field in the output",
+    "explanation": "As with find() projections, 1 includes a field and 0 excludes it in $project."
+  },
+  {
+    "id": "adb-75",
+    "topic": "MongoDB Aggregations",
+    "question": "Refer to the exhibit. Order totals are 101:450, 102:350, 103:150, 104:900. What does this pipeline return, in order?",
+    "exhibit": "db.orders.aggregate([\n  { $sort: { total: -1 } },\n  { $project: { _id: 1, total: 1 } }\n])",
+    "choices": [
+      "900, 450, 350, 150",
+      "150, 350, 450, 900",
+      "450, 350, 150, 900",
+      "900, 350, 450, 150"
+    ],
+    "answer": "900, 450, 350, 150",
+    "explanation": "{ $sort: { total: -1 } } arranges all orders from highest to lowest total: 104(900), 101(450), 102(350), 103(150)."
+  },
+  {
+    "id": "adb-76",
+    "topic": "MongoDB Aggregations",
+    "question": "In $sort, what does -1 mean?",
+    "choices": [
+      "Sort in descending order",
+      "Sort in ascending order",
+      "Exclude the field from sorting",
+      "Sort randomly"
+    ],
+    "answer": "Sort in descending order",
+    "explanation": "-1 means descending (largest first); 1 means ascending."
+  },
+  {
+    "id": "adb-77",
+    "topic": "MongoDB Aggregations",
+    "question": "Which stage adds a new computed field to each document without changing the field's stored value in the database?",
+    "choices": [
+      "$addFields",
+      "$set (as a stage; behaves like $addFields)",
+      "$project only",
+      "$match"
+    ],
+    "answer": "$addFields",
+    "explanation": "{ $addFields: { tax: { $multiply: [\"$total\", 0.12] } } } computes tax in the pipeline output only — the stored document is untouched."
+  },
+  {
+    "id": "adb-78",
+    "topic": "MongoDB Aggregations",
+    "question": "Refer to the exhibit. Order 101 has total: 450. What tax value does this pipeline add to order 101's output?",
+    "exhibit": "db.orders.aggregate([\n  { $match: { _id: 101 } },\n  { $addFields: { tax: { $multiply: [\"$total\", 0.12] } } }\n])",
+    "choices": [
+      "54",
+      "45",
+      "450",
+      "12"
+    ],
+    "answer": "54",
+    "explanation": "$multiply: [\"$total\", 0.12] computes 450 × 0.12 = 54."
+  },
+  {
+    "id": "adb-79",
+    "topic": "MongoDB Aggregations",
+    "question": "Which stage counts how many documents remain in the pipeline and stores the number under a chosen field name?",
+    "choices": [
+      "$count",
+      "$group with $sum",
+      "$limit",
+      "$project"
+    ],
+    "answer": "$count",
+    "explanation": "{ $count: \"paidOrders\" } outputs a single document like { paidOrders: 3 } with the count of documents that reached that stage."
+  },
+  {
+    "id": "adb-80",
+    "topic": "MongoDB Aggregations",
+    "question": "Refer to the exhibit. Given orders 101 (Paid), 102 (Pending), 103 (Paid), 104 (Paid), what does this pipeline return?",
+    "exhibit": "db.orders.aggregate([\n  { $match: { status: \"Paid\" } },\n  { $count: \"paidOrders\" }\n])",
+    "choices": [
+      "{ paidOrders: 3 }",
+      "{ paidOrders: 4 }",
+      "{ paidOrders: 1 }",
+      "3"
+    ],
+    "answer": "{ paidOrders: 3 }",
+    "explanation": "$match keeps the 3 Paid orders (101, 103, 104); $count names the resulting count field \"paidOrders\"."
+  },
+  {
+    "id": "adb-81",
+    "topic": "MongoDB Aggregations",
+    "question": "Which aggregation stage performs a left outer join between the current collection and another collection?",
+    "choices": [
+      "$lookup",
+      "$match",
+      "$group",
+      "$out"
+    ],
+    "answer": "$lookup",
+    "explanation": "$lookup matches a local field (like customerId) to a foreign field (like _id) in another collection, attaching matches as an array."
+  },
+  {
+    "id": "adb-82",
+    "topic": "MongoDB Aggregations",
+    "question": "In $lookup, which parameter names the array field where matched documents from the other collection are stored?",
+    "choices": [
+      "as",
+      "from",
+      "localField",
+      "foreignField"
+    ],
+    "answer": "as",
+    "explanation": "'from' names the other collection, 'localField'/'foreignField' name the matching fields, and 'as' names the output array field."
+  },
+  {
+    "id": "adb-83",
+    "topic": "MongoDB Aggregations",
+    "question": "Refer to the exhibit. Order 101 has customerId: 1, and customer _id: 1 is Ana Cruz. What does customerDetails contain in the result for order 101?",
+    "exhibit": "db.orders.aggregate([\n  { $match: { _id: 101 } },\n  { $lookup: {\n      from: \"customers\",\n      localField: \"customerId\",\n      foreignField: \"_id\",\n      as: \"customerDetails\"\n  } }\n])",
+    "choices": [
+      "An array containing Ana Cruz's customer document",
+      "The string \"Ana Cruz\"",
+      "An empty array",
+      "Every customer in the collection"
+    ],
+    "answer": "An array containing Ana Cruz's customer document",
+    "explanation": "$lookup always returns an array in the 'as' field, even for a single match, so customerDetails is an array containing Ana Cruz's document."
+  },
+  {
+    "id": "adb-84",
+    "topic": "MongoDB Aggregations",
+    "question": "Which stage writes the results of an aggregation pipeline into a new (or replaced) collection?",
+    "choices": [
+      "$out",
+      "$lookup",
+      "$project",
+      "$match"
+    ],
+    "answer": "$out",
+    "explanation": "{ $out: \"sales_summary\" } writes the pipeline's results into sales_summary, replacing it entirely if it already exists."
+  },
+  {
+    "id": "adb-85",
+    "topic": "MongoDB Aggregations",
+    "question": "What happens if the target collection named in $out already exists?",
+    "choices": [
+      "It is replaced completely with the new pipeline results",
+      "MongoDB throws an error and stops",
+      "The new results are appended to the old ones",
+      "Nothing happens; $out is ignored"
+    ],
+    "answer": "It is replaced completely with the new pipeline results",
+    "explanation": "The lesson states: \"If sales_summary already exists, it replaces it completely.\""
+  },
+  {
+    "id": "adb-86",
+    "topic": "MongoDB Aggregations",
+    "question": "Which two stages are typically combined to get a 'top N results' query? (Choose two.)",
+    "choices": [
+      "$sort",
+      "$limit",
+      "$lookup",
+      "$out"
+    ],
+    "answers": [
+      "$sort",
+      "$limit"
+    ],
+    "answer": "$sort",
+    "explanation": "$sort orders documents by a field (e.g. total descending) and $limit keeps only the first N — together they produce a top-N result, as in the lesson's top-2-orders example."
+  },
+  {
+    "id": "adb-87",
+    "topic": "MongoDB Aggregations",
+    "question": "Which two stages change which fields appear in a document's output, without filtering out any documents? (Choose two.)",
+    "choices": [
+      "$project",
+      "$addFields",
+      "$match",
+      "$limit"
+    ],
+    "answers": [
+      "$project",
+      "$addFields"
+    ],
+    "answer": "$project",
+    "explanation": "$project chooses/renames output fields; $addFields adds computed fields. $match and $limit both remove documents from the pipeline instead."
+  },
+  {
+    "id": "adb-88",
+    "topic": "SQL Joins",
+    "question": "What is the purpose of a SQL JOIN clause?",
+    "choices": [
+      "To combine rows from two or more tables based on a related column between them",
+      "To delete rows from a table",
+      "To create a new table",
+      "To sort rows within a single table"
+    ],
+    "answer": "To combine rows from two or more tables based on a related column between them",
+    "explanation": "JOINs let you query related data spread across multiple tables by matching a shared key, such as a foreign key."
+  },
+  {
+    "id": "adb-89",
+    "topic": "SQL Joins",
+    "question": "Which JOIN returns only the rows that have matching values in both tables?",
+    "choices": [
+      "INNER JOIN",
+      "LEFT JOIN",
+      "RIGHT JOIN",
+      "FULL OUTER JOIN"
+    ],
+    "answer": "INNER JOIN",
+    "explanation": "INNER JOIN returns only rows where the join condition matches in both tables; non-matching rows from either side are excluded."
+  },
+  {
+    "id": "adb-90",
+    "topic": "SQL Joins",
+    "question": "Which JOIN returns all rows from the left table, plus matched rows from the right table (with NULLs where there's no match)?",
+    "choices": [
+      "LEFT JOIN (LEFT OUTER JOIN)",
+      "RIGHT JOIN",
+      "INNER JOIN",
+      "CROSS JOIN"
+    ],
+    "answer": "LEFT JOIN (LEFT OUTER JOIN)",
+    "explanation": "A LEFT JOIN keeps every row from the left table even if there's no matching row on the right, filling unmatched columns with NULL."
+  },
+  {
+    "id": "adb-91",
+    "topic": "SQL Joins",
+    "question": "Which JOIN returns all rows from the right table, plus matched rows from the left table?",
+    "choices": [
+      "RIGHT JOIN (RIGHT OUTER JOIN)",
+      "LEFT JOIN",
+      "INNER JOIN",
+      "SELF JOIN"
+    ],
+    "answer": "RIGHT JOIN (RIGHT OUTER JOIN)",
+    "explanation": "RIGHT JOIN mirrors LEFT JOIN but keeps every row from the right table instead, with NULLs for unmatched left-side columns."
+  },
+  {
+    "id": "adb-92",
+    "topic": "SQL Joins",
+    "question": "Which JOIN returns all rows from both tables, matching where possible and filling with NULL where there's no match on either side?",
+    "choices": [
+      "FULL OUTER JOIN",
+      "INNER JOIN",
+      "CROSS JOIN",
+      "LEFT JOIN"
+    ],
+    "answer": "FULL OUTER JOIN",
+    "explanation": "FULL OUTER JOIN combines the effect of LEFT and RIGHT JOIN: every row from both tables appears at least once."
+  },
+  {
+    "id": "adb-93",
+    "topic": "SQL Joins",
+    "question": "What does a CROSS JOIN produce?",
+    "choices": [
+      "The Cartesian product: every row from the first table paired with every row from the second",
+      "Only rows with matching keys",
+      "Only rows from the left table",
+      "An error, since no join condition is given"
+    ],
+    "answer": "The Cartesian product: every row from the first table paired with every row from the second",
+    "explanation": "CROSS JOIN has no join condition, so it pairs every row of one table with every row of the other, producing rows_A × rows_B results."
+  },
+  {
+    "id": "adb-94",
+    "topic": "SQL Joins",
+    "question": "What is a SELF JOIN?",
+    "choices": [
+      "A table joined to itself, typically using table aliases to compare its own rows",
+      "A join that only returns unique rows",
+      "A join between a table and a view",
+      "A join that automatically excludes NULLs"
+    ],
+    "answer": "A table joined to itself, typically using table aliases to compare its own rows",
+    "explanation": "A self join is used, for example, to compare employees to their managers within the same employees table, using two aliases for the same table."
+  },
+  {
+    "id": "adb-95",
+    "topic": "SQL Joins",
+    "question": "Which type of JOIN is typically the most efficient when you only need rows that exist in both tables?",
+    "choices": [
+      "INNER JOIN",
+      "FULL OUTER JOIN",
+      "CROSS JOIN",
+      "LEFT JOIN"
+    ],
+    "answer": "INNER JOIN",
+    "explanation": "INNER JOIN avoids generating and filtering out non-matching rows the way outer joins or cross joins must."
+  },
+  {
+    "id": "adb-96",
+    "topic": "SQL Joins",
+    "question": "Which SQL clause specifies how two tables should be matched in a JOIN, such as A.id = B.a_id?",
+    "choices": [
+      "ON",
+      "WHERE",
+      "GROUP BY",
+      "HAVING"
+    ],
+    "answer": "ON",
+    "explanation": "The ON clause defines the join condition (the columns that must match) for the JOIN."
+  },
+  {
+    "id": "adb-97",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Cara has no dept_id, and the HR department has no employees. Which query returns only the employees who have a matching department (excluding Cara)?",
+    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
+    "choices": [
+      "SELECT Employees.name, Departments.dept_name FROM Employees INNER JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees LEFT JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees RIGHT JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees CROSS JOIN Departments;"
+    ],
+    "answer": "SELECT Employees.name, Departments.dept_name FROM Employees INNER JOIN Departments ON Employees.dept_id = Departments.id;",
+    "explanation": "INNER JOIN keeps only rows with a match on both sides: Ana-Sales and Ben-IT. Cara (NULL dept_id) and HR (no employee) are both excluded."
+  },
+  {
+    "id": "adb-98",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns every employee, including Cara, with NULL shown for her department name?",
+    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
+    "choices": [
+      "SELECT Employees.name, Departments.dept_name FROM Employees LEFT JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees INNER JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees RIGHT JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Departments INNER JOIN Employees ON Departments.id = Employees.dept_id;"
+    ],
+    "answer": "SELECT Employees.name, Departments.dept_name FROM Employees LEFT JOIN Departments ON Employees.dept_id = Departments.id;",
+    "explanation": "LEFT JOIN keeps every row from the left table (Employees), so Cara is included with a NULL dept_name since she has no matching department."
+  },
+  {
+    "id": "adb-99",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns every department, including HR (which has no employees), matched with any employees assigned to it?",
+    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
+    "choices": [
+      "SELECT Departments.dept_name, Employees.name FROM Employees RIGHT JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Departments.dept_name, Employees.name FROM Employees LEFT JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Departments.dept_name, Employees.name FROM Employees INNER JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Departments.dept_name, Employees.name FROM Employees CROSS JOIN Departments;"
+    ],
+    "answer": "SELECT Departments.dept_name, Employees.name FROM Employees RIGHT JOIN Departments ON Employees.dept_id = Departments.id;",
+    "explanation": "RIGHT JOIN keeps every row from the right table (Departments), so HR appears with a NULL employee name since no one is assigned to it."
+  },
+  {
+    "id": "adb-100",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns every employee and every department, matched where possible, with NULLs on both sides where there's no match (Cara's department, and HR's employees)?",
+    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
+    "choices": [
+      "SELECT Employees.name, Departments.dept_name FROM Employees FULL OUTER JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees INNER JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees LEFT JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees RIGHT JOIN Departments ON Employees.dept_id = Departments.id;"
+    ],
+    "answer": "SELECT Employees.name, Departments.dept_name FROM Employees FULL OUTER JOIN Departments ON Employees.dept_id = Departments.id;",
+    "explanation": "FULL OUTER JOIN combines LEFT and RIGHT JOIN: Cara appears with a NULL department, and HR appears with a NULL employee."
+  },
+  {
+    "id": "adb-101",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query pairs every employee row with every department row, ignoring dept_id entirely, producing 3 × 3 = 9 result rows?",
+    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
+    "choices": [
+      "SELECT Employees.name, Departments.dept_name FROM Employees CROSS JOIN Departments;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees INNER JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees LEFT JOIN Departments ON Employees.dept_id = Departments.id;",
+      "SELECT Employees.name, Departments.dept_name FROM Employees, Departments WHERE Employees.dept_id = Departments.id;"
+    ],
+    "answer": "SELECT Employees.name, Departments.dept_name FROM Employees CROSS JOIN Departments;",
+    "explanation": "CROSS JOIN has no matching condition, so it produces the full Cartesian product: 3 employees × 3 departments = 9 rows."
+  },
+  {
+    "id": "adb-102",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. How many rows does INNER JOIN Employees to Departments ON Employees.dept_id = Departments.id return?",
+    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "9"
+    ],
+    "answer": "2",
+    "explanation": "Only Ana (dept_id 10 → Sales) and Ben (dept_id 20 → IT) have a matching department. Cara's dept_id is NULL (no match), and HR has no employee."
+  },
+  {
+    "id": "adb-103",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which two JOIN types will still return Cara's row (with a NULL department), even though her dept_id has no match in Departments? (Choose two.)",
+    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
+    "choices": [
+      "LEFT JOIN (Employees LEFT JOIN Departments)",
+      "FULL OUTER JOIN",
+      "INNER JOIN",
+      "RIGHT JOIN (Employees RIGHT JOIN Departments)"
+    ],
+    "answers": [
+      "LEFT JOIN (Employees LEFT JOIN Departments)",
+      "FULL OUTER JOIN"
+    ],
+    "answer": "LEFT JOIN (Employees LEFT JOIN Departments)",
+    "explanation": "Both LEFT JOIN (keeps every row from Employees) and FULL OUTER JOIN (keeps every row from both tables) will include Cara with a NULL department. INNER JOIN and this RIGHT JOIN direction both drop her since she has no matching department."
+  },
+  {
+    "id": "adb-104",
+    "topic": "SQL Joins",
+    "question": "Which two JOIN types do not require any matching condition between the two tables at all? (Choose two.)",
+    "choices": [
+      "CROSS JOIN",
+      "A comma-separated FROM clause with no WHERE condition (an implicit cross join)",
+      "INNER JOIN",
+      "LEFT JOIN"
+    ],
+    "answers": [
+      "CROSS JOIN",
+      "A comma-separated FROM clause with no WHERE condition (an implicit cross join)"
+    ],
+    "answer": "CROSS JOIN",
+    "explanation": "CROSS JOIN, and the older comma-join syntax without a WHERE filter, both produce the full Cartesian product with no matching condition. INNER and LEFT JOIN both require an ON condition."
+  },
+  {
+    "id": "adb-105",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns every student's name together with the names of the courses they're enrolled in, but leaves out students who aren't enrolled in anything?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT s.name, c.course_name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id INNER JOIN Courses c ON e.course_id = c.id;",
+      "SELECT s.name, c.course_name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id LEFT JOIN Courses c ON e.course_id = c.id;",
+      "SELECT s.name, c.course_name FROM Students s, Courses c;",
+      "SELECT s.name, c.course_name FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id LEFT JOIN Students s ON e.student_id = s.id;"
+    ],
+    "answer": "SELECT s.name, c.course_name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id INNER JOIN Courses c ON e.course_id = c.id;",
+    "explanation": "Chaining two INNER JOINs requires a match at every step, so Dan (no enrollment row) and course 103 (no enrollment row) are both dropped — only students with an actual enrollment appear."
+  },
+  {
+    "id": "adb-106",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query lists every student — including Dan — showing NULL for course_name where a student has no enrollment?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT s.name, c.course_name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id LEFT JOIN Courses c ON e.course_id = c.id;",
+      "SELECT s.name, c.course_name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id LEFT JOIN Courses c ON e.course_id = c.id;",
+      "SELECT s.name, c.course_name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id INNER JOIN Courses c ON e.course_id = c.id;",
+      "SELECT s.name, c.course_name FROM Enrollments e INNER JOIN Students s ON e.student_id = s.id INNER JOIN Courses c ON e.course_id = c.id;"
+    ],
+    "answer": "SELECT s.name, c.course_name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id LEFT JOIN Courses c ON e.course_id = c.id;",
+    "explanation": "Both joins must be LEFT JOINs starting from Students: the first keeps Dan even with no Enrollments row, and the second keeps that row even though e.course_id is NULL for him, producing name=Dan, course_name=NULL. Mixing in an INNER JOIN at either step would drop Dan again."
+  },
+  {
+    "id": "adb-107",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns the one student who is not enrolled in any course?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT s.name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id WHERE e.student_id IS NULL;",
+      "SELECT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id WHERE e.student_id IS NULL;",
+      "SELECT s.name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id WHERE e.student_id IS NOT NULL;",
+      "SELECT s.name FROM Students s WHERE s.id NOT IN (SELECT id FROM Courses);"
+    ],
+    "answer": "SELECT s.name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id WHERE e.student_id IS NULL;",
+    "explanation": "A LEFT JOIN keeps every student, filling unmatched Enrollments columns with NULL; filtering for e.student_id IS NULL isolates exactly the students, like Dan, who had no matching row at all. An INNER JOIN could never produce a NULL to filter on here, since unmatched rows are dropped before the WHERE clause even runs."
+  },
+  {
+    "id": "adb-108",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query finds the course that has no students enrolled in it?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT c.course_name FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id WHERE e.course_id IS NULL;",
+      "SELECT c.course_name FROM Courses c INNER JOIN Enrollments e ON c.id = e.course_id WHERE e.course_id IS NULL;",
+      "SELECT c.course_name FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id WHERE e.course_id IS NOT NULL;",
+      "SELECT c.course_name FROM Enrollments e LEFT JOIN Courses c ON e.course_id = c.id WHERE e.course_id IS NULL;"
+    ],
+    "answer": "SELECT c.course_name FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id WHERE e.course_id IS NULL;",
+    "explanation": "This is the mirror of the previous question: LEFT JOIN from Courses keeps every course, and WHERE e.course_id IS NULL isolates the one with no matching enrollment row — Data Structures (103)."
+  },
+  {
+    "id": "adb-109",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query calculates each course's average grade, counting only courses that have at least one enrolled student?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT c.course_name, AVG(e.grade) AS avg_grade FROM Enrollments e INNER JOIN Courses c ON e.course_id = c.id GROUP BY c.course_name;",
+      "SELECT c.course_name, AVG(e.grade) AS avg_grade FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id GROUP BY c.course_name;",
+      "SELECT c.course_name, SUM(e.grade) AS avg_grade FROM Enrollments e INNER JOIN Courses c ON e.course_id = c.id GROUP BY c.course_name;",
+      "SELECT c.course_name, AVG(e.grade) AS avg_grade FROM Enrollments e INNER JOIN Courses c ON e.course_id = c.id;"
+    ],
+    "answer": "SELECT c.course_name, AVG(e.grade) AS avg_grade FROM Enrollments e INNER JOIN Courses c ON e.course_id = c.id GROUP BY c.course_name;",
+    "explanation": "INNER JOIN naturally excludes Data Structures since it has no matching Enrollments row, so AVG only runs over courses that actually have grades. A LEFT JOIN from Courses would include Data Structures with a NULL average instead of omitting it, and the missing GROUP BY in the last option would collapse everything into a single overall average."
+  },
+  {
+    "id": "adb-110",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Database Systems has grades 90 and 78. Web Development has grade 85. Networking has grades 95 and 88. Which course has the highest average grade?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "Networking",
+      "Database Systems",
+      "Web Development",
+      "Data Structures"
+    ],
+    "answer": "Networking",
+    "explanation": "Averages: Database Systems = (90+78)/2 = 84. Web Development = 85. Networking = (95+88)/2 = 91.5. Data Structures has no enrollments at all, so it has no average to compare."
+  },
+  {
+    "id": "adb-111",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns each student's name along with how many courses they are enrolled in, including Dan with a count of 0?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT s.name, COUNT(e.course_id) AS course_count FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
+      "SELECT s.name, COUNT(*) AS course_count FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
+      "SELECT s.name, COUNT(e.course_id) AS course_count FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
+      "SELECT s.name, SUM(e.course_id) AS course_count FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;"
+    ],
+    "answer": "SELECT s.name, COUNT(e.course_id) AS course_count FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
+    "explanation": "COUNT(e.course_id) only counts non-NULL values, so Dan's single unmatched LEFT JOIN row (where course_id is NULL) counts as 0, not 1. COUNT(*) would instead count that placeholder row itself, wrongly giving Dan a count of 1."
+  },
+  {
+    "id": "adb-112",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. This query uses COUNT(*) instead of COUNT(e.course_id): SELECT s.name, COUNT(*) AS course_count FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name; What count does it report for Dan?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "1",
+      "0",
+      "NULL",
+      "4"
+    ],
+    "answer": "1",
+    "explanation": "Even though Dan has no real enrollment, the LEFT JOIN still produces one output row for him (with every Enrollments column as NULL). COUNT(*) counts that row itself regardless of its NULL contents, incorrectly reporting 1 instead of his true count of 0."
+  },
+  {
+    "id": "adb-113",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query lists only the students enrolled in more than one course?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name HAVING COUNT(*) > 1;",
+      "SELECT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name WHERE COUNT(*) > 1;",
+      "SELECT s.name FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name HAVING COUNT(*) > 1;",
+      "SELECT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id HAVING COUNT(*) > 1;"
+    ],
+    "answer": "SELECT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name HAVING COUNT(*) > 1;",
+    "explanation": "HAVING filters groups after aggregation (WHERE cannot reference an aggregate like COUNT(*)), correctly returning Ana and Ben, who each have 2 enrollments. GROUP BY is also required before HAVING can run at all."
+  },
+  {
+    "id": "adb-114",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query finds the names of every OTHER student who shares at least one course with Ana (student id 1)?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT DISTINCT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id WHERE e.course_id IN (SELECT course_id FROM Enrollments WHERE student_id = 1) AND s.id <> 1;",
+      "SELECT s.name FROM Students s WHERE s.id = 1;",
+      "SELECT DISTINCT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id WHERE e.student_id = 1;",
+      "SELECT DISTINCT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id WHERE e.course_id NOT IN (SELECT course_id FROM Enrollments WHERE student_id = 1) AND s.id <> 1;"
+    ],
+    "answer": "SELECT DISTINCT s.name FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id WHERE e.course_id IN (SELECT course_id FROM Enrollments WHERE student_id = 1) AND s.id <> 1;",
+    "explanation": "The subquery finds Ana's courses (100 and 101). The outer query then finds other students enrolled in any of those courses. Only Ben shares course 100 (Database Systems) with Ana; Cara is only in course 102, which Ana isn't enrolled in."
+  },
+  {
+    "id": "adb-115",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Running the query in the previous question, which name is returned?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "Ben",
+      "Cara",
+      "Dan",
+      "Ana"
+    ],
+    "answer": "Ben",
+    "explanation": "Ana is enrolled in courses 100 and 101. Ben is enrolled in 100 and 102, so he shares course 100 with Ana. Cara is only in 102, which doesn't overlap with Ana's courses. Ana herself is excluded by s.id <> 1."
+  },
+  {
+    "id": "adb-116",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns each course along with how many students are enrolled, including Data Structures with a count of 0?",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT c.course_name, COUNT(e.student_id) AS enrolled FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id GROUP BY c.course_name;",
+      "SELECT c.course_name, COUNT(e.student_id) AS enrolled FROM Courses c INNER JOIN Enrollments e ON c.id = e.course_id GROUP BY c.course_name;",
+      "SELECT c.course_name, COUNT(*) AS enrolled FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id GROUP BY c.course_name;",
+      "SELECT c.course_name, COUNT(e.student_id) AS enrolled FROM Enrollments e LEFT JOIN Courses c ON e.course_id = c.id GROUP BY c.course_name;"
+    ],
+    "answer": "SELECT c.course_name, COUNT(e.student_id) AS enrolled FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id GROUP BY c.course_name;",
+    "explanation": "LEFT JOIN from Courses keeps Data Structures even with no matching enrollment row, and COUNT(e.student_id) (not COUNT(*)) correctly reports 0 for it, since student_id is NULL on that placeholder row."
+  },
+  {
+    "id": "adb-117",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which two of these queries would both correctly include Dan, with a course_count of 0, in a per-student enrollment count? (Choose two.)",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "SELECT s.name, COUNT(e.course_id) FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
+      "SELECT s.name, COUNT(e.course_id) FROM Enrollments e RIGHT JOIN Students s ON e.student_id = s.id GROUP BY s.name;",
+      "SELECT s.name, COUNT(e.course_id) FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
+      "SELECT s.name, COUNT(e.course_id) FROM Enrollments e INNER JOIN Students s ON e.student_id = s.id GROUP BY s.name;"
+    ],
+    "answers": [
+      "SELECT s.name, COUNT(e.course_id) FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
+      "SELECT s.name, COUNT(e.course_id) FROM Enrollments e RIGHT JOIN Students s ON e.student_id = s.id GROUP BY s.name;"
+    ],
+    "answer": "SELECT s.name, COUNT(e.course_id) FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
+    "explanation": "Students LEFT JOIN Enrollments, and the equivalent Enrollments RIGHT JOIN Students, both keep every student regardless of match. Both INNER JOIN versions only keep students who already have a matching enrollment row, so Dan would be silently dropped instead of showing 0."
+  },
+  {
+    "id": "adb-118",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which two clauses would correctly filter for students with more than one enrollment, given SELECT s.name, COUNT(*) AS c FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name? (Choose two.)",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "choices": [
+      "HAVING COUNT(*) > 1",
+      "HAVING c > 1",
+      "WHERE COUNT(*) > 1",
+      "WHERE c > 1"
+    ],
+    "answers": [
+      "HAVING COUNT(*) > 1",
+      "HAVING c > 1"
+    ],
+    "answer": "HAVING COUNT(*) > 1",
+    "explanation": "HAVING filters groups after aggregation and can reference either the aggregate expression itself or its alias. WHERE runs before grouping/aggregation happens, so it cannot reference COUNT(*) or an aggregate's alias at all — both WHERE options would raise an error."
   }
 ]
