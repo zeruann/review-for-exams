@@ -312,40 +312,7 @@
     "answer": "db.col.insertOne({ name: \"A\" })",
     "explanation": "acknowledged: true with a generated insertedId is the signature response of a successful insertOne()."
   },
-  {
-    "id": "adb-25",
-    "topic": "MongoDB CRUD Operations",
-    "question": "Which two of the following are Read operation methods in mongosh? (Choose two.)",
-    "choices": [
-      "find()",
-      "findOne()",
-      "insertOne()",
-      "deleteOne()"
-    ],
-    "answers": [
-      "find()",
-      "findOne()"
-    ],
-    "answer": "find()",
-    "explanation": "find() and findOne() are Read methods. insertOne() is Create, and deleteOne() is Delete."
-  },
-  {
-    "id": "adb-26",
-    "topic": "MongoDB CRUD Operations",
-    "question": "Which two of the following are valid ways to remove data in MongoDB? (Choose two.)",
-    "choices": [
-      "deleteMany()",
-      "db.collection.drop()",
-      "insertMany()",
-      "$set"
-    ],
-    "answers": [
-      "deleteMany()",
-      "db.collection.drop()"
-    ],
-    "answer": "deleteMany()",
-    "explanation": "deleteMany() removes matching documents; drop() removes the entire collection. insertMany() creates data, and $set modifies a field."
-  },
+
   {
     "id": "adb-27",
     "topic": "MongoDB Query Operators",
@@ -607,40 +574,8 @@
     "answer": "$where runs arbitrary JavaScript per document, which is generally slower and less optimizable than standard query operators",
     "explanation": "The lesson explicitly notes '$where — use a JavaScript rule... Prefer normal operators when possible.'"
   },
-  {
-    "id": "adb-46",
-    "topic": "MongoDB Query Operators",
-    "question": "Which two of the following are comparison operators (rather than logical operators)? (Choose two.)",
-    "choices": [
-      "$gt",
-      "$lte",
-      "$and",
-      "$or"
-    ],
-    "answers": [
-      "$gt",
-      "$lte"
-    ],
-    "answer": "$gt",
-    "explanation": "$gt and $lte compare a field's value. $and and $or are logical operators that combine multiple conditions."
-  },
-  {
-    "id": "adb-47",
-    "topic": "MongoDB Query Operators",
-    "question": "Which two operators can be used to check membership in (or exclusion from) a list of values? (Choose two.)",
-    "choices": [
-      "$in",
-      "$nin",
-      "$set",
-      "$push"
-    ],
-    "answers": [
-      "$in",
-      "$nin"
-    ],
-    "answer": "$in",
-    "explanation": "$in matches values inside a given array; $nin matches values outside it. $set and $push are update operators, not query operators."
-  },
+
+
   {
     "id": "adb-48",
     "topic": "MongoDB Update Operators",
@@ -838,40 +773,8 @@
     "answer": "db.students.updateOne({_id:1},{$inc:{score:10},$addToSet:{skills:\"Python\"},$set:{status:\"Graduated\"},$currentDate:{updatedAt:true}})",
     "explanation": "A single update document can combine multiple operators: $inc, $addToSet, $set, and $currentDate all run in one call."
   },
-  {
-    "id": "adb-63",
-    "topic": "MongoDB Update Operators",
-    "question": "Which two of the following are array operators (rather than field operators)? (Choose two.)",
-    "choices": [
-      "$push",
-      "$pull",
-      "$set",
-      "$inc"
-    ],
-    "answers": [
-      "$push",
-      "$pull"
-    ],
-    "answer": "$push",
-    "explanation": "$push and $pull modify array fields. $set and $inc modify ordinary (non-array) fields directly."
-  },
-  {
-    "id": "adb-64",
-    "topic": "MongoDB Update Operators",
-    "question": "Which two operators can add a value to an array field? (Choose two.)",
-    "choices": [
-      "$push",
-      "$addToSet",
-      "$pop",
-      "$pull"
-    ],
-    "answers": [
-      "$push",
-      "$addToSet"
-    ],
-    "answer": "$push",
-    "explanation": "$push always appends; $addToSet appends only if the value isn't already present. $pop and $pull both remove values instead."
-  },
+
+
   {
     "id": "adb-65",
     "topic": "MongoDB Aggregations",
@@ -1152,40 +1055,8 @@
     "answer": "It is replaced completely with the new pipeline results",
     "explanation": "The lesson states: \"If sales_summary already exists, it replaces it completely.\""
   },
-  {
-    "id": "adb-86",
-    "topic": "MongoDB Aggregations",
-    "question": "Which two stages are typically combined to get a 'top N results' query? (Choose two.)",
-    "choices": [
-      "$sort",
-      "$limit",
-      "$lookup",
-      "$out"
-    ],
-    "answers": [
-      "$sort",
-      "$limit"
-    ],
-    "answer": "$sort",
-    "explanation": "$sort orders documents by a field (e.g. total descending) and $limit keeps only the first N — together they produce a top-N result, as in the lesson's top-2-orders example."
-  },
-  {
-    "id": "adb-87",
-    "topic": "MongoDB Aggregations",
-    "question": "Which two stages change which fields appear in a document's output, without filtering out any documents? (Choose two.)",
-    "choices": [
-      "$project",
-      "$addFields",
-      "$match",
-      "$limit"
-    ],
-    "answers": [
-      "$project",
-      "$addFields"
-    ],
-    "answer": "$project",
-    "explanation": "$project chooses/renames output fields; $addFields adds computed fields. $match and $limit both remove documents from the pipeline instead."
-  },
+
+
   {
     "id": "adb-88",
     "topic": "SQL Joins",
@@ -1280,7 +1151,7 @@
   {
     "id": "adb-95",
     "topic": "SQL Joins",
-    "question": "Which type of JOIN is typically the most efficient when you only need rows that exist in both tables?",
+    "question": "If you need only rows that have matching values in both tables, which JOIN should you use?",
     "choices": [
       "INNER JOIN",
       "FULL OUTER JOIN",
@@ -1288,7 +1159,7 @@
       "LEFT JOIN"
     ],
     "answer": "INNER JOIN",
-    "explanation": "INNER JOIN avoids generating and filtering out non-matching rows the way outer joins or cross joins must."
+    "explanation": "INNER JOIN returns only rows where the join condition matches in both tables. It is the appropriate join when unmatched rows from either table should be excluded."
   },
   {
     "id": "adb-96",
@@ -1376,52 +1247,18 @@
   {
     "id": "adb-102",
     "topic": "SQL Joins",
-    "question": "Refer to the exhibit. How many rows does INNER JOIN Employees to Departments ON Employees.dept_id = Departments.id return?",
-    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
+    "question": "Using the Employees and Departments tables in the exhibit, how many rows are returned by this INNER JOIN?",
+    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR\n\nQuery:\nSELECT Employees.name, Departments.dept_name\nFROM Employees\nINNER JOIN Departments\n  ON Employees.dept_id = Departments.id;",
     "choices": [
-      "2",
-      "3",
-      "4",
-      "9"
+      "2 rows",
+      "3 rows",
+      "4 rows",
+      "9 rows"
     ],
-    "answer": "2",
-    "explanation": "Only Ana (dept_id 10 → Sales) and Ben (dept_id 20 → IT) have a matching department. Cara's dept_id is NULL (no match), and HR has no employee."
+    "answer": "2 rows",
+    "explanation": "INNER JOIN keeps only rows with a matching dept_id. Ana matches Sales and Ben matches IT. Cara has NULL, and HR has no matching employee, so the query returns 2 rows."
   },
-  {
-    "id": "adb-103",
-    "topic": "SQL Joins",
-    "question": "Refer to the exhibit. Which two JOIN types will still return Cara's row (with a NULL department), even though her dept_id has no match in Departments? (Choose two.)",
-    "exhibit": "Employees\nid | name | dept_id\n1  | Ana  | 10\n2  | Ben  | 20\n3  | Cara | NULL\n\nDepartments\nid | dept_name\n10 | Sales\n20 | IT\n30 | HR",
-    "choices": [
-      "LEFT JOIN (Employees LEFT JOIN Departments)",
-      "FULL OUTER JOIN",
-      "INNER JOIN",
-      "RIGHT JOIN (Employees RIGHT JOIN Departments)"
-    ],
-    "answers": [
-      "LEFT JOIN (Employees LEFT JOIN Departments)",
-      "FULL OUTER JOIN"
-    ],
-    "answer": "LEFT JOIN (Employees LEFT JOIN Departments)",
-    "explanation": "Both LEFT JOIN (keeps every row from Employees) and FULL OUTER JOIN (keeps every row from both tables) will include Cara with a NULL department. INNER JOIN and this RIGHT JOIN direction both drop her since she has no matching department."
-  },
-  {
-    "id": "adb-104",
-    "topic": "SQL Joins",
-    "question": "Which two JOIN types do not require any matching condition between the two tables at all? (Choose two.)",
-    "choices": [
-      "CROSS JOIN",
-      "A comma-separated FROM clause with no WHERE condition (an implicit cross join)",
-      "INNER JOIN",
-      "LEFT JOIN"
-    ],
-    "answers": [
-      "CROSS JOIN",
-      "A comma-separated FROM clause with no WHERE condition (an implicit cross join)"
-    ],
-    "answer": "CROSS JOIN",
-    "explanation": "CROSS JOIN, and the older comma-join syntax without a WHERE filter, both produce the full Cartesian product with no matching condition. INNER and LEFT JOIN both require an ON condition."
-  },
+
   {
     "id": "adb-105",
     "topic": "SQL Joins",
@@ -1495,16 +1332,16 @@
   {
     "id": "adb-110",
     "topic": "SQL Joins",
-    "question": "Refer to the exhibit. Database Systems has grades 90 and 78. Web Development has grade 85. Networking has grades 95 and 88. Which course has the highest average grade?",
+    "question": "Using the Students, Courses, and Enrollments tables in the exhibit, which course has the highest average grade?",
     "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
     "choices": [
-      "Networking",
-      "Database Systems",
-      "Web Development",
-      "Data Structures"
+      "Networking (91.5)",
+      "Database Systems (84)",
+      "Web Development (85)",
+      "Data Structures (no enrolled students)"
     ],
-    "answer": "Networking",
-    "explanation": "Averages: Database Systems = (90+78)/2 = 84. Web Development = 85. Networking = (95+88)/2 = 91.5. Data Structures has no enrollments at all, so it has no average to compare."
+    "answer": "Networking (91.5)",
+    "explanation": "Database Systems averages (90 + 78) / 2 = 84. Web Development has 85. Networking averages (95 + 88) / 2 = 91.5. Data Structures has no enrollment rows, so it has no average."
   },
   {
     "id": "adb-111",
@@ -1523,7 +1360,7 @@
   {
     "id": "adb-112",
     "topic": "SQL Joins",
-    "question": "Refer to the exhibit. This query uses COUNT(*) instead of COUNT(e.course_id): SELECT s.name, COUNT(*) AS course_count FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name; What count does it report for Dan?",
+    "question": "Using the tables in the exhibit, this query uses COUNT(*) instead of COUNT(e.course_id). What course_count does it report for Dan?",
     "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
     "choices": [
       "1",
@@ -1532,7 +1369,7 @@
       "4"
     ],
     "answer": "1",
-    "explanation": "Even though Dan has no real enrollment, the LEFT JOIN still produces one output row for him (with every Enrollments column as NULL). COUNT(*) counts that row itself regardless of its NULL contents, incorrectly reporting 1 instead of his true count of 0."
+    "explanation": "Dan has no matching enrollment, but LEFT JOIN still produces one output row for Dan with NULL values from Enrollments. COUNT(*) counts that output row, so it reports 1."
   },
   {
     "id": "adb-113",
@@ -1565,8 +1402,8 @@
   {
     "id": "adb-115",
     "topic": "SQL Joins",
-    "question": "Refer to the exhibit. Running the query in the previous question, which name is returned?",
-    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
+    "question": "Using the Students and Enrollments tables in the exhibit, the query below finds students who share at least one course with Ana (student id 1). Which name is returned?\n\nSELECT DISTINCT s.name\nFROM Students s\nINNER JOIN Enrollments e ON s.id = e.student_id\nWHERE e.course_id IN (SELECT course_id FROM Enrollments WHERE student_id = 1)\n  AND s.id <> 1;",
+    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n\nAna is enrolled in courses 100 and 101.",
     "choices": [
       "Ben",
       "Cara",
@@ -1574,7 +1411,7 @@
       "Ana"
     ],
     "answer": "Ben",
-    "explanation": "Ana is enrolled in courses 100 and 101. Ben is enrolled in 100 and 102, so he shares course 100 with Ana. Cara is only in 102, which doesn't overlap with Ana's courses. Ana herself is excluded by s.id <> 1."
+    "explanation": "Ana is enrolled in Database Systems (100) and Web Development (101). Ben shares course 100 with Ana, while Cara is only in Networking (102), and Dan has no enrollment. The condition s.id <> 1 excludes Ana herself."
   },
   {
     "id": "adb-116",
@@ -1589,41 +1426,5 @@
     ],
     "answer": "SELECT c.course_name, COUNT(e.student_id) AS enrolled FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id GROUP BY c.course_name;",
     "explanation": "LEFT JOIN from Courses keeps Data Structures even with no matching enrollment row, and COUNT(e.student_id) (not COUNT(*)) correctly reports 0 for it, since student_id is NULL on that placeholder row."
-  },
-  {
-    "id": "adb-117",
-    "topic": "SQL Joins",
-    "question": "Refer to the exhibit. Which two of these queries would both correctly include Dan, with a course_count of 0, in a per-student enrollment count? (Choose two.)",
-    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
-    "choices": [
-      "SELECT s.name, COUNT(e.course_id) FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
-      "SELECT s.name, COUNT(e.course_id) FROM Enrollments e RIGHT JOIN Students s ON e.student_id = s.id GROUP BY s.name;",
-      "SELECT s.name, COUNT(e.course_id) FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
-      "SELECT s.name, COUNT(e.course_id) FROM Enrollments e INNER JOIN Students s ON e.student_id = s.id GROUP BY s.name;"
-    ],
-    "answers": [
-      "SELECT s.name, COUNT(e.course_id) FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
-      "SELECT s.name, COUNT(e.course_id) FROM Enrollments e RIGHT JOIN Students s ON e.student_id = s.id GROUP BY s.name;"
-    ],
-    "answer": "SELECT s.name, COUNT(e.course_id) FROM Students s LEFT JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name;",
-    "explanation": "Students LEFT JOIN Enrollments, and the equivalent Enrollments RIGHT JOIN Students, both keep every student regardless of match. Both INNER JOIN versions only keep students who already have a matching enrollment row, so Dan would be silently dropped instead of showing 0."
-  },
-  {
-    "id": "adb-118",
-    "topic": "SQL Joins",
-    "question": "Refer to the exhibit. Which two clauses would correctly filter for students with more than one enrollment, given SELECT s.name, COUNT(*) AS c FROM Students s INNER JOIN Enrollments e ON s.id = e.student_id GROUP BY s.name? (Choose two.)",
-    "exhibit": "Students\nid | name | year_level\n1  | Ana  | 2\n2  | Ben  | 3\n3  | Cara | 2\n4  | Dan  | 1\n\nCourses\nid  | course_name\n100 | Database Systems\n101 | Web Development\n102 | Networking\n103 | Data Structures\n\nEnrollments\nstudent_id | course_id | grade\n1          | 100       | 90\n1          | 101       | 85\n2          | 100       | 78\n2          | 102       | 95\n3          | 102       | 88\n(Dan has no rows in Enrollments. Course 103 has no rows in Enrollments.)",
-    "choices": [
-      "HAVING COUNT(*) > 1",
-      "HAVING c > 1",
-      "WHERE COUNT(*) > 1",
-      "WHERE c > 1"
-    ],
-    "answers": [
-      "HAVING COUNT(*) > 1",
-      "HAVING c > 1"
-    ],
-    "answer": "HAVING COUNT(*) > 1",
-    "explanation": "HAVING filters groups after aggregation and can reference either the aggregate expression itself or its alias. WHERE runs before grouping/aggregation happens, so it cannot reference COUNT(*) or an aggregate's alias at all — both WHERE options would raise an error."
   }
 ]
