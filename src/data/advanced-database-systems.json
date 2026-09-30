@@ -1426,5 +1426,216 @@
     ],
     "answer": "SELECT c.course_name, COUNT(e.student_id) AS enrolled FROM Courses c LEFT JOIN Enrollments e ON c.id = e.course_id GROUP BY c.course_name;",
     "explanation": "LEFT JOIN from Courses keeps Data Structures even with no matching enrollment row, and COUNT(e.student_id) (not COUNT(*)) correctly reports 0 for it, since student_id is NULL on that placeholder row."
+  },
+  [
+  {
+    "id": "adb-117",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns only the rows where a book has a matching author (excluding Christie and the orphan book)?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n(Christie has no books. Book 104 has no author_id.)",
+    "choices": [
+      "SELECT a.name, b.title FROM Authors a INNER JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a LEFT JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a RIGHT JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a CROSS JOIN Books b;"
+    ],
+    "answer": "SELECT a.name, b.title FROM Authors a INNER JOIN Books b ON a.id = b.author_id;",
+    "explanation": "INNER JOIN keeps only rows with a match on both sides: Rowling-Harry Potter, Orwell-1984, Orwell-Animal Farm. Christie (no books) and the orphan book (no author) are both excluded."
+  },
+  {
+    "id": "adb-118",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns every author, including Agatha Christie with NULL shown for title since she has no books?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n(Christie has no books. Book 104 has no author_id.)",
+    "choices": [
+      "SELECT a.name, b.title FROM Authors a LEFT JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a INNER JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a RIGHT JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Books b LEFT JOIN Authors a ON b.author_id = a.id;"
+    ],
+    "answer": "SELECT a.name, b.title FROM Authors a LEFT JOIN Books b ON a.id = b.author_id;",
+    "explanation": "LEFT JOIN keeps every row from the left table, Authors, even without a match. Christie appears once with a NULL title. The last choice puts Books on the left instead, which would keep every book but not guarantee every author."
+  },
+  {
+    "id": "adb-119",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns every book, including the one with no author, showing NULL for name where there's no matching author?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n(Christie has no books. Book 104 has no author_id.)",
+    "choices": [
+      "SELECT a.name, b.title FROM Authors a RIGHT JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a LEFT JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a INNER JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a, Books b WHERE a.id = b.author_id;"
+    ],
+    "answer": "SELECT a.name, b.title FROM Authors a RIGHT JOIN Books b ON a.id = b.author_id;",
+    "explanation": "RIGHT JOIN keeps every row from the right table, Books, even without a match. \"Unknown Title\" appears with a NULL name, since no author has id NULL."
+  },
+  {
+    "id": "adb-120",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns every author and every book, matched where possible, with NULLs on either side where there's no match (Christie's book, and the orphan title's author)?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n(Christie has no books. Book 104 has no author_id.)",
+    "choices": [
+      "SELECT a.name, b.title FROM Authors a FULL OUTER JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a LEFT JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a RIGHT JOIN Books b ON a.id = b.author_id;",
+      "SELECT a.name, b.title FROM Authors a INNER JOIN Books b ON a.id = b.author_id;"
+    ],
+    "answer": "SELECT a.name, b.title FROM Authors a FULL OUTER JOIN Books b ON a.id = b.author_id;",
+    "explanation": "FULL OUTER JOIN combines the effect of LEFT and RIGHT JOIN, so every author and every book appears at least once, with NULLs filled in on whichever side has no match."
+  },
+  {
+    "id": "adb-121",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. There are 3 authors and 4 books. How many rows does this query return?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n\nQuery:\nSELECT a.name, b.title\nFROM Authors a\nCROSS JOIN Books b;",
+    "choices": [
+      "12 rows",
+      "7 rows",
+      "3 rows",
+      "4 rows"
+    ],
+    "answer": "12 rows",
+    "explanation": "CROSS JOIN has no join condition, so it produces the Cartesian product: every author paired with every book. 3 authors × 4 books = 12 rows."
+  },
+  {
+    "id": "adb-122",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns only the authors who have not written any books?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n(Christie has no books. Book 104 has no author_id.)",
+    "choices": [
+      "SELECT a.name FROM Authors a LEFT JOIN Books b ON a.id = b.author_id WHERE b.id IS NULL;",
+      "SELECT a.name FROM Authors a INNER JOIN Books b ON a.id = b.author_id WHERE b.id IS NULL;",
+      "SELECT a.name FROM Authors a LEFT JOIN Books b ON a.id = b.author_id WHERE b.id IS NOT NULL;",
+      "SELECT a.name FROM Authors a RIGHT JOIN Books b ON a.id = b.author_id WHERE b.id IS NULL;"
+    ],
+    "answer": "SELECT a.name FROM Authors a LEFT JOIN Books b ON a.id = b.author_id WHERE b.id IS NULL;",
+    "explanation": "LEFT JOIN keeps every author, filling in NULL for Books columns when there's no match. Filtering WHERE b.id IS NULL isolates exactly the authors, like Christie, with no matching row at all. An INNER JOIN would drop Christie before the WHERE clause ever runs, so it could never return her."
+  },
+  {
+    "id": "adb-123",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns only the book(s) that have no author on record?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n(Christie has no books. Book 104 has no author_id.)",
+    "choices": [
+      "SELECT b.title FROM Books b LEFT JOIN Authors a ON b.author_id = a.id WHERE a.id IS NULL;",
+      "SELECT b.title FROM Books b INNER JOIN Authors a ON b.author_id = a.id WHERE a.id IS NULL;",
+      "SELECT b.title FROM Books b LEFT JOIN Authors a ON b.author_id = a.id WHERE a.id IS NOT NULL;",
+      "SELECT b.title FROM Authors a RIGHT JOIN Books b ON a.id = b.author_id WHERE a.id IS NOT NULL;"
+    ],
+    "answer": "SELECT b.title FROM Books b LEFT JOIN Authors a ON b.author_id = a.id WHERE a.id IS NULL;",
+    "explanation": "This mirrors the previous question: LEFT JOIN from Books keeps every book, and WHERE a.id IS NULL isolates \"Unknown Title\", the only one with no matching author."
+  },
+  {
+    "id": "adb-124",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns each author's name along with how many books they've written, including Christie with a count of 0?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n(Christie has no books. Book 104 has no author_id.)",
+    "choices": [
+      "SELECT a.name, COUNT(b.id) AS book_count FROM Authors a LEFT JOIN Books b ON a.id = b.author_id GROUP BY a.name;",
+      "SELECT a.name, COUNT(*) AS book_count FROM Authors a LEFT JOIN Books b ON a.id = b.author_id GROUP BY a.name;",
+      "SELECT a.name, COUNT(b.id) AS book_count FROM Authors a INNER JOIN Books b ON a.id = b.author_id GROUP BY a.name;",
+      "SELECT a.name, SUM(b.id) AS book_count FROM Authors a LEFT JOIN Books b ON a.id = b.author_id GROUP BY a.name;"
+    ],
+    "answer": "SELECT a.name, COUNT(b.id) AS book_count FROM Authors a LEFT JOIN Books b ON a.id = b.author_id GROUP BY a.name;",
+    "explanation": "COUNT(b.id) only counts non-NULL values, so Christie's single unmatched LEFT JOIN row counts as 0. COUNT(*) would instead count that placeholder row itself, wrongly giving her a count of 1."
+  },
+  {
+    "id": "adb-125",
+    "topic": "SQL Joins",
+    "question": "Using the Authors and Books tables in the exhibit, this query uses COUNT(*) instead of COUNT(b.id). What book_count does it report for Christie?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n\nQuery:\nSELECT a.name, COUNT(*) AS book_count\nFROM Authors a\nLEFT JOIN Books b ON a.id = b.author_id\nGROUP BY a.name;",
+    "choices": [
+      "1",
+      "0",
+      "NULL",
+      "3"
+    ],
+    "answer": "1",
+    "explanation": "Christie has no matching book, but LEFT JOIN still produces one output row for her with NULL values from Books. COUNT(*) counts that output row itself, so it reports 1 instead of the correct 0."
+  },
+  {
+    "id": "adb-126",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Orwell wrote both 1984 and Animal Farm. Which query lists only the author(s) who have written more than one book?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL",
+    "choices": [
+      "SELECT a.name FROM Authors a INNER JOIN Books b ON a.id = b.author_id GROUP BY a.name HAVING COUNT(*) > 1;",
+      "SELECT a.name FROM Authors a INNER JOIN Books b ON a.id = b.author_id GROUP BY a.name WHERE COUNT(*) > 1;",
+      "SELECT a.name FROM Authors a LEFT JOIN Books b ON a.id = b.author_id GROUP BY a.name HAVING COUNT(*) > 1;",
+      "SELECT a.name FROM Authors a INNER JOIN Books b ON a.id = b.author_id HAVING COUNT(*) > 1;"
+    ],
+    "answer": "SELECT a.name FROM Authors a INNER JOIN Books b ON a.id = b.author_id GROUP BY a.name HAVING COUNT(*) > 1;",
+    "explanation": "HAVING filters groups after aggregation, since WHERE cannot reference an aggregate like COUNT(*). GROUP BY is also required before HAVING can run. This correctly returns only Orwell, who has 2 books."
+  },
+  {
+    "id": "adb-127",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. How many rows does this INNER JOIN return?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n\nQuery:\nSELECT a.name, b.title\nFROM Authors a\nINNER JOIN Books b\n  ON a.id = b.author_id;",
+    "choices": [
+      "3 rows",
+      "4 rows",
+      "12 rows",
+      "2 rows"
+    ],
+    "answer": "3 rows",
+    "explanation": "INNER JOIN keeps only rows with a matching author_id: Rowling-Harry Potter, Orwell-1984, and Orwell-Animal Farm. Christie and the orphan book are both excluded, leaving 3 rows."
+  },
+  {
+    "id": "adb-128",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query returns a row count equal to the total number of authors PLUS the total number of unmatched books, when a LEFT JOIN starts from Authors?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n\nQuery:\nSELECT a.name, b.title\nFROM Authors a\nLEFT JOIN Books b ON a.id = b.author_id;",
+    "choices": [
+      "4 rows",
+      "3 rows",
+      "7 rows",
+      "12 rows"
+    ],
+    "answer": "4 rows",
+    "explanation": "LEFT JOIN produces one row per matched Books row, plus one row for each unmatched Authors row. Rowling(1), Orwell(2, since he has two books), and Christie(1, with NULL title) total 4 rows. The orphan book is not included since the join starts from Authors."
+  },
+  {
+    "id": "adb-129",
+    "topic": "SQL Joins",
+    "question": "Which of the following best describes when a CROSS JOIN is useful?",
+    "choices": [
+      "When you deliberately want every combination of rows from two tables, such as generating all size/color pairings for a product",
+      "When you want to match rows only where a foreign key equals a primary key",
+      "When you want to exclude unmatched rows from both tables",
+      "When you want to compare a table to itself using aliases"
+    ],
+    "answer": "When you deliberately want every combination of rows from two tables, such as generating all size/color pairings for a product",
+    "explanation": "CROSS JOIN has no matching condition and returns the full Cartesian product, which is useful when every combination is actually wanted, unlike INNER, LEFT, RIGHT, or FULL OUTER JOIN, which rely on a matching condition."
+  },
+  {
+    "id": "adb-130",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. A RIGHT JOIN from Authors to Books is logically equivalent to swapping the table order and using which join instead?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL\n\nOriginal query:\nSELECT a.name, b.title\nFROM Authors a\nRIGHT JOIN Books b ON a.id = b.author_id;",
+    "choices": [
+      "SELECT a.name, b.title FROM Books b LEFT JOIN Authors a ON b.author_id = a.id;",
+      "SELECT a.name, b.title FROM Books b INNER JOIN Authors a ON b.author_id = a.id;",
+      "SELECT a.name, b.title FROM Books b RIGHT JOIN Authors a ON b.author_id = a.id;",
+      "SELECT a.name, b.title FROM Books b CROSS JOIN Authors a;"
+    ],
+    "answer": "SELECT a.name, b.title FROM Books b LEFT JOIN Authors a ON b.author_id = a.id;",
+    "explanation": "A RIGHT JOIN keeps every row from the table on the right of the keyword. Swapping the table order and using LEFT JOIN instead keeps every row from Books either way, producing the same result: all 4 books, with NULL name for the orphan title."
+  },
+  {
+    "id": "adb-131",
+    "topic": "SQL Joins",
+    "question": "Refer to the exhibit. Which query lists every author's name together with every title they've written, but leaves out authors who haven't written anything, ordered so Orwell's two books appear together?",
+    "exhibit": "Authors\nid | name\n1  | J.K. Rowling\n2  | George Orwell\n3  | Agatha Christie\n\nBooks\nid  | title           | author_id\n101 | Harry Potter    | 1\n102 | 1984            | 2\n103 | Animal Farm     | 2\n104 | Unknown Title   | NULL",
+    "choices": [
+      "SELECT a.name, b.title FROM Authors a INNER JOIN Books b ON a.id = b.author_id ORDER BY a.name;",
+      "SELECT a.name, b.title FROM Authors a LEFT JOIN Books b ON a.id = b.author_id ORDER BY a.name;",
+      "SELECT a.name, b.title FROM Authors a CROSS JOIN Books b ORDER BY a.name;",
+      "SELECT a.name, b.title FROM Authors a FULL OUTER JOIN Books b ON a.id = b.author_id ORDER BY a.name;"
+    ],
+    "answer": "SELECT a.name, b.title FROM Authors a INNER JOIN Books b ON a.id = b.author_id ORDER BY a.name;",
+    "explanation": "INNER JOIN naturally excludes Christie, who has no matching book, while still returning both of Orwell's titles. LEFT JOIN and FULL OUTER JOIN would incorrectly include Christie with a NULL title."
   }
+]
 ]
