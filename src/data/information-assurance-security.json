@@ -1,16 +1,626 @@
 [
   {
-    "id": "ias-1",
-    "question": "Which of the CIA triad principles ensures information is accurate and unaltered?",
-    "choices": ["Confidentiality", "Integrity", "Availability", "Authentication"],
-    "answer": "Integrity",
-    "explanation": "Integrity ensures data has not been tampered with or altered without authorization."
+    "id": "ias-s2-1",
+    "topic": "Introduction to Information Security",
+    "question": "A company deploys a host intrusion detection and prevention system (HIDPS) that alerts administrators whenever a critical file is modified or deleted. In the McCumber Cube, which cell does this control primarily address?",
+    "choices": [
+      "Policy, confidentiality, transmission",
+      "Technology, integrity, storage",
+      "Education, availability, processing",
+      "Technology, confidentiality, transmission"
+    ],
+    "answer": "Technology, integrity, storage",
+    "explanation": "The HIDPS is a technology control that protects the integrity of information while it is in storage."
   },
   {
-    "id": "ias-2",
-    "question": "What type of attack involves overwhelming a system with traffic to make it unavailable?",
-    "choices": ["Phishing", "SQL Injection", "Denial of Service (DoS)", "Man-in-the-Middle"],
-    "answer": "Denial of Service (DoS)",
-    "explanation": "A DoS attack floods a system with traffic or requests, exhausting resources so legitimate users cannot access the service."
+    "id": "ias-s2-2",
+    "topic": "Introduction to Information Security",
+    "question": "An employee throws printed customer records into the regular trash instead of shredding them, and a stranger later retrieves them. Which CIA triad characteristic was breached?",
+    "choices": [
+      "Integrity",
+      "Availability",
+      "Confidentiality",
+      "Accountability"
+    ],
+    "answer": "Confidentiality",
+    "explanation": "Confidentiality is breached when information is exposed to unauthorized individuals, whether intentionally or by accident."
+  },
+  {
+    "id": "ias-s2-3",
+    "topic": "Introduction to Information Security",
+    "question": "A marketing firm buys personal data from several unrelated sources and combines it into one database that the original data owners never agreed to. Which concept does this describe?",
+    "choices": [
+      "Authorization",
+      "Information aggregation",
+      "Aggregate information",
+      "Identification"
+    ],
+    "answer": "Information aggregation",
+    "explanation": "Information aggregation is the collection and combination of pieces of non-private data that together may violate privacy."
+  },
+  {
+    "id": "ias-s2-4",
+    "topic": "Introduction to Information Security",
+    "question": "After a data deletion incident, an investigator uses audit logs to determine exactly which user performed each action on the system. Which access control mechanism do audit logs provide?",
+    "choices": [
+      "Authorization",
+      "Identification",
+      "Authentication",
+      "Accountability"
+    ],
+    "answer": "Accountability",
+    "explanation": "Accountability ensures every action can be attributed to a named person or automated process, which audit logs make possible."
+  },
+  {
+    "id": "ias-s2-5",
+    "topic": "Introduction to Information Security",
+    "question": "A user types a username and is then asked to enter a code from a hardware token such as RSA SecurID. What is the token verification step called?",
+    "choices": [
+      "Authentication",
+      "Identification",
+      "Authorization",
+      "Privacy"
+    ],
+    "answer": "Authentication",
+    "explanation": "Authentication establishes whether the user is the entity it claims to be; the username itself is only identification."
+  },
+  {
+    "id": "ias-s2-6",
+    "topic": "Introduction to Information Security",
+    "question": "A database allows an authenticated clerk to read and create records but not delete them. Which mechanism enforces this limit?",
+    "choices": [
+      "Identification",
+      "Accountability",
+      "Availability",
+      "Authorization"
+    ],
+    "answer": "Authorization",
+    "explanation": "Authorization defines what an authenticated user is explicitly permitted to do, such as read, write, create, or delete."
+  },
+  {
+    "id": "ias-s2-7",
+    "topic": "Introduction to Information Security",
+    "question": "In a company's InfoSec planning, which community of interest articulates organizational policy and objectives and allocates resources to the other groups?",
+    "choices": [
+      "The information security community",
+      "The IT community",
+      "The general business community",
+      "The external auditors"
+    ],
+    "answer": "The general business community",
+    "explanation": "The general business community communicates policy and objectives and allocates resources to the InfoSec and IT communities."
+  },
+  {
+    "id": "ias-s2-8",
+    "topic": "Principles of Information Security Management",
+    "question": "Executives want a statement that describes the best-case scenario of what the organization aspires to become in the future. Which statement should they write?",
+    "choices": [
+      "Mission statement",
+      "Values statement",
+      "Vision statement",
+      "Risk appetite statement"
+    ],
+    "answer": "Vision statement",
+    "explanation": "A vision statement is an idealistic, ambitious expression of what the organization wants to become."
+  },
+  {
+    "id": "ias-s2-9",
+    "topic": "Principles of Information Security Management",
+    "question": "Front-line system administrators propose a new patching initiative, which is passed up the chain for management approval. Which planning approach is being used?",
+    "choices": [
+      "Top-down approach",
+      "Bottom-up approach",
+      "Laissez-faire approach",
+      "Contingency approach"
+    ],
+    "answer": "Bottom-up approach",
+    "explanation": "In a bottom-up approach, ideas originate at lower levels and are communicated upward for approval."
+  },
+  {
+    "id": "ias-s2-10",
+    "topic": "Principles of Information Security Management",
+    "question": "A CISO prepares budgets, resource acquisition documents, and staffing needs to deliver a major security project that supports the overall strategic plan. Which type of plan is this?",
+    "choices": [
+      "Operational plan",
+      "Contingency plan",
+      "Strategic plan",
+      "Tactical plan"
+    ],
+    "answer": "Tactical plan",
+    "explanation": "Tactical plans break strategic goals into project-level objectives and address budgeting, resource allocation, and personnel."
+  },
+  {
+    "id": "ias-s2-11",
+    "topic": "Principles of Information Security Management",
+    "question": "A security team holds weekly meetings, submits progress reports, and coordinates daily tasks across department boundaries. Which level of planning does this represent?",
+    "choices": [
+      "Operational planning",
+      "Strategic planning",
+      "Tactical planning",
+      "Governance planning"
+    ],
+    "answer": "Operational planning",
+    "explanation": "Operational plans, derived from tactical plans, organize ongoing day-to-day tasks, communications, and progress reporting."
+  },
+  {
+    "id": "ias-s2-12",
+    "topic": "Principles of Information Security Management",
+    "question": "Under ISO/IEC 27014, an external certification body assesses the organization's security governance to validate its programs and strategies. Which governance process is this?",
+    "choices": [
+      "Evaluate",
+      "Direct",
+      "Monitor",
+      "Assure"
+    ],
+    "answer": "Assure",
+    "explanation": "Assure is the assessment of organizational efforts by external entities such as certification groups, regulators, and auditors."
+  },
+  {
+    "id": "ias-s2-13",
+    "topic": "Principles of Information Security Management",
+    "question": "Using the IDEAL model for security governance, a team is determining where the organization currently stands relative to where it wants to be. Which phase is this?",
+    "choices": [
+      "Initiating",
+      "Diagnosing",
+      "Establishing",
+      "Learning"
+    ],
+    "answer": "Diagnosing",
+    "explanation": "In the Diagnosing phase, you determine where you are relative to where you want to be."
+  },
+  {
+    "id": "ias-s2-14",
+    "topic": "Principles of Information Security Management",
+    "question": "According to ITGI, which action should a board of directors take to supervise strategic InfoSec objectives?",
+    "choices": [
+      "Configure the firewall rule set",
+      "Require reports from management layers on the InfoSec program's effectiveness and adequacy",
+      "Personally administer user accounts",
+      "Approve individual employee passwords"
+    ],
+    "answer": "Require reports from management layers on the InfoSec program's effectiveness and adequacy",
+    "explanation": "ITGI recommends boards require reports from various layers of management on the effectiveness and adequacy of the InfoSec program."
+  },
+  {
+    "id": "ias-s2-15",
+    "topic": "Threats and Attacks",
+    "question": "A company discovers its files have been encrypted and a ransom is demanded. Which is a recommended response?",
+    "choices": [
+      "Pay the ransom quickly to restore data",
+      "Disconnect infected devices from the network to limit the spread",
+      "Alert users only by e-mail",
+      "Restore backups directly onto the infected computer"
+    ],
+    "answer": "Disconnect infected devices from the network to limit the spread",
+    "explanation": "Isolating infected systems limits damage. Paying is discouraged, alerts should not rely solely on e-mail, and backups should be restored to a clean device."
+  },
+  {
+    "id": "ias-s2-16",
+    "topic": "Threats and Attacks",
+    "question": "At a busy cafe, a person watches over a coworker's shoulder to capture the login details being typed. Which threat category and technique is this?",
+    "choices": [
+      "Sabotage; hacktivism",
+      "Espionage or trespass; shoulder surfing",
+      "Human error; advance-fee fraud",
+      "Software attack; sniffing"
+    ],
+    "answer": "Espionage or trespass; shoulder surfing",
+    "explanation": "Shoulder surfing is a low-tech form of espionage or trespass used to gather information one is not authorized to have."
+  },
+  {
+    "id": "ias-s2-17",
+    "topic": "Threats and Attacks",
+    "question": "A caller claiming to be from IT offers to help a junior employee with computer problems and asks for access details. Which attack is this?",
+    "choices": [
+      "Pretexting",
+      "Pharming",
+      "Packet sniffing",
+      "Brute force"
+    ],
+    "answer": "Pretexting",
+    "explanation": "Pretexting is a social engineering attack in which the attacker poses as an authority figure, often by phone, to obtain confidential information."
+  },
+  {
+    "id": "ias-s2-18",
+    "topic": "Threats and Attacks",
+    "question": "Three finance staff receive an e-mail that appears to be from their department head, asking them to open an attached file. Only that small group received it. Which attack is this?",
+    "choices": [
+      "Spam",
+      "Spear phishing",
+      "Denial of service",
+      "Virus hoax"
+    ],
+    "answer": "Spear phishing",
+    "explanation": "Spear phishing targets a small group or one person with a message that appears to come from a legitimate correspondent."
+  },
+  {
+    "id": "ias-s2-19",
+    "topic": "Threats and Attacks",
+    "question": "A customer types the correct bank URL but lands on a fake site because a DNS server's tables were corrupted. Which attack occurred?",
+    "choices": [
+      "Man-in-the-middle",
+      "IP spoofing",
+      "Pharming (DNS cache poisoning)",
+      "Buffer overflow"
+    ],
+    "answer": "Pharming (DNS cache poisoning)",
+    "explanation": "Pharming redirects users to illegitimate sites; DNS cache poisoning corrupts legitimate DNS data tables."
+  },
+  {
+    "id": "ias-s2-20",
+    "topic": "Threats and Attacks",
+    "question": "An attacker on the network monitors packets, modifies them, and inserts them back into the network. Which attack is this?",
+    "choices": [
+      "Man-in-the-middle",
+      "Rainbow table attack",
+      "Denial of service",
+      "Dictionary attack"
+    ],
+    "answer": "Man-in-the-middle",
+    "explanation": "In a man-in-the-middle attack, the attacker sniffs packets, alters them, and reinserts them."
+  },
+  {
+    "id": "ias-s2-21",
+    "topic": "Threats and Attacks",
+    "question": "A web developer passes user form input directly to a relational database without validating it. An attacker uses this to drop the USERS table. What is the flaw?",
+    "choices": [
+      "Cross-site scripting",
+      "Format string problem",
+      "SQL injection",
+      "Integer overflow"
+    ],
+    "answer": "SQL injection",
+    "explanation": "SQL injection occurs when developers fail to properly validate user input before passing it to a database."
+  },
+  {
+    "id": "ias-s2-22",
+    "topic": "Threats and Attacks",
+    "question": "An attacker obtains a file of hashed passwords and uses a precomputed database of hash-to-plaintext values to find matches quickly. Which technique is this?",
+    "choices": [
+      "Brute force attack",
+      "Social engineering password attack",
+      "Rainbow table attack",
+      "Pretexting"
+    ],
+    "answer": "Rainbow table attack",
+    "explanation": "A rainbow table stores hash values for many passwords so the corresponding plaintext can be located quickly."
+  },
+  {
+    "id": "ias-s2-23",
+    "topic": "Threats and Attacks",
+    "question": "A malicious program keeps changing its size and other file characteristics so antivirus software cannot recognize it. What is this threat called?",
+    "choices": [
+      "Trojan horse",
+      "Virus hoax",
+      "Polymorphic threat",
+      "Back door"
+    ],
+    "answer": "Polymorphic threat",
+    "explanation": "Polymorphic threats evolve, changing external file characteristics to elude detection by antivirus programs."
+  },
+  {
+    "id": "ias-s2-24",
+    "topic": "Threats and Attacks",
+    "question": "A traveler connects to unencrypted public Wi-Fi at a hotel and an attacker intercepts the data. Which implementation weakness does this reflect?",
+    "choices": [
+      "Failure to protect network traffic",
+      "Weak random numbers",
+      "Buffer overflow",
+      "Poor usability"
+    ],
+    "answer": "Failure to protect network traffic",
+    "explanation": "Without appropriate encryption such as WPA, wireless data can be intercepted, especially on public networks."
+  },
+  {
+    "id": "ias-s2-25",
+    "topic": "Threats and Attacks",
+    "question": "A developer makes an application always run with administrator rights instead of elevating privileges only when needed. Which principle is violated?",
+    "choices": [
+      "Separation of duties",
+      "Least privilege",
+      "Defense in depth",
+      "Non-repudiation"
+    ],
+    "answer": "Least privilege",
+    "explanation": "Running code with too much privilege means a compromised program acts at that higher level, violating least privilege."
+  },
+  {
+    "id": "ias-s2-26",
+    "topic": "Threats and Attacks",
+    "question": "A web hosting provider fails to meet its SLA and the fines it pays are far smaller than the client's losses from the outage. Which threat category applies?",
+    "choices": [
+      "Technological obsolescence",
+      "Deviations in quality of service",
+      "Information extortion",
+      "Forces of nature"
+    ],
+    "answer": "Deviations in quality of service",
+    "explanation": "ISP and service provider failures degrade availability, and SLA payments seldom cover the full losses."
+  },
+  {
+    "id": "ias-s2-27",
+    "topic": "Threats and Attacks",
+    "question": "A company installs one licensed program on 50 computers though it purchased only 10 licenses. Which threat category is this?",
+    "choices": [
+      "Compromise to intellectual property",
+      "Sabotage or vandalism",
+      "Human error with no policy impact",
+      "Technical software failure"
+    ],
+    "answer": "Compromise to intellectual property",
+    "explanation": "Unlawful use or duplication of software is software piracy, the most common IP breach."
+  },
+  {
+    "id": "ias-s2-28",
+    "topic": "Management and Leadership in InfoSec",
+    "question": "During an active breach, the CISO makes rapid decisions alone and expects the team to follow without debate. Which leadership style is this?",
+    "choices": [
+      "Democratic",
+      "Laissez-faire",
+      "Autocratic",
+      "Participative"
+    ],
+    "answer": "Autocratic",
+    "explanation": "Autocratic leaders centralize decisions and act quickly, which can be effective in emergencies."
+  },
+  {
+    "id": "ias-s2-29",
+    "topic": "Management and Leadership in InfoSec",
+    "question": "A manager gives a team of highly skilled, self-motivated security analysts full autonomy to choose their own tools and methods. Which leadership style is this?",
+    "choices": [
+      "Autocratic",
+      "Democratic",
+      "Laissez-faire",
+      "Directive"
+    ],
+    "answer": "Laissez-faire",
+    "explanation": "Laissez-faire leaders delegate authority and decision-making, which works best with highly skilled and self-motivated people."
+  },
+  {
+    "id": "ias-s2-30",
+    "topic": "Management and Leadership in InfoSec",
+    "question": "When evaluating a new security control, managers worry that employees will resist it and work around it. Which type of feasibility is being assessed?",
+    "choices": [
+      "Economic feasibility",
+      "Technological feasibility",
+      "Behavioral feasibility",
+      "Operational feasibility"
+    ],
+    "answer": "Behavioral feasibility",
+    "explanation": "Behavioral feasibility assesses the likelihood that subordinates will adopt and support a solution rather than resist it."
+  },
+  {
+    "id": "ias-s2-31",
+    "topic": "Management and Leadership in InfoSec",
+    "question": "A proposed cybersecurity upgrade would temporarily disrupt how the sales team processes orders. Which type of feasibility does this concern?",
+    "choices": [
+      "Operational feasibility",
+      "Economic feasibility",
+      "Behavioral feasibility",
+      "Technological feasibility"
+    ],
+    "answer": "Operational feasibility",
+    "explanation": "Operational feasibility assesses the ability to integrate a solution into current business processes."
+  },
+  {
+    "id": "ias-s2-32",
+    "topic": "Management and Leadership in InfoSec",
+    "question": "A project lead finds that the current plan is invalid given operational reality and takes corrective action. Which management function is being performed?",
+    "choices": [
+      "Planning",
+      "Organizing",
+      "Leading",
+      "Controlling"
+    ],
+    "answer": "Controlling",
+    "explanation": "Controlling ensures the validity of the plan and includes corrective action when the plan proves invalid."
+  },
+  {
+    "id": "ias-s2-33",
+    "topic": "Risk Management Framework",
+    "question": "An administrator is asked what level of attack success and loss is acceptable for a system and answers 'absolutely none.' What does this indicate?",
+    "choices": [
+      "High residual risk",
+      "Zero tolerance risk exposure",
+      "Risk transference",
+      "Risk acceptance"
+    ],
+    "answer": "Zero tolerance risk exposure",
+    "explanation": "An answer of 'absolutely none' indicates zero tolerance, requiring the highest level of protection."
+  },
+  {
+    "id": "ias-s2-34",
+    "topic": "Risk Management Framework",
+    "question": "After a firewall, policy, and training are all implemented, some risk to a database still remains. What is this remaining risk called?",
+    "choices": [
+      "Inherent risk",
+      "Residual risk",
+      "Transferred risk",
+      "Terminated risk"
+    ],
+    "answer": "Residual risk",
+    "explanation": "Residual risk is the amount of risk that remains after all current controls are implemented."
+  },
+  {
+    "id": "ias-s2-35",
+    "topic": "Risk Management Framework",
+    "question": "The RM team asks, 'Is the current level of risk acceptable?' Which risk management step does this question belong to?",
+    "choices": [
+      "Risk identification",
+      "Risk analysis",
+      "Risk evaluation",
+      "Risk treatment"
+    ],
+    "answer": "Risk evaluation",
+    "explanation": "Identification asks where the risk is, analysis asks how severe it is, evaluation asks if it is acceptable, and treatment asks what to do about it."
+  },
+  {
+    "id": "ias-s2-36",
+    "topic": "Risk Control",
+    "question": "A firm buys cyber insurance and outsources its hosting under a strong service level agreement. Which risk treatment strategy is this?",
+    "choices": [
+      "Defense",
+      "Transference",
+      "Acceptance",
+      "Termination"
+    ],
+    "answer": "Transference",
+    "explanation": "Transference shifts risk to outside entities through outsourcing, insurance, or service contracts."
+  },
+  {
+    "id": "ias-s2-37",
+    "topic": "Risk Control",
+    "question": "After a formal risk assessment and cost-benefit analysis, management concludes protecting a low-value asset costs more than any potential loss and formally acknowledges the decision. Which strategy is this?",
+    "choices": [
+      "Mitigation",
+      "Termination",
+      "Transference",
+      "Acceptance"
+    ],
+    "answer": "Acceptance",
+    "explanation": "Acceptance is valid only after formal evaluation and intentional acknowledgment that the cost of control is not justified."
+  },
+  {
+    "id": "ias-s2-38",
+    "topic": "Risk Control",
+    "question": "A disaster exceeds the disaster recovery plan's ability to restore operations quickly, so the company activates an alternate data center to keep critical functions running. Which plan is being used?",
+    "choices": [
+      "Incident response plan",
+      "Crisis management plan",
+      "Business continuity plan",
+      "Tactical plan"
+    ],
+    "answer": "Business continuity plan",
+    "explanation": "The BC plan ensures continuation of overall business operations when a disaster exceeds the DR plan's capability."
+  },
+  {
+    "id": "ias-s2-39",
+    "topic": "Risk Analysis",
+    "question": "Using the likelihood scale, an event expected to happen once every year is rated as which rank and description?",
+    "choices": [
+      "2 - Unlikely",
+      "3 - Moderate",
+      "4 - Likely",
+      "5 - Almost Certain"
+    ],
+    "answer": "4 - Likely",
+    "explanation": "Rank 4 (Likely) corresponds to about 75 percent likelihood in the next 12 months, or once every year."
+  },
+  {
+    "id": "ias-s2-40",
+    "topic": "Risk Analysis",
+    "question": "On the risk rating matrix, an event with Moderate (3) likelihood and Severe (5) impact falls in which category?",
+    "choices": [
+      "Low",
+      "Medium",
+      "High",
+      "Critical"
+    ],
+    "answer": "High",
+    "explanation": "The matrix rates Moderate likelihood with Severe impact as High; only Almost Certain with Severe is Critical."
+  },
+  {
+    "id": "ias-s2-41",
+    "topic": "Risk Analysis",
+    "question": "An incident causes a multi-hour interruption, exposes 499 records, costs 4 productivity hours, and has a $175,000 financial impact. Which impact rank fits?",
+    "choices": [
+      "Minor (2)",
+      "Moderate (3)",
+      "Major (4)",
+      "Severe (5)"
+    ],
+    "answer": "Moderate (3)",
+    "explanation": "These values match the Moderate (3) row in the risk impact table."
+  },
+  {
+    "id": "ias-s2-42",
+    "topic": "Risk Analysis",
+    "question": "Analysts first imagine the worst possible outcome of an attack given current protections, then determine what is most probable. Which approach is this?",
+    "choices": [
+      "Weighted factor analysis",
+      "Worst case/most likely outcome approach",
+      "Rainbow table analysis",
+      "Asset tagging"
+    ],
+    "answer": "Worst case/most likely outcome approach",
+    "explanation": "Organizations commonly frame the worst-case scenario first and then determine the most likely outcome."
+  },
+  {
+    "id": "ias-s2-43",
+    "topic": "Risk Assessment and Identification",
+    "question": "An administrator names a key server 'HQ_FINANCE'. Why might this violate best practice for asset naming?",
+    "choices": [
+      "Names must always include the IP address",
+      "It reveals critical information that may attract attackers",
+      "Asset names must be numeric only",
+      "Server names should match the manufacturer's model"
+    ],
+    "answer": "It reveals critical information that may attract attackers",
+    "explanation": "Naming conventions should not reveal critical information about a system to potential attackers."
+  },
+  {
+    "id": "ias-s2-44",
+    "topic": "Risk Assessment and Identification",
+    "question": "Why have many organizations stopped relying on MAC addresses as a dependable asset identifier?",
+    "choices": [
+      "MAC addresses change every time DHCP runs",
+      "Some hardware and software can spoof MAC addresses",
+      "MAC addresses apply only to software",
+      "MAC addresses are too long to record"
+    ],
+    "answer": "Some hardware and software can spoof MAC addresses",
+    "explanation": "MAC addresses can be spoofed and some devices have multiple or configurable ones, reducing their reliability."
+  },
+  {
+    "id": "ias-s2-45",
+    "topic": "Risk Assessment and Identification",
+    "question": "When recording people as information assets, which is the recommended way to record a position holder?",
+    "choices": [
+      "Use full personal names only",
+      "Use position titles, codes, or identifiers instead of personal names",
+      "Use home addresses",
+      "Use social security numbers"
+    ],
+    "answer": "Use position titles, codes, or identifiers instead of personal names",
+    "explanation": "For people assets, the record-keeping attributes use position titles, codes, or identifiers rather than personal names."
+  },
+  {
+    "id": "ias-s2-46",
+    "topic": "Risk Assessment and Identification",
+    "question": "In a TVA worksheet, what does the notation T2V1A1 represent?",
+    "choices": [
+      "Threat 2, Vulnerability 1, Asset 1",
+      "Threat 1, Vulnerability 2, Asset 1",
+      "Team 2, Version 1, Asset 1",
+      "Threat 2, Value 1, Attack 1"
+    ],
+    "answer": "Threat 2, Vulnerability 1, Asset 1",
+    "explanation": "T2V1A1 is vulnerability 1 that exists between Threat 2 and Asset 1."
+  },
+  {
+    "id": "ias-s2-47",
+    "topic": "Risk Assessment and Identification",
+    "question": "A pharmaceutical company's R&D database sits on a stand-alone network with no Internet connection. During TVA analysis, what should the team do for the external hacker threat against that asset?",
+    "choices": [
+      "Assign the highest priority of effort",
+      "Cross out that box because no vulnerability exists",
+      "Transfer the risk through insurance",
+      "Terminate the asset"
+    ],
+    "answer": "Cross out that box because no vulnerability exists",
+    "explanation": "If the threat-asset intersection has no vulnerability, the risk assessment team simply crosses it out."
+  },
+  {
+    "id": "ias-s2-48",
+    "topic": "Risk Assessment and Identification",
+    "question": "A hospital labels patient data separately because it falls under HIPAA. Which asset classification technique is it using?",
+    "choices": [
+      "Lifecycle-based classification",
+      "Regulatory compliance classification",
+      "Data ownership classification",
+      "Content analysis"
+    ],
+    "answer": "Regulatory compliance classification",
+    "explanation": "Regulatory compliance classification groups data by the laws it must follow, such as GDPR or HIPAA."
   }
 ]
