@@ -1,21 +1,1958 @@
 [
   {
     "id": "sia-1",
-    "question": "What is the main goal of systems integration?",
+    "question": "Which best describes system software?",
     "choices": [
-      "To build a single monolithic application",
-      "To make different subsystems work together as a unified whole",
-      "To delete legacy systems",
-      "To write documentation only"
+      "A type of computer program designed to run a computer's hardware and application programs",
+      "A written list of stakeholder requirements",
+      "A program used only to create documents and spreadsheets",
+      "A diagram showing how components interact"
     ],
-    "answer": "To make different subsystems work together as a unified whole",
-    "explanation": "Systems integration combines separate components or subsystems into one functioning, cohesive system."
+    "answer": "A type of computer program designed to run a computer's hardware and application programs",
+    "explanation": "System software is designed to run a computer's hardware and application programs."
   },
   {
     "id": "sia-2",
-    "question": "Which architecture style structures an application as small, independently deployable services?",
-    "choices": ["Monolithic Architecture", "Microservices Architecture", "Layered Architecture", "Client-Server Architecture"],
-    "answer": "Microservices Architecture",
-    "explanation": "Microservices architecture breaks an application into small, independent services that communicate over a network, each deployable on its own."
+    "question": "Which statement best defines software development?",
+    "choices": [
+      "The process of creating and maintaining applications and frameworks",
+      "The process of combining subsystems from various sources into a single system",
+      "The process of purchasing hardware for an organization",
+      "The design of a complex system's structure and organization"
+    ],
+    "answer": "The process of creating and maintaining applications and frameworks",
+    "explanation": "Software development is the process of creating and maintaining applications and frameworks."
+  },
+  {
+    "id": "sia-3",
+    "question": "Which is the primary goal of software development?",
+    "choices": [
+      "To write as much code as possible",
+      "To create a product that merely looks engaging",
+      "To create software that only functions on specific hardware",
+      "To build software that meets user needs and requirements"
+    ],
+    "answer": "To build software that meets user needs and requirements",
+    "explanation": "The primary goal is building software that meets user needs and requirements."
+  },
+  {
+    "id": "sia-4",
+    "question": "A software system is described as 'user-friendly.' What does this mean?",
+    "choices": [
+      "It is easy for users to navigate and understand",
+      "It has a large number of features",
+      "It is designed only for software developers",
+      "It requires advanced knowledge to operate"
+    ],
+    "answer": "It is easy for users to navigate and understand",
+    "explanation": "User-friendly software is easy for users to navigate and understand."
+  },
+  {
+    "id": "sia-5",
+    "question": "Which statement best defines systems integration?",
+    "choices": [
+      "Designing the structure and organization of a complex system",
+      "Writing the requirements document for a new product",
+      "Combining different subsystems or components from various sources into a single, functional system",
+      "Creating and maintaining applications and frameworks"
+    ],
+    "answer": "Combining different subsystems or components from various sources into a single, functional system",
+    "explanation": "Systems integration combines subsystems or components from various sources into one functional system that works together smoothly toward a specific goal."
+  },
+  {
+    "id": "sia-6",
+    "question": "Which set of elements can systems integration involve working together in sync?",
+    "choices": [
+      "Software, hardware, data, and communication protocols",
+      "Only software applications",
+      "Only hardware and network cabling",
+      "Only data stored in databases"
+    ],
+    "answer": "Software, hardware, data, and communication protocols",
+    "explanation": "Integration can involve software, hardware, data, and communication protocols sharing information and operating as one."
+  },
+  {
+    "id": "sia-7",
+    "question": "Which statement best defines systems architecture?",
+    "choices": [
+      "A schedule of tasks assigned to developers",
+      "The process of removing legacy systems",
+      "The design of a complex system's structure and organization, outlining how parts work together",
+      "The process of testing every component after coding"
+    ],
+    "answer": "The design of a complex system's structure and organization, outlining how parts work together",
+    "explanation": "Systems architecture is the design of a complex system's structure and organization and how its parts will work together."
+  },
+  {
+    "id": "sia-8",
+    "question": "Which of the following does a systems architecture outline?",
+    "choices": [
+      "Only the color scheme and fonts of the interface",
+      "Only vendor contracts and licensing fees",
+      "Data flow, communication, and future growth",
+      "Employee payroll and hiring schedules"
+    ],
+    "answer": "Data flow, communication, and future growth",
+    "explanation": "A systems architecture outlines how parts work together, including data flow, communication, and future growth."
+  },
+  {
+    "id": "sia-9",
+    "question": "A systems architect creates a blueprint so that the system will be which of the following?",
+    "choices": [
+      "Fast to code but difficult to extend",
+      "Scalable, easy to maintain, and adaptable to changes",
+      "Dependent on a single vendor",
+      "Fixed in design and unchangeable"
+    ],
+    "answer": "Scalable, easy to maintain, and adaptable to changes",
+    "explanation": "The blueprint ensures the system is scalable, easy to maintain, and adaptable to changes."
+  },
+  {
+    "id": "sia-10",
+    "question": "A team has clear guidelines for interfaces, communication, and data formats from its architecture. What is the likely effect on integration?",
+    "choices": [
+      "More rework because components cannot be combined",
+      "Slower integration because of the extra structure",
+      "Less confusion and a faster integration process",
+      "No effect, because architecture and integration are unrelated"
+    ],
+    "answer": "Less confusion and a faster integration process",
+    "explanation": "A good architecture makes integration easier by providing a clear structure, reducing confusion and speeding up integration."
+  },
+  {
+    "id": "sia-11",
+    "question": "Who creates and manages project plans, allocates resources, sets timelines, and ensures the integration project progresses on schedule?",
+    "choices": [
+      "Database Administrator",
+      "Systems Architect",
+      "Lead Programmer",
+      "Project Manager"
+    ],
+    "answer": "Project Manager",
+    "explanation": "The Project Manager oversees the entire systems integration and architecture project."
+  },
+  {
+    "id": "sia-12",
+    "question": "Who collaborates with stakeholders to gather requirements, analyzes technical and business needs, and creates a detailed architecture that guides development?",
+    "choices": [
+      "UI/UX Designer",
+      "Security Specialist",
+      "Project Manager",
+      "Systems Architect"
+    ],
+    "answer": "Systems Architect",
+    "explanation": "The Systems Architect designs the overall structure and framework of the system."
+  },
+  {
+    "id": "sia-13",
+    "question": "Who leads the programming team, guides implementation of the architecture, and ensures coding standards and best practices are followed?",
+    "choices": [
+      "Systems Architect",
+      "Project Manager",
+      "Lead Programmer",
+      "Database Administrator"
+    ],
+    "answer": "Lead Programmer",
+    "explanation": "The Lead Programmer takes charge of the coding and development aspects of the project."
+  },
+  {
+    "id": "sia-14",
+    "question": "Who assesses security risks, designs security protocols, conducts regular security audits, and addresses vulnerabilities in the integrated system?",
+    "choices": [
+      "Lead Programmer",
+      "Security Specialist",
+      "Database Administrator",
+      "UI/UX Designer"
+    ],
+    "answer": "Security Specialist",
+    "explanation": "The Security Specialist safeguards the integrated system against threats and vulnerabilities."
+  },
+  {
+    "id": "sia-15",
+    "question": "Who designs the database architecture, optimizes query performance, ensures data integrity, and manages backups and recovery procedures?",
+    "choices": [
+      "Systems Architect",
+      "Database Administrator",
+      "Project Manager",
+      "Security Specialist"
+    ],
+    "answer": "Database Administrator",
+    "explanation": "The Database Administrator manages the organization, storage, and retrieval of data in the integrated system."
+  },
+  {
+    "id": "sia-16",
+    "question": "Who works with stakeholders to understand user needs and designs intuitive, visually appealing interfaces for the integrated system?",
+    "choices": [
+      "UI/UX Designer",
+      "Database Administrator",
+      "Lead Programmer",
+      "Security Specialist"
+    ],
+    "answer": "UI/UX Designer",
+    "explanation": "The UI/UX Designer creates a user-friendly interface and a smooth, engaging user experience."
+  },
+  {
+    "id": "sia-17",
+    "question": "Why is collaboration important in software development?",
+    "choices": [
+      "It is only necessary for large projects",
+      "It helps ensure the software meets diverse requirements and is developed efficiently",
+      "It allows developers to work independently without interruptions",
+      "It slows down the development process"
+    ],
+    "answer": "It helps ensure the software meets diverse requirements and is developed efficiently",
+    "explanation": "Collaboration ensures diverse requirements are met and development is efficient."
+  },
+  {
+    "id": "sia-18",
+    "question": "Which is the correct order of the stages of the Software Development Life Cycle (SDLC)?",
+    "choices": [
+      "Planning, Analysis, Design, Implementation or Development, Testing & Integration, Maintenance",
+      "Planning, Design, Analysis, Implementation or Development, Maintenance, Testing & Integration",
+      "Analysis, Planning, Design, Testing & Integration, Implementation or Development, Maintenance",
+      "Design, Planning, Analysis, Maintenance, Implementation or Development, Testing & Integration"
+    ],
+    "answer": "Planning, Analysis, Design, Implementation or Development, Testing & Integration, Maintenance",
+    "explanation": "The six SDLC stages are Planning, Analysis, Design, Implementation or Development, Testing & Integration, and Maintenance."
+  },
+  {
+    "id": "sia-19",
+    "question": "In the SDLC, which stage comes immediately after Design?",
+    "choices": [
+      "Implementation or Development",
+      "Testing & Integration",
+      "Maintenance",
+      "Analysis"
+    ],
+    "answer": "Implementation or Development",
+    "explanation": "The order is Planning, Analysis, Design, then Implementation or Development."
+  },
+  {
+    "id": "sia-20",
+    "question": "Which is the final stage of the SDLC?",
+    "choices": [
+      "Maintenance",
+      "Planning",
+      "Implementation or Development",
+      "Testing & Integration"
+    ],
+    "answer": "Maintenance",
+    "explanation": "Maintenance is the sixth and last stage of the SDLC."
+  },
+  {
+    "id": "sia-21",
+    "question": "Which SDLC role is a business representative or voice for the stakeholders, also called the requirement owner, who ensures development follows the project requirements?",
+    "choices": [
+      "Product Owner (PO)",
+      "Technical Lead (TL)",
+      "Project Manager (PM)",
+      "Systems Architect"
+    ],
+    "answer": "Product Owner (PO)",
+    "explanation": "The Product Owner represents stakeholders and makes sure development is done in accordance with the project requirements."
+  },
+  {
+    "id": "sia-22",
+    "question": "Which SDLC role can be considered a team representative who coordinates the work of participants and organizes meetings and negotiations?",
+    "choices": [
+      "Technical Lead (TL)",
+      "Project Manager (PM)",
+      "Product Owner (PO)",
+      "Lead Programmer"
+    ],
+    "answer": "Project Manager (PM)",
+    "explanation": "The PM coordinates the work of the participants and organizes meetings and negotiations."
+  },
+  {
+    "id": "sia-23",
+    "question": "Which SDLC role focuses on technical implementation, advises on translating initial ideas into technical solutions, and monitors the architectural logic of the product?",
+    "choices": [
+      "Security Specialist",
+      "Technical Lead (TL)",
+      "Project Manager (PM)",
+      "Product Owner (PO)"
+    ],
+    "answer": "Technical Lead (TL)",
+    "explanation": "The Technical Lead handles technical implementation, architectural logic, and other technical issues."
+  },
+  {
+    "id": "sia-24",
+    "question": "Which SDLC model is a straightforward, step-by-step approach in which each phase must be completed before moving to the next?",
+    "choices": [
+      "Iterative model",
+      "Big Bang model",
+      "Waterfall model",
+      "Spiral model"
+    ],
+    "answer": "Waterfall model",
+    "explanation": "In the waterfall model each phase must be completed before the next begins."
+  },
+  {
+    "id": "sia-25",
+    "question": "A team follows the waterfall model and falls behind during the first phase. What is the likely consequence?",
+    "choices": [
+      "No impact, because phases run in parallel",
+      "The model automatically creates a new version to compensate",
+      "The project switches to the Big Bang model",
+      "Significant issues, because delays early on affect the whole sequence"
+    ],
+    "answer": "Significant issues, because delays early on affect the whole sequence",
+    "explanation": "The waterfall model helps prevent repeating mistakes but can cause significant issues if there are early delays."
+  },
+  {
+    "id": "sia-26",
+    "question": "Which SDLC model emphasizes repetition and continuous testing, creating new versions of the software at each phase?",
+    "choices": [
+      "Waterfall model",
+      "Spiral model",
+      "Big Bang model",
+      "Iterative model"
+    ],
+    "answer": "Iterative model",
+    "explanation": "The iterative model creates new versions at each phase to identify errors and make ongoing improvements."
+  },
+  {
+    "id": "sia-27",
+    "question": "What is a stated benefit of the iterative model?",
+    "choices": [
+      "It requires no testing",
+      "It avoids planning completely",
+      "Developers can refine the product over time, making changes less costly",
+      "Each phase is completed once and never revisited"
+    ],
+    "answer": "Developers can refine the product over time, making changes less costly",
+    "explanation": "Iterating lets developers refine the product over time, making changes less costly."
+  },
+  {
+    "id": "sia-28",
+    "question": "Which SDLC model is more flexible than other methods, repeatedly cycles through four main phases, and is ideal for large projects?",
+    "choices": [
+      "Big Bang model",
+      "Spiral model",
+      "Iterative model",
+      "Waterfall model"
+    ],
+    "answer": "Spiral model",
+    "explanation": "The spiral model cycles through four phases and lets teams customize products and integrate feedback early."
+  },
+  {
+    "id": "sia-29",
+    "question": "A client is unclear about their needs, and developers want to dive in with available resources to explore broad ideas without strict processes. Which model fits?",
+    "choices": [
+      "Big Bang model",
+      "Iterative model",
+      "Waterfall model",
+      "Spiral model"
+    ],
+    "answer": "Big Bang model",
+    "explanation": "The Big Bang model is highly flexible, needs no strict processes or detailed planning, and suits small or experimental projects."
+  },
+  {
+    "id": "sia-30",
+    "question": "Which SDLC model focuses on quick, continuous release cycles with small, incremental changes and frequent testing?",
+    "choices": [
+      "Spiral model",
+      "Big Bang model",
+      "Waterfall model",
+      "Agile model"
+    ],
+    "answer": "Agile model",
+    "explanation": "The agile model uses small incremental changes so issues are caught and fixed early."
+  },
+  {
+    "id": "sia-31",
+    "question": "Which agile framework focuses on continuous development and customer delivery and uses intervals or sprints, similar to Scrum?",
+    "choices": [
+      "Feature-driven development (FDD)",
+      "Kanban",
+      "Lean",
+      "Extreme Programming (XP)"
+    ],
+    "answer": "Extreme Programming (XP)",
+    "explanation": "XP focuses on continuous development and customer delivery using intervals or sprints."
+  },
+  {
+    "id": "sia-32",
+    "question": "Which agile framework creates software models every two weeks and requires a development and design plan for every model feature?",
+    "choices": [
+      "Extreme Programming (XP)",
+      "Scrumban",
+      "Dynamic Systems Development Method (DSDM)",
+      "Feature-driven development (FDD)"
+    ],
+    "answer": "Feature-driven development (FDD)",
+    "explanation": "FDD involves creating software models every two weeks with a plan for each feature."
+  },
+  {
+    "id": "sia-33",
+    "question": "Which agile framework was born of the need for a common industry framework for rapid software delivery, expects rework, and requires that changes be reversible?",
+    "choices": [
+      "Feature-driven development (FDD)",
+      "Extreme Programming (XP)",
+      "Lean",
+      "Dynamic Systems Development Method (DSDM)"
+    ],
+    "answer": "Dynamic Systems Development Method (DSDM)",
+    "explanation": "In DSDM rework is expected and any development changes that occur must be reversible."
+  },
+  {
+    "id": "sia-34",
+    "question": "Which set lists the main principles of the Lean methodology?",
+    "choices": [
+      "Maximize documentation, fix scope early, commit early, deliver slowly, centralize control, minimize testing, optimize the part",
+      "To Do, Doing, Done, sprint, backlog, review, retrospective",
+      "Plan every feature, freeze requirements, avoid feedback, deliver once, reduce staff, add rework, isolate teams",
+      "Eliminate waste, build quality, create knowledge, defer commitment, deliver fast, respect people, optimize the whole"
+    ],
+    "answer": "Eliminate waste, build quality, create knowledge, defer commitment, deliver fast, respect people, optimize the whole",
+    "explanation": "Lean principles: eliminating waste, build quality, create knowledge, defer commitment, deliver fast, respect people, and optimize the whole."
+  },
+  {
+    "id": "sia-35",
+    "question": "Which agile framework is a simple, visual means of managing day-to-day workflows and is primarily managed with a board of 'To Do,' 'Doing,' and 'Done' columns?",
+    "choices": [
+      "Kanban",
+      "Extreme Programming (XP)",
+      "Lean",
+      "Scrum"
+    ],
+    "answer": "Kanban",
+    "explanation": "Kanban boards segment tasks into three columns: To Do, Doing, and Done."
+  },
+  {
+    "id": "sia-36",
+    "question": "How does Scrum differ from Kanban?",
+    "choices": [
+      "Scrum breaks a project into sprints and plans and manages only one sprint at a time",
+      "Scrum manages only day-to-day workflows without iterations",
+      "Scrum has no board of any kind",
+      "Scrum uses no roles and is purely visual"
+    ],
+    "answer": "Scrum breaks a project into sprints and plans and manages only one sprint at a time",
+    "explanation": "Unlike Kanban, Scrum focuses on breaking a project down into sprints and only planning and managing one sprint at a time."
+  },
+  {
+    "id": "sia-37",
+    "question": "How long can a Scrum sprint last?",
+    "choices": [
+      "Six to twelve months",
+      "Between one and four weeks",
+      "Exactly two weeks only",
+      "One to three days"
+    ],
+    "answer": "Between one and four weeks",
+    "explanation": "Sprints are iterations that can last anywhere between one and four weeks."
+  },
+  {
+    "id": "sia-38",
+    "question": "Which roles are assigned in Scrum to guide the team?",
+    "choices": [
+      "No roles are assigned in Scrum",
+      "A Kanban master and a systems architect",
+      "A project sponsor and a database administrator",
+      "A Scrum leader and a product owner"
+    ],
+    "answer": "A Scrum leader and a product owner",
+    "explanation": "In Scrum you assign a Scrum leader and a product owner to guide the team through sprints."
+  },
+  {
+    "id": "sia-39",
+    "question": "A team uses a visual board to see the status of every task and notices one stage holds the most tasks. What does Kanban's transparency help the team identify?",
+    "choices": [
+      "Which sprint length to use",
+      "The final price of the product",
+      "The programming language to adopt",
+      "Bottlenecks that may be slowing down progress"
+    ],
+    "answer": "Bottlenecks that may be slowing down progress",
+    "explanation": "Kanban shows which stages have the most tasks, helping identify bottlenecks."
+  },
+  {
+    "id": "sia-40",
+    "question": "Which agile method combines Scrum and Kanban, giving the agility of Scrum and the simplicity of Kanban?",
+    "choices": [
+      "Scrumban",
+      "Extreme Programming (XP)",
+      "Feature-driven development (FDD)",
+      "Lean"
+    ],
+    "answer": "Scrumban",
+    "explanation": "Scrumban is a hybrid of Scrum and Kanban."
+  },
+  {
+    "id": "sia-41",
+    "question": "Which statement about Scrumban's roles is correct?",
+    "choices": [
+      "It forbids visualization of workflow",
+      "It requires a different role for every sprint",
+      "It requires a Scrum leader and a product owner",
+      "It requires no roles and lets existing Scrum teams switch to Kanban easily"
+    ],
+    "answer": "It requires no roles and lets existing Scrum teams switch to Kanban easily",
+    "explanation": "Scrumban makes it easier for Scrum teams to switch to Kanban and requires no roles."
+  },
+  {
+    "id": "sia-42",
+    "question": "In the Planning phase, which activity answers the question 'What requirements do you need to build your product?'",
+    "choices": [
+      "Brainstorming",
+      "Requirements Gathering",
+      "Requirements Analysis",
+      "Maintenance"
+    ],
+    "answer": "Requirements Gathering",
+    "explanation": "Brainstorming asks what product you are building, Requirements Gathering asks what requirements you need, and Requirements Analysis asks how to apply them."
+  },
+  {
+    "id": "sia-43",
+    "question": "In the Planning phase, which activity answers the question 'How will you apply the gathered requirements to your product?'",
+    "choices": [
+      "Requirements Analysis",
+      "Requirements Gathering",
+      "Document analysis",
+      "Brainstorming"
+    ],
+    "answer": "Requirements Analysis",
+    "explanation": "Requirements Analysis applies the gathered requirements to the product."
+  },
+  {
+    "id": "sia-44",
+    "question": "In the Planning phase, which activity answers the question 'What product are you building?'",
+    "choices": [
+      "Requirements Analysis",
+      "Requirements Gathering",
+      "Brainstorming",
+      "Observation"
+    ],
+    "answer": "Brainstorming",
+    "explanation": "Brainstorming addresses what product is being built."
+  },
+  {
+    "id": "sia-45",
+    "question": "Which is the first step of the requirements gathering process?",
+    "choices": [
+      "Get Approval",
+      "Assign Roles",
+      "Monitor Progress",
+      "Interview Stakeholders"
+    ],
+    "answer": "Assign Roles",
+    "explanation": "The process starts by assigning roles, then listing assumptions and requirements."
+  },
+  {
+    "id": "sia-46",
+    "question": "Which sequence correctly shows the first four steps of the requirements gathering process?",
+    "choices": [
+      "Prepare Questionnaire, Assign Roles, Interview Stakeholders, List Assumptions and Requirements",
+      "Assign Roles, List Assumptions and Requirements, Prepare Questionnaire, Interview Stakeholders",
+      "Assign Roles, Interview Stakeholders, Prepare Questionnaire, List Assumptions and Requirements",
+      "List Assumptions and Requirements, Assign Roles, Interview Stakeholders, Prepare Questionnaire"
+    ],
+    "answer": "Assign Roles, List Assumptions and Requirements, Prepare Questionnaire, Interview Stakeholders",
+    "explanation": "The order is Assign Roles, List Assumptions and Requirements, Prepare Questionnaire, then Interview Stakeholders."
+  },
+  {
+    "id": "sia-47",
+    "question": "In the requirements gathering process, which step comes right after 'Gather and Document'?",
+    "choices": [
+      "Prepare Questionnaire",
+      "Get Approval",
+      "List New Requirements",
+      "Monitor Progress"
+    ],
+    "answer": "List New Requirements",
+    "explanation": "After gathering and documenting, new requirements are listed, then approval is obtained and progress monitored."
+  },
+  {
+    "id": "sia-48",
+    "question": "In the requirements gathering process, which step comes immediately before 'Monitor Progress'?",
+    "choices": [
+      "Get Approval",
+      "List New Requirements",
+      "Assign Roles",
+      "Interview Stakeholders"
+    ],
+    "answer": "Get Approval",
+    "explanation": "Get Approval precedes Monitor Progress, the final step."
+  },
+  {
+    "id": "sia-49",
+    "question": "Which requirements gathering technique is used to generate new ideas and find a solution for a specific issue?",
+    "choices": [
+      "Observation or job shadowing",
+      "Document analysis",
+      "Brainstorming",
+      "Questionnaire"
+    ],
+    "answer": "Brainstorming",
+    "explanation": "Brainstorming generates new ideas and solutions for a specific issue."
+  },
+  {
+    "id": "sia-50",
+    "question": "An analyst gathers and reviews all existing documentation pertinent to the business objectives that may hold data related to a relevant solution. Which technique is this?",
+    "choices": [
+      "Focus group discussion",
+      "Interview",
+      "Brainstorming",
+      "Document analysis"
+    ],
+    "answer": "Document analysis",
+    "explanation": "Document analysis reviews existing documentation related to the business objectives."
+  },
+  {
+    "id": "sia-51",
+    "question": "Which technique gets information about a product or service from a group whose objective is to discuss the topic and provide information?",
+    "choices": [
+      "Focus group discussion",
+      "Interview",
+      "Questionnaire",
+      "Observation or job shadowing"
+    ],
+    "answer": "Focus group discussion",
+    "explanation": "A focus group gathers information from a group discussing the topic."
+  },
+  {
+    "id": "sia-52",
+    "question": "Which technique gives the analyst the chance to discuss in depth with stakeholders and get their perspective on the business need and feasibility of potential solutions?",
+    "choices": [
+      "Questionnaire",
+      "Interviews",
+      "Document analysis",
+      "Brainstorming"
+    ],
+    "answer": "Interviews",
+    "explanation": "Interviews allow in-depth discussion with stakeholders about business needs and solution feasibility."
+  },
+  {
+    "id": "sia-53",
+    "question": "An analyst needs to quickly gather and quantify the thoughts of a large group of participants. Which technique fits best?",
+    "choices": [
+      "Questionnaire",
+      "Focus group discussion",
+      "Observation or job shadowing",
+      "Interview"
+    ],
+    "answer": "Questionnaire",
+    "explanation": "A questionnaire is a set of questions given to stakeholders to quantify thoughts and is useful for quickly gathering data from large groups."
+  },
+  {
+    "id": "sia-54",
+    "question": "The objective is to understand the activity, task, tools used, and events performed by others. Which technique is this?",
+    "choices": [
+      "Questionnaire",
+      "Brainstorming",
+      "Document analysis",
+      "Observation or job shadowing"
+    ],
+    "answer": "Observation or job shadowing",
+    "explanation": "The main objective of an observation session is to understand the activity, tasks, tools, and events performed by others."
+  },
+  {
+    "id": "sia-55",
+    "question": "Why are requirements described as the foundation of a project?",
+    "choices": [
+      "They are only needed by the project manager",
+      "They replace the need for testing",
+      "They provide a clear roadmap for developers, testers, and stakeholders to follow",
+      "They are written only after the software is finished"
+    ],
+    "answer": "They provide a clear roadmap for developers, testers, and stakeholders to follow",
+    "explanation": "Requirements provide the roadmap for developers, testers, and stakeholders."
+  },
+  {
+    "id": "sia-56",
+    "question": "Which benefit of categorizing requirements provides a clear and organized structure for understanding the diverse requirements a system must meet?",
+    "choices": [
+      "Testing and validation",
+      "Clarity and organization",
+      "User-centric focus",
+      "Technical considerations"
+    ],
+    "answer": "Clarity and organization",
+    "explanation": "Categorization gives a clear and organized structure for the requirements."
+  },
+  {
+    "id": "sia-57",
+    "question": "Categorizing functional requirements separately keeps the end-users' needs and expectations at the forefront. Which benefit is this?",
+    "choices": [
+      "Design and architecture",
+      "User-centric focus",
+      "Technical considerations",
+      "Clarity and organization"
+    ],
+    "answer": "User-centric focus",
+    "explanation": "Functional requirements deal with what the software does from the user's perspective, supporting a user-centric focus."
+  },
+  {
+    "id": "sia-58",
+    "question": "Categorizing non-functional requirements separately lets engineers give attention to technical aspects that are not immediately visible but are essential. Which benefit is this?",
+    "choices": [
+      "Technical considerations",
+      "User-centric focus",
+      "Clarity and organization",
+      "Prioritization and trade-offs"
+    ],
+    "answer": "Technical considerations",
+    "explanation": "Separating non-functional requirements gives due attention to technical aspects essential to the system's success."
+  },
+  {
+    "id": "sia-59",
+    "question": "Which benefit of categorizing requirements helps teams prioritize requirements effectively?",
+    "choices": [
+      "Prioritization and trade-offs",
+      "Testing and validation",
+      "User-centric focus",
+      "Design and architecture"
+    ],
+    "answer": "Prioritization and trade-offs",
+    "explanation": "Categorization helps in prioritizing requirements effectively."
+  },
+  {
+    "id": "sia-60",
+    "question": "Which benefit helps testing teams plan and execute appropriate strategies for functional and non-functional requirements?",
+    "choices": [
+      "Prioritization and trade-offs",
+      "Clarity and organization",
+      "Testing and validation",
+      "Design and architecture"
+    ],
+    "answer": "Testing and validation",
+    "explanation": "Categorizing requirements helps testing teams plan and execute appropriate testing strategies."
+  },
+  {
+    "id": "sia-61",
+    "question": "Which benefit of categorization helps architects and designers make informed decisions that align with distinct requirements?",
+    "choices": [
+      "User-centric focus",
+      "Prioritization and trade-offs",
+      "Design and architecture",
+      "Testing and validation"
+    ],
+    "answer": "Design and architecture",
+    "explanation": "Categorization helps architects and designers make informed decisions aligned with the distinct requirements."
+  },
+  {
+    "id": "sia-62",
+    "question": "Which statement best defines functional requirements?",
+    "choices": [
+      "They specify how well the system performs, such as usability and reliability",
+      "They list the people on the project team",
+      "They define what a software application needs to do, how it reacts to inputs, and what results it produces",
+      "They describe the project schedule and budget"
+    ],
+    "answer": "They define what a software application needs to do, how it reacts to inputs, and what results it produces",
+    "explanation": "Functional requirements cover tasks like calculations, data handling, user interactions, and core processes."
+  },
+  {
+    "id": "sia-63",
+    "question": "Which statement best defines non-functional requirements (NFR)?",
+    "choices": [
+      "Descriptions of what the system must do in response to inputs",
+      "Step-by-step flows between a user and the system",
+      "Quality attributes that specify how the software accomplishes its functions and the criteria for evaluating performance",
+      "Lists of calculations the system performs"
+    ],
+    "answer": "Quality attributes that specify how the software accomplishes its functions and the criteria for evaluating performance",
+    "explanation": "NFRs, also known as quality attributes, establish the criteria by which a system's performance is evaluated."
+  },
+  {
+    "id": "sia-64",
+    "question": "Which is a typical area covered by non-functional requirements?",
+    "choices": [
+      "Usability, reliability, and performance",
+      "Calculations, data handling, and user interactions",
+      "Planning, analysis, and design",
+      "Mission, vision, and values"
+    ],
+    "answer": "Usability, reliability, and performance",
+    "explanation": "NFRs typically cover usability, reliability, and performance."
+  },
+  {
+    "id": "sia-65",
+    "question": "Which of the following is a non-functional requirement?",
+    "choices": [
+      "The system shall respond to search queries within two seconds",
+      "The system shall calculate order totals",
+      "The system shall allow a registered user to reset a password",
+      "The system shall send an e-mail receipt after payment"
+    ],
+    "answer": "The system shall respond to search queries within two seconds",
+    "explanation": "Response time is a performance attribute, which is non-functional; the others describe what the system does."
+  },
+  {
+    "id": "sia-66",
+    "question": "Which of the following is a functional requirement?",
+    "choices": [
+      "The system shall be easy for first-time users to learn",
+      "The system shall allow a registered user to reset a password",
+      "The system shall be available 99.9% of the time",
+      "The system shall load pages within three seconds"
+    ],
+    "answer": "The system shall allow a registered user to reset a password",
+    "explanation": "Allowing a user to reset a password is something the system does, which is a functional requirement."
+  },
+  {
+    "id": "sia-67",
+    "question": "Functional requirements answer 'What does the product do?' How are they typically expressed?",
+    "choices": [
+      "As verbs that detail product features and describe user actions",
+      "As diagrams only",
+      "As budgets and timelines",
+      "As attributes that describe product properties"
+    ],
+    "answer": "As verbs that detail product features and describe user actions",
+    "explanation": "Functional requirements detail product features and user actions using verbs."
+  },
+  {
+    "id": "sia-68",
+    "question": "Non-functional requirements answer 'How does the product do it?' How are they typically expressed?",
+    "choices": [
+      "As test cases only",
+      "As attributes that detail product properties and describe the user experience",
+      "As lists of stakeholders",
+      "As verbs that describe user actions"
+    ],
+    "answer": "As attributes that detail product properties and describe the user experience",
+    "explanation": "Non-functional requirements detail product properties and the user experience using attributes."
+  },
+  {
+    "id": "sia-69",
+    "question": "What is the most widely used form of written software requirements?",
+    "choices": [
+      "Brainstorming notes",
+      "User story card",
+      "Software Requirement Specification (SRS) document",
+      "Work Breakdown Structure"
+    ],
+    "answer": "Software Requirement Specification (SRS) document",
+    "explanation": "The SRS document is the most widely used form and describes which functions a product must include and how it must perform them."
+  },
+  {
+    "id": "sia-70",
+    "question": "Which list correctly shows what an SRS document contains?",
+    "choices": [
+      "Introduction, overall description, system features, external interface requirements, non-functional requirements",
+      "System features, user stories, sprint backlog, non-functional requirements, vision statement",
+      "Introduction, project budget, staff list, system features, maintenance contract",
+      "Overall description, test cases, marketing plan, external interface requirements, hosting costs"
+    ],
+    "answer": "Introduction, overall description, system features, external interface requirements, non-functional requirements",
+    "explanation": "An SRS contains an introduction, overall description, system features, external interface requirements, and non-functional requirements."
+  },
+  {
+    "id": "sia-71",
+    "question": "What is the structure of a user story?",
+    "choices": [
+      "Title, description, actors, preconditions, basic flow",
+      "Given (context), when (event), then (outcome)",
+      "High level function, sub-function, process, activity",
+      "As a (user role), I want to (goal) so that (purpose/reason)"
+    ],
+    "answer": "As a (user role), I want to (goal) so that (purpose/reason)",
+    "explanation": "User stories follow: As a (user role), I want to (goal) so that (purpose/reason)."
+  },
+  {
+    "id": "sia-72",
+    "question": "In the user story 'As an Amazon registered user, I want to order a Kindle book and pay via credit card so that I can send it as a gift to my friend instantly,' which part states the purpose or reason?",
+    "choices": [
+      "Pay via credit card",
+      "Order a Kindle book",
+      "Amazon registered user",
+      "I can send it as a gift to my friend instantly"
+    ],
+    "answer": "I can send it as a gift to my friend instantly",
+    "explanation": "The 'so that' clause states the purpose or reason."
+  },
+  {
+    "id": "sia-73",
+    "question": "In the same user story, which part identifies the user role?",
+    "choices": [
+      "Order a Kindle book and pay via credit card",
+      "Amazon registered user",
+      "Send it as a gift to my friend instantly",
+      "Kindle book"
+    ],
+    "answer": "Amazon registered user",
+    "explanation": "The 'As a/an' clause names the user role."
+  },
+  {
+    "id": "sia-74",
+    "question": "How do user stories and use cases differ?",
+    "choices": [
+      "A user story reflects the end purpose of a feature, while a use case describes the steps or flow leading to that purpose",
+      "They are the same thing",
+      "A use case reflects the end purpose, while a user story lists technical steps",
+      "User stories are only for hardware while use cases are only for software"
+    ],
+    "answer": "A user story reflects the end purpose of a feature, while a use case describes the steps or flow leading to that purpose",
+    "explanation": "A user story reflects the end purpose; a use case describes the steps or flow that lead to it."
+  },
+  {
+    "id": "sia-75",
+    "question": "What do use cases reflect?",
+    "choices": [
+      "Only the system's performance targets",
+      "The project budget",
+      "The company's mission",
+      "All the possible ways a user can interact with the system"
+    ],
+    "answer": "All the possible ways a user can interact with the system",
+    "explanation": "Use cases reflect all possible ways a user can interact with the system."
+  },
+  {
+    "id": "sia-76",
+    "question": "Which are the two formats used to represent a use case?",
+    "choices": [
+      "User Story and Work Breakdown Structure",
+      "SRS and Questionnaire",
+      "Sequence Diagram and State Diagram",
+      "Use Case Diagram and Use Case Specification"
+    ],
+    "answer": "Use Case Diagram and Use Case Specification",
+    "explanation": "A use case can be a use case diagram or a use case specification."
+  },
+  {
+    "id": "sia-77",
+    "question": "In a use case specification, which section describes the state the system must be in before the use case is performed?",
+    "choices": [
+      "Post Condition",
+      "Alternative Flow(s)",
+      "Initial Status and Preconditions",
+      "Basic Flow"
+    ],
+    "answer": "Initial Status and Preconditions",
+    "explanation": "A precondition is the state of the system that must be present prior to a use case being performed."
+  },
+  {
+    "id": "sia-78",
+    "question": "In a use case specification, which section lists the possible states the system can be in immediately after the use case has finished?",
+    "choices": [
+      "Post Condition",
+      "Overview",
+      "Initial Status and Preconditions",
+      "Basic Flow"
+    ],
+    "answer": "Post Condition",
+    "explanation": "A post-condition is a list of possible states the system can be in immediately after the use case finishes."
+  },
+  {
+    "id": "sia-79",
+    "question": "In a use case specification, where are the sequential steps (STEP 1, STEP 2, ...) written?",
+    "choices": [
+      "Post Condition",
+      "Basic Flow",
+      "Actors and Interfaces",
+      "Overview"
+    ],
+    "answer": "Basic Flow",
+    "explanation": "The Basic Flow section lists the steps of the main scenario."
+  },
+  {
+    "id": "sia-80",
+    "question": "In a use case specification, which section identifies the actors and the interfaces to components and services that participate in the use case?",
+    "choices": [
+      "Alternative Flow(s)",
+      "Title",
+      "Actors and Interfaces",
+      "Description"
+    ],
+    "answer": "Actors and Interfaces",
+    "explanation": "The Actors and Interfaces row identifies the participants of the use case."
+  },
+  {
+    "id": "sia-81",
+    "question": "In a use case specification, where are other possible paths described if needed?",
+    "choices": [
+      "Post Condition",
+      "Basic Flow",
+      "Alternative Flow(s)",
+      "Title"
+    ],
+    "answer": "Alternative Flow(s)",
+    "explanation": "Alternative flows are described in the Alternative Flow(s) section when needed."
+  },
+  {
+    "id": "sia-82",
+    "question": "In the online shopping use case diagram, which use case immediately follows 'Proceed to checkout'?",
+    "choices": [
+      "Make payment",
+      "View and select item",
+      "Review and confirm order",
+      "Add to shopping cart"
+    ],
+    "answer": "Make payment",
+    "explanation": "The flow is Browse, View and select, Add to cart, Proceed to checkout, Make payment, Review and confirm order."
+  },
+  {
+    "id": "sia-83",
+    "question": "In the online shopping use case diagram, which external actors are connected to 'Make payment'?",
+    "choices": [
+      "Credit card processing system and PayPal",
+      "Customer authentication only",
+      "Login and Browse for desired item",
+      "Registered user and guest user"
+    ],
+    "answer": "Credit card processing system and PayPal",
+    "explanation": "Make payment connects to the Credit card processing system and PayPal; Customer authentication connects to checkout."
+  },
+  {
+    "id": "sia-84",
+    "question": "In the online shopping use case diagram, which two kinds of customer actors are shown?",
+    "choices": [
+      "Administrator and clerk",
+      "Registered user and guest user",
+      "PayPal and credit card processing system",
+      "Staff and booking system"
+    ],
+    "answer": "Registered user and guest user",
+    "explanation": "Customer is generalized into Registered user and Guest user."
+  },
+  {
+    "id": "sia-85",
+    "question": "What is a work breakdown structure (WBS) or functional decomposition?",
+    "choices": [
+      "A schedule of sprints",
+      "A written list of stakeholder interview questions",
+      "A diagram of user-to-system interactions only",
+      "A visual document that illustrates how complex processes break down into simpler components"
+    ],
+    "answer": "A visual document that illustrates how complex processes break down into simpler components",
+    "explanation": "A WBS is a visual document showing how complex processes break down into simpler components."
+  },
+  {
+    "id": "sia-86",
+    "question": "Which is the correct decomposition order in a WBS?",
+    "choices": [
+      "Process, High Level Function, Activity, Sub-function",
+      "High Level Function, Sub-function, Process, Activity",
+      "Activity, Process, Sub-function, High Level Function",
+      "Sub-function, High Level Function, Activity, Process"
+    ],
+    "answer": "High Level Function, Sub-function, Process, Activity",
+    "explanation": "A decomposition goes High Level Function >> Sub-function >> Process >> Activity."
+  },
+  {
+    "id": "sia-87",
+    "question": "How far should features be decomposed in a WBS?",
+    "choices": [
+      "Until each part has one stakeholder",
+      "Until there are exactly three levels",
+      "Until the lowest-level parts cannot be broken down any further",
+      "Only to the sub-function level"
+    ],
+    "answer": "Until the lowest-level parts cannot be broken down any further",
+    "explanation": "Features should be decomposed until the lowest level parts cannot be broken down any further."
+  },
+  {
+    "id": "sia-88",
+    "question": "What is a benefit of a WBS?",
+    "choices": [
+      "It removes the need for requirements",
+      "It only shows the project budget",
+      "It allows independent analysis of each part while capturing the full picture of the project",
+      "It replaces the SRS entirely"
+    ],
+    "answer": "It allows independent analysis of each part while capturing the full picture of the project",
+    "explanation": "A WBS enables independent analysis of each part and helps capture the full picture."
+  },
+  {
+    "id": "sia-89",
+    "question": "In the Ticket Reservation WBS, which sub-tasks fall under '3. Reserve'?",
+    "choices": [
+      "Log on, Fill Money, and Confirm Fill Money",
+      "Fill Information and Confirm Information",
+      "Log on, Select Movie, Time and Seat, and Confirm Reservation",
+      "Log on and View Showtime"
+    ],
+    "answer": "Log on, Select Movie, Time and Seat, and Confirm Reservation",
+    "explanation": "3. Reserve contains 3.1 Log on, 3.2 Select Movie, Time and Seat, and 3.3 Confirm Reservation."
+  },
+  {
+    "id": "sia-90",
+    "question": "In the Ticket Reservation WBS, which sub-tasks fall under '1. Register'?",
+    "choices": [
+      "Log on and Check Money",
+      "Fill Information and Confirm Information",
+      "Log on, Pay Money, and Confirm Pay Money",
+      "Log on and View Showtime"
+    ],
+    "answer": "Fill Information and Confirm Information",
+    "explanation": "1. Register contains 1.1 Fill Information and 1.2 Confirm Information."
+  },
+  {
+    "id": "sia-91",
+    "question": "What is an architectural pattern in software development?",
+    "choices": [
+      "A list of coding standards",
+      "A one-time design that cannot be reused",
+      "A reusable solution to a common design problem in software architecture",
+      "A test plan for a finished product"
+    ],
+    "answer": "A reusable solution to a common design problem in software architecture",
+    "explanation": "An architectural pattern is a reusable solution to a common design problem that serves as a template for structuring components and interactions."
+  },
+  {
+    "id": "sia-92",
+    "question": "Which goals can an architectural pattern help achieve?",
+    "choices": [
+      "Greater documentation and fewer tests",
+      "Lower hardware prices and shorter meetings",
+      "Scalability, maintainability, and performance",
+      "Larger teams and longer schedules"
+    ],
+    "answer": "Scalability, maintainability, and performance",
+    "explanation": "Patterns template the components, relationships, and interactions to achieve goals such as scalability, maintainability, and performance."
+  },
+  {
+    "id": "sia-93",
+    "question": "Which architecture has components that communicate asynchronously by producing and consuming events?",
+    "choices": [
+      "Layered Architecture",
+      "Event-Driven Architecture",
+      "MVC Architecture",
+      "Monolithic Architecture"
+    ],
+    "answer": "Event-Driven Architecture",
+    "explanation": "Event-driven architecture components communicate asynchronously by producing and consuming events."
+  },
+  {
+    "id": "sia-94",
+    "question": "Which are the components of an Event-Driven Architecture?",
+    "choices": [
+      "API Gateway and Microservices",
+      "Event Producer, Event Broker, and Event Consumers",
+      "Model, View, and Controller",
+      "Master Server and Slave Server"
+    ],
+    "answer": "Event Producer, Event Broker, and Event Consumers",
+    "explanation": "Event-driven architecture consists of an event producer, an event broker, and event consumers."
+  },
+  {
+    "id": "sia-95",
+    "question": "A company is building a real-time IoT data processing system that must be highly scalable. Which architecture is most suitable?",
+    "choices": [
+      "Monolithic Architecture",
+      "MVC Architecture",
+      "Layered Architecture",
+      "Event-Driven Architecture"
+    ],
+    "answer": "Event-Driven Architecture",
+    "explanation": "Event-driven architecture is used for real-time data processing and highly scalable applications, such as financial systems and IoT."
+  },
+  {
+    "id": "sia-96",
+    "question": "Which architecture organizes components into layers, each with specific responsibilities?",
+    "choices": [
+      "Microservice Architecture",
+      "Event-Driven Architecture",
+      "Master-Slave Architecture",
+      "Layered Architecture"
+    ],
+    "answer": "Layered Architecture",
+    "explanation": "Layered architecture organizes components into layers with specific responsibilities."
+  },
+  {
+    "id": "sia-97",
+    "question": "Which lists the layers named in the Layered Architecture?",
+    "choices": [
+      "Model, View, Controller, Gateway, Broker",
+      "Master, Slave, Gateway, Business, Presentation",
+      "Producer, Broker, Consumer, Persistence, Database",
+      "Presentation, Business/Application, Data Access, Persistence, Infrastructure"
+    ],
+    "answer": "Presentation, Business/Application, Data Access, Persistence, Infrastructure",
+    "explanation": "The layers are Presentation, Business/Application, Data Access, Persistence, and Infrastructure."
+  },
+  {
+    "id": "sia-98",
+    "question": "An enterprise application has complex business rules. Which architecture is suggested for this usage?",
+    "choices": [
+      "Layered Architecture",
+      "Master-Slave Architecture",
+      "Monolithic Architecture",
+      "Event-Driven Architecture"
+    ],
+    "answer": "Layered Architecture",
+    "explanation": "Layered architecture is used for enterprise applications with complex business rules."
+  },
+  {
+    "id": "sia-99",
+    "question": "Which architecture packages all components of an application together into a single unit?",
+    "choices": [
+      "Layered Architecture",
+      "Microservice Architecture",
+      "Monolithic Architecture",
+      "Event-Driven Architecture"
+    ],
+    "answer": "Monolithic Architecture",
+    "explanation": "In monolithic architecture all functionalities are in a single application."
+  },
+  {
+    "id": "sia-100",
+    "question": "For which kind of application is Monolithic Architecture suggested?",
+    "choices": [
+      "Simpler applications",
+      "Large-scale database load balancing",
+      "Large, complex applications requiring independent deployment",
+      "Real-time IoT data streams"
+    ],
+    "answer": "Simpler applications",
+    "explanation": "Monolithic architecture is used for simpler applications."
+  },
+  {
+    "id": "sia-101",
+    "question": "Which architecture composes an application of small, independent services that communicate with each other using APIs?",
+    "choices": [
+      "Microservice Architecture",
+      "Monolithic Architecture",
+      "MVC Architecture",
+      "Layered Architecture"
+    ],
+    "answer": "Microservice Architecture",
+    "explanation": "Microservice architecture uses small independent services communicating via APIs."
+  },
+  {
+    "id": "sia-102",
+    "question": "Which are the components of a Microservice Architecture?",
+    "choices": [
+      "Master Server and Slave Server",
+      "API Gateway and Microservices",
+      "Event Producer and Event Consumers",
+      "Model, View, and Controller"
+    ],
+    "answer": "API Gateway and Microservices",
+    "explanation": "The components are an API Gateway and microservices."
+  },
+  {
+    "id": "sia-103",
+    "question": "A large, complex application requires high scalability and independent deployment of its parts. Which architecture fits?",
+    "choices": [
+      "Monolithic Architecture",
+      "Master-Slave Architecture",
+      "MVC Architecture",
+      "Microservice Architecture"
+    ],
+    "answer": "Microservice Architecture",
+    "explanation": "Microservices suit large, complex applications that require high scalability and independent deployment."
+  },
+  {
+    "id": "sia-104",
+    "question": "Which architecture separates an application into the Model (data), the View (user interface), and the Controller (input handling)?",
+    "choices": [
+      "MVC Architecture",
+      "Layered Architecture",
+      "Event-Driven Architecture",
+      "Master-Slave Architecture"
+    ],
+    "answer": "MVC Architecture",
+    "explanation": "MVC separates an application into three interconnected components: Model, View, and Controller."
+  },
+  {
+    "id": "sia-105",
+    "question": "In MVC, which component handles user input?",
+    "choices": [
+      "Broker",
+      "View",
+      "Controller",
+      "Model"
+    ],
+    "answer": "Controller",
+    "explanation": "The Controller handles input, the Model holds data, and the View is the user interface."
+  },
+  {
+    "id": "sia-106",
+    "question": "In MVC, which component represents the data?",
+    "choices": [
+      "View",
+      "API Gateway",
+      "Controller",
+      "Model"
+    ],
+    "answer": "Model",
+    "explanation": "The Model represents the data in MVC."
+  },
+  {
+    "id": "sia-107",
+    "question": "For which type of application is MVC architecture suggested?",
+    "choices": [
+      "Large-scale database load balancing",
+      "Real-time IoT systems",
+      "Simple standalone utilities only",
+      "Web applications"
+    ],
+    "answer": "Web applications",
+    "explanation": "MVC is used for web applications."
+  },
+  {
+    "id": "sia-108",
+    "question": "Which architecture has a primary component responsible for writing data and secondary components responsible for reading data?",
+    "choices": [
+      "Monolithic Architecture",
+      "Event-Driven Architecture",
+      "MVC Architecture",
+      "Master-Slave Architecture"
+    ],
+    "answer": "Master-Slave Architecture",
+    "explanation": "In master-slave architecture the master writes data and the slaves read data."
+  },
+  {
+    "id": "sia-109",
+    "question": "In Master-Slave Architecture, which component is responsible for writing data?",
+    "choices": [
+      "API Gateway",
+      "Event Broker",
+      "Master Server",
+      "Slave Server"
+    ],
+    "answer": "Master Server",
+    "explanation": "The master server writes data and the slave servers read it."
+  },
+  {
+    "id": "sia-110",
+    "question": "For which usage is Master-Slave Architecture suggested?",
+    "choices": [
+      "Web user interface separation",
+      "Real-time IoT event processing",
+      "Simple standalone applications",
+      "Load balancing and high availability for large-scale databases"
+    ],
+    "answer": "Load balancing and high availability for large-scale databases",
+    "explanation": "Master-slave architecture is used for load balancing and high availability for large-scale databases."
+  },
+  {
+    "id": "sia-111",
+    "question": "Which is a factor to consider when choosing an architectural pattern?",
+    "choices": [
+      "The color palette of the interface",
+      "The office location of the client",
+      "The number of meetings per week",
+      "The development team's expertise"
+    ],
+    "answer": "The development team's expertise",
+    "explanation": "Factors include application size and complexity, scalability requirements, performance needs, and team expertise."
+  },
+  {
+    "id": "sia-112",
+    "question": "Which set lists the factors for choosing an architectural pattern?",
+    "choices": [
+      "Brand colors, logo design, slogan, and packaging",
+      "Sprint length, board columns, role names, and meeting length",
+      "Application size and complexity, scalability requirements, performance needs, and development team's expertise",
+      "Office size, team size, vacation days, and budget cycles"
+    ],
+    "answer": "Application size and complexity, scalability requirements, performance needs, and development team's expertise",
+    "explanation": "The lesson lists these four factors."
+  },
+  {
+    "id": "sia-113",
+    "question": "What does requirements modeling involve?",
+    "choices": [
+      "Writing the final program code",
+      "Estimating project cost only",
+      "Training end users",
+      "Creating a graphical representation of a system's requirements"
+    ],
+    "answer": "Creating a graphical representation of a system's requirements",
+    "explanation": "Requirements modeling gives a visual, structured way to document requirements so stakeholders understand the functionalities and constraints."
+  },
+  {
+    "id": "sia-114",
+    "question": "What is the Unified Modeling Language (UML)?",
+    "choices": [
+      "A project scheduling method",
+      "A programming language for databases",
+      "A standardized visual modeling language used in software engineering to visualize the design of a system",
+      "A hardware description standard"
+    ],
+    "answer": "A standardized visual modeling language used in software engineering to visualize the design of a system",
+    "explanation": "UML is a standardized visual modeling language for visualizing system designs."
+  },
+  {
+    "id": "sia-115",
+    "question": "UML helps with which of the following?",
+    "choices": [
+      "Compiling source code and deploying servers",
+      "Specifying, visualizing, constructing, and documenting the artifacts of software systems",
+      "Replacing the testing process",
+      "Hiring developers and assigning budgets"
+    ],
+    "answer": "Specifying, visualizing, constructing, and documenting the artifacts of software systems",
+    "explanation": "UML helps in specifying, visualizing, constructing, and documenting software artifacts."
+  },
+  {
+    "id": "sia-116",
+    "question": "Which UML diagram category emphasizes the things that must be present in the system being modeled and is used extensively to document software architecture?",
+    "choices": [
+      "Structure diagrams",
+      "Behavior diagrams",
+      "State diagrams",
+      "Interaction diagrams"
+    ],
+    "answer": "Structure diagrams",
+    "explanation": "Structure diagrams emphasize what must be present in the system."
+  },
+  {
+    "id": "sia-117",
+    "question": "Which UML diagram category emphasizes what must happen in the system being modeled and describes the functionality of software systems?",
+    "choices": [
+      "Deployment diagrams",
+      "Component diagrams",
+      "Structure diagrams",
+      "Behavior diagrams"
+    ],
+    "answer": "Behavior diagrams",
+    "explanation": "Behavior diagrams emphasize what must happen in the system."
+  },
+  {
+    "id": "sia-118",
+    "question": "In the UML diagram hierarchy, a component diagram belongs to which category?",
+    "choices": [
+      "State diagrams",
+      "Interaction diagrams",
+      "Structure diagrams",
+      "Behavior diagrams"
+    ],
+    "answer": "Structure diagrams",
+    "explanation": "The Component diagram is a type of Structure diagram."
+  },
+  {
+    "id": "sia-119",
+    "question": "Which UML diagram verifies that a system's required functionality is acceptable and serves as a communication tool between developers and stakeholders?",
+    "choices": [
+      "Component diagram",
+      "Sequence diagram",
+      "Activity diagram",
+      "State diagram"
+    ],
+    "answer": "Component diagram",
+    "explanation": "Component diagrams allow verification of required functionality and facilitate communication between developers and stakeholders."
+  },
+  {
+    "id": "sia-120",
+    "question": "How do programmers and developers use component diagrams?",
+    "choices": [
+      "To record user passwords",
+      "To formalize a roadmap for implementation, supporting decisions about task assignment or needed skill improvements",
+      "To measure network speed",
+      "To replace the source code"
+    ],
+    "answer": "To formalize a roadmap for implementation, supporting decisions about task assignment or needed skill improvements",
+    "explanation": "Component diagrams formalize a roadmap for implementation and inform decisions about task assignment and skill improvement."
+  },
+  {
+    "id": "sia-121",
+    "question": "Which UML diagram is a graphical representation of workflows of stepwise activities and actions with support for choice, iteration, and concurrency?",
+    "choices": [
+      "Activity diagram",
+      "Sequence diagram",
+      "State diagram",
+      "Use case diagram"
+    ],
+    "answer": "Activity diagram",
+    "explanation": "Activity diagrams model computational and organizational processes (workflows) and the data flows intersecting with the related activities."
+  },
+  {
+    "id": "sia-122",
+    "question": "Which UML diagram represents a user's interaction with the system, showing the relationship between the user and the use cases they are involved in?",
+    "choices": [
+      "Sequence diagram",
+      "Component diagram",
+      "Use case diagram",
+      "Activity diagram"
+    ],
+    "answer": "Use case diagram",
+    "explanation": "A use case diagram shows user interactions and the different use cases."
+  },
+  {
+    "id": "sia-123",
+    "question": "How are use cases represented in a use case diagram?",
+    "choices": [
+      "By rounded rectangles labeled with state names",
+      "By swimlanes only",
+      "By vertical lifelines with messages",
+      "By circles or ellipses"
+    ],
+    "answer": "By circles or ellipses",
+    "explanation": "Use cases are represented by either circles or ellipses."
+  },
+  {
+    "id": "sia-124",
+    "question": "In a use case diagram, what does the <<include>> relationship mean?",
+    "choices": [
+      "A parent use case is specialized into multiple child use cases",
+      "Optional behavior is added to a base use case under certain conditions",
+      "A use case contains the behavior of another use case as part of its own behavior",
+      "A user is linked to a database"
+    ],
+    "answer": "A use case contains the behavior of another use case as part of its own behavior",
+    "explanation": "The include relationship lets a use case contain the behavior of other use cases as part of its own."
+  },
+  {
+    "id": "sia-125",
+    "question": "In a use case diagram, what does the <<extend>> relationship mean?",
+    "choices": [
+      "A child use case inherits from a parent use case",
+      "Under certain conditions, new behavior is added to an existing (basic) use case, producing an extended use case",
+      "A use case always runs another use case",
+      "An actor is added to the system boundary"
+    ],
+    "answer": "Under certain conditions, new behavior is added to an existing (basic) use case, producing an extended use case",
+    "explanation": "Extension adds new behaviors to existing use cases under certain conditions."
+  },
+  {
+    "id": "sia-126",
+    "question": "In a use case diagram, which relationship specializes a parent use case into multiple child use cases?",
+    "choices": [
+      "Dependency",
+      "Extension",
+      "Include",
+      "Generalization"
+    ],
+    "answer": "Generalization",
+    "explanation": "Generalization refers to a parent use case being specialized into multiple child use cases."
+  },
+  {
+    "id": "sia-127",
+    "question": "In the airline reservation system use case diagram, which use case does 'Payment' include?",
+    "choices": [
+      "Validate Card Details",
+      "Cancel Ticket",
+      "Check Flight Status",
+      "Choose Seat"
+    ],
+    "answer": "Validate Card Details",
+    "explanation": "Payment <<include>> Validate Card Details; Book Ticket is extended by Choose Seat."
+  },
+  {
+    "id": "sia-128",
+    "question": "In the airline reservation system use case diagram, which use case extends 'Book Ticket'?",
+    "choices": [
+      "Login",
+      "Choose Seat",
+      "Update Flight Schedule",
+      "Validate Card Details"
+    ],
+    "answer": "Choose Seat",
+    "explanation": "Choose Seat is linked to Book Ticket with an <<extend>> relationship."
+  },
+  {
+    "id": "sia-129",
+    "question": "Interaction diagrams are a subset of which UML category, emphasizing the flow of control and data among the things in the system?",
+    "choices": [
+      "Package diagrams",
+      "Structure diagrams",
+      "Profile diagrams",
+      "Behavior diagrams"
+    ],
+    "answer": "Behavior diagrams",
+    "explanation": "Interaction diagrams are a subset of behavior diagrams."
+  },
+  {
+    "id": "sia-130",
+    "question": "Which UML diagram shows object interactions arranged in time sequence and the messages exchanged to carry out a scenario's functionality?",
+    "choices": [
+      "Component diagram",
+      "State diagram",
+      "Use case diagram",
+      "Sequence diagram"
+    ],
+    "answer": "Sequence diagram",
+    "explanation": "A sequence diagram depicts the objects involved and the sequence of messages exchanged."
+  },
+  {
+    "id": "sia-131",
+    "question": "Sequence diagrams are typically associated with which of the following?",
+    "choices": [
+      "Database schemas only",
+      "Use case realizations in the Logical View of the system under development",
+      "Project budgets",
+      "Deployment hardware nodes"
+    ],
+    "answer": "Use case realizations in the Logical View of the system under development",
+    "explanation": "Sequence diagrams are typically associated with use case realizations in the Logical View."
+  },
+  {
+    "id": "sia-132",
+    "question": "In the Online Food Delivery System sequence diagram, which object does the Owner check availability with?",
+    "choices": [
+      "Order",
+      "Payment",
+      "User",
+      "Category"
+    ],
+    "answer": "Category",
+    "explanation": "The Owner sends 'check availability' to Category, which replies 'available'."
+  },
+  {
+    "id": "sia-133",
+    "question": "Which UML diagram is a directed graph in which nodes denote states and connectors denote state transitions?",
+    "choices": [
+      "Activity diagram",
+      "State diagram",
+      "Sequence diagram",
+      "Use case diagram"
+    ],
+    "answer": "State diagram",
+    "explanation": "State diagrams describe the dynamic behavior of an individual object as states and transitions."
+  },
+  {
+    "id": "sia-134",
+    "question": "In a state diagram, how are states and transitions represented?",
+    "choices": [
+      "States as ellipses; transitions as lifelines",
+      "States as swimlanes; transitions as boxes",
+      "States as rounded rectangles labeled with state names; transitions as arrows labeled with triggering events",
+      "States as stick figures; transitions as circles"
+    ],
+    "answer": "States as rounded rectangles labeled with state names; transitions as arrows labeled with triggering events",
+    "explanation": "States are rounded rectangles and transitions are arrows labeled with the triggering events, optionally followed by executed actions."
+  },
+  {
+    "id": "sia-135",
+    "question": "In the digital watch state diagram, which state follows BlinkHours when button1 is pressed?",
+    "choices": [
+      "StopBlinking",
+      "BlinkMinutes",
+      "IncrementHours",
+      "BlinkSeconds"
+    ],
+    "answer": "BlinkMinutes",
+    "explanation": "button1Pressed moves from BlinkHours to BlinkMinutes; button2Pressed leads to IncrementHours."
+  },
+  {
+    "id": "sia-136",
+    "question": "In the ticket booking activity diagram, what happens when the ticket is not available for the selected movie?",
+    "choices": [
+      "The system displays 'Ticket Not Available' and returns to showing the movie list",
+      "The booking system ends immediately",
+      "The ticket is confirmed anyway",
+      "The user is sent to the book list"
+    ],
+    "answer": "The system displays 'Ticket Not Available' and returns to showing the movie list",
+    "explanation": "The decision node leads to 'Display Ticket Not Available' when the ticket is unavailable, and the flow loops back to the movie list."
+  },
+  {
+    "id": "sia-137",
+    "question": "What is the C4 model?",
+    "choices": [
+      "A programming language for microservices",
+      "A database design method",
+      "A lean graphical notation technique for modeling the architecture of software systems",
+      "A project management methodology"
+    ],
+    "answer": "A lean graphical notation technique for modeling the architecture of software systems",
+    "explanation": "The C4 model is a lean graphical notation technique for modeling software architecture."
+  },
+  {
+    "id": "sia-138",
+    "question": "The C4 model is based on a structural decomposition of a system into which elements?",
+    "choices": [
+      "Layers and tiers only",
+      "Producers and consumers",
+      "Containers and components",
+      "Sprints and epics"
+    ],
+    "answer": "Containers and components",
+    "explanation": "C4 is based on a hierarchical decomposition of a system into containers and components."
+  },
+  {
+    "id": "sia-139",
+    "question": "Which existing modeling techniques does C4 rely on for more detailed decomposition?",
+    "choices": [
+      "Flowcharts and pie charts",
+      "Gantt charts and PERT charts",
+      "Kanban boards and burndown charts",
+      "UML or entity-relationship diagrams (ERDs)"
+    ],
+    "answer": "UML or entity-relationship diagrams (ERDs)",
+    "explanation": "C4 relies on UML or ERDs for the more detailed decomposition of building blocks."
+  },
+  {
+    "id": "sia-140",
+    "question": "The C4 model creates 'maps of your code' at various levels of detail. Which analogy describes this?",
+    "choices": [
+      "Using a spreadsheet to total costs",
+      "Using Google Maps to zoom in and out of an area of interest",
+      "Using a stopwatch to time sprints",
+      "Using a calendar to schedule tasks"
+    ],
+    "answer": "Using Google Maps to zoom in and out of an area of interest",
+    "explanation": "Like zooming in and out of a map, C4 provides views at different levels of detail."
+  },
+  {
+    "id": "sia-141",
+    "question": "Which lists the four levels of the C4 model from most zoomed-out to most detailed?",
+    "choices": [
+      "Context, Component, Container, Code",
+      "Context, Container, Component, Code",
+      "Container, Context, Code, Component",
+      "Code, Component, Container, Context"
+    ],
+    "answer": "Context, Container, Component, Code",
+    "explanation": "The C4 levels are Level 1 Context, Level 2 Container, Level 3 Component, and Level 4 Code."
+  },
+  {
+    "id": "sia-142",
+    "question": "Which C4 diagram provides a starting point by showing how the software system in scope fits into the world around it?",
+    "choices": [
+      "Code diagram",
+      "Component diagram",
+      "System context diagram",
+      "Container diagram"
+    ],
+    "answer": "System context diagram",
+    "explanation": "A system context diagram shows how the system fits into the world around it."
+  },
+  {
+    "id": "sia-143",
+    "question": "Which C4 diagram zooms into the software system in scope, showing the applications and data stores inside it?",
+    "choices": [
+      "System context diagram",
+      "Code diagram",
+      "Component diagram",
+      "Container diagram"
+    ],
+    "answer": "Container diagram",
+    "explanation": "A container diagram zooms into the system, showing applications and data stores."
+  },
+  {
+    "id": "sia-144",
+    "question": "Which C4 diagram zooms into an individual container to show the components inside it?",
+    "choices": [
+      "Component diagram",
+      "System context diagram",
+      "Code diagram",
+      "Container diagram"
+    ],
+    "answer": "Component diagram",
+    "explanation": "A component diagram zooms into an individual container, showing its components."
+  },
+  {
+    "id": "sia-145",
+    "question": "Which C4 level can use something like a UML class diagram to show how a component is implemented at the code level?",
+    "choices": [
+      "Code diagram",
+      "System context diagram",
+      "Container diagram",
+      "Component diagram"
+    ],
+    "answer": "Code diagram",
+    "explanation": "A code diagram (for example a UML class diagram) zooms into an individual component."
+  },
+  {
+    "id": "sia-146",
+    "question": "How is a system context diagram drawn?",
+    "choices": [
+      "With servers and network cables only",
+      "With the system as a box in the centre, surrounded by its users and the other systems it interacts with",
+      "With each class and method of the code",
+      "With a timeline of project phases"
+    ],
+    "answer": "With the system as a box in the centre, surrounded by its users and the other systems it interacts with",
+    "explanation": "The context diagram shows your system in the centre surrounded by its users and other systems."
+  },
+  {
+    "id": "sia-147",
+    "question": "What should a system context diagram focus on?",
+    "choices": [
+      "Source code structure",
+      "Database tables and indexes",
+      "Technologies, protocols, and other low-level details",
+      "People (actors, roles, personas) and software systems rather than technologies and protocols"
+    ],
+    "answer": "People (actors, roles, personas) and software systems rather than technologies and protocols",
+    "explanation": "Detail isn't important in the context diagram; the focus is on people and software systems."
+  },
+  {
+    "id": "sia-148",
+    "question": "Who is the intended audience of a system context diagram?",
+    "choices": [
+      "Only software architects",
+      "Only the project manager",
+      "Only developers and operations staff",
+      "Everybody, both technical and non-technical people, inside and outside the development team"
+    ],
+    "answer": "Everybody, both technical and non-technical people, inside and outside the development team",
+    "explanation": "The system context diagram could be shown to non-technical people."
+  },
+  {
+    "id": "sia-149",
+    "question": "What is the scope of a system context diagram?",
+    "choices": [
+      "Every system in the organization",
+      "A single database table",
+      "A single class",
+      "A single software system"
+    ],
+    "answer": "A single software system",
+    "explanation": "The scope is a single software system, with that system as the primary element."
+  },
+  {
+    "id": "sia-150",
+    "question": "In a system context diagram, what are the supporting elements?",
+    "choices": [
+      "Containers within the system",
+      "Classes within a component",
+      "Servers and routers",
+      "People and external software systems directly connected to the system in scope"
+    ],
+    "answer": "People and external software systems directly connected to the system in scope",
+    "explanation": "Supporting elements are people and external software systems directly connected to the system."
+  },
+  {
+    "id": "sia-151",
+    "question": "Which statement about a system context diagram is correct?",
+    "choices": [
+      "It is intended only for technical staff",
+      "It is recommended for all software development teams",
+      "It is recommended only for large teams",
+      "It is optional and rarely useful"
+    ],
+    "answer": "It is recommended for all software development teams",
+    "explanation": "A system context diagram is recommended for all software development teams."
+  },
+  {
+    "id": "sia-152",
+    "question": "In the Internet Banking System context diagram, which of the following is an external software system?",
+    "choices": [
+      "Database",
+      "Personal Banking Customer",
+      "Static Content",
+      "Core Banking System"
+    ],
+    "answer": "Core Banking System",
+    "explanation": "The Core Banking System and the Amazon Web Services Simple Email Service are external systems; the customer is a person."
+  },
+  {
+    "id": "sia-153",
+    "question": "In C4, what is a container?",
+    "choices": [
+      "A deployment package for hardware only",
+      "An application or a data store",
+      "A group of stakeholders",
+      "A single class in the code"
+    ],
+    "answer": "An application or a data store",
+    "explanation": "A container is an application or data store, such as a web app, mobile app, database schema, file system folder, or S3 bucket."
+  },
+  {
+    "id": "sia-154",
+    "question": "Which is an example of a C4 container?",
+    "choices": [
+      "A mobile app or a database schema",
+      "A project manager",
+      "A requirement statement",
+      "A single function"
+    ],
+    "answer": "A mobile app or a database schema",
+    "explanation": "Examples include server-side web applications, single-page applications, desktop applications, mobile apps, database schemas, folders on a file system, and S3 buckets."
+  },
+  {
+    "id": "sia-155",
+    "question": "What does a container diagram show?",
+    "choices": [
+      "Only the project schedule",
+      "The high-level shape of the architecture, how responsibilities are distributed, major technology choices, and how containers communicate",
+      "Only the users of the system",
+      "Every line of source code"
+    ],
+    "answer": "The high-level shape of the architecture, how responsibilities are distributed, major technology choices, and how containers communicate",
+    "explanation": "A container diagram is a simple, high-level, technology-focused diagram."
+  },
+  {
+    "id": "sia-156",
+    "question": "Who is the intended audience of a container diagram?",
+    "choices": [
+      "Only end users",
+      "Only non-technical business stakeholders",
+      "Only the Product Owner",
+      "Technical people inside and outside the development team, such as architects, developers, and operations/support staff"
+    ],
+    "answer": "Technical people inside and outside the development team, such as architects, developers, and operations/support staff",
+    "explanation": "Container diagrams are useful for software developers and support/operations staff alike."
+  },
+  {
+    "id": "sia-157",
+    "question": "What are the primary elements of a container diagram?",
+    "choices": [
+      "Classes within a component",
+      "Containers within the software system in scope",
+      "Only external people",
+      "The software system as a single box"
+    ],
+    "answer": "Containers within the software system in scope",
+    "explanation": "The primary elements are the containers within the system in scope; supporting elements are people and systems connected to them."
+  },
+  {
+    "id": "sia-158",
+    "question": "In the Internet Banking System container diagram, which is shown as a container inside the system boundary?",
+    "choices": [
+      "Amazon Web Services Simple Email Service",
+      "Personal Banking Customer",
+      "Statement Store",
+      "Core Banking System"
+    ],
+    "answer": "Statement Store",
+    "explanation": "Static Content, UI, Backend, Statement Store, and Database sit inside the Internet Banking System boundary."
+  },
+  {
+    "id": "sia-159",
+    "question": "In a component diagram, what is a 'Required' (usage) interface?",
+    "choices": [
+      "An interface that a component needs from another component",
+      "A dependency on an actor",
+      "An interface a component offers to others",
+      "A diagram border"
+    ],
+    "answer": "An interface that a component needs from another component",
+    "explanation": "A required interface is the usage side, which a component needs from another component."
+  },
+  {
+    "id": "sia-160",
+    "question": "In a component diagram, what is a 'Provided' (realization) interface?",
+    "choices": [
+      "A deployment node",
+      "A UML note",
+      "An interface a component needs from another component",
+      "An interface that a component offers or realizes for others"
+    ],
+    "answer": "An interface that a component offers or realizes for others",
+    "explanation": "A provided interface is the realization side, which a component offers."
+  },
+  {
+    "id": "sia-161",
+    "question": "In the Order System and Customer Repository component diagram, what is 'Customer Lookup'?",
+    "choices": [
+      "An actor",
+      "A database",
+      "An interface connecting the Order System and the Customer Repository",
+      "A component stereotype"
+    ],
+    "answer": "An interface connecting the Order System and the Customer Repository",
+    "explanation": "Customer Lookup is the interface between the two components; Product Accessor links Order System and Inventory System."
+  },
+  {
+    "id": "sia-162",
+    "question": "Which are the labeled elements of the example component diagram (TicketSeller)?",
+    "choices": [
+      "State, transition, event, and action",
+      "Class, object, package, and timeline",
+      "Lifeline, message, fragment, and activation",
+      "Actor, dependency, component, and interface (usage/required and realization/provided)"
+    ],
+    "answer": "Actor, dependency, component, and interface (usage/required and realization/provided)",
+    "explanation": "The labeled elements are Actor, Dependency, Component, and Interface with Usage (Required) and Realization (Provided)."
+  },
+  {
+    "id": "sia-163",
+    "question": "How can a component be represented in a component diagram?",
+    "choices": [
+      "With the <<component>> stereotype and/or a component icon, as in 'Order'",
+      "With a rounded rectangle labeled with a state",
+      "With a stick figure",
+      "With a diamond decision node"
+    ],
+    "answer": "With the <<component>> stereotype and/or a component icon, as in 'Order'",
+    "explanation": "The Order component is shown using the <<component>> label, a component icon, or both."
   }
 ]
