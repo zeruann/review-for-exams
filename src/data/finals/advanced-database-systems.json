@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fin-adb-1",
+    "question": "In distributed database systems, what does the CAP theorem state regarding Consistency (C), Availability (A), and Partition tolerance (P)?",
+    "choices": [
+      "A distributed system can guarantee at most two of the three properties simultaneously in the presence of network partitions",
+      "All three properties can be guaranteed concurrently under standard network conditions",
+      "Only Consistency can be guaranteed across distributed nodes",
+      "Partition tolerance can be eliminated by increasing server bandwidth"
+    ],
+    "answer": "A distributed system can guarantee at most two of the three properties simultaneously in the presence of network partitions",
+    "explanation": "Eric Brewer's CAP theorem establishes that in any asynchronous distributed network subject to partitions, a system cannot simultaneously guarantee both consistency and availability."
+  },
+  {
+    "id": "fin-adb-2",
+    "question": "What is the primary objective of database sharding (horizontal partitioning)?",
+    "choices": [
+      "Distributing subsets of table rows across multiple servers to improve scalability and throughput",
+      "Splitting columns of a table into separate vertical tables",
+      "Backing up transaction logs to cold storage",
+      "Normalizing data into Boyce-Codd Normal Form (BCNF)"
+    ],
+    "answer": "Distributing subsets of table rows across multiple servers to improve scalability and throughput",
+    "explanation": "Sharding distributes rows of a table across multiple database nodes, enabling horizontal scaling to support large-scale workloads and massive datasets."
+  }
+]

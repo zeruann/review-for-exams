@@ -1,0 +1,26 @@
+[
+  {
+    "id": "quiz-pc-1",
+    "question": "Which stage in the communication process involves converting an idea or thought into symbolic form such as words, gestures, or pictures?",
+    "choices": [
+      "Encoding",
+      "Decoding",
+      "Feedback",
+      "Channeling"
+    ],
+    "answer": "Encoding",
+    "explanation": "Encoding is the process where the sender transforms thoughts and ideas into a communicable message using language, symbols, or signals."
+  },
+  {
+    "id": "quiz-pc-2",
+    "question": "What kind of communication barrier arises from personal mental states such as extreme stress, anger, prejudice, or fear?",
+    "choices": [
+      "Psychological barrier",
+      "Physical barrier",
+      "Physiological barrier",
+      "Semantic barrier"
+    ],
+    "answer": "Psychological barrier",
+    "explanation": "Psychological barriers refer to mental and emotional states of the sender or receiver that obstruct open and objective communication."
+  }
+]

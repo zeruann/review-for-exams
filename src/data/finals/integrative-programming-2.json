@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fin-ipt2-1",
+    "question": "Which architectural constraint of REST dictates that each request from a client to a server must contain all necessary context without depending on stored session state on the server?",
+    "choices": [
+      "Statelessness",
+      "Cacheability",
+      "Uniform Interface",
+      "Layered System"
+    ],
+    "answer": "Statelessness",
+    "explanation": "Statelessness ensures that no client context is stored on the server between requests; each request contains all information needed to process it."
+  },
+  {
+    "id": "fin-ipt2-2",
+    "question": "What is the primary role of an API Gateway within a distributed microservices ecosystem?",
+    "choices": [
+      "Serving as a unified entry point that orchestrates routing, protocol translation, authentication, and rate limiting",
+      "Directly running SQL database migration queries for client devices",
+      "Replacing all frontend web frameworks with native machine code",
+      "Serving as a distributed source code repository manager"
+    ],
+    "answer": "Serving as a unified entry point that orchestrates routing, protocol translation, authentication, and rate limiting",
+    "explanation": "An API Gateway sits between clients and microservices, acting as a single entry point to abstract backend complexity, enforce security, and handle cross-cutting concerns like rate-limiting and logging."
+  }
+]

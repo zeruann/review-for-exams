@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fin-ias-1",
+    "question": "Which core information security service provides undeniable proof of the origin and delivery of data, preventing a sender from claiming they did not transmit a message?",
+    "choices": [
+      "Non-repudiation",
+      "Confidentiality",
+      "High Availability",
+      "Obfuscation"
+    ],
+    "answer": "Non-repudiation",
+    "explanation": "Non-repudiation ensures that a party to a communication or transaction cannot falsely deny the authenticity of their signature on a document or the sending of a message that they originated."
+  },
+  {
+    "id": "fin-ias-2",
+    "question": "In asymmetric (public-key) cryptography for secure confidential transmission, which key must the recipient use to decrypt a message encrypted by the sender?",
+    "choices": [
+      "The recipient's private key",
+      "The sender's public key",
+      "The recipient's public key",
+      "The certificate authority's root key"
+    ],
+    "answer": "The recipient's private key",
+    "explanation": "For confidentiality in asymmetric cryptography, data encrypted with the recipient's public key can only be decrypted by the matching private key known exclusively to the recipient."
+  }
+]

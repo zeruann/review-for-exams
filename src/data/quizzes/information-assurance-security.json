@@ -1,0 +1,26 @@
+[
+  {
+    "id": "quiz-ias-1",
+    "question": "What three core security goals comprise the foundational CIA Triad of information security?",
+    "choices": [
+      "Confidentiality, Integrity, and Availability",
+      "Control, Identification, and Authentication",
+      "Cryptography, Inspection, and Auditing",
+      "Compliance, Infrastructure, and Assessment"
+    ],
+    "answer": "Confidentiality, Integrity, and Availability",
+    "explanation": "The CIA Triad stands for Confidentiality (privacy), Integrity (accuracy/tamper-prevention), and Availability (accessibility when needed)."
+  },
+  {
+    "id": "quiz-ias-2",
+    "question": "Which category of malware disguises itself as legitimate, helpful software to deceive a user into executing it?",
+    "choices": [
+      "Trojan horse",
+      "Computer worm",
+      "Spyware",
+      "Keylogger"
+    ],
+    "answer": "Trojan horse",
+    "explanation": "A Trojan horse appears benign or useful (like a game or utility) but conceals malicious functionality that executes once installed."
+  }
+]

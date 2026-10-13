@@ -1,0 +1,26 @@
+[
+  {
+    "id": "quiz-sia-1",
+    "question": "What does the widely used software integration acronym 'API' stand for?",
+    "choices": [
+      "Application Programming Interface",
+      "Automated Platform Interconnect",
+      "Applied Protocol Implementation",
+      "Asynchronous Process Integration"
+    ],
+    "answer": "Application Programming Interface",
+    "explanation": "An Application Programming Interface (API) is a set of defined rules, protocols, and tools that enable different software applications to communicate with each other."
+  },
+  {
+    "id": "quiz-sia-2",
+    "question": "Which data serialization format is traditionally mandated for envelope messages and payloads in SOAP-based web services?",
+    "choices": [
+      "XML",
+      "YAML",
+      "JSON",
+      "Protocol Buffers"
+    ],
+    "answer": "XML",
+    "explanation": "Simple Object Access Protocol (SOAP) relies strictly on XML as its message format for requests, responses, and WSDL descriptions."
+  }
+]

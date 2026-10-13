@@ -1,0 +1,26 @@
+[
+  {
+    "id": "quiz-net2-1",
+    "question": "What is the default administrative distance of the OSPF routing protocol in Cisco IOS?",
+    "choices": [
+      "110",
+      "90",
+      "120",
+      "1"
+    ],
+    "answer": "110",
+    "explanation": "OSPF has a default administrative distance of 110 (compared to Connected: 0, Static: 1, EIGRP internal: 90, and RIP: 120)."
+  },
+  {
+    "id": "quiz-net2-2",
+    "question": "In IPv4 subnetting, which dotted-decimal subnet mask corresponds to a /26 prefix length?",
+    "choices": [
+      "255.255.255.192",
+      "255.255.255.128",
+      "255.255.255.224",
+      "255.255.255.240"
+    ],
+    "answer": "255.255.255.192",
+    "explanation": "A /26 subnet mask has 26 consecutive 1s: 11111111.11111111.11111111.11000000, which equals 255.255.255.192."
+  }
+]

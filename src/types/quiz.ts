@@ -36,3 +36,5 @@ export interface Subject {
   name: string;
   questions: Question[];
 }
+
+export type ExamPeriod = "midterm" | "finals" | "quizzes";

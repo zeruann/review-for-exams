@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fin-net2-1",
+    "question": "Which protocol is an open-standard link-state routing protocol that uses Dijkstra's Shortest Path First (SPF) algorithm to calculate the best route?",
+    "choices": [
+      "OSPF (Open Shortest Path First)",
+      "RIP (Routing Information Protocol)",
+      "EIGRP (Enhanced Interior Gateway Routing Protocol)",
+      "BGP (Border Gateway Protocol)"
+    ],
+    "answer": "OSPF (Open Shortest Path First)",
+    "explanation": "OSPF is an open-standard link-state routing protocol (RFC 2328) that constructs a topological map of the network and computes shortest paths using Dijkstra's SPF algorithm."
+  },
+  {
+    "id": "fin-net2-2",
+    "question": "In Cisco EtherChannel configuration, which protocol is IEEE open-standard (802.3ad) as opposed to Cisco proprietary PAgP?",
+    "choices": [
+      "LACP (Link Aggregation Control Protocol)",
+      "PAgP (Port Aggregation Protocol)",
+      "STP (Spanning Tree Protocol)",
+      "VTP (VLAN Trunking Protocol)"
+    ],
+    "answer": "LACP (Link Aggregation Control Protocol)",
+    "explanation": "LACP (IEEE 802.3ad) is the vendor-neutral link aggregation protocol, whereas PAgP is Cisco proprietary."
+  }
+]

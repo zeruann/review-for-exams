@@ -1,11 +1,14 @@
 import { useMemo, useState } from "react";
-import type { Subject } from "../types/quiz";
+import type { Subject, ExamPeriod } from "../types/quiz";
 import type { SubjectProgress } from "../hooks/useProgress";
 
 interface SubjectListProps {
   subjects: Subject[];
   progress: Record<string, SubjectProgress>;
   onSelect: (subject: Subject) => void;
+  period?: ExamPeriod;
+  onBackToPeriod?: () => void;
+  onChangePeriod?: (period: ExamPeriod) => void;
 }
 
 function statusMeta(score: number) {
@@ -40,9 +43,11 @@ export default function SubjectList({
   subjects,
   progress,
   onSelect,
+  period = "midterm",
+  onBackToPeriod,
+  onChangePeriod,
 }: SubjectListProps) {
   const [query, setQuery] = useState("");
-
 
   const filtered = useMemo(
     () =>
@@ -67,11 +72,98 @@ export default function SubjectList({
 
   return (
     <div className="max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold text-[var(--ink)] mb-1 tracking-tight">
-        Exam Review
-      </h1>
+      <div className="flex items-center justify-between mb-4">
+        {onBackToPeriod ? (
+          <button
+            type="button"
+            onClick={onBackToPeriod}
+            className="text-sm font-semibold rounded-md px-2 py-1 -ml-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+            style={{ color: "var(--ink-muted)" }}
+          >
+            ← Change exam
+          </button>
+        ) : (
+          <span />
+        )}
+
+        {onChangePeriod && (
+          <div
+            role="radiogroup"
+            aria-label="Exam period"
+            className="inline-flex rounded-lg border p-1 gap-1"
+            style={{
+              borderColor: "var(--border)",
+              backgroundColor: "var(--surface)",
+            }}
+          >
+            {(["midterm", "finals", "quizzes"] as ExamPeriod[]).map((p) => {
+              const isDisabled = p === "finals";
+              return (
+                <button
+                  key={p}
+                  type="button"
+                  role="radio"
+                  disabled={isDisabled}
+                  aria-checked={period === p}
+                  onClick={() => !isDisabled && onChangePeriod(p)}
+                  className={`px-3 py-1 rounded-md text-xs font-semibold capitalize focus:outline-none focus:ring-2 ${
+                    isDisabled ? "opacity-40 cursor-not-allowed" : ""
+                  }`}
+                  style={{
+                    backgroundColor:
+                      period === p ? "var(--accent)" : "transparent",
+                    color:
+                      period === p ? "var(--accent-ink)" : "var(--ink-muted)",
+                  }}
+                  title={isDisabled ? "Finals is locked" : undefined}
+                >
+                  {p} {isDisabled ? "🔒" : ""}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <div className="flex items-center gap-2 mb-2">
+        <span
+          className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border"
+          style={{
+            backgroundColor: "var(--surface)",
+            borderColor: "var(--border)",
+            color: "var(--accent)",
+          }}
+        >
+          BSIT3A - 1st Semester
+        </span>
+      </div>
+
+      <div className="flex items-center gap-2 mb-1">
+        <h1 className="text-2xl font-bold text-[var(--ink)] tracking-tight">
+          {period === "quizzes"
+            ? "Quizzes Review"
+            : period === "finals"
+            ? "Finals Exam Review"
+            : "Midterm Exam Review"}
+        </h1>
+        <span
+          className="text-xs font-semibold px-2 py-0.5 rounded-full capitalize"
+          style={{
+            backgroundColor: "var(--surface-hover)",
+            color: "var(--accent)",
+            border: "1px solid var(--border)",
+          }}
+        >
+          {period}
+        </span>
+      </div>
+
       <p className="text-[var(--ink-muted)] mb-1 leading-relaxed">
-        Pick a subject to start reviewing.
+        {period === "quizzes"
+          ? "Subject quizzes and quick drills to evaluate your knowledge."
+          : period === "finals"
+          ? "2 questions per subject to review for finals."
+          : "Pick a subject to start reviewing."}
       </p>
 
       <p className="text-sm text-[var(--ink-muted)] mb-6">

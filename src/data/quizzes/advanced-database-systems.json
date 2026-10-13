@@ -1,0 +1,26 @@
+[
+  {
+    "id": "quiz-adb-1",
+    "question": "In transactional database management systems, what does the 'I' in the ACID properties stand for?",
+    "choices": [
+      "Isolation",
+      "Integrity",
+      "Indexing",
+      "Immutability"
+    ],
+    "answer": "Isolation",
+    "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Isolation ensures concurrent transactions execute without interfering with each other."
+  },
+  {
+    "id": "quiz-adb-2",
+    "question": "Under which category of NoSQL databases does MongoDB primarily fall?",
+    "choices": [
+      "Document-oriented database",
+      "Key-value store",
+      "Graph database",
+      "Wide-column store"
+    ],
+    "answer": "Document-oriented database",
+    "explanation": "MongoDB stores data in flexible, JSON-like BSON documents, making it a document-oriented NoSQL database."
+  }
+]

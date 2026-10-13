@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { subjects } from "./data/subjects";
-import type { Subject } from "./types/quiz";
+import { midtermSubjects, finalsSubjects, quizzesSubjects } from "./data/subjects";
+import type { Subject, ExamPeriod } from "./types/quiz";
 import { useProgress } from "./hooks/useProgress";
 import { useProfiles } from "./hooks/useProfiles";
 import { usePersistedBoolean } from "./hooks/usePersistedBoolean";
 import { usePersistedString } from "./hooks/usePersistedString";
+import PeriodSelection from "./components/PeriodSelection";
 import SubjectList from "./components/SubjectList";
 import QuizSetup, { usesQuizOptions } from "./components/QuizSetup";
 
@@ -18,6 +19,7 @@ import ProfileGate from "./components/ProfileGate";
 import ProfileSwitcher from "./components/ProfileSwitcher";
 
 type ViewState =
+  | { screen: "period" }
   | { screen: "list" }
   | { screen: "topics"; subject: Subject }
   | { screen: "quiz"; subject: Subject }
@@ -72,12 +74,26 @@ const PROFILES_ENABLED: boolean = false;
 const GUEST_PROFILE = "__guest__";
 
 export default function App() {
-  const [view, setView] = useState<ViewState>({ screen: "list" });
+  const [view, setView] = useState<ViewState>({ screen: "period" });
+  const [selectedPeriod, setSelectedPeriod] = usePersistedString(
+    "exam-review-period",
+    "midterm"
+  ) as [ExamPeriod, (p: ExamPeriod) => void];
+
   const { profiles, activeProfile, selectProfile, switchToGate, deleteProfile } =
     useProfiles();
 
-const profile = PROFILES_ENABLED ? activeProfile : GUEST_PROFILE;
-const { progress, recordAttempt } = useProgress(profile);
+  const profile = PROFILES_ENABLED ? activeProfile : GUEST_PROFILE;
+
+  const effectivePeriod: ExamPeriod =
+    selectedPeriod === "finals" ? "midterm" : selectedPeriod;
+
+  // Track progress separately for midterm, finals, and quizzes
+  const { progress, recordAttempt } = useProgress(profile, effectivePeriod);
+  const { progress: midtermProgress } = useProgress(profile, "midterm");
+  const { progress: finalsProgress } = useProgress(profile, "finals");
+  const { progress: quizzesProgress } = useProgress(profile, "quizzes");
+
   const [shuffleQuestions, setShuffleQuestions] = usePersistedBoolean(
     "exam-review-shuffle",
     true
@@ -95,7 +111,10 @@ const { progress, recordAttempt } = useProgress(profile);
   const questionLimitNumber =
     questionLimit === "all" ? null : Number(questionLimit);
 
-if (!profile) {
+  const activeSubjects =
+    effectivePeriod === "quizzes" ? quizzesSubjects : midtermSubjects;
+
+  if (!profile) {
     return (
       <div style={THEME_VARS[activeTheme]}>
         <ProfileGate
@@ -108,15 +127,15 @@ if (!profile) {
   }
 
   // Subjects with only one topic skip the picker and go straight to the quiz.
-const handleSelectSubject = (subject: Subject) => {
-  if (usesQuizOptions(subject)) {
-    setView({ screen: "setup", subject });
-  } else if (getTopics(subject).length > 1) {
-    setView({ screen: "topics", subject });
-  } else {
-    setView({ screen: "quiz", subject });
-  }
-};
+  const handleSelectSubject = (subject: Subject) => {
+    if (usesQuizOptions(subject) && subject.questions.length > 5) {
+      setView({ screen: "setup", subject });
+    } else if (getTopics(subject).length > 1) {
+      setView({ screen: "topics", subject });
+    } else {
+      setView({ screen: "quiz", subject });
+    }
+  };
 
   return (
     <div
@@ -138,7 +157,7 @@ const handleSelectSubject = (subject: Subject) => {
         <div
           role="radiogroup"
           aria-label="Color theme"
-          className="inline-flex rounded-lg border p-1 gap-1"
+          className="inline-flex rounded-lg border p-1 gap-1 ml-auto"
           style={{
             borderColor: "var(--border)",
             backgroundColor: "var(--surface)",
@@ -165,11 +184,33 @@ const handleSelectSubject = (subject: Subject) => {
         </div>
       </div>
 
+      {view.screen === "period" && (
+        <PeriodSelection
+          midtermSubjects={midtermSubjects}
+          finalsSubjects={finalsSubjects}
+          quizzesSubjects={quizzesSubjects}
+          midtermProgress={midtermProgress}
+          finalsProgress={finalsProgress}
+          quizzesProgress={quizzesProgress}
+          onSelectPeriod={(period) => {
+            if (period === "finals") return;
+            setSelectedPeriod(period);
+            setView({ screen: "list" });
+          }}
+        />
+      )}
+
       {view.screen === "list" && (
         <SubjectList
-          subjects={subjects}
+          subjects={activeSubjects}
           progress={progress}
+          period={effectivePeriod}
           onSelect={handleSelectSubject}
+          onBackToPeriod={() => setView({ screen: "period" })}
+          onChangePeriod={(p) => {
+            if (p === "finals") return;
+            setSelectedPeriod(p);
+          }}
         />
       )}
 
@@ -188,10 +229,22 @@ const handleSelectSubject = (subject: Subject) => {
 
       {view.screen === "quiz" && (
         <Quiz
-  subject={view.subject}
-  shuffleQuestions={usesQuizOptions(view.subject) ? shuffleQuestions : true}
-  questionLimit={usesQuizOptions(view.subject) ? questionLimitNumber : null}
-  timerEnabled={usesQuizOptions(view.subject) ? timerEnabled : false}
+          subject={view.subject}
+          shuffleQuestions={
+            usesQuizOptions(view.subject) && view.subject.questions.length > 5
+              ? shuffleQuestions
+              : true
+          }
+          questionLimit={
+            usesQuizOptions(view.subject) && view.subject.questions.length > 5
+              ? questionLimitNumber
+              : null
+          }
+          timerEnabled={
+            usesQuizOptions(view.subject) && view.subject.questions.length > 5
+              ? timerEnabled
+              : false
+          }
           onExit={() => setView({ screen: "list" })}
           onFinish={(correctCount, totalCount) => {
             recordAttempt(view.subject.id, correctCount, totalCount);
@@ -205,19 +258,19 @@ const handleSelectSubject = (subject: Subject) => {
         />
       )}
 
-{view.screen === "setup" && (
-  <QuizSetup
-    subject={view.subject}
-    shuffleQuestions={shuffleQuestions}
-    onToggleShuffle={setShuffleQuestions}
-    questionLimit={questionLimit}
-    onChangeQuestionLimit={setQuestionLimit}
-    timerEnabled={timerEnabled}
-    onToggleTimer={setTimerEnabled}
-    onBack={() => setView({ screen: "list" })}
-    onStart={() => setView({ screen: "quiz", subject: view.subject })}
-  />
-)}
+      {view.screen === "setup" && (
+        <QuizSetup
+          subject={view.subject}
+          shuffleQuestions={shuffleQuestions}
+          onToggleShuffle={setShuffleQuestions}
+          questionLimit={questionLimit}
+          onChangeQuestionLimit={setQuestionLimit}
+          timerEnabled={timerEnabled}
+          onToggleTimer={setTimerEnabled}
+          onBack={() => setView({ screen: "list" })}
+          onStart={() => setView({ screen: "quiz", subject: view.subject })}
+        />
+      )}
 
       {view.screen === "results" && (
         <Results

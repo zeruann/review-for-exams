@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fin-pc-1",
+    "question": "Which of the following best defines intercultural communication competence?",
+    "choices": [
+      "The ability to interact effectively and appropriately with people from different cultural backgrounds",
+      "The ability to translate between languages word-for-word",
+      "Conforming strictly to one's own cultural norms during international dialogues",
+      "Using complex technical vocabulary in all written correspondences"
+    ],
+    "answer": "The ability to interact effectively and appropriately with people from different cultural backgrounds",
+    "explanation": "Intercultural communication competence encompasses cultural awareness, sensitivity, and adaptive communication skills to engage constructively across diverse cultural contexts."
+  },
+  {
+    "id": "fin-pc-2",
+    "question": "In Aristotle's rhetorical proofs of persuasion, what does 'Ethos' appeal to?",
+    "choices": [
+      "The speaker's credibility, character, and ethical integrity",
+      "The audience's emotions and psychological reactions",
+      "Logical arguments, evidence, and deductive reasoning",
+      "The dramatic tone of voice and physical gestures"
+    ],
+    "answer": "The speaker's credibility, character, and ethical integrity",
+    "explanation": "Ethos refers to the perceived trustworthiness, character, and authority of the speaker (while Pathos appeals to emotion and Logos to reason)."
+  }
+]

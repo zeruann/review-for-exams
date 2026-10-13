@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fin-sia-1",
+    "question": "What is the primary architectural advantage of an Enterprise Service Bus (ESB) over direct point-to-point integration architectures?",
+    "choices": [
+      "It decouples service consumers and providers through centralized message mediation, routing, and protocol transformation",
+      "It requires tight coupling of all components to minimize network hops",
+      "It completely eliminates the need for software testing and monitoring",
+      "It forces all services to run on a single monolithic operating system"
+    ],
+    "answer": "It decouples service consumers and providers through centralized message mediation, routing, and protocol transformation",
+    "explanation": "An ESB decouples endpoints and acts as an intelligent communications mediator, preventing the quadratic complexity of point-to-point connections as systems grow."
+  },
+  {
+    "id": "fin-sia-2",
+    "question": "Which messaging architecture allows publishers to broadcast events to topics without knowing which specific subscribers will receive and process them?",
+    "choices": [
+      "Publish-Subscribe (Pub/Sub) pattern",
+      "Synchronous Remote Procedure Call (RPC)",
+      "Point-to-point lock-step synchronization",
+      "Direct shared memory mapping"
+    ],
+    "answer": "Publish-Subscribe (Pub/Sub) pattern",
+    "explanation": "The Pub/Sub pattern enables decoupled, asynchronous communication where publishers emit messages to topics, and multiple subscribers react independently."
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "quiz-ipt2-1",
+    "question": "Which HTTP status code signifies that a client's request succeeded and led to the creation of a new resource on the server?",
+    "choices": [
+      "201 Created",
+      "200 OK",
+      "204 No Content",
+      "301 Moved Permanently"
+    ],
+    "answer": "201 Created",
+    "explanation": "HTTP 201 Created indicates that the request was successful and that a new resource has been created as a result (typically following a POST or PUT request)."
+  },
+  {
+    "id": "quiz-ipt2-2",
+    "question": "In standard JSON syntax, which punctuation symbols delimit an ordered array of elements?",
+    "choices": [
+      "Square brackets [ ]",
+      "Curly braces { }",
+      "Parentheses ( )",
+      "Angle brackets < >"
+    ],
+    "answer": "Square brackets [ ]",
+    "explanation": "In JSON, arrays are enclosed in square brackets `[ ... ]`, whereas objects are enclosed in curly braces `{ ... }`."
+  }
+]

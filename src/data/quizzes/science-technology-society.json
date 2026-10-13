@@ -1,0 +1,26 @@
+[
+  {
+    "id": "quiz-sts-1",
+    "question": "The Greek root word 'techne', from which the modern term 'technology' is derived, originally meant what?",
+    "choices": [
+      "Art, craft, or skill",
+      "Power or domination over nature",
+      "Cosmic order or universal laws",
+      "Mathematical proof and theory"
+    ],
+    "answer": "Art, craft, or skill",
+    "explanation": "In classical Greek philosophy, 'techne' refers to practical knowledge, craft, art, or the skilled making of things."
+  },
+  {
+    "id": "quiz-sts-2",
+    "question": "Which historic scientific paradigm shift displaced the geocentric model of the solar system in favor of the heliocentric (Sun-centered) model?",
+    "choices": [
+      "Copernican Revolution",
+      "Darwinian Revolution",
+      "Information Revolution",
+      "Industrial Revolution"
+    ],
+    "answer": "Copernican Revolution",
+    "explanation": "The Copernican Revolution, initiated by Nicolaus Copernicus, demonstrated that the Earth and other planets orbit the Sun, replacing the long-held Ptolemaic geocentric model."
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fin-sts-1",
+    "question": "In Aristotelian ethics frequently evaluated in STS, which philosophical concept refers to 'human flourishing' or the good life realized through living virtuously?",
+    "choices": [
+      "Eudaimonia",
+      "Technê",
+      "Episteme",
+      "Hedonism"
+    ],
+    "answer": "Eudaimonia",
+    "explanation": "Eudaimonia is Aristotle's term for true human flourishing and the ultimate good of human existence, often analyzed in STS regarding whether technological progress fosters genuine human flourishing."
+  },
+  {
+    "id": "fin-sts-2",
+    "question": "What is the defining hallmark of the Fourth Industrial Revolution (Industry 4.0)?",
+    "choices": [
+      "The blurring of boundaries between the physical, digital, and biological spheres via AI, IoT, and cyber-physical systems",
+      "The replacement of manual labor by steam-driven machinery and coal power",
+      "The introduction of assembly lines and electrical mass manufacturing",
+      "The initial commercialization of personal mainframe computers"
+    ],
+    "answer": "The blurring of boundaries between the physical, digital, and biological spheres via AI, IoT, and cyber-physical systems",
+    "explanation": "Industry 4.0 describes the current era of smart automation and cyber-physical systems where digital, physical, and biological technologies converge."
+  }
+]
