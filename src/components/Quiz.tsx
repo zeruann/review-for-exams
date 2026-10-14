@@ -489,7 +489,7 @@ export default function Quiz({
   const runningCorrect = answeredEntries.filter(([i, s]) =>
     isAnswerCorrect(Number(i), s)
   ).length;
-  const runningAnswered = answeredEntries.length;
+  // const runningAnswered = answeredEntries.length;
 
   useEffect(() => {
     if (!timerEnabled) return;
