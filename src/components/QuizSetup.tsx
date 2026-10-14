@@ -78,8 +78,8 @@ export default function QuizSetup({
             }}
           >
             <option value="all">All</option>
-            <option value="30">30 (exam-length)</option>
-            <option value="40">40 (exam-length)</option>
+            <option value="33">33 (exam-length)</option>
+            <option value="35">35 (exam-length)</option>
           </select>
         </label>
 
