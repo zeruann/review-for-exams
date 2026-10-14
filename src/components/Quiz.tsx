@@ -637,50 +637,53 @@ function handleCheck() {
 
   return (
     <div className="max-w-xl mx-auto">
+      
       <div className="flex items-center justify-between mb-3">
-        <button
-          onClick={onExit}
-          className="text-sm px-2 py-1 -ml-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-          style={{ color: "var(--ink-muted)" }}
-        >
-          ← Exit
-        </button>
-        <button
-          onClick={() => {
-            const next = !soundOn;
-            setSoundOn(next);
-            setSoundEnabled(next);
-          }}
-          aria-label={soundOn ? "Mute sounds" : "Unmute sounds"}
-          className="text-sm px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-          style={{ color: "var(--ink-muted)" }}
-        >
-          {soundOn ? "🔊" : "🔇"}
-        </button>
+  <button
+    onClick={onExit}
+    className="text-sm px-2 py-1 -ml-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+    style={{ color: "var(--ink-muted)" }}
+  >
+    ← Exit
+  </button>
 
-        
-        {timerEnabled && (
-          <div
-            className={`text-sm font-semibold px-3 py-1 rounded-full tabular-nums ${
-              timerCritical ? "animate-pulse" : ""
-            }`}
-            style={{
-              backgroundColor: timerCritical
-                ? "var(--low-soft)"
-                : timerLow
-                ? "var(--okay-soft)"
-                : "var(--surface)",
-              color: timerCritical
-                ? "var(--low)"
-                : timerLow
-                ? "var(--okay)"
-                : "var(--ink-muted)",
-            }}
-          >
-            ⏱ {formatTime(secondsLeft)}
-          </div>
-        )}
+  <div className="flex items-center gap-2">
+    <button
+      onClick={() => {
+        const next = !soundOn;
+        setSoundOn(next);
+        setSoundEnabled(next);
+      }}
+      aria-label={soundOn ? "Mute sounds" : "Unmute sounds"}
+      className="text-sm px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+      style={{ color: "var(--ink-muted)" }}
+    >
+      {soundOn ? "🔊" : "🔇"}
+    </button>
+
+    {timerEnabled && (
+      <div
+        className={`text-sm font-semibold px-3 py-1 rounded-full tabular-nums ${
+          timerCritical ? "animate-pulse" : ""
+        }`}
+        style={{
+          backgroundColor: timerCritical
+            ? "var(--low-soft)"
+            : timerLow
+            ? "var(--okay-soft)"
+            : "var(--surface)",
+          color: timerCritical
+            ? "var(--low)"
+            : timerLow
+            ? "var(--okay)"
+            : "var(--ink-muted)",
+        }}
+      >
+        ⏱ {formatTime(secondsLeft)}
       </div>
+    )}
+  </div>
+</div>
 
       <div
         className="flex items-center justify-between mb-2 text-sm"
