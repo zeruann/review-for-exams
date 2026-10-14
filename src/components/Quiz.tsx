@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Subject, MatchPair, SortItem } from "../types/quiz";
 
+import { playCorrect, playWrong, isSoundEnabled, setSoundEnabled } from "../utils/sounds";
+
 interface QuizProps {
   subject: Subject;
   shuffleQuestions: boolean;
@@ -406,6 +408,7 @@ export default function Quiz({
   const [secondsLeft, setSecondsLeft] = useState(TIMER_DURATION_SECONDS);
   const [selectedLeftId, setSelectedLeftId] = useState<string | null>(null);
   const finishedRef = useRef(false);
+  const [soundOn, setSoundOn] = useState(isSoundEnabled());
 
   const current = questions[index] as any;
   const isLast = index === questions.length - 1;
@@ -597,10 +600,12 @@ const canCheck = matching
   ? assignedRequiredCount === requiredSortItems.length
   : selected.length > 0;
 
-  function handleCheck() {
-    if (!canCheck) return;
-    updateCurrent({ revealed: true, skipped: false });
-  }
+function handleCheck() {
+  if (!canCheck) return;
+  if (isAnswerCorrect(index, currentState)) playCorrect();
+  else playWrong();
+  updateCurrent({ revealed: true, skipped: false });
+}
 
   function handleSkip() {
     updateCurrent({
@@ -640,6 +645,20 @@ const canCheck = matching
         >
           ← Exit
         </button>
+        <button
+          onClick={() => {
+            const next = !soundOn;
+            setSoundOn(next);
+            setSoundEnabled(next);
+          }}
+          aria-label={soundOn ? "Mute sounds" : "Unmute sounds"}
+          className="text-sm px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+          style={{ color: "var(--ink-muted)" }}
+        >
+          {soundOn ? "🔊" : "🔇"}
+        </button>
+
+        
         {timerEnabled && (
           <div
             className={`text-sm font-semibold px-3 py-1 rounded-full tabular-nums ${
@@ -671,8 +690,8 @@ const canCheck = matching
           Question {index + 1} of {questions.length}
         </span>
         <span className="font-medium" style={{ color: "var(--accent)" }}>
-          Score: {runningCorrect}/{runningAnswered}
-        </span>
+  Score: {runningCorrect}/{questions.length}
+</span>
       </div>
 
       <div
