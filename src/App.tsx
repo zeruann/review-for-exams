@@ -172,11 +172,19 @@ export default function App() {
         {PROFILES_ENABLED ? (
           <ProfileSwitcher activeProfile={profile} onSwitch={switchToGate} />
         ) : (
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent)] animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
-              Focus Mode
-            </span>
+          <div
+            className="px-3.5 py-1.5 rounded-full border text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5 select-none"
+            style={{
+              backgroundColor: "var(--surface)",
+              borderColor: "var(--border)",
+              color: "var(--ink-muted)",
+            }}
+          >
+            <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
+            <span>Made with</span>
+            <span className="text-[var(--low)] font-bold">{"<3"}</span>
+            <span>by</span>
+            <span className="font-bold text-[var(--ink)]">Hazel</span>
           </div>
         )}
 
