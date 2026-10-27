@@ -636,119 +636,196 @@ function handleCheck() {
   const timerCritical = secondsLeft <= 60;
 
   return (
-    <div className="max-w-xl mx-auto">
-      
-      <div className="flex items-center justify-between mb-3">
-  <button
-    onClick={onExit}
-    className="text-sm px-2 py-1 -ml-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-    style={{ color: "var(--ink-muted)" }}
-  >
-    ← Exit
-  </button>
+    <div className="max-w-2xl mx-auto">
+      {/* Quiz Top Action & Focus Bar */}
+      <div className="flex items-center justify-between mb-4 gap-2">
+        <button
+          onClick={onExit}
+          className="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-xl border transition-all active-press flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+          style={{
+            backgroundColor: "var(--surface)",
+            borderColor: "var(--border)",
+            color: "var(--ink-muted)",
+          }}
+        >
+          <span>✕</span>
+          <span>Exit</span>
+        </button>
 
-  <div className="flex items-center gap-2">
-    <button
-      onClick={() => {
-        const next = !soundOn;
-        setSoundOn(next);
-        setSoundEnabled(next);
-      }}
-      aria-label={soundOn ? "Mute sounds" : "Unmute sounds"}
-      className="text-sm px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-      style={{ color: "var(--ink-muted)" }}
-    >
-      {soundOn ? "🔊" : "🔇"}
-    </button>
+        <div className="flex items-center gap-2">
+          {/* Audio toggle button */}
+          <button
+            onClick={() => {
+              const next = !soundOn;
+              setSoundOn(next);
+              setSoundEnabled(next);
+            }}
+            aria-label={soundOn ? "Mute sounds" : "Unmute sounds"}
+            className="text-xs font-semibold px-2.5 py-1.5 rounded-xl border transition-all active-press flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+            style={{
+              backgroundColor: "var(--surface)",
+              borderColor: "var(--border)",
+              color: soundOn ? "var(--ink)" : "var(--ink-faint)",
+            }}
+            title={soundOn ? "Sound Effects Enabled" : "Sound Effects Muted"}
+          >
+            <span>{soundOn ? "🔊" : "🔇"}</span>
+            <span className="hidden sm:inline text-[11px]">{soundOn ? "Audio On" : "Muted"}</span>
+          </button>
 
-    {timerEnabled && (
+          {/* Timer Display */}
+          {timerEnabled && (
+            <div
+              className={`text-xs font-bold px-3 py-1.5 rounded-xl border tabular-nums flex items-center gap-1.5 ${
+                timerCritical ? "urgent-timer border-[var(--low)]" : ""
+              }`}
+              style={{
+                backgroundColor: timerCritical
+                  ? "var(--low-soft)"
+                  : timerLow
+                  ? "var(--okay-soft)"
+                  : "var(--surface)",
+                borderColor: timerCritical
+                  ? "var(--low)"
+                  : timerLow
+                  ? "var(--okay)"
+                  : "var(--border)",
+                color: timerCritical
+                  ? "var(--low)"
+                  : timerLow
+                  ? "var(--okay)"
+                  : "var(--ink-muted)",
+              }}
+            >
+              <span>⏱</span>
+              <span>{formatTime(secondsLeft)}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Progress & Micro-Goal Strip */}
       <div
-        className={`text-sm font-semibold px-3 py-1 rounded-full tabular-nums ${
-          timerCritical ? "animate-pulse" : ""
-        }`}
+        className="rounded-2xl p-4 mb-5 border shadow-sm"
         style={{
-          backgroundColor: timerCritical
-            ? "var(--low-soft)"
-            : timerLow
-            ? "var(--okay-soft)"
-            : "var(--surface)",
-          color: timerCritical
-            ? "var(--low)"
-            : timerLow
-            ? "var(--okay)"
-            : "var(--ink-muted)",
+          backgroundColor: "var(--surface)",
+          borderColor: "var(--border)",
         }}
       >
-        ⏱ {formatTime(secondsLeft)}
-      </div>
-    )}
-  </div>
-</div>
+        <div className="flex items-center justify-between mb-2 text-xs md:text-sm font-semibold">
+          <div className="flex items-center gap-2">
+            <span
+              className="px-2 py-0.5 rounded-md font-bold text-xs"
+              style={{
+                backgroundColor: "var(--accent-soft)",
+                color: "var(--accent)",
+              }}
+            >
+              Question {index + 1}
+            </span>
+            <span style={{ color: "var(--ink-muted)" }}>of {questions.length}</span>
+          </div>
 
-      <div
-        className="flex items-center justify-between mb-2 text-sm"
-        style={{ color: "var(--ink-muted)" }}
-      >
-        <span>
-          Question {index + 1} of {questions.length}
-        </span>
-        <span className="font-medium" style={{ color: "var(--accent)" }}>
-  Score: {runningCorrect}/{questions.length}
-</span>
-      </div>
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-bold" style={{ color: "var(--good)" }}>
+              ✓ {runningCorrect} correct
+            </span>
+            <span className="text-xs font-bold opacity-75" style={{ color: "var(--ink-muted)" }}>
+              {progressPercent}% completed
+            </span>
+          </div>
+        </div>
 
-      <div
-        className="w-full h-2 rounded-full overflow-hidden mb-5"
-        style={{ backgroundColor: "var(--bg)" }}
-      >
+        {/* Visual Progress Track */}
         <div
-          className="h-full transition-all duration-300"
-          style={{ width: `${progressPercent}%`, backgroundColor: "var(--accent)" }}
-        />
+          className="w-full h-2.5 rounded-full overflow-hidden"
+          style={{ backgroundColor: "var(--bg)" }}
+        >
+          <div
+            className="h-full rounded-full transition-all duration-300"
+            style={{ width: `${progressPercent}%`, backgroundColor: "var(--accent)" }}
+          />
+        </div>
       </div>
 
+      {/* Main Question Card with ADHD Focus Container */}
       <div
-        className="rounded-2xl p-6 border"
-        style={{ backgroundColor: "var(--surface)", borderColor: "var(--border)" }}
+        className="rounded-3xl p-6 md:p-8 border shadow-md relative overflow-hidden"
+        style={{
+          backgroundColor: "var(--surface)",
+          borderColor: "var(--border)",
+        }}
       >
+        {/* Question Type Banner */}
+        <div className="flex items-center gap-2 mb-3">
+          <span
+            className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full border"
+            style={{
+              backgroundColor: "var(--surface-hover)",
+              borderColor: "var(--border)",
+              color: "var(--accent)",
+            }}
+          >
+            {matching ? "Matching Exercise" : sorting ? "Classification Exercise" : isMulti ? "Multiple Choice" : "Single Choice"}
+          </span>
+          {isMulti && (
+            <span className="text-xs font-bold text-[var(--accent)]">
+              • Pick {current.answers!.length} answers
+            </span>
+          )}
+        </div>
+
+        {/* Question Stem (Large, High Contrast, Spaced) */}
         <h2
-          className="text-lg font-semibold mb-3 leading-snug"
+          className="text-lg md:text-xl font-bold mb-5 leading-relaxed tracking-tight"
           style={{ color: "var(--ink)" }}
         >
           {current.question}
         </h2>
 
-        {isMulti && (
-          <p className="text-sm mb-3" style={{ color: "var(--accent)" }}>
-            Select {current.answers!.length} answers.
-          </p>
-        )}
         {matching && !revealed && (
-          <p className="text-sm mb-3" style={{ color: "var(--accent)" }}>
-            Tap a term, then tap its matching description.
-          </p>
+          <div className="p-3 mb-4 rounded-xl text-xs md:text-sm font-medium border flex items-center gap-2"
+            style={{
+              backgroundColor: "var(--accent-soft)",
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
+            }}
+          >
+            <span>💡</span>
+            <span>Tap a term on the left, then tap its matching description on the right.</span>
+          </div>
         )}
+
         {sorting && !revealed && (
-          <p className="text-sm mb-3" style={{ color: "var(--accent)" }}>
-            {assignedRequiredCount}/{requiredSortItems.length} sorted — drag a
-            description onto its type, or tap one then tap a type.
-          </p>
+          <div className="p-3 mb-4 rounded-xl text-xs md:text-sm font-medium border flex items-center gap-2"
+            style={{
+              backgroundColor: "var(--accent-soft)",
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
+            }}
+          >
+            <span>💡</span>
+            <span>
+              {assignedRequiredCount}/{requiredSortItems.length} sorted — drag or tap to categorize.
+            </span>
+          </div>
         )}
 
         {current.image && (
-          <img
-            src={current.image}
-            alt="Exhibit"
-            className="w-full rounded-lg mb-4"
-            style={{ backgroundColor: "var(--bg)" }}
-          />
+          <div className="mb-5 rounded-2xl overflow-hidden border p-2" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg)" }}>
+            <img
+              src={current.image}
+              alt="Exhibit"
+              className="w-full rounded-xl object-contain max-h-80 mx-auto"
+            />
+          </div>
         )}
 
         {current.exhibit && (
           <pre
-            className="whitespace-pre-wrap break-words text-xs rounded-lg p-3 mb-4 overflow-x-auto border"
+            className="whitespace-pre-wrap break-words text-xs rounded-2xl p-4 mb-5 overflow-x-auto border font-mono"
             style={{
-              color: "var(--ink-muted)",
+              color: "var(--ink)",
               backgroundColor: "var(--bg)",
               borderColor: "var(--border)",
             }}
@@ -757,6 +834,7 @@ function handleCheck() {
           </pre>
         )}
 
+        {/* Interactive Options Area */}
         {matching ? (
           <MatchingBoard
             pairs={current.pairs as MatchPair[]}
@@ -777,39 +855,45 @@ function handleCheck() {
           />
         ) : (
           <div className="space-y-3">
-            {shuffledChoices.map((choice: string) => {
+            {shuffledChoices.map((choice: string, cIdx: number) => {
               const isSelected = selected.includes(choice);
               const isCorrectChoice = correctSet.has(choice);
 
               let boxStyle: React.CSSProperties = {
                 borderColor: "var(--border)",
                 color: "var(--ink)",
+                backgroundColor: "var(--surface)",
               };
+
               if (revealed) {
                 if (isCorrectChoice) {
                   boxStyle = {
                     borderColor: "var(--good)",
                     backgroundColor: "var(--good-soft)",
                     color: "var(--good)",
+                    boxShadow: "0 0 0 1px var(--good)",
                   };
                 } else if (isSelected && !isCorrectChoice) {
                   boxStyle = {
                     borderColor: "var(--low)",
                     backgroundColor: "var(--low-soft)",
                     color: "var(--low)",
+                    boxShadow: "0 0 0 1px var(--low)",
                   };
                 } else {
                   boxStyle = {
                     borderColor: "var(--border)",
                     color: "var(--ink-faint)",
-                    opacity: 0.6,
+                    opacity: 0.55,
+                    backgroundColor: "var(--surface-hover)",
                   };
                 }
               } else if (isSelected) {
                 boxStyle = {
                   borderColor: "var(--accent)",
-                  backgroundColor: "var(--good-soft)",
+                  backgroundColor: "var(--accent-soft)",
                   color: "var(--ink)",
+                  boxShadow: "0 0 0 2px var(--accent)",
                 };
               }
 
@@ -818,39 +902,77 @@ function handleCheck() {
                   key={choice}
                   onClick={() => toggleChoice(choice)}
                   disabled={revealed}
-                  className="w-full flex items-center gap-3 text-left px-4 py-3 rounded-xl border transition whitespace-pre-line focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+                  className="w-full flex items-center gap-3.5 text-left px-4 py-3.5 rounded-2xl border-2 transition-all active-press whitespace-pre-line focus:outline-none focus:ring-2 focus:ring-[var(--accent)] hover:border-[var(--accent)] group"
                   style={boxStyle}
                 >
+                  {/* Choice Letter badge */}
+                  <span
+                    className={`w-7 h-7 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 transition-colors ${
+                      isSelected && !revealed
+                        ? "bg-[var(--accent)] text-white"
+                        : "bg-[var(--surface-hover)] border"
+                    }`}
+                    style={{ borderColor: "var(--border)" }}
+                  >
+                    {LETTERS[cIdx] || (cIdx + 1)}
+                  </span>
+
+                  <span className="flex-1 text-sm md:text-base font-medium leading-relaxed">
+                    {choice}
+                  </span>
+
                   {revealed && isCorrectChoice && <CheckIcon />}
                   {revealed && isSelected && !isCorrectChoice && <CrossIcon />}
-                  <span className="flex-1">{choice}</span>
                 </button>
               );
             })}
           </div>
         )}
 
+        {/* Skipped Message */}
         {revealed && currentState.skipped && (
-          <p className="mt-4 text-sm" style={{ color: "var(--okay)" }}>
-            Skipped — correct {matching || sorting ? "groupings" : "answer"} shown above.
-          </p>
-        )}
-
-        {current.explanation && revealed && (
-          <p
-            className="mt-4 text-sm rounded-lg p-3"
-            style={{ color: "var(--ink-muted)", backgroundColor: "var(--bg)" }}
+          <div
+            className="mt-5 p-3.5 rounded-2xl text-xs md:text-sm font-semibold border flex items-center gap-2"
+            style={{
+              backgroundColor: "var(--okay-soft)",
+              borderColor: "var(--okay)",
+              color: "var(--okay)",
+            }}
           >
-            {current.explanation}
-          </p>
+            <span>⏭</span>
+            <span>Skipped — correct {matching || sorting ? "groupings" : "answers"} are highlighted above.</span>
+          </div>
         )}
 
-        <div className="mt-5 flex gap-3">
+        {/* Explanation Card */}
+        {current.explanation && revealed && (
+          <div
+            className="mt-5 p-4 md:p-5 rounded-2xl border text-xs md:text-sm leading-relaxed"
+            style={{
+              color: "var(--ink)",
+              backgroundColor: "var(--surface-hover)",
+              borderColor: "var(--border)",
+            }}
+          >
+            <div className="flex items-center gap-2 font-bold mb-1.5" style={{ color: "var(--accent)" }}>
+              <span>💡</span>
+              <span>Explanation & Key Insight</span>
+            </div>
+            <p className="text-[var(--ink-muted)] leading-relaxed">{current.explanation}</p>
+          </div>
+        )}
+
+        {/* Navigation / Action Bar */}
+        <div className="mt-6 pt-5 border-t flex items-center gap-3" style={{ borderColor: "var(--border)" }}>
           <button
             onClick={handlePrevious}
             disabled={isFirst}
-            className="flex-1 py-3 rounded-xl font-medium disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-            style={{ backgroundColor: "var(--surface-hover)", color: "var(--ink)" }}
+            className="py-3.5 px-4 rounded-2xl font-bold text-xs md:text-sm border transition-all active-press disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+            style={{
+              backgroundColor: "var(--surface-hover)",
+              borderColor: "var(--border)",
+              color: "var(--ink)",
+            }}
           >
             ← Previous
           </button>
@@ -859,27 +981,38 @@ function handleCheck() {
             <>
               <button
                 onClick={handleSkip}
-                className="flex-1 py-3 rounded-xl font-medium focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-                style={{ backgroundColor: "var(--surface-hover)", color: "var(--ink)" }}
+                className="py-3.5 px-4 rounded-2xl font-bold text-xs md:text-sm border transition-all active-press focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+                style={{
+                  backgroundColor: "var(--surface-hover)",
+                  borderColor: "var(--border)",
+                  color: "var(--ink-muted)",
+                }}
               >
-                Skip
+                Skip ↷
               </button>
               <button
                 onClick={handleCheck}
                 disabled={!canCheck}
-                className="flex-1 py-3 rounded-xl font-medium disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-                style={{ backgroundColor: "var(--accent)", color: "var(--accent-ink)" }}
+                className="flex-1 py-3.5 px-5 rounded-2xl font-extrabold text-sm md:text-base transition-all active-press disabled:opacity-40 disabled:cursor-not-allowed shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] flex items-center justify-center gap-2"
+                style={{
+                  backgroundColor: "var(--accent)",
+                  color: "var(--accent-ink)",
+                }}
               >
-                Check
+                <span>Check Answer</span>
+                <span>✨</span>
               </button>
             </>
           ) : (
             <button
               onClick={handleNext}
-              className="flex-1 py-3 rounded-xl font-medium focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-              style={{ backgroundColor: "var(--accent)", color: "var(--accent-ink)" }}
+              className="flex-1 py-3.5 px-5 rounded-2xl font-extrabold text-sm md:text-base transition-all active-press shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] flex items-center justify-center gap-2"
+              style={{
+                backgroundColor: "var(--accent)",
+                color: "var(--accent-ink)",
+              }}
             >
-              {isLast ? "Finish" : "Next"}
+              <span>{isLast ? "View Final Results 🏆" : "Next Question →"}</span>
             </button>
           )}
         </div>

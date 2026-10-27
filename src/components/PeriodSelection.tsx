@@ -42,34 +42,114 @@ export default function PeriodSelection({
   ).length;
 
   return (
-    <div className="max-w-3xl mx-auto">
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-2">
+    <div className="max-w-4xl mx-auto">
+      {/* Header section with calm, welcoming tone */}
+      <div className="mb-8">
+        <div className="flex items-center gap-2 mb-2.5">
           <span
-            className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border"
+            className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border"
             style={{
-              backgroundColor: "var(--surface)",
-              borderColor: "var(--border)",
+              backgroundColor: "var(--accent-soft)",
+              borderColor: "var(--accent)",
               color: "var(--accent)",
             }}
           >
-            BSIT3A - 1st Semester
+            BSIT3A • 1st Semester
+          </span>
+          <span className="text-xs font-semibold" style={{ color: "var(--ink-muted)" }}>
+            • Self-Paced Learning Studio
           </span>
         </div>
-        <h1 className="text-3xl font-bold text-[var(--ink)] tracking-tight mb-1">
-          Exam Review
+
+        <h1 className="text-3xl md:text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
+          What would you like to review today?
         </h1>
-        <p className="text-[var(--ink-muted)] text-base leading-relaxed">
-          Select a category to begin reviewing your subjects.
+        <p className="text-base text-[var(--ink-muted)] max-w-xl leading-relaxed">
+          Choose a review mode that fits your energy. Switch anytime without losing your progress.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {/* Quizzes Card (Drill / Quick Practice - Highlighted for immediate momentum) */}
+        <button
+          type="button"
+          onClick={() => onSelectPeriod("quizzes")}
+          className="w-full text-left p-6 rounded-2xl border-2 transition-all flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-[var(--accent)] active-press shadow-sm hover:shadow-lg"
+          style={{
+            backgroundColor: "var(--surface)",
+            borderColor: "var(--accent)",
+            color: "var(--ink)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "var(--surface-hover)";
+            e.currentTarget.style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "var(--surface)";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+        >
+          <div>
+            <div className="flex items-center justify-between gap-2 mb-4">
+              <span className="text-3xl p-2.5 rounded-xl bg-[var(--accent-soft)]" aria-hidden="true">
+                🎯
+              </span>
+              <span
+                className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                style={{
+                  backgroundColor: "var(--accent)",
+                  color: "var(--accent-ink)",
+                }}
+              >
+                Recommended
+              </span>
+            </div>
+
+            <h2 className="text-xl font-bold tracking-tight mb-1.5 text-[var(--ink)] flex items-center gap-2">
+              <span>Quizzes Review</span>
+            </h2>
+            <p className="text-sm text-[var(--ink-muted)] leading-relaxed mb-6">
+              Bite-sized module exams, sub-quizzes, and targeted practice designed for fast feedback.
+            </p>
+          </div>
+
+          <div className="pt-4 border-t w-full" style={{ borderColor: "var(--border)" }}>
+            <div className="flex items-center justify-between text-xs text-[var(--ink-muted)] mb-3 font-semibold">
+              <span>{quizzesSubjects.length} subjects</span>
+              <span>{quizzesTotalQuestions} questions</span>
+            </div>
+
+            {quizzesAttempted > 0 ? (
+              <div className="text-xs font-bold mb-3 flex items-center gap-1.5" style={{ color: "var(--accent)" }}>
+                <span>⚡</span>
+                <span>{quizzesAttempted} of {quizzesSubjects.length} attempted</span>
+              </div>
+            ) : (
+              <div className="text-xs text-[var(--ink-faint)] mb-3 font-medium">
+                Not yet attempted • Start fresh
+              </div>
+            )}
+
+            <div
+              className="w-full py-2.5 px-4 rounded-xl text-center font-bold text-sm transition-all flex items-center justify-center gap-2"
+              style={{
+                backgroundColor: "var(--accent)",
+                color: "var(--accent-ink)",
+              }}
+            >
+              <span>Start Quizzes</span>
+              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
+                →
+              </span>
+            </div>
+          </div>
+        </button>
+
         {/* Midterm Card */}
         <button
           type="button"
           onClick={() => onSelectPeriod("midterm")}
-          className="w-full text-left p-5 rounded-xl border-2 transition-all flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+          className="w-full text-left p-6 rounded-2xl border-2 transition-all flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-[var(--accent)] active-press shadow-sm hover:shadow-lg"
           style={{
             backgroundColor: "var(--surface)",
             borderColor: "var(--border)",
@@ -78,56 +158,65 @@ export default function PeriodSelection({
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = "var(--accent)";
             e.currentTarget.style.backgroundColor = "var(--surface-hover)";
+            e.currentTarget.style.transform = "translateY(-2px)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.borderColor = "var(--border)";
             e.currentTarget.style.backgroundColor = "var(--surface)";
+            e.currentTarget.style.transform = "translateY(0)";
           }}
         >
           <div>
-            <div className="flex items-center justify-between gap-2 mb-3">
-              <span className="text-2xl" aria-hidden="true">
+            <div className="flex items-center justify-between gap-2 mb-4">
+              <span className="text-3xl p-2.5 rounded-xl" style={{ backgroundColor: "var(--surface-hover)" }} aria-hidden="true">
                 📚
               </span>
               <span
-                className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-md"
+                className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border"
                 style={{
-                  backgroundColor: "var(--accent)",
-                  color: "var(--accent-ink)",
+                  backgroundColor: "var(--surface-hover)",
+                  borderColor: "var(--border)",
+                  color: "var(--ink-muted)",
                 }}
               >
                 Comprehensive
               </span>
             </div>
 
-            <h2 className="text-xl font-bold tracking-tight mb-1 text-[var(--ink)]">
-              Midterm
+            <h2 className="text-xl font-bold tracking-tight mb-1.5 text-[var(--ink)]">
+              Midterm Review
             </h2>
-            <p className="text-sm text-[var(--ink-muted)] leading-relaxed mb-4">
-              Complete question banks across all subjects for midterm exam preparation.
+            <p className="text-sm text-[var(--ink-muted)] leading-relaxed mb-6">
+              Full bank covering all midterm course objectives with options for topic filters.
             </p>
           </div>
 
           <div className="pt-4 border-t w-full" style={{ borderColor: "var(--border)" }}>
-            <div className="flex items-center justify-between text-xs text-[var(--ink-muted)] mb-3">
+            <div className="flex items-center justify-between text-xs text-[var(--ink-muted)] mb-3 font-semibold">
               <span>{midtermSubjects.length} subjects</span>
               <span>{midtermTotalQuestions} questions</span>
             </div>
 
-            {midtermAttempted > 0 && (
-              <div className="text-xs text-[var(--accent)] font-semibold mb-3">
-                {midtermAttempted} of {midtermSubjects.length} attempted
+            {midtermAttempted > 0 ? (
+              <div className="text-xs font-bold mb-3 flex items-center gap-1.5" style={{ color: "var(--accent)" }}>
+                <span>✓</span>
+                <span>{midtermAttempted} of {midtermSubjects.length} attempted</span>
+              </div>
+            ) : (
+              <div className="text-xs text-[var(--ink-faint)] mb-3 font-medium">
+                Not yet attempted
               </div>
             )}
 
             <div
-              className="w-full py-2.5 px-3 rounded-lg text-center font-semibold text-sm transition-colors flex items-center justify-center gap-1.5"
+              className="w-full py-2.5 px-4 rounded-xl text-center font-bold text-sm transition-all flex items-center justify-center gap-2 border"
               style={{
                 backgroundColor: "var(--surface-hover)",
+                borderColor: "var(--border)",
                 color: "var(--ink)",
               }}
             >
-              <span>Review Midterm</span>
+              <span>Explore Midterm</span>
               <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
                 →
               </span>
@@ -138,7 +227,7 @@ export default function PeriodSelection({
         {/* Finals Card (Disabled) */}
         <div
           aria-disabled="true"
-          className="w-full text-left p-5 rounded-xl border-2 flex flex-col justify-between opacity-55 cursor-not-allowed select-none"
+          className="w-full text-left p-6 rounded-2xl border-2 flex flex-col justify-between opacity-50 cursor-not-allowed select-none"
           style={{
             backgroundColor: "var(--surface)",
             borderColor: "var(--border)",
@@ -146,120 +235,52 @@ export default function PeriodSelection({
           }}
         >
           <div>
-            <div className="flex items-center justify-between gap-2 mb-3">
-              <span className="text-2xl filter grayscale opacity-70" aria-hidden="true">
-                🎯
+            <div className="flex items-center justify-between gap-2 mb-4">
+              <span className="text-3xl p-2.5 rounded-xl opacity-60" style={{ backgroundColor: "var(--surface-hover)" }} aria-hidden="true">
+                🎓
               </span>
               <span
-                className="text-xs font-semibold px-2 py-0.5 rounded-md"
+                className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border"
                 style={{
                   backgroundColor: "var(--surface-hover)",
-                  color: "var(--ink-muted)",
-                  border: "1px solid var(--border)",
+                  borderColor: "var(--border)",
+                  color: "var(--ink-faint)",
                 }}
               >
-                🔒 Locked
+                Locked 🔒
               </span>
             </div>
 
-            <div className="flex items-center gap-2 mb-1">
-              <h2 className="text-xl font-bold tracking-tight text-[var(--ink-muted)]">
-                Finals
-              </h2>
-            </div>
-            <p className="text-sm text-[var(--ink-muted)] leading-relaxed mb-4">
-              Finals exam review starter set with 2 questions for each subject.
+            <h2 className="text-xl font-bold tracking-tight mb-1.5 text-[var(--ink)]">
+              Finals Review
+            </h2>
+            <p className="text-sm text-[var(--ink-muted)] leading-relaxed mb-6">
+              Coming later in the semester. Review your midterms and quizzes first!
             </p>
           </div>
 
           <div className="pt-4 border-t w-full" style={{ borderColor: "var(--border)" }}>
-            <div className="flex items-center justify-between text-xs text-[var(--ink-muted)] mb-3">
+            <div className="flex items-center justify-between text-xs text-[var(--ink-muted)] mb-3 font-semibold">
               <span>{finalsSubjects.length} subjects</span>
               <span>{finalsTotalQuestions} questions</span>
             </div>
 
+            <div className="text-xs text-[var(--ink-faint)] mb-3 font-medium">
+              Available when finals approach
+            </div>
+
             <div
-              className="w-full py-2.5 px-3 rounded-lg text-center font-semibold text-sm flex items-center justify-center gap-1.5 cursor-not-allowed"
+              className="w-full py-2.5 px-4 rounded-xl text-center font-bold text-sm border opacity-60"
               style={{
                 backgroundColor: "var(--surface-hover)",
-                color: "var(--ink-muted)",
+                borderColor: "var(--border)",
+                color: "var(--ink-faint)",
               }}
             >
-              <span>🔒 Coming Soon</span>
+              Locked for now
             </div>
           </div>
         </div>
-
-        {/* Quizzes Card */}
-        <button
-          type="button"
-          onClick={() => onSelectPeriod("quizzes")}
-          className="w-full text-left p-5 rounded-xl border-2 transition-all flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-          style={{
-            backgroundColor: "var(--surface)",
-            borderColor: "var(--border)",
-            color: "var(--ink)",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "var(--accent)";
-            e.currentTarget.style.backgroundColor = "var(--surface-hover)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "var(--border)";
-            e.currentTarget.style.backgroundColor = "var(--surface)";
-          }}
-        >
-          <div>
-            <div className="flex items-center justify-between gap-2 mb-3">
-              <span className="text-2xl" aria-hidden="true">
-                📝
-              </span>
-              <span
-                className="text-xs font-semibold px-2 py-0.5 rounded-md"
-                style={{
-                  backgroundColor: "var(--surface-hover)",
-                  color: "var(--accent)",
-                  border: "1px solid var(--border)",
-                }}
-              >
-                Practice
-              </span>
-            </div>
-
-            <h2 className="text-xl font-bold tracking-tight mb-1 text-[var(--ink)]">
-              Quizzes
-            </h2>
-            <p className="text-sm text-[var(--ink-muted)] leading-relaxed mb-4">
-              Targeted subject quizzes and quick drills to evaluate your comprehension.
-            </p>
-          </div>
-
-          <div className="pt-4 border-t w-full" style={{ borderColor: "var(--border)" }}>
-            <div className="flex items-center justify-between text-xs text-[var(--ink-muted)] mb-3">
-              <span>{quizzesSubjects.length} subjects</span>
-              <span>{quizzesTotalQuestions} questions</span>
-            </div>
-
-            {quizzesAttempted > 0 && (
-              <div className="text-xs text-[var(--accent)] font-semibold mb-3">
-                {quizzesAttempted} of {quizzesSubjects.length} attempted
-              </div>
-            )}
-
-            <div
-              className="w-full py-2.5 px-3 rounded-lg text-center font-semibold text-sm transition-colors flex items-center justify-center gap-1.5"
-              style={{
-                backgroundColor: "var(--surface-hover)",
-                color: "var(--ink)",
-              }}
-            >
-              <span>Review Quizzes</span>
-              <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">
-                →
-              </span>
-            </div>
-          </div>
-        </button>
       </div>
     </div>
   );

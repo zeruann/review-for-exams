@@ -15,26 +15,26 @@ function statusMeta(score: number) {
   if (score >= 80) {
     return {
       border: "border-l-[var(--good)]",
-      chip: "text-[var(--good)] bg-[var(--good-soft)]",
+      chip: "text-[var(--good)] bg-[var(--good-soft)] border-[var(--good)]/20",
       bar: "bg-[var(--good)]",
-      label: "Strong",
+      label: "Mastered",
       icon: "✓",
     };
   }
   if (score >= 50) {
     return {
       border: "border-l-[var(--okay)]",
-      chip: "text-[var(--okay)] bg-[var(--okay-soft)]",
+      chip: "text-[var(--okay)] bg-[var(--okay-soft)] border-[var(--okay)]/20",
       bar: "bg-[var(--okay)]",
-      label: "Okay",
-      icon: "~",
+      label: "Practicing",
+      icon: "⚡",
     };
   }
   return {
     border: "border-l-[var(--low)]",
-    chip: "text-[var(--low)] bg-[var(--low-soft)]",
+    chip: "text-[var(--low)] bg-[var(--low-soft)] border-[var(--low)]/20",
     bar: "bg-[var(--low)]",
-    label: "Needs work",
+    label: "Needs Review",
     icon: "!",
   };
 }
@@ -60,6 +60,7 @@ export default function SubjectList({
   const attemptedCount = subjects.filter(
     (s) => progress[s.id]?.lastScorePercent != null
   ).length;
+
   const avgScore =
     attemptedCount > 0
       ? Math.round(
@@ -71,16 +72,22 @@ export default function SubjectList({
       : null;
 
   return (
-    <div className="max-w-xl mx-auto">
-      <div className="flex items-center justify-between mb-4">
+    <div className="max-w-2xl mx-auto">
+      {/* Top action bar */}
+      <div className="flex items-center justify-between mb-5 gap-3">
         {onBackToPeriod ? (
           <button
             type="button"
             onClick={onBackToPeriod}
-            className="text-sm font-semibold rounded-md px-2 py-1 -ml-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-            style={{ color: "var(--ink-muted)" }}
+            className="text-xs font-bold uppercase tracking-wider py-2 px-3 rounded-xl border transition-all active-press flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+            style={{
+              backgroundColor: "var(--surface)",
+              borderColor: "var(--border)",
+              color: "var(--ink-muted)",
+            }}
           >
-            ← Change exam
+            <span>←</span>
+            <span>Switch Category</span>
           </button>
         ) : (
           <span />
@@ -90,7 +97,7 @@ export default function SubjectList({
           <div
             role="radiogroup"
             aria-label="Exam period"
-            className="inline-flex rounded-lg border p-1 gap-1"
+            className="inline-flex rounded-full border p-1 gap-1 shadow-sm"
             style={{
               borderColor: "var(--border)",
               backgroundColor: "var(--surface)",
@@ -98,22 +105,22 @@ export default function SubjectList({
           >
             {(["midterm", "finals", "quizzes"] as ExamPeriod[]).map((p) => {
               const isDisabled = p === "finals";
+              const isActive = period === p;
               return (
                 <button
                   key={p}
                   type="button"
                   role="radio"
                   disabled={isDisabled}
-                  aria-checked={period === p}
+                  aria-checked={isActive}
                   onClick={() => !isDisabled && onChangePeriod(p)}
-                  className={`px-3 py-1 rounded-md text-xs font-semibold capitalize focus:outline-none focus:ring-2 ${
-                    isDisabled ? "opacity-40 cursor-not-allowed" : ""
+                  className={`px-3 py-1 rounded-full text-xs font-semibold capitalize transition-all focus:outline-none focus:ring-2 active-press ${
+                    isDisabled ? "opacity-35 cursor-not-allowed" : ""
                   }`}
                   style={{
-                    backgroundColor:
-                      period === p ? "var(--accent)" : "transparent",
-                    color:
-                      period === p ? "var(--accent-ink)" : "var(--ink-muted)",
+                    backgroundColor: isActive ? "var(--accent)" : "transparent",
+                    color: isActive ? "var(--accent-ink)" : "var(--ink-muted)",
+                    boxShadow: isActive ? "0 2px 6px rgba(13, 148, 136, 0.2)" : "none",
                   }}
                   title={isDisabled ? "Finals is locked" : undefined}
                 >
@@ -125,83 +132,129 @@ export default function SubjectList({
         )}
       </div>
 
-      <div className="flex items-center gap-2 mb-2">
-        <span
-          className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border"
-          style={{
-            backgroundColor: "var(--surface)",
-            borderColor: "var(--border)",
-            color: "var(--accent)",
-          }}
-        >
-          BSIT3A - 1st Semester
-        </span>
-      </div>
+      {/* Main Header / Context Banner */}
+      <div
+        className="rounded-2xl p-5 md:p-6 mb-6 border relative overflow-hidden"
+        style={{
+          backgroundColor: "var(--surface)",
+          borderColor: "var(--border)",
+          boxShadow: "0 4px 20px -2px rgba(0, 0, 0, 0.04)",
+        }}
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <span
+            className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border"
+            style={{
+              backgroundColor: "var(--accent-soft)",
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
+            }}
+          >
+            BSIT3A • 1st Semester
+          </span>
 
-      <div className="flex items-center gap-2 mb-1">
-        <h1 className="text-2xl font-bold text-[var(--ink)] tracking-tight">
+          <span
+            className="text-xs font-bold px-3 py-1 rounded-full capitalize"
+            style={{
+              backgroundColor: "var(--surface-hover)",
+              color: "var(--ink-muted)",
+              border: "1px solid var(--border)",
+            }}
+          >
+            {period === "quizzes" ? "🎯 Drill Mode" : "📖 Exam Review"}
+          </span>
+        </div>
+
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--ink)] tracking-tight mb-1.5">
           {period === "quizzes"
             ? "Quizzes Review"
             : period === "finals"
             ? "Finals Exam Review"
             : "Midterm Exam Review"}
         </h1>
-        <span
-          className="text-xs font-semibold px-2 py-0.5 rounded-full capitalize"
-          style={{
-            backgroundColor: "var(--surface-hover)",
-            color: "var(--accent)",
-            border: "1px solid var(--border)",
-          }}
-        >
-          {period}
-        </span>
+
+        <p className="text-sm md:text-base text-[var(--ink-muted)] mb-4 leading-relaxed">
+          {period === "quizzes"
+            ? "Subject quizzes and quick drills designed for focused, bite-sized mastery."
+            : period === "finals"
+            ? "2 questions per subject to review for finals."
+            : "Pick a subject to review questions at your own comfortable pace."}
+        </p>
+
+        {/* Stats Pill Strip */}
+        <div className="flex flex-wrap items-center gap-3 pt-3 border-t text-xs" style={{ borderColor: "var(--border)" }}>
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style={{ backgroundColor: "var(--surface-hover)" }}>
+            <span className="font-bold text-[var(--ink)]">{subjects.length}</span>
+            <span className="text-[var(--ink-muted)]">subjects</span>
+          </div>
+
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style={{ backgroundColor: "var(--surface-hover)" }}>
+            <span className="font-bold text-[var(--accent)]">{attemptedCount}</span>
+            <span className="text-[var(--ink-muted)]">attempted</span>
+          </div>
+
+          {avgScore != null && (
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg ml-auto" style={{ backgroundColor: "var(--good-soft)" }}>
+              <span className="text-sm">⭐</span>
+              <span className="font-extrabold text-[var(--good)]">{avgScore}%</span>
+              <span className="text-[var(--ink-muted)]">avg score</span>
+            </div>
+          )}
+        </div>
       </div>
 
-      <p className="text-[var(--ink-muted)] mb-1 leading-relaxed">
-        {period === "quizzes"
-          ? "Subject quizzes and quick drills to evaluate your knowledge."
-          : period === "finals"
-          ? "2 questions per subject to review for finals."
-          : "Pick a subject to start reviewing."}
-      </p>
-
-      <p className="text-sm text-[var(--ink-muted)] mb-6">
-        {subjects.length} subject{subjects.length !== 1 ? "s" : ""}
-        {" · "}
-        {attemptedCount} attempted
-        {avgScore != null && <> · {avgScore}% average</>}
-      </p>
-
-      {subjects.length > 5 && (
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search subjects…"
-          aria-label="Search subjects"
-          className="w-full mb-5 border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-          style={{
-            backgroundColor: "var(--surface)",
-            borderColor: "var(--border)",
-            color: "var(--ink)",
-          }}
-        />
+      {/* Quick Filter Search Bar */}
+      {subjects.length > 3 && (
+        <div className="relative mb-5">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search subjects or topics..."
+            aria-label="Search subjects"
+            className="w-full pl-11 pr-4 py-3.5 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent)] shadow-sm"
+            style={{
+              backgroundColor: "var(--surface)",
+              borderColor: "var(--border)",
+              color: "var(--ink)",
+            }}
+          />
+          <span
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-sm pointer-events-none"
+            style={{ color: "var(--ink-faint)" }}
+          >
+            🔍
+          </span>
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs py-1 px-2 rounded hover:opacity-80"
+              style={{ color: "var(--ink-muted)", backgroundColor: "var(--surface-hover)" }}
+            >
+              Clear
+            </button>
+          )}
+        </div>
       )}
 
-
-
-      <div className="space-y-4">
+      {/* Subject Cards Grid / Stack */}
+      <div className="space-y-3.5">
         {filtered.length === 0 && (
-          <p className="text-[var(--ink-muted)] text-center py-10">
-            No subjects match "{query}".
-          </p>
+          <div
+            className="text-center py-12 px-4 rounded-2xl border"
+            style={{ backgroundColor: "var(--surface)", borderColor: "var(--border)" }}
+          >
+            <span className="text-3xl mb-2 block">🔍</span>
+            <p className="font-semibold text-[var(--ink)] mb-1">No subjects match "{query}"</p>
+            <p className="text-sm text-[var(--ink-muted)]">Try searching with a different keyword.</p>
+          </div>
         )}
 
         {filtered.map((subject) => {
           const p = progress[subject.id];
           const score = p?.lastScorePercent;
           const meta = score != null ? statusMeta(score) : null;
+          const hasSubQuizzes = Boolean(subject.subQuizzes && subject.subQuizzes.length > 0);
 
           return (
             <button
@@ -212,53 +265,91 @@ export default function SubjectList({
                   ? `, last score ${score}%, ${meta?.label}`
                   : ", not yet attempted"
               }`}
-              className={`w-full text-left transition-colors rounded-lg p-4 flex items-center justify-between border border-l-4 ${
+              className={`w-full text-left transition-all rounded-2xl p-4 md:p-5 flex items-center justify-between border border-l-[6px] ${
                 meta ? meta.border : "border-l-[var(--border)]"
-              } focus:outline-none focus:ring-2 focus:ring-[var(--accent)]`}
+              } focus:outline-none focus:ring-2 focus:ring-[var(--accent)] active-press shadow-sm hover:shadow-md`}
               style={{
                 backgroundColor: "var(--surface)",
                 borderColor: "var(--border)",
                 color: "var(--ink)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = "var(--surface-hover)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = "var(--surface)")
-              }
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--surface-hover)";
+                e.currentTarget.style.transform = "translateY(-1px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--surface)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
             >
-              <div className="flex-1 min-w-0">
-                <div className="font-semibold truncate text-[17px]">
-                  {subject.name}
+              <div className="flex-1 min-w-0 pr-3">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="font-bold truncate text-[17px] md:text-lg tracking-tight text-[var(--ink)]">
+                    {subject.name}
+                  </div>
+                  {hasSubQuizzes && (
+                    <span
+                      className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border shrink-0"
+                      style={{
+                        backgroundColor: "var(--accent-soft)",
+                        borderColor: "var(--accent)",
+                        color: "var(--accent)",
+                      }}
+                    >
+                      {subject.subQuizzes!.length} Sub-quiz{subject.subQuizzes!.length > 1 ? "zes" : ""}
+                    </span>
+                  )}
                 </div>
-                <div className="text-sm text-[var(--ink-muted)] mb-2.5">
-                  {subject.questions.length} questions
+
+                <div className="text-xs md:text-sm text-[var(--ink-muted)] mb-3 flex items-center gap-2">
+                  <span>📝 {subject.questions.length} questions</span>
+                  {hasSubQuizzes && <span>• Includes module exam</span>}
                 </div>
-                {score != null && (
-                  <div
-                    className="w-full h-2 rounded-full overflow-hidden max-w-[160px]"
-                    style={{ backgroundColor: "var(--bg)" }}
-                  >
+
+                {score != null ? (
+                  <div className="w-full max-w-[200px]">
+                    <div className="flex justify-between items-center text-[11px] font-semibold text-[var(--ink-muted)] mb-1">
+                      <span>Progress</span>
+                      <span>{score}%</span>
+                    </div>
                     <div
-                      className={`h-full rounded-full ${meta!.bar}`}
-                      style={{ width: `${score}%` }}
-                    />
+                      className="w-full h-2 rounded-full overflow-hidden"
+                      style={{ backgroundColor: "var(--bg)" }}
+                    >
+                      <div
+                        className={`h-full rounded-full transition-all duration-500 ${meta!.bar}`}
+                        style={{ width: `${score}%` }}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-[11px] font-semibold text-[var(--ink-faint)]">
+                    Ready to start • Tap to practice
                   </div>
                 )}
               </div>
 
-              {meta ? (
-                <span
-                  className={`flex items-center gap-1.5 text-sm font-semibold rounded-md px-3 py-1.5 ml-3 shrink-0 ${meta.chip}`}
-                >
-                  <span aria-hidden="true">{meta.icon}</span>
-                  {score}%
-                </span>
-              ) : (
-                <span className="text-sm text-[var(--ink-faint)] ml-3 shrink-0">
-                  Not started
-                </span>
-              )}
+              <div className="flex items-center gap-3 shrink-0">
+                {meta ? (
+                  <span
+                    className={`flex items-center gap-1.5 text-xs md:text-sm font-bold rounded-xl px-3 py-1.5 border ${meta.chip}`}
+                  >
+                    <span aria-hidden="true">{meta.icon}</span>
+                    {score}%
+                  </span>
+                ) : (
+                  <span
+                    className="text-xs font-semibold px-3 py-1.5 rounded-xl border"
+                    style={{
+                      color: "var(--ink-faint)",
+                      borderColor: "var(--border)",
+                      backgroundColor: "var(--surface-hover)",
+                    }}
+                  >
+                    Start →
+                  </span>
+                )}
+              </div>
             </button>
           );
         })}

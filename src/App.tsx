@@ -13,6 +13,7 @@ import TopicList, {
   filterSubjectByTopic,
   getTopics,
 } from "./components/TopicList";
+import SubQuizList from "./components/SubQuizList";
 import Quiz from "./components/Quiz";
 import Results from "./components/Results";
 import ProfileGate from "./components/ProfileGate";
@@ -21,12 +22,14 @@ import ProfileSwitcher from "./components/ProfileSwitcher";
 type ViewState =
   | { screen: "period" }
   | { screen: "list" }
-  | { screen: "topics"; subject: Subject }
-  | { screen: "quiz"; subject: Subject }
-  | { screen: "setup"; subject: Subject }
+  | { screen: "subquizzes"; subject: Subject }
+  | { screen: "topics"; subject: Subject; parentSubject?: Subject }
+  | { screen: "quiz"; subject: Subject; parentSubject?: Subject }
+  | { screen: "setup"; subject: Subject; parentSubject?: Subject }
   | {
       screen: "results";
       subject: Subject;
+      parentSubject?: Subject;
       correctCount: number;
       totalCount: number;
     };
@@ -35,38 +38,44 @@ type Theme = "dark" | "light";
 
 const THEME_VARS: Record<Theme, React.CSSProperties> = {
   dark: {
-    ["--bg" as string]: "#171B24",
-    ["--surface" as string]: "#20242F",
-    ["--surface-hover" as string]: "#282D3B",
-    ["--border" as string]: "#333846",
-    ["--ink" as string]: "#E7E5E0",
-    ["--ink-muted" as string]: "#9B9B96",
-    ["--ink-faint" as string]: "#6E6E68",
-    ["--accent" as string]: "#5FA8A0",
-    ["--accent-ink" as string]: "#0F1613",
-    ["--good" as string]: "#7FAE8C",
-    ["--good-soft" as string]: "rgba(127, 174, 140, 0.14)",
-    ["--okay" as string]: "#C9A15A",
-    ["--okay-soft" as string]: "rgba(201, 161, 90, 0.14)",
-    ["--low" as string]: "#C77B6C",
-    ["--low-soft" as string]: "rgba(199, 123, 108, 0.14)",
+    ["--bg" as string]: "#0F1319",
+    ["--surface" as string]: "#181E29",
+    ["--surface-hover" as string]: "#212A38",
+    ["--border" as string]: "#2A3446",
+    ["--border-subtle" as string]: "#1E2636",
+    ["--ink" as string]: "#F3F5F7",
+    ["--ink-muted" as string]: "#A1ADC0",
+    ["--ink-faint" as string]: "#69778D",
+    ["--accent" as string]: "#0D9488",
+    ["--accent-hover" as string]: "#14B8A6",
+    ["--accent-soft" as string]: "rgba(20, 184, 166, 0.16)",
+    ["--accent-ink" as string]: "#FFFFFF",
+    ["--good" as string]: "#10B981",
+    ["--good-soft" as string]: "rgba(16, 185, 129, 0.16)",
+    ["--okay" as string]: "#F59E0B",
+    ["--okay-soft" as string]: "rgba(245, 158, 11, 0.16)",
+    ["--low" as string]: "#F43F5E",
+    ["--low-soft" as string]: "rgba(244, 63, 94, 0.16)",
   },
   light: {
-    ["--bg" as string]: "#F3F1EB",
+    ["--bg" as string]: "#F7F6F2",
     ["--surface" as string]: "#FFFFFF",
-    ["--surface-hover" as string]: "#EAE7DE",
-    ["--border" as string]: "#DEDAD0",
-    ["--ink" as string]: "#2A2A26",
-    ["--ink-muted" as string]: "#6B6A62",
-    ["--ink-faint" as string]: "#9B9A90",
-    ["--accent" as string]: "#3E8F86",
+    ["--surface-hover" as string]: "#F0EFE9",
+    ["--border" as string]: "#E2DFD5",
+    ["--border-subtle" as string]: "#ECEAE2",
+    ["--ink" as string]: "#1C1F26",
+    ["--ink-muted" as string]: "#5C6473",
+    ["--ink-faint" as string]: "#8C95A6",
+    ["--accent" as string]: "#0D9488",
+    ["--accent-hover" as string]: "#0F766E",
+    ["--accent-soft" as string]: "rgba(13, 148, 136, 0.12)",
     ["--accent-ink" as string]: "#FFFFFF",
-    ["--good" as string]: "#3F7A54",
-    ["--good-soft" as string]: "rgba(63, 122, 84, 0.10)",
-    ["--okay" as string]: "#9C7126",
-    ["--okay-soft" as string]: "rgba(156, 113, 38, 0.10)",
-    ["--low" as string]: "#A6503F",
-    ["--low-soft" as string]: "rgba(166, 80, 63, 0.10)",
+    ["--good" as string]: "#059669",
+    ["--good-soft" as string]: "rgba(5, 150, 105, 0.12)",
+    ["--okay" as string]: "#D97706",
+    ["--okay-soft" as string]: "rgba(217, 119, 6, 0.12)",
+    ["--low" as string]: "#E11D48",
+    ["--low-soft" as string]: "rgba(225, 29, 72, 0.12)",
   },
 };
 
@@ -126,9 +135,12 @@ export default function App() {
     );
   }
 
+  // Subjects with sub-quizzes open sub-quiz selection first.
   // Subjects with only one topic skip the picker and go straight to the quiz.
   const handleSelectSubject = (subject: Subject) => {
-    if (usesQuizOptions(subject) && subject.questions.length > 5) {
+    if (subject.subQuizzes && subject.subQuizzes.length > 0) {
+      setView({ screen: "subquizzes", subject });
+    } else if (usesQuizOptions(subject) && subject.questions.length > 5) {
       setView({ screen: "setup", subject });
     } else if (getTopics(subject).length > 1) {
       setView({ screen: "topics", subject });
@@ -137,27 +149,41 @@ export default function App() {
     }
   };
 
+  const handleSelectSubQuiz = (subQuiz: Subject, parentSubject: Subject) => {
+    if (usesQuizOptions(subQuiz) && subQuiz.questions.length > 5) {
+      setView({ screen: "setup", subject: subQuiz, parentSubject });
+    } else if (getTopics(subQuiz).length > 1) {
+      setView({ screen: "topics", subject: subQuiz, parentSubject });
+    } else {
+      setView({ screen: "quiz", subject: subQuiz, parentSubject });
+    }
+  };
+
   return (
     <div
-      className="min-h-screen px-4 py-8"
+      className="min-h-screen px-4 py-6 md:py-10 transition-colors duration-200"
       style={{
         ...THEME_VARS[activeTheme],
         backgroundColor: "var(--bg)",
         color: "var(--ink)",
-        fontFamily: "'Atkinson Hyperlegible', system-ui, sans-serif",
       }}
     >
-      <div className="max-w-xl mx-auto mb-4 flex justify-between items-center gap-3">
+      <header className="max-w-2xl mx-auto mb-6 flex justify-between items-center gap-3">
         {PROFILES_ENABLED ? (
           <ProfileSwitcher activeProfile={profile} onSwitch={switchToGate} />
         ) : (
-          <span />
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent)] animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
+              Focus Mode
+            </span>
+          </div>
         )}
 
         <div
           role="radiogroup"
           aria-label="Color theme"
-          className="inline-flex rounded-lg border p-1 gap-1 ml-auto"
+          className="inline-flex rounded-full border p-1 gap-1 ml-auto shadow-sm"
           style={{
             borderColor: "var(--border)",
             backgroundColor: "var(--surface)",
@@ -170,19 +196,21 @@ export default function App() {
               role="radio"
               aria-checked={activeTheme === t}
               onClick={() => setTheme(t)}
-              className="px-3 py-1.5 rounded-md text-sm font-semibold capitalize focus:outline-none focus:ring-2"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold capitalize transition-all focus:outline-none focus:ring-2 active-press flex items-center gap-1.5"
               style={{
                 backgroundColor:
                   activeTheme === t ? "var(--accent)" : "transparent",
                 color:
                   activeTheme === t ? "var(--accent-ink)" : "var(--ink-muted)",
+                boxShadow: activeTheme === t ? "0 2px 8px rgba(13, 148, 136, 0.25)" : "none",
               }}
             >
-              {t}
+              <span>{t === "dark" ? "🌙" : "☀️"}</span>
+              <span>{t}</span>
             </button>
           ))}
         </div>
-      </div>
+      </header>
 
       {view.screen === "period" && (
         <PeriodSelection
@@ -214,14 +242,28 @@ export default function App() {
         />
       )}
 
+      {view.screen === "subquizzes" && (
+        <SubQuizList
+          parentSubject={view.subject}
+          progress={progress}
+          onSelect={(subQuiz) => handleSelectSubQuiz(subQuiz, view.subject)}
+          onBack={() => setView({ screen: "list" })}
+        />
+      )}
+
       {view.screen === "topics" && (
         <TopicList
           subject={view.subject}
-          onBack={() => setView({ screen: "list" })}
+          onBack={() =>
+            view.parentSubject
+              ? setView({ screen: "subquizzes", subject: view.parentSubject })
+              : setView({ screen: "list" })
+          }
           onSelect={(topic) =>
             setView({
               screen: "quiz",
               subject: filterSubjectByTopic(view.subject, topic),
+              parentSubject: view.parentSubject,
             })
           }
         />
@@ -245,12 +287,20 @@ export default function App() {
               ? timerEnabled
               : false
           }
-          onExit={() => setView({ screen: "list" })}
+          onExit={() =>
+            view.parentSubject
+              ? setView({ screen: "subquizzes", subject: view.parentSubject })
+              : setView({ screen: "list" })
+          }
           onFinish={(correctCount, totalCount) => {
             recordAttempt(view.subject.id, correctCount, totalCount);
+            if (view.parentSubject) {
+              recordAttempt(view.parentSubject.id, correctCount, totalCount);
+            }
             setView({
               screen: "results",
               subject: view.subject,
+              parentSubject: view.parentSubject,
               correctCount,
               totalCount,
             });
@@ -267,8 +317,18 @@ export default function App() {
           onChangeQuestionLimit={setQuestionLimit}
           timerEnabled={timerEnabled}
           onToggleTimer={setTimerEnabled}
-          onBack={() => setView({ screen: "list" })}
-          onStart={() => setView({ screen: "quiz", subject: view.subject })}
+          onBack={() =>
+            view.parentSubject
+              ? setView({ screen: "subquizzes", subject: view.parentSubject })
+              : setView({ screen: "list" })
+          }
+          onStart={() =>
+            setView({
+              screen: "quiz",
+              subject: view.subject,
+              parentSubject: view.parentSubject,
+            })
+          }
         />
       )}
 
@@ -277,8 +337,18 @@ export default function App() {
           subjectName={view.subject.name}
           correctCount={view.correctCount}
           totalCount={view.totalCount}
-          onRetry={() => setView({ screen: "quiz", subject: view.subject })}
-          onBackToSubjects={() => setView({ screen: "list" })}
+          onRetry={() =>
+            setView({
+              screen: "quiz",
+              subject: view.subject,
+              parentSubject: view.parentSubject,
+            })
+          }
+          onBackToSubjects={() =>
+            view.parentSubject
+              ? setView({ screen: "subquizzes", subject: view.parentSubject })
+              : setView({ screen: "list" })
+          }
         />
       )}
     </div>

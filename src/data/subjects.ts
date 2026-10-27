@@ -19,6 +19,7 @@ import finalsScienceTechnologySociety from "./finals/science-technology-society.
 
 // Quizzes question banks
 import quizNetworking2 from "./quizzes/networking2.json";
+import quizNetworking2Modules1416 from "./quizzes/networking2-modules-14-16.json";
 import quizAdvancedDatabaseSystems from "./quizzes/advanced-database-systems.json";
 import quizPurposiveCommunication from "./quizzes/purposive-communication.json";
 import quizInformationAssuranceSecurity from "./quizzes/information-assurance-security.json";
@@ -102,7 +103,22 @@ export const quizzesSubjects: Subject[] = [
   {
     id: "networking2",
     name: "Networking 2",
-    questions: quizNetworking2 as Question[],
+    questions: [
+      ...(quizNetworking2 as Question[]),
+      ...(quizNetworking2Modules1416 as Question[]),
+    ],
+    subQuizzes: [
+      {
+        id: "networking2-module-group-exam-10-13",
+        name: "Module Group Exam 10-13",
+        questions: quizNetworking2 as Question[],
+      },
+      {
+        id: "networking2-module-group-exam-14-16",
+        name: "Module Group Exam 14-16",
+        questions: quizNetworking2Modules1416 as Question[],
+      },
+    ],
   },
   {
     id: "advanced-database-systems",

@@ -41,53 +41,91 @@ export default function TopicList({ subject, onSelect, onBack }: TopicListProps)
   const topics = getTopics(subject);
   const total = subject.questions.length;
 
-  const cardStyle = {
-    backgroundColor: "var(--surface)",
-    borderColor: "var(--border)",
-    color: "var(--ink)",
-  } as const;
-
   return (
-    <div className="max-w-xl mx-auto">
+    <div className="max-w-2xl mx-auto">
       <button
         type="button"
         onClick={onBack}
-        className="text-sm font-semibold mb-4 rounded-md px-2 py-1 -ml-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-        style={{ color: "var(--ink-muted)" }}
+        className="text-xs font-bold uppercase tracking-wider mb-5 py-2 px-3 rounded-xl border transition-all active-press flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        style={{
+          backgroundColor: "var(--surface)",
+          borderColor: "var(--border)",
+          color: "var(--ink-muted)",
+        }}
       >
-        ← Back to subjects
+        <span>←</span>
+        <span>Back to Subjects</span>
       </button>
 
-      <h1 className="text-2xl font-bold text-[var(--ink)] mb-1 tracking-tight">
-        {subject.name}
-      </h1>
-      <p className="text-[var(--ink-muted)] mb-6 leading-relaxed">
-        Study one topic, or take a quiz covering everything.
-      </p>
+      {/* Header Banner */}
+      <div
+        className="rounded-2xl p-6 mb-6 border"
+        style={{
+          backgroundColor: "var(--surface)",
+          borderColor: "var(--border)",
+          boxShadow: "0 4px 20px -2px rgba(0, 0, 0, 0.04)",
+        }}
+      >
+        <div className="flex items-center gap-2 mb-2">
+          <span
+            className="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border"
+            style={{
+              backgroundColor: "var(--accent-soft)",
+              borderColor: "var(--accent)",
+              color: "var(--accent)",
+            }}
+          >
+            Topic Filter
+          </span>
+          <span className="text-xs text-[var(--ink-muted)]">
+            • {topics.length} topics available
+          </span>
+        </div>
 
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
+          {subject.name}
+        </h1>
+        <p className="text-sm md:text-base text-[var(--ink-muted)] leading-relaxed">
+          Study one specific topic at a time, or challenge yourself with all topics mixed together.
+        </p>
+      </div>
+
+      {/* Comprehensive All Topics card */}
       <button
         type="button"
         onClick={() => onSelect(ALL_TOPICS)}
         aria-label={`Quiz on all topics, ${total} questions`}
-        className="w-full text-left rounded-lg p-4 mb-6 flex items-center justify-between border-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        className="w-full text-left rounded-2xl p-5 mb-5 flex items-center justify-between border-2 transition-all active-press shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
         style={{
           backgroundColor: "var(--accent)",
           borderColor: "var(--accent)",
           color: "var(--accent-ink)",
         }}
       >
-        <div>
-          <div className="font-semibold text-[17px]">All topics</div>
-          <div className="text-sm opacity-80">
-            {topics.length} topics mixed together
+        <div className="flex items-center gap-3.5">
+          <span className="text-2xl">⚡</span>
+          <div>
+            <div className="font-extrabold text-lg">All Topics Combined</div>
+            <div className="text-xs md:text-sm opacity-90">
+              {topics.length} topics shuffled into one complete session
+            </div>
           </div>
         </div>
-        <span className="text-sm font-semibold shrink-0 ml-3">
+        <span
+          className="text-xs font-bold shrink-0 ml-3 py-1.5 px-3 rounded-full"
+          style={{ backgroundColor: "rgba(255,255,255,0.2)" }}
+        >
           {total} questions
         </span>
       </button>
 
-      <p className="text-sm text-[var(--ink-muted)] mb-3">Or pick a topic</p>
+      {/* Topic sub-heading */}
+      <div className="flex items-center justify-between mb-3 px-1">
+        <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "var(--ink-muted)" }}>
+          Focus on a single topic
+        </span>
+        <span className="text-xs text-[var(--ink-faint)]">{topics.length} options</span>
+      </div>
 
       <div className="space-y-3">
         {topics.map((topic) => (
@@ -96,8 +134,12 @@ export default function TopicList({ subject, onSelect, onBack }: TopicListProps)
             type="button"
             onClick={() => onSelect(topic.name)}
             aria-label={`Quiz on ${topic.name}, ${topic.count} questions`}
-            className="w-full text-left transition-colors rounded-lg p-4 flex items-center justify-between border focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
-            style={cardStyle}
+            className="w-full text-left transition-all rounded-2xl p-4 flex items-center justify-between border focus:outline-none focus:ring-2 focus:ring-[var(--accent)] active-press shadow-sm hover:shadow"
+            style={{
+              backgroundColor: "var(--surface)",
+              borderColor: "var(--border)",
+              color: "var(--ink)",
+            }}
             onMouseEnter={(e) =>
               (e.currentTarget.style.backgroundColor = "var(--surface-hover)")
             }
@@ -105,11 +147,21 @@ export default function TopicList({ subject, onSelect, onBack }: TopicListProps)
               (e.currentTarget.style.backgroundColor = "var(--surface)")
             }
           >
-            <span className="font-semibold text-[17px] min-w-0">
-              {topic.name}
-            </span>
-            <span className="text-sm text-[var(--ink-muted)] shrink-0 ml-3">
-              {topic.count} question{topic.count !== 1 ? "s" : ""}
+            <div className="flex items-center gap-3 min-w-0 pr-3">
+              <span className="text-lg">📌</span>
+              <span className="font-bold text-[15px] md:text-base truncate">
+                {topic.name}
+              </span>
+            </div>
+            <span
+              className="text-xs font-semibold px-2.5 py-1 rounded-lg border shrink-0"
+              style={{
+                borderColor: "var(--border)",
+                backgroundColor: "var(--surface-hover)",
+                color: "var(--ink-muted)",
+              }}
+            >
+              {topic.count} Qs
             </span>
           </button>
         ))}

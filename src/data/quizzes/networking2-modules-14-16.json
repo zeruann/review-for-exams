@@ -1,0 +1,841 @@
+[
+  {
+    "id": "quiz-net2-mod14-16-1",
+    "question": "Which feature on a Cisco router permits the forwarding of traffic for which there is no specific route?",
+    "choices": [
+      "next-hop",
+      "gateway of last resort",
+      "route source",
+      "outgoing interface"
+    ],
+    "answer": "gateway of last resort",
+    "explanation": "Topic 14.4.9: A default static route is used as a gateway of last resort to forward unknown destination traffic to a next hop/exit interface."
+  },
+  {
+    "id": "quiz-net2-mod14-16-2",
+    "question": "Which three advantages are provided by static routing? (Choose three.)",
+    "choices": [
+      "Static routing does not advertise over the network, thus providing better security.",
+      "Configuration of static routes is error-free.",
+      "Static routes scale well as the network grows.",
+      "Static routing typically uses less network bandwidth and fewer CPU operations than dynamic routing does.",
+      "The path a static route uses to send data is known.",
+      "No intervention is required to maintain changing route information."
+    ],
+    "answers": [
+      "Static routing does not advertise over the network, thus providing better security.",
+      "Static routing typically uses less network bandwidth and fewer CPU operations than dynamic routing does.",
+      "The path a static route uses to send data is known."
+    ],
+    "explanation": "Topic 14.5.1: Static routes provide better security (no advertisements), consume less network bandwidth and CPU cycles, and provide a known path to destination."
+  },
+  {
+    "id": "quiz-net2-mod14-16-3",
+    "question": "What are two functions of dynamic routing protocols? (Choose two.)",
+    "choices": [
+      "to maintain routing tables",
+      "to assure low router overhead",
+      "to avoid exposing network information",
+      "to discover the network",
+      "to choose the path that is specified by the administrator"
+    ],
+    "answers": [
+      "to maintain routing tables",
+      "to discover the network"
+    ],
+    "explanation": "Topic 14.5.3: Dynamic routing protocols exist to discover remote networks, maintain up-to-date routing tables, and calculate the best path."
+  },
+  {
+    "id": "quiz-net2-mod14-16-4",
+    "question": "What is an advantage of using dynamic routing protocols instead of static routing?",
+    "choices": [
+      "easier to implement",
+      "more secure in controlling routing updates",
+      "fewer router resource overhead requirements",
+      "ability to actively search for new routes if the current path becomes unavailable"
+    ],
+    "answer": "ability to actively search for new routes if the current path becomes unavailable",
+    "explanation": "Topic 14.5.3: Dynamic routing has the ability to automatically reroute traffic and search for a new best path when a primary path goes down."
+  },
+  {
+    "id": "quiz-net2-mod14-16-5",
+    "question": "What happens to a static route entry in a routing table when the outgoing interface associated with that route goes into the down state?",
+    "choices": [
+      "The static route is removed from the routing table.",
+      "The router polls neighbors for a replacement route.",
+      "The router automatically redirects the static route to use another interface.",
+      "The static route remains in the table because it was defined as static."
+    ],
+    "answer": "The static route is removed from the routing table.",
+    "explanation": "Topic 14.1.6: When the exit interface associated with a static route goes down, the static route is removed from the routing table because it is no longer valid."
+  },
+  {
+    "id": "quiz-net2-mod14-16-6",
+    "question": "What is a characteristic of a static route that matches all packets?",
+    "choices": [
+      "It uses a single network address to send multiple static routes to one destination address.",
+      "It identifies the gateway IP address to which the router sends all IP packets for which it does not have a learned or static route.",
+      "It backs up a route already discovered by a dynamic routing protocol.",
+      "It is configured with a higher administrative distance than the original dynamic routing protocol has."
+    ],
+    "answer": "It identifies the gateway IP address to which the router sends all IP packets for which it does not have a learned or static route.",
+    "explanation": "Topic 15.3.1: A default static route matches all packets (0.0.0.0/0) and identifies the gateway of last resort."
+  },
+  {
+    "id": "quiz-net2-mod14-16-7",
+    "question": "When would it be more beneficial to use a dynamic routing protocol instead of static routing?",
+    "choices": [
+      "in an organization where routers suffer from performance issues",
+      "on a stub network that has a single exit point",
+      "in an organization with a smaller network that is not expected to grow in size",
+      "on a network where there is a lot of topology changes"
+    ],
+    "answer": "on a network where there is a lot of topology changes",
+    "explanation": "Topic 14.5.1: Dynamic routing is beneficial in large, growing networks and topologies that change frequently because routes update automatically."
+  },
+  {
+    "id": "quiz-net2-mod14-16-8",
+    "question": "Which route would be used to forward a packet with a source IP address of 192.168.10.1 and a destination IP address of 10.1.1.1?",
+    "choices": [
+      "C 192.168.10.0/30 is directly connected, GigabitEthernet0/1",
+      "O 10.1.1.0/24 [110/65] via 192.168.200.2, 00:01:20, Serial0/1/0",
+      "S* 0.0.0.0/0 [1/0] via 172.16.1.1",
+      "S 10.1.0.0/16 is directly connected, GigabitEthernet0/0"
+    ],
+    "answer": "O 10.1.1.0/24 [110/65] via 192.168.200.2, 00:01:20, Serial0/1/0",
+    "explanation": "Topic 14.1.3: Routers forward based on longest prefix match (most number of matching far-left bits). /24 is longer and more specific than /16 or /0."
+  },
+  {
+    "id": "quiz-net2-mod14-16-9",
+    "question": "Refer to the exhibit. What is the administrative distance value of the route for router R1 to reach the destination IPv6 address of 2001:DB8:CAFE:4::A?",
+    "image": "/exhibits/m14-16/q9-routing-table.png",
+    "choices": [
+      "120",
+      "110",
+      "1",
+      "4"
+    ],
+    "answer": "120",
+    "explanation": "Topic 14.4.3: The RIP route with the source code R is used to forward data to the destination IPv6 address of 2001:DB8:CAFE:4::A. This route has an AD value of 120."
+  },
+  {
+    "id": "quiz-net2-mod14-16-10",
+    "question": "Which value in a routing table represents trustworthiness and is used by the router to determine which route to install into the routing table when there are multiple routes toward the same destination?",
+    "choices": [
+      "administrative distance",
+      "metric",
+      "outgoing interface",
+      "routing protocol"
+    ],
+    "answer": "administrative distance",
+    "explanation": "Topic 14.4.12: Administrative distance represents trustworthiness. The lower the AD, the more preferred the route source is."
+  },
+  {
+    "id": "quiz-net2-mod14-16-11",
+    "question": "Refer to the graphic. Which command would be used on router A to configure a static route to direct traffic from LAN A that is destined for LAN C?",
+    "image": "/exhibits/m14-16/q12-topology.png",
+    "choices": [
+      "A(config)# ip route 192.168.3.0 255.255.255.0 192.168.3.1",
+      "A(config)# ip route 192.168.3.2 255.255.255.0 192.168.4.0",
+      "A(config)# ip route 192.168.4.0 255.255.255.0 192.168.5.2",
+      "A(config)# ip route 192.168.5.0 255.255.255.0 192.168.3.2",
+      "A(config)# ip route 192.168.4.0 255.255.255.0 192.168.3.2"
+    ],
+    "answer": "A(config)# ip route 192.168.4.0 255.255.255.0 192.168.3.2",
+    "explanation": "Topic 15.2.1: The destination network on LAN C is 192.168.4.0 and the next-hop address from the perspective of router A is 192.168.3.2."
+  },
+  {
+    "id": "quiz-net2-mod14-16-12",
+    "question": "On which two routers would a default static route be configured? (Choose two.)",
+    "choices": [
+      "any router where a backup route to dynamic routing is needed for reliability",
+      "the router that serves as the gateway of last resort",
+      "any router running an IOS prior to 12.0",
+      "stub router connection to the rest of the corporate or campus network",
+      "edge router connection to the ISP"
+    ],
+    "answers": [
+      "stub router connection to the rest of the corporate or campus network",
+      "edge router connection to the ISP"
+    ],
+    "explanation": "Topic 15.3.1: A stub router or an edge router connected to an ISP has only one other router as a connection. A default static route works in those situations because all traffic will be sent to one destination."
+  },
+  {
+    "id": "quiz-net2-mod14-16-13",
+    "question": "Refer to the exhibit. This network has two connections to the ISP, one via router C and one via router B. The serial link between router A and router C supports EIGRP and is the primary link to the Internet. If the primary link fails, the administrator needs a floating static route that avoids recursive route lookups and any potential next-hop issues caused by the multiaccess nature of the Ethernet segment with router B. What should the administrator configure?",
+    "image": "/exhibits/m14-16/q14-topology.png",
+    "choices": [
+      "Create a static route pointing to 10.1.1.1 with an AD of 95.",
+      "Create a fully specified static route pointing to Fa0/0 with an AD of 1.",
+      "Create a fully specified static route pointing to Fa0/0 with an AD of 95.",
+      "Create a static route pointing to 10.1.1.1 with an AD of 1.",
+      "Create a static route pointing to Fa0/0 with an AD of 1."
+    ],
+    "answer": "Create a fully specified static route pointing to Fa0/0 with an AD of 95.",
+    "explanation": "Topic 15.2.5: Internal EIGRP has an AD of 90, so a floating static route in this scenario would need to have an AD higher than 90 (such as 95). Also, when creating a static route to a multiaccess interface like a FastEthernet segment, a fully specified route should be used."
+  },
+  {
+    "id": "quiz-net2-mod14-16-14",
+    "question": "What is a characteristic of a floating static route?",
+    "choices": [
+      "When it is configured, it creates a gateway of last resort.",
+      "It is used to provide load balancing between static routes.",
+      "It is simply a static route with 0.0.0.0/0 as the destination IPv4 address.",
+      "It is configured with a higher administrative distance than the original dynamic routing protocol has."
+    ],
+    "answer": "It is configured with a higher administrative distance than the original dynamic routing protocol has.",
+    "explanation": "Topic 15.4.1: Floating static routes are static routes used to provide a backup path to a primary static or dynamic route. They must be configured with a higher administrative distance than the original dynamic routing protocol has."
+  },
+  {
+    "id": "quiz-net2-mod14-16-15",
+    "question": "What network prefix and prefix-length combination is used to create a default static route that will match any IPv6 destination?",
+    "choices": [
+      "FFFF::/128",
+      "::1/64",
+      "::/128",
+      "::/0"
+    ],
+    "answer": "::/0",
+    "explanation": "Topic 15.3.1: A default static route configured for IPv6 is a network prefix of all zeros and a prefix mask of 0, expressed as ::/0."
+  },
+  {
+    "id": "quiz-net2-mod14-16-16",
+    "question": "Consider the following command:\nip route 192.168.10.0 255.255.255.0 10.10.10.2 5\nWhat does the 5 at the end of the command signify?",
+    "choices": [
+      "exit interface",
+      "maximum number of hops to the 192.168.10.0/24 network",
+      "metric",
+      "administrative distance"
+    ],
+    "answer": "administrative distance",
+    "explanation": "Topic 15.1.3: The 5 at the end of the command signifies administrative distance, configuring the route as a floating static route."
+  },
+  {
+    "id": "quiz-net2-mod14-16-17",
+    "question": "Refer to the exhibit. The routing table for R2 is as follows:\nGateway of last resort is not set\n10.0.0.0/30 is subnetted, 2 subnets\nC 10.0.0.0 is directly connected, Serial0/0/0\nC 10.0.0.4 is directly connected, Serial0/0/1\n192.168.10.0/26 is subnetted, 3 subnets\nS 192.168.10.0 is directly connected, Serial0/0/0\nC 192.168.10.64 is directly connected, FastEthernet0/0\nS 192.168.10.128 [1/0] via 10.0.0.6\nWhat will router R2 do with a packet destined for 192.168.10.129?",
+    "image": "/exhibits/m14-16/q18-topology.png",
+    "choices": [
+      "send the packet out interface FastEthernet0/0",
+      "send the packet out interface Serial0/0/1",
+      "drop the packet",
+      "send the packet out interface Serial0/0/0"
+    ],
+    "answer": "send the packet out interface Serial0/0/1",
+    "explanation": "Topic 15.2.1: The static route lists 192.168.10.128 via 10.0.0.6. Because IP 10.0.0.6 is part of network 10.0.0.4/30, R2 sends the packet out interface Serial0/0/1."
+  },
+  {
+    "id": "quiz-net2-mod14-16-18",
+    "question": "An administrator issues the ipv6 route 2001:db8:acad:1::/32 gigabitethernet0/0 2001:db8:acad:6::1 100 command on a router. What administrative distance is assigned to this route?",
+    "choices": [
+      "0",
+      "1",
+      "32",
+      "100"
+    ],
+    "answer": "100",
+    "explanation": "Topic 15.1.4: The 100 at the end of the command specifies the administrative distance of 100 to be applied to the floating static route."
+  },
+  {
+    "id": "quiz-net2-mod14-16-19",
+    "question": "Refer to the exhibit. Which default static route command would allow R1 to potentially reach all unknown networks on the Internet?",
+    "image": "/exhibits/m14-16/q20-topology.png",
+    "choices": [
+      "R1(config)# ipv6 route 2001:db8:32::/64 G0/0",
+      "R1(config)# ipv6 route ::/0 G0/0 fe80::2",
+      "R1(config)# ipv6 route 2001:db8:32::/64 G0/1 fe80::2",
+      "R1(config)# ipv6 route ::/0 G0/1 fe80::2"
+    ],
+    "answer": "R1(config)# ipv6 route ::/0 G0/1 fe80::2",
+    "explanation": "Topic 15.2.6: The static route 'ipv6 route ::/0 G0/1 fe80::2' will match all networks and send packets out the specified exit interface G0/1 toward R2."
+  },
+  {
+    "id": "quiz-net2-mod14-16-20",
+    "question": "Refer to the exhibit. The network engineer for the company wants to use the primary ISP connection for all external connectivity. The backup ISP connection is used only if the primary ISP connection fails. Which set of commands would accomplish this goal?",
+    "image": "/exhibits/m14-16/q21-topology.png",
+    "choices": [
+      "ip route 0.0.0.0 0.0.0.0 s0/0/0\nip route 0.0.0.0 0.0.0.0 s0/1/0",
+      "ip route 0.0.0.0 0.0.0.0 s0/0/0\nip route 0.0.0.0 0.0.0.0 s0/1/0 10",
+      "ip route 198.133.219.24 255.255.255.252\nip route 64.100.210.80 255.255.255.252 10",
+      "ip route 198.133.219.24 255.255.255.252\nip route 64.100.210.80 255.255.255.252"
+    ],
+    "answer": "ip route 0.0.0.0 0.0.0.0 s0/0/0\nip route 0.0.0.0 0.0.0.0 s0/1/0 10",
+    "explanation": "Topic 15.4.1: The primary route has the default AD of 1, and the backup floating static default route has an administrative distance of 10."
+  },
+  {
+    "id": "quiz-net2-mod14-16-21",
+    "question": "Refer to the exhibit. Which set of commands will configure static routes that will allow the Park and the Alta routers to a) forward packets to each LAN and b) direct all other traffic to the Internet?",
+    "image": "/exhibits/m14-16/q22-topology.png",
+    "choices": [
+      "Park(config)# ip route 0.0.0.0 0.0.0.0 192.168.14.1\nAlta(config)# ip route 10.0.234.0 255.255.255.0 192.168.14.2\nAlta(config)# ip route 0.0.0.0 0.0.0.0 s0/0/0",
+      "Park(config)# ip route 0.0.0.0 0.0.0.0 192.168.14.1\nAlta(config)# ip route 10.0.234.0 255.255.255.0 192.168.14.2\nAlta(config)# ip route 198.18.222.0 255.255.255.255 s0/0/0",
+      "Park(config)# ip route 172.16.67.0 255.255.255.0 192.168.14.1\nPark(config)# ip route 0.0.0.0 0.0.0.0 192.168.14.1\nAlta(config)# ip route 10.0.234.0 255.255.255.0 192.168.14.2\nAlta(config)# ip route 0.0.0.0 0.0.0.0 s0/0/0",
+      "Park(config)# ip route 172.16.67.0 255.255.255.0 192.168.14.1\nAlta(config)# ip route 10.0.234.0 255.255.255.0 192.168.14.2\nAlta(config)# ip route 0.0.0.0 0.0.0.0 s0/0/1"
+    ],
+    "answer": "Park(config)# ip route 0.0.0.0 0.0.0.0 192.168.14.1\nAlta(config)# ip route 10.0.234.0 255.255.255.0 192.168.14.2\nAlta(config)# ip route 0.0.0.0 0.0.0.0 s0/0/0",
+    "explanation": "Topic 15.3.1: Park connects as a stub network with a default route to Alta (192.168.14.1). Alta connects to Park's LAN (10.0.234.0) via 192.168.14.2 and sends Internet traffic out default route s0/0/0."
+  },
+  {
+    "id": "quiz-net2-mod14-16-22",
+    "question": "Refer to the exhibit. The small company shown uses static routing. Users on the R2 LAN have reported a problem with connectivity. What is the issue?",
+    "image": "/exhibits/m14-16/q23-topology.png",
+    "choices": [
+      "R1 needs a static route to the R2 LAN.",
+      "R2 needs a static route to the R1 LANs.",
+      "R1 needs a default route to R2.",
+      "R2 needs a static route to the Internet.",
+      "R1 and R2 must use a dynamic routing protocol."
+    ],
+    "answer": "R1 needs a static route to the R2 LAN.",
+    "explanation": "Topic 14.4.2: R1 has a default route to the Internet. R2 has a default route to R1. R1 is missing a static route for the 10.0.60.0 network, so return traffic will be misrouted to the ISP."
+  },
+  {
+    "id": "quiz-net2-mod14-16-23",
+    "question": "Refer to the exhibit. An administrator is attempting to install an IPv6 static route on router R1 to reach the network attached to router R2. After the static route command is entered, connectivity to the network is still failing. What error has been made in the static route configuration?",
+    "image": "/exhibits/m14-16/q24-topology.png",
+    "choices": [
+      "The next hop address is incorrect.",
+      "The interface is incorrect.",
+      "The destination network is incorrect.",
+      "The network prefix is incorrect."
+    ],
+    "answer": "The interface is incorrect.",
+    "explanation": "Topic 15.1.4: In this example the interface in the static route is incorrect. The interface should be the exit interface on R1, which is s0/0/0."
+  },
+  {
+    "id": "quiz-net2-mod14-16-24",
+    "question": "Refer to the exhibit. How was the host route 2001:DB8:CAFE:4::1/128 installed in the routing table?",
+    "image": "/exhibits/m14-16/q25-routing-table.png",
+    "choices": [
+      "The route was dynamically created by router R1.",
+      "The route was dynamically learned from another router.",
+      "The route was manually entered by an administrator.",
+      "The route was automatically installed when an IP address was configured on an active interface."
+    ],
+    "answer": "The route was manually entered by an administrator.",
+    "explanation": "Topic 15.5.3: The route code 'S' shows it was manually entered by an administrator as a static host route."
+  },
+  {
+    "id": "quiz-net2-mod14-16-25",
+    "question": "Refer to the exhibit. HostA is attempting to contact ServerB. Which two statements correctly describe the addressing that HostA will generate in the process? (Choose two.)",
+    "image": "/exhibits/m14-16/q26-topology.png",
+    "choices": [
+      "A packet with the destination IP address of RouterA.",
+      "A frame with the destination MAC address of SwitchA.",
+      "A packet with the destination IP address of ServerB.",
+      "A frame with the destination MAC address of RouterA.",
+      "A frame with the destination MAC address of ServerB.",
+      "A packet with the destination IP address of RouterB."
+    ],
+    "answers": [
+      "A packet with the destination IP address of ServerB.",
+      "A frame with the destination MAC address of RouterA."
+    ],
+    "explanation": "Topic 14.2.2: HostA generates a packet containing the IP address of ServerB and a frame containing the MAC address of the default gateway (RouterA)."
+  },
+  {
+    "id": "quiz-net2-mod14-16-26",
+    "question": "Refer to the exhibit. A ping from R1 to 10.1.1.2 is successful, but a ping from R1 to any address in the 192.168.2.0 network fails. What is the cause of this problem?",
+    "image": "/exhibits/m14-16/q27-topology.png",
+    "choices": [
+      "There is no gateway of last resort at R1.",
+      "The static route for 192.168.2.0 is incorrectly configured.",
+      "A default route is not configured on R1.",
+      "The serial interface between the two routers is down."
+    ],
+    "answer": "The static route for 192.168.2.0 is incorrectly configured.",
+    "explanation": "Topic 15.2.1: The static route for 192.168.2.0 is pointing to network 192.168.3.0 instead of next-hop 10.1.1.2."
+  },
+  {
+    "id": "quiz-net2-mod14-16-27",
+    "question": "Refer to the exhibit. An administrator is attempting to install a default static route on router R1 to reach the Site B network on router R2. After entering the static route command, the route is still not showing up in the routing table of router R1. What is preventing the route from installing in the routing table?",
+    "image": "/exhibits/m14-16/q28-topology.png",
+    "choices": [
+      "The netmask is incorrect.",
+      "The exit interface is missing.",
+      "The next hop address is incorrect.",
+      "The destination network is incorrect."
+    ],
+    "answer": "The next hop address is incorrect.",
+    "explanation": "Topic 15.2.1: The next hop address is incorrect. From R1 the next hop address should be that of the serial interface of R2, 209.165.202.130."
+  },
+  {
+    "id": "quiz-net2-mod14-16-28",
+    "question": "Refer to the exhibit. The Branch Router has an OSPF neighbor relationship with the HQ router over the 198.51.0.4/30 network. The 198.51.0.8/30 network link should serve as a backup when the OSPF link goes down. The floating static route command ip route 0.0.0.0 0.0.0.0 S0/1/1 100 was issued on Branch and now traffic is using the backup link even when the OSPF link is up and functioning. Which change should be made to the static route command so that traffic will only use the OSPF link when it is up?",
+    "image": "/exhibits/m14-16/q29-topology.png",
+    "choices": [
+      "Add the next hop neighbor address of 198.51.0.8.",
+      "Change the administrative distance to 1.",
+      "Change the destination network to 198.51.0.5.",
+      "Change the administrative distance to 120."
+    ],
+    "answer": "Change the administrative distance to 120.",
+    "explanation": "Topic 15.4.1: The administrative distance must be higher than that of OSPF (110), so changing it to 120 ensures the floating static route is only used when OSPF fails."
+  },
+  {
+    "id": "quiz-net2-mod14-16-29",
+    "question": "What characteristic completes the following statement? When an IPv6 static route is configured, the next-hop address can be ......",
+    "choices": [
+      "a destination host route with a /128 prefix.",
+      "the 'show ipv6 route static' command.",
+      "an IPv6 link-local address on the adjacent router.",
+      "the interface type and interface number."
+    ],
+    "answer": "an IPv6 link-local address on the adjacent router.",
+    "explanation": "Topic 15.5.6: The next-hop address for an IPv6 static route can be an IPv6 link-local address on the adjacent router."
+  },
+  {
+    "id": "quiz-net2-mod14-16-30",
+    "question": "Refer to the exhibit. Which interface will be the exit interface to forward a data packet that has the destination IP address 172.19.115.206?",
+    "exhibit": "Gateway of last resort is not set.\n172.19.115.0/26 is variously subnetted, 7 subnets, 3 masks\nO 172.19.115.0/26 [110/10] via 172.19.39.1, 00:00:24, Serial0/0/0\nO 172.19.115.64/26 [110/20] via 172.19.39.6, 00:00:56, Serial 0/0/1\nO 172.19.115.128/26 [110/10] via 172.19.39.1, 00:00:24, Serial 0/0/0\nC 172.19.115.192/27 is directly connected, GigabitEthernet0/0\nL 172.19.115.193/27 is directly connected, GigabitEthernet0/0\nC 172.19.115.224/27 is directly connected, GigabitEthernet0/1\nL 172.19.115.225/27 is directly connected, GigabitEthernet0/1\n172.19.39.0/24 is variably subnetted, 4 subnets, 2 masks\nC 172.19.39.0/30 is directly connected, Serial0/0/0\nL 172.19.39.2/32 is directly connected, Serial0/0/0\nC 172.19.39.4/30 is directly connected, Serial0/0/1\nL 172.19.39.5/32 is directly connected, Serial0/0/1\nS 172.19.40.0/26 [1/0] via 172.19.39.1, 00:00:24, Serial0/0/0",
+    "choices": [
+      "GigabitEthernet0/1",
+      "None, the packet will be dropped.",
+      "GigabitEthernet0/0",
+      "Serial0/0/1"
+    ],
+    "answer": "GigabitEthernet0/0",
+    "explanation": "Topic 14.1.3: 172.19.115.192/27 includes host addresses 172.19.115.193 through 172.19.115.222, so 172.19.115.206 exits via GigabitEthernet0/0."
+  },
+  {
+    "id": "quiz-net2-mod14-16-31",
+    "question": "Refer to the exhibit. What routing solution will allow both PC A and PC B to access the Internet with the minimum amount of router CPU and network bandwidth utilization?",
+    "image": "/exhibits/m14-16/q32-topology.png",
+    "choices": [
+      "Configure a dynamic routing protocol between R1 and Edge and advertise all routes.",
+      "Configure a static route from R1 to Edge and a dynamic route from Edge to R1.",
+      "Configure a static default route from R1 to Edge, a default route from Edge to the Internet, and a static route from Edge to R1.",
+      "Configure a dynamic route from R1 to Edge and a static route from Edge to R1."
+    ],
+    "answer": "Configure a static default route from R1 to Edge, a default route from Edge to the Internet, and a static route from Edge to R1.",
+    "explanation": "Topic 14.4.5: Two routes have to be created: a default route in R1 to reach Edge and a static route in Edge to reach R1 for return traffic."
+  },
+  {
+    "id": "quiz-net2-mod14-16-32",
+    "question": "Refer to the exhibit. What would happen after the IT administrator enters the new static route?",
+    "image": "/exhibits/m14-16/q33-routing-table.png",
+    "choices": [
+      "The 172.16.1.0 static route would be entered into the running-config but not shown in the routing table.",
+      "The 172.16.1.0 route learned from RIP would be replaced with the 172.16.1.0 static route.",
+      "The 0.0.0.0 default route would be replaced with the 172.16.1.0 static route.",
+      "The 172.16.1.0 static route is added to the existing routes in the routing table."
+    ],
+    "answer": "The 172.16.1.0 route learned from RIP would be replaced with the 172.16.1.0 static route.",
+    "explanation": "Topic 14.4.12: If a route with a lower administrative distance (static route AD=1) to the same destination network as a current route (RIP AD=120) is entered, it will replace the route with the higher administrative distance."
+  },
+  {
+    "id": "quiz-net2-mod14-16-33",
+    "question": "What two pieces of information are needed in a fully specified static route to eliminate recursive lookups? (Choose two.)",
+    "choices": [
+      "the interface ID of the next-hop neighbor",
+      "the interface ID exit interface",
+      "the IP address of the exit interface",
+      "the IP address of the next-hop neighbor",
+      "the administrative distance for the destination network"
+    ],
+    "answers": [
+      "the interface ID exit interface",
+      "the IP address of the next-hop neighbor"
+    ],
+    "explanation": "Topic 15.1.2: A fully specified static route contains both the IP address of the next-hop router and the ID of the exit interface."
+  },
+  {
+    "id": "quiz-net2-mod14-16-34",
+    "question": "Refer to the exhibit. Which command will properly configure an IPv6 static route on R2 that will allow traffic from PC2 to reach PC1 without any recursive lookups by router R2?",
+    "image": "/exhibits/m14-16/q35-topology.png",
+    "choices": [
+      "R2(config)# ipv6 route ::/0 2001:db8:32::1",
+      "R2(config)# ipv6 route 2001:db8:10:12::/64 S0/0/0",
+      "R2(config)# ipv6 route 2001:db8:10:12::/64 2001:db8:32::1",
+      "R2(config)# ipv6 route 2001:db8:10:12::/64 S0/0/1"
+    ],
+    "answer": "R2(config)# ipv6 route 2001:db8:10:12::/64 S0/0/0",
+    "explanation": "Topic 15.2.4: In this example 2001:db8:10:12::/64 is the destination network and R2 will use exit interface S0/0/0 to reach that network directly."
+  },
+  {
+    "id": "quiz-net2-mod14-16-35",
+    "question": "Refer to the exhibit. Which static route would an IT technician enter to create a backup route to the 172.16.1.0 network that is only used if the primary RIP learned route fails?",
+    "image": "/exhibits/m14-16/q36-routing-table.png",
+    "choices": [
+      "ip route 172.16.1.0 255.255.255.0 s0/0/0",
+      "ip route 172.16.1.0 255.255.255.0 s0/0/0 121",
+      "ip route 172.16.1.0 255.255.255.0 s0/0/0 111",
+      "ip route 172.16.1.0 255.255.255.0 s0/0/0 91"
+    ],
+    "answer": "ip route 172.16.1.0 255.255.255.0 s0/0/0 121",
+    "explanation": "Topic 15.4.1: A floating static route has an administrative distance greater than that of the primary route (RIP is 120, so 121 is chosen)."
+  },
+  {
+    "id": "quiz-net2-mod14-16-36",
+    "question": "Refer to the exhibit. A user reports that PC0 cannot visit the web server www.server.com. What is the cause of the problem?",
+    "image": "/exhibits/m14-16/q37-pt-diagram.png",
+    "choices": [
+      "The clock rate on one of the serial links is configured incorrectly.",
+      "A serial interface on Branch is configured incorrectly.",
+      "The DNS server address on PC0 is configured incorrectly.",
+      "Routing between HQ and Branch is configured incorrectly."
+    ],
+    "answer": "Routing between HQ and Branch is configured incorrectly.",
+    "explanation": "Topic 16.2.3: In order to allow communication to remote networks, proper routing, either static or dynamic, is necessary."
+  },
+  {
+    "id": "quiz-net2-mod14-16-37",
+    "type": "matching",
+    "question": "Match the routing table entry component to its corresponding function.",
+    "pairs": [
+      {
+        "id": "p1",
+        "left": "Administrative distance",
+        "right": "Identifies the trustworthiness of a route source"
+      },
+      {
+        "id": "p2",
+        "left": "Metric",
+        "right": "Identifies the value assigned to reach a remote network"
+      },
+      {
+        "id": "p3",
+        "left": "Route source",
+        "right": "Identifies how a route was learned"
+      },
+      {
+        "id": "p4",
+        "left": "Destination network",
+        "right": "Identifies the address of the remote network"
+      }
+    ],
+    "explanation": "Topic 14.4.3: Route source shows how it was learned, destination network is remote address, AD is trustworthiness, and metric is path cost."
+  },
+  {
+    "id": "quiz-net2-mod14-16-38",
+    "question": "Refer to the exhibit. PC A sends a request to Server B. What IPv4 address is used in the destination field in the packet as the packet leaves PC A?",
+    "image": "/exhibits/m14-16/q39-40-topology.png",
+    "choices": [
+      "192.168.11.1",
+      "192.168.10.1",
+      "192.168.12.16",
+      "192.168.10.10"
+    ],
+    "answer": "192.168.12.16",
+    "explanation": "Topic 14.2.2: The destination IP address in packets does not change along the path between the source and destination (Server B is 192.168.12.16)."
+  },
+  {
+    "id": "quiz-net2-mod14-16-39",
+    "question": "Refer to the exhibit. What does R1 use as the MAC address of the destination when constructing the frame that will go from R1 to Server B?",
+    "image": "/exhibits/m14-16/q39-40-topology.png",
+    "choices": [
+      "If the destination MAC address that corresponds to the IPv4 address is not in the ARP cache, R1 sends an ARP request.",
+      "R1 uses the destination MAC address of S1.",
+      "The packet is encapsulated into a PPP frame, and R1 adds the PPP destination address to the frame.",
+      "R1 leaves the field blank and forwards the data to the PC."
+    ],
+    "answer": "If the destination MAC address that corresponds to the IPv4 address is not in the ARP cache, R1 sends an ARP request.",
+    "explanation": "Topic 14.2.1: Router R1 uses ARP to resolve Server B's IPv4 address to its MAC address before encapsulating the packet into an Ethernet frame."
+  },
+  {
+    "id": "quiz-net2-mod14-16-40",
+    "question": "What route would have the lowest administrative distance?",
+    "choices": [
+      "a route received through the OSPF routing protocol",
+      "a directly connected network",
+      "a static route",
+      "a route received through the EIGRP routing protocol"
+    ],
+    "answer": "a directly connected network",
+    "explanation": "Topic 14.4.12: The most believable route or the route with the lowest administrative distance is one that is directly connected to a router (AD 0)."
+  },
+  {
+    "id": "quiz-net2-mod14-16-41",
+    "question": "What characteristic completes the following statement? When an IPv6 static route is configured, as a backup route to a static route in the routing table, the 'distance' command is used with ......",
+    "choices": [
+      "the 'show ipv6 route static' command.",
+      "an administrative distance of 2.",
+      "a destination host route with a /128 prefix.",
+      "the interface type and interface number."
+    ],
+    "answer": "an administrative distance of 2.",
+    "explanation": "Topic 15.4.1: A standard static route has an AD of 1. To back it up with a floating static route, the distance is set higher, such as an administrative distance of 2."
+  },
+  {
+    "id": "quiz-net2-mod14-16-42",
+    "question": "A router has used the OSPF protocol to learn a route to the 172.16.32.0/19 network. Which command will implement a backup floating static route to this network?",
+    "choices": [
+      "ip route 172.16.0.0 255.255.224.0 S0/0/0 100",
+      "ip route 172.16.0.0 255.255.240.0 S0/0/0 200",
+      "ip route 172.16.32.0 255.255.224.0 S0/0/0 200",
+      "ip route 172.16.32.0 255.255.0.0 S0/0/0 100"
+    ],
+    "answer": "ip route 172.16.32.0 255.255.224.0 S0/0/0 200",
+    "explanation": "Topic 15.4.1: OSPF has an administrative distance of 110, so the floating static route must have an administrative distance higher than 110 (such as 200) and use netmask 255.255.224.0."
+  },
+  {
+    "id": "quiz-net2-mod14-16-43",
+    "question": "Consider the following command:\nip route 192.168.10.0 255.255.255.0 10.10.10.2 5\nHow would an administrator test this configuration?",
+    "choices": [
+      "Delete the default gateway route on the router.",
+      "Manually shut down the router interface used as a primary route.",
+      "Ping from the 192.168.10.0 network to the 10.10.10.2 address.",
+      "Ping any valid address on the 192.168.10.0/24 network."
+    ],
+    "answer": "Manually shut down the router interface used as a primary route.",
+    "explanation": "Topic 15.4.3: Shutting down the interface used as a primary route allows the floating static route to appear in the routing table."
+  },
+  {
+    "id": "quiz-net2-mod14-16-44",
+    "question": "Refer to the exhibit. Which type of IPv6 static route is configured in the exhibit?",
+    "image": "/exhibits/m14-16/q45-exhibit.png",
+    "choices": [
+      "floating static route",
+      "fully specified static route",
+      "recursive static route",
+      "directly attached static route"
+    ],
+    "answer": "recursive static route",
+    "explanation": "Topic 15.1.4: The route provided points to another address (2001:0DB8:3000::1) that must be looked up in the routing table. This makes the route a recursive static route."
+  },
+  {
+    "id": "quiz-net2-mod14-16-45",
+    "question": "What characteristic completes the following statement? When an IPv6 static route is configured, it is first necessary to configure ......",
+    "choices": [
+      "the next-hop address of two different adjacent routers.",
+      "the 'ipv6 unicast-routing' command.",
+      "an IPv6 link-local address on the adjacent router.",
+      "an administrative distance of 2."
+    ],
+    "answer": "the 'ipv6 unicast-routing' command.",
+    "explanation": "Topic 15.1.4: Before any IPv6 routing can take place on a Cisco router, IPv6 routing must be globally enabled using 'ipv6 unicast-routing'."
+  },
+  {
+    "id": "quiz-net2-mod14-16-46",
+    "question": "Refer to the exhibit. The routing table shows:\nC 172.18.109.192/27 is directly connected, GigabitEthernet0/0\nC 172.18.109.224/27 is directly connected, GigabitEthernet0/1\nS 172.18.33.0/26 [1/0] via 172.18.32.1, Serial0/0/0\nWhich interface will be the exit interface to forward a data packet that has the destination IP address 172.18.109.152?",
+    "exhibit": "172.18.109.0/26 is variously subnetted, 7 subnets, 3 masks\nO 172.18.109.0/26 [110/10] via 172.18.32.1, Serial0/0/0\nO 172.18.109.64/26 [110/20] via 172.18.32.6, Serial 0/0/1\nO 172.18.109.128/26 [110/10] via 172.18.32.1, Serial 0/0/0\nC 172.18.109.192/27 is directly connected, GigabitEthernet0/0\nL 172.18.109.193/27 is directly connected, GigabitEthernet0/0\nC 172.18.109.224/27 is directly connected, GigabitEthernet0/1\nL 172.18.109.225/27 is directly connected, GigabitEthernet0/1\n172.18.32.0/24 is variably subnetted, 4 subnets, 2 masks\nC 172.18.32.0/30 is directly connected, Serial0/0/0\nL 172.18.32.2/32 is directly connected, Serial0/0/0\nC 172.18.32.4/30 is directly connected, Serial0/0/1\nL 172.18.32.5/32 is directly connected, Serial0/0/1\nS 172.18.33.0/26 [1/0] via 172.18.32.1, Serial0/0/0",
+    "choices": [
+      "GigabitEthernet0/0",
+      "GigabitEthernet0/1",
+      "Serial0/0/0",
+      "None, the packet will be dropped."
+    ],
+    "answer": "Serial0/0/0",
+    "explanation": "Topic 14.1.3: Subnet O 172.18.109.128/26 [110/10] via 172.18.32.1 on Serial0/0/0 covers 172.18.109.128 - 172.18.109.191, matching 172.18.109.152."
+  },
+  {
+    "id": "quiz-net2-mod14-16-47",
+    "question": "Refer to the exhibit. What will the router do with a packet that has a destination IP address of 192.168.12.227?",
+    "image": "/exhibits/m14-16/q48-routing-table.png",
+    "choices": [
+      "Drop the packet.",
+      "Send the packet out the GigabitEthernet0/0 interface.",
+      "Send the packet out the Serial0/0/0 interface.",
+      "Send the packet out the GigabitEthernet0/1 interface."
+    ],
+    "answer": "Send the packet out the Serial0/0/0 interface.",
+    "explanation": "Topic 14.4.9: In this instance, 192.168.12.227 is not found in the routing table and the router uses the gateway of last resort (209.165.200.226 associated with 209.165.200.224 out Serial0/0/0)."
+  },
+  {
+    "id": "quiz-net2-mod14-16-48",
+    "question": "Consider the following command:\nip route 192.168.10.0 255.255.255.0 10.10.10.2 5\nWhich route would have to go down in order for this static route to appear in the routing table?",
+    "choices": [
+      "a default route",
+      "a static route to the 192.168.10.0/24 network",
+      "an OSPF-learned route to the 192.168.10.0/24 network",
+      "an EIGRP-learned route to the 192.168.10.0/24 network"
+    ],
+    "answer": "a static route to the 192.168.10.0/24 network",
+    "explanation": "Topic 15.4.1: Static routes have a default administrative distance of 1. This route with an administrative distance of 5 will not be placed into the routing table unless the previously entered static route (AD 1) goes down."
+  },
+  {
+    "id": "quiz-net2-mod14-16-49",
+    "question": "What are two advantages of static routing over dynamic routing? (Choose two.)",
+    "choices": [
+      "Static routing is more secure because it does not advertise over the network.",
+      "Static routing scales well with expanding networks.",
+      "Static routing requires very little knowledge of the network for correct implementation.",
+      "Static routing uses fewer router resources than dynamic routing.",
+      "Static routing is relatively easy to configure for large networks."
+    ],
+    "answers": [
+      "Static routing is more secure because it does not advertise over the network.",
+      "Static routing uses fewer router resources than dynamic routing."
+    ],
+    "explanation": "Topic 14.5.1: Static routing uses fewer router resources because no computing is required for updating routes, and it can also be more secure because it does not advertise over the network."
+  },
+  {
+    "id": "quiz-net2-mod14-16-50",
+    "question": "What characteristic completes the following statement? When an IPv6 static route is configured, it is possible that the same IPv6 link-local address is used for ...",
+    "choices": [
+      "a destination host route with a /128 prefix.",
+      "the 'ipv6 unicast-routing' command.",
+      "the next-hop address of two different adjacent routers.",
+      "an administrative distance of 2."
+    ],
+    "answer": "the next-hop address of two different adjacent routers.",
+    "explanation": "Topic 15.2.6: Link-local addresses are only required to be unique on that link, so the same link-local address can be used for the next-hop address of two different adjacent routers."
+  },
+  {
+    "id": "quiz-net2-mod14-16-51",
+    "question": "A network administrator configures the interface fa0/0 on the router R1 with the command ip address 172.16.1.254 255.255.255.0. However, when the administrator issues the command show ip route, the routing table does not show the directly connected network. What is the possible cause of the problem?",
+    "choices": [
+      "The subnet mask is incorrect for the IPv4 address.",
+      "The configuration needs to be saved first.",
+      "The interface fa0/0 has not been activated.",
+      "No packets with a destination network of 172.16.1.0 have been sent to R1."
+    ],
+    "answer": "The interface fa0/0 has not been activated.",
+    "explanation": "Topic 14.4.4: A directly connected network will be added to the routing table when the interface is configured with a valid IP, activated with no shutdown, and receives a carrier signal."
+  },
+  {
+    "id": "quiz-net2-mod14-16-52",
+    "question": "Refer to the exhibit. What command would be used to configure a static route on R1 so that traffic from both LANs can reach the 2001:db8:1:4::/64 remote network?",
+    "image": "/exhibits/m14-16/q53-topology.png",
+    "choices": [
+      "ipv6 route 2001:db8:1:4::/64 2001:db8:1:3::1",
+      "ipv6 route 2001:db8:1::/65 2001:db8:1:3::1",
+      "ipv6 route ::/0 serial0/0/0",
+      "ipv6 route 2001:db8:1:4::/64 2001:db8:1:3::2"
+    ],
+    "answer": "ipv6 route 2001:db8:1:4::/64 2001:db8:1:3::2",
+    "explanation": "Topic 15.2.2: To configure an IPv6 static route, use 'ipv6 route 2001:db8:1:4::/64 2001:db8:1:3::2' pointing to R2's interface IP."
+  },
+  {
+    "id": "quiz-net2-mod14-16-53",
+    "question": "Refer to the exhibit. What two commands will change the next-hop address for the 10.0.0.0/8 network from 172.16.40.2 to 192.168.1.2? (Choose two.)",
+    "image": "/exhibits/m14-16/q54-routing-table.png",
+    "choices": [
+      "A(config)# ip route 10.0.0.0 255.0.0.0 192.168.1.2",
+      "A(config)# ip route 10.0.0.0 255.0.0.0 s0/0/0",
+      "A(config)# no ip address 10.0.0.1 255.0.0.0 172.16.40.2",
+      "A(config)# no network 10.0.0.0 255.0.0.0 172.16.40.2",
+      "A(config)# no ip route 10.0.0.0 255.0.0.0 172.16.40.2"
+    ],
+    "answers": [
+      "A(config)# ip route 10.0.0.0 255.0.0.0 192.168.1.2",
+      "A(config)# no ip route 10.0.0.0 255.0.0.0 172.16.40.2"
+    ],
+    "explanation": "Topic 15.1.3: The two required commands are A(config)# no ip route 10.0.0.0 255.0.0.0 172.16.40.2 and A(config)# ip route 10.0.0.0 255.0.0.0 192.168.1.2."
+  },
+  {
+    "id": "quiz-net2-mod14-16-54",
+    "question": "Refer to the exhibit. Which interface will be the exit interface to forward a data packet that has the destination IP address 192.168.139.244?",
+    "exhibit": "Gateway of last resort is not set.\n192.168.139.0/26 is variously subnetted, 7 subnets, 3 masks\nO 192.168.139.0/26 [110/10] via 192.168.70.1, Serial0/0/0\nO 192.168.139.64/26 [110/20] via 192.168.70.6, Serial 0/0/1\nO 192.168.139.128/26 [110/10] via 192.168.70.1, Serial 0/0/0\nC 192.168.139.192/27 is directly connected, GigabitEthernet0/0\nL 192.168.139.193/27 is directly connected, GigabitEthernet0/0\nC 192.168.139.224/27 is directly connected, GigabitEthernet0/1\nL 192.168.139.225/27 is directly connected, GigabitEthernet0/1\n192.168.70.0/24 is variably subnetted, 4 subnets, 2 masks\nC 192.168.70.0/30 is directly connected, Serial0/0/0\nL 192.168.70.2/32 is directly connected, Serial0/0/0\nC 192.168.70.4/30 is directly connected, Serial0/0/1\nL 192.168.70.5/32 is directly connected, Serial0/0/1\nS 192.168.71.0/26 [1/0] via 192.168.70.1, Serial0/0/0",
+    "choices": [
+      "GigabitEthernet0/1",
+      "None, the packet will be dropped.",
+      "Serial0/0/1",
+      "GigabitEthernet0/0"
+    ],
+    "answer": "GigabitEthernet0/1",
+    "explanation": "Topic 14.1.3: Subnet C 192.168.139.224/27 is directly connected to GigabitEthernet0/1 and encompasses 192.168.139.224 to 192.168.139.255."
+  },
+  {
+    "id": "quiz-net2-mod14-16-55",
+    "question": "What characteristic completes the following statement? When an IPv6 static route is configured, a fully-specified configuration should be used with ...",
+    "choices": [
+      "::/0.",
+      "the 'ipv6 unicast-routing' command.",
+      "the next-hop address of two different adjacent routers.",
+      "a directly connected multiaccess network."
+    ],
+    "answer": "a directly connected multiaccess network.",
+    "explanation": "Topic 15.2.6: When an IPv6 static route is configured, a fully-specified configuration should be used with a directly connected multiaccess network."
+  },
+  {
+    "id": "quiz-net2-mod14-16-56",
+    "question": "Refer to the exhibit. Which interface will be the exit interface to forward a data packet that has the destination IP address 192.168.71.52?",
+    "exhibit": "Gateway of last resort is not set.\n192.168.139.0/26 is variously subnetted, 7 subnets, 3 masks\nO 192.168.139.0/26 [110/10] via 192.168.70.1, Serial0/0/0\nO 192.168.139.64/26 [110/20] via 192.168.70.6, Serial 0/0/1\nO 192.168.139.128/26 [110/10] via 192.168.70.1, Serial 0/0/0\nC 192.168.139.192/27 is directly connected, GigabitEthernet0/0\nL 192.168.139.193/27 is directly connected, GigabitEthernet0/0\nC 192.168.139.224/27 is directly connected, GigabitEthernet0/1\nL 192.168.139.225/27 is directly connected, GigabitEthernet0/1\n192.168.70.0/24 is variably subnetted, 4 subnets, 2 masks\nC 192.168.70.0/30 is directly connected, Serial0/0/0\nL 192.168.70.2/32 is directly connected, Serial0/0/0\nC 192.168.70.4/30 is directly connected, Serial0/0/1\nL 192.168.70.5/32 is directly connected, Serial0/0/1\nS 192.168.71.0/26 [1/0] via 192.168.70.1, Serial0/0/0",
+    "choices": [
+      "The packet will take the gateway of last resort.",
+      "GigabitEthernet0/1",
+      "Serial0/0/0",
+      "None, the packet will be dropped."
+    ],
+    "answer": "Serial0/0/0",
+    "explanation": "Topic 14.1.3: S 192.168.71.0/26 is via 192.168.70.1 on Serial0/0/0. 192.168.71.52 falls within this range."
+  },
+  {
+    "id": "quiz-net2-mod14-16-57",
+    "question": "What characteristic completes the following statement? When an IPv6 static route is configured, the installation of the route can be verified with ......",
+    "choices": [
+      "a destination host route with a /128 prefix.",
+      "the interface type and interface number.",
+      "the 'show ipv6 route static' command.",
+      "an administrative distance of 2."
+    ],
+    "answer": "the 'show ipv6 route static' command.",
+    "explanation": "Topic 15.2.7: 'show ipv6 route static' filters the routing table to verify installed static routes."
+  },
+  {
+    "id": "quiz-net2-mod14-16-58",
+    "question": "Refer to the exhibit. Which interface will be the exit interface to forward a data packet that has the destination IP address 10.55.99.78?",
+    "exhibit": "Gateway of last resort is not set.\n10.55.99.0/26 is variously subnetted, 7 subnets, 3 masks\nO 10.55.99.0/26 [110/10] via 10.55.18.1, Serial0/0/0\nO 10.55.99.64/26 [110/20] via 10.55.18.6, Serial 0/0/1\nO 10.55.99.128/26 [110/10] via 10.55.18.1, Serial 0/0/0\nC 10.55.99.192/27 is directly connected, GigabitEthernet0/0\nL 10.55.99.193/27 is directly connected, GigabitEthernet0/0\nC 10.55.99.224/27 is directly connected, GigabitEthernet0/1\nL 10.55.99.225/27 is directly connected, GigabitEthernet0/1\n10.55.18.0/24 is variably subnetted, 4 subnets, 2 masks\nC 10.55.18.0/30 is directly connected, Serial0/0/0\nL 10.55.18.2/32 is directly connected, Serial0/0/0\nC 10.55.18.4/30 is directly connected, Serial0/0/1\nL 10.55.18.5/32 is directly connected, Serial0/0/1\nS 10.55.19.0/26 [1/0] via 10.55.18.1, Serial0/0/0",
+    "choices": [
+      "None, the packet will be dropped.",
+      "GigabitEthernet0/0",
+      "GigabitEthernet0/1",
+      "Serial0/0/1"
+    ],
+    "answer": "Serial0/0/1",
+    "explanation": "Topic 14.1.3: O 10.55.99.64/26 covers 10.55.99.64 to 10.55.99.127 via 10.55.18.6 out Serial0/0/1."
+  },
+  {
+    "id": "quiz-net2-mod14-16-59",
+    "question": "Refer to the exhibit. Which interface will be the exit interface to forward a data packet that has the destination IP address 10.3.86.2?",
+    "exhibit": "Gateway of last resort is not set.\n10.3.86.0/26 is variously subnetted, 7 subnets, 3 masks\nO 10.3.86.0/26 [110/10] via 10.3.2.1, Serial0/0/0\nO 10.3.86.64/26 [110/20] via 10.3.2.6, Serial 0/0/1\nO 10.3.86.128/26 [110/10] via 10.3.2.1, Serial 0/0/0\nC 10.3.86.192/27 is directly connected, GigabitEthernet0/0\nL 10.3.86.193/27 is directly connected, GigabitEthernet0/0\nC 10.3.86.224/27 is directly connected, GigabitEthernet0/1\nL 10.3.86.225/27 is directly connected, GigabitEthernet0/1\n10.3.2.0/24 is variably subnetted, 4 subnets, 2 masks\nC 10.3.2.0/30 is directly connected, Serial0/0/0\nL 10.3.2.2/32 is directly connected, Serial0/0/0\nC 10.3.2.4/30 is directly connected, Serial0/0/1\nL 10.3.2.5/32 is directly connected, Serial0/0/1\nS 10.3.3.0/26 [1/0] via 10.3.2.1, Serial0/0/0",
+    "choices": [
+      "GigabitEthernet0/1",
+      "Serial0/0/1",
+      "GigabitEthernet0/0",
+      "Serial0/0/0"
+    ],
+    "answer": "Serial0/0/0",
+    "explanation": "Topic 14.1.3: 10.3.86.2 matches O 10.3.86.0/26 via 10.3.2.1 on Serial0/0/0."
+  },
+  {
+    "id": "quiz-net2-mod14-16-60",
+    "type": "sorting",
+    "question": "Match the characteristic to the corresponding type of routing (static routing vs dynamic routing).",
+    "categories": [
+      "static routing",
+      "dynamic routing"
+    ],
+    "items": [
+      {
+        "id": "s1",
+        "text": "typically used on stub networks",
+        "category": "static routing"
+      },
+      {
+        "id": "s2",
+        "text": "less routing overhead",
+        "category": "static routing"
+      },
+      {
+        "id": "s3",
+        "text": "new networks are added automatically to the routing table",
+        "category": "dynamic routing"
+      },
+      {
+        "id": "s4",
+        "text": "best choice for large networks",
+        "category": "dynamic routing"
+      },
+      {
+        "id": "s5",
+        "text": "not suitable for topologies where more than one router is required",
+        "category": null
+      }
+    ],
+    "explanation": "Topic 14.5.1: Static routing has less overhead and is typically used on stub networks. Dynamic routing is best for large networks and adds new networks automatically. The item stating 'not suitable for topologies where more than one router is required' is a distractor."
+  },
+  {
+    "id": "quiz-net2-mod14-16-61",
+    "question": "Refer to the exhibit. Which interface will be the exit interface to forward a data packet that has the destination IP address 172.25.128.244?",
+    "exhibit": "Gateway of last resort is not set.\n172.25.128.0/26 is variously subnetted, 7 subnets, 3 masks\nO 172.25.128.0/26 [110/10] via 172.25.56.1, Serial0/0/0\nO 172.25.128.64/26 [110/20] via 172.25.56.6, Serial 0/0/1\nO 172.25.128.128/26 [110/10] via 172.25.56.1, Serial 0/0/0\nC 172.25.128.192/27 is directly connected, GigabitEthernet0/0\nL 172.25.128.193/27 is directly connected, GigabitEthernet0/0\nC 172.25.128.224/27 is directly connected, GigabitEthernet0/1\nL 172.25.128.225/27 is directly connected, GigabitEthernet0/1\n172.25.56.0/24 is variably subnetted, 4 subnets, 2 masks\nC 172.25.56.0/30 is directly connected, Serial0/0/0\nL 172.25.56.2/32 is directly connected, Serial0/0/0\nC 172.25.56.4/30 is directly connected, Serial0/0/1\nL 172.25.56.5/32 is directly connected, Serial0/0/1\nS 172.25.57.0/26 [1/0] via 172.25.56.1, Serial0/0/0",
+    "choices": [
+      "GigabitEthernet0/0",
+      "GigabitEthernet0/1",
+      "None, the packet will be dropped.",
+      "Serial0/0/1"
+    ],
+    "answer": "GigabitEthernet0/1",
+    "explanation": "Topic 14.1.3: C 172.25.128.224/27 is directly connected to GigabitEthernet0/1 and covers 172.25.128.224 to 172.25.128.255."
+  }
+]
