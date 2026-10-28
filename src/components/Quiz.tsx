@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { Subject, MatchPair, SortItem } from "../types/quiz";
+import type { Subject, MatchPair, SortItem, QuizResultItem } from "../types/quiz";
 
 import { playCorrect, playWrong, isSoundEnabled, setSoundEnabled } from "../utils/sounds";
 
@@ -8,7 +8,7 @@ interface QuizProps {
   shuffleQuestions: boolean;
   questionLimit: number | null;
   timerEnabled: boolean;
-  onFinish: (correctCount: number, totalCount: number) => void;
+  onFinish: (correctCount: number, totalCount: number, results: QuizResultItem[]) => void;
   onExit: () => void;
 }
 
@@ -472,6 +472,79 @@ export default function Quiz({
     return isSelectionCorrect(i, state.selected);
   }
 
+  function buildResults(): QuizResultItem[] {
+    return questions.map((q: any, i: number) => {
+      const st = answersByIndex[i];
+      const isMatch = isMatchingQuestion(q);
+      const isSort = isSortingQuestion(q);
+      const questionType: QuizResultItem["questionType"] = isMatch
+        ? "matching"
+        : isSort
+        ? "sorting"
+        : q.answers?.length > 0
+        ? "multi"
+        : "single";
+
+      // Correct answer string
+      let correctAnswer = "";
+      if (isMatch) {
+        correctAnswer = (q.pairs as MatchPair[])
+          .map((p: MatchPair) => `${p.left} → ${p.right}`)
+          .join(", ");
+      } else if (isSort) {
+        correctAnswer = (q.items as SortItem[])
+          .filter((it: SortItem) => it.category !== null)
+          .map((it: SortItem) => `"${it.text}" → ${it.category}`)
+          .join("; ");
+      } else if (q.answers?.length > 0) {
+        correctAnswer = (q.answers as string[]).join(", ");
+      } else {
+        correctAnswer = q.answer ?? "";
+      }
+
+      // User answer string
+      let userAnswer = "";
+      if (!st || st.skipped) {
+        userAnswer = "";
+      } else if (isMatch) {
+        const pairs = q.pairs as MatchPair[];
+        userAnswer = pairs
+          .map((p: MatchPair) => {
+            const rId = (st.matches ?? {})[p.id];
+            const rPair = pairs.find((r: MatchPair) => r.id === rId);
+            return `${p.left} → ${rPair?.right ?? "(not matched)"}`;
+          })
+          .join(", ");
+      } else if (isSort) {
+        userAnswer = (q.items as SortItem[])
+          .map((it: SortItem) => {
+            const assigned = (st.assignments ?? {})[it.id] ?? null;
+            return `"${it.text}" → ${assigned ?? "(unsorted)"}`;
+          })
+          .join("; ");
+      } else {
+        userAnswer = (st.selected ?? []).join(", ");
+      }
+
+      let status: QuizResultItem["status"];
+      if (!st || st.skipped) {
+        status = "skipped";
+      } else if (isAnswerCorrect(i, st)) {
+        status = "correct";
+      } else {
+        status = "wrong";
+      }
+
+      return {
+        questionText: q.question,
+        status,
+        correctAnswer,
+        userAnswer,
+        questionType,
+      };
+    });
+  }
+
   function computeFinalScore() {
     let correctCount = 0;
     questions.forEach((_, i) => {
@@ -504,7 +577,7 @@ export default function Quiz({
         if (s <= 1 && !finishedRef.current) {
           finishedRef.current = true;
           clearInterval(interval);
-          onFinish(computeFinalScore(), questions.length);
+          onFinish(computeFinalScore(), questions.length, buildResults());
           return 0;
         }
         return s - 1;
@@ -542,10 +615,15 @@ export default function Quiz({
       updateCurrent({ selected: [choice] });
       return;
     }
-    const next = selected.includes(choice)
-      ? selected.filter((c) => c !== choice)
-      : [...selected, choice];
-    updateCurrent({ selected: next });
+    if (selected.includes(choice)) {
+      // Always allow deselecting
+      updateCurrent({ selected: selected.filter((c) => c !== choice) });
+    } else {
+      // Only allow adding up to the required number of answers
+      const limit = current.answers!.length;
+      if (selected.length >= limit) return;
+      updateCurrent({ selected: [...selected, choice] });
+    }
   }
 
   function handleLeftClick(pairId: string) {
@@ -625,7 +703,7 @@ function handleCheck() {
   function handleNext() {
     if (isLast) {
       finishedRef.current = true;
-      onFinish(computeFinalScore(), questions.length);
+      onFinish(computeFinalScore(), questions.length, buildResults());
       return;
     }
     setIndex((i) => i + 1);

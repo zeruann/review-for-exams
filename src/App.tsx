@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { midtermSubjects, finalsSubjects, quizzesSubjects } from "./data/subjects";
-import type { Subject, ExamPeriod } from "./types/quiz";
+import type { Subject, ExamPeriod, QuizResultItem } from "./types/quiz";
 import { useProgress } from "./hooks/useProgress";
 import { useProfiles } from "./hooks/useProfiles";
 import { usePersistedBoolean } from "./hooks/usePersistedBoolean";
@@ -32,6 +32,7 @@ type ViewState =
       parentSubject?: Subject;
       correctCount: number;
       totalCount: number;
+      results: QuizResultItem[];
     };
 
 type Theme = "dark" | "light";
@@ -300,7 +301,7 @@ export default function App() {
               ? setView({ screen: "subquizzes", subject: view.parentSubject })
               : setView({ screen: "list" })
           }
-          onFinish={(correctCount, totalCount) => {
+          onFinish={(correctCount, totalCount, results) => {
             recordAttempt(view.subject.id, correctCount, totalCount);
             if (view.parentSubject) {
               recordAttempt(view.parentSubject.id, correctCount, totalCount);
@@ -311,6 +312,7 @@ export default function App() {
               parentSubject: view.parentSubject,
               correctCount,
               totalCount,
+              results,
             });
           }}
         />
@@ -345,6 +347,7 @@ export default function App() {
           subjectName={view.subject.name}
           correctCount={view.correctCount}
           totalCount={view.totalCount}
+          results={view.results}
           onRetry={() =>
             setView({
               screen: "quiz",

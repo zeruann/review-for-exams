@@ -39,3 +39,15 @@ export interface Subject {
 }
 
 export type ExamPeriod = "midterm" | "finals" | "quizzes";
+
+export interface QuizResultItem {
+  questionText: string;
+  /** 'correct' | 'wrong' | 'skipped' */
+  status: "correct" | "wrong" | "skipped";
+  /** Human-readable correct answer(s) */
+  correctAnswer: string;
+  /** What the user actually selected / how they answered (empty string if skipped) */
+  userAnswer: string;
+  /** Type of question */
+  questionType: "single" | "multi" | "matching" | "sorting";
+}

@@ -820,10 +820,10 @@
       {
         "id": "s5",
         "text": "not suitable for topologies where more than one router is required",
-        "category": null
+        "category": "static routing"
       }
     ],
-    "explanation": "Topic 14.5.1: Static routing has less overhead and is typically used on stub networks. Dynamic routing is best for large networks and adds new networks automatically. The item stating 'not suitable for topologies where more than one router is required' is a distractor."
+    "explanation": "Topic 14.5.1: Static routing has less overhead and is typically used on stub networks. It is not suitable for topologies where more than one router is required. Dynamic routing is best for large networks and adds new networks automatically."
   },
   {
     "id": "quiz-net2-mod14-16-61",
