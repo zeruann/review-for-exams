@@ -508,7 +508,7 @@
   {
     "id": "quiz-net2-mod14-16-38",
     "question": "Refer to the exhibit. PC A sends a request to Server B. What IPv4 address is used in the destination field in the packet as the packet leaves PC A?",
-    "image": "/exhibits/m14-16/q39-40-topology.png",
+    "image": "/exhibits/m14-16/q39-topology.png",
     "choices": [
       "192.168.11.1",
       "192.168.10.1",
@@ -521,7 +521,7 @@
   {
     "id": "quiz-net2-mod14-16-39",
     "question": "Refer to the exhibit. What does R1 use as the MAC address of the destination when constructing the frame that will go from R1 to Server B?",
-    "image": "/exhibits/m14-16/q39-40-topology.png",
+    "image": "/exhibits/m14-16/q40-topology.png",
     "choices": [
       "If the destination MAC address that corresponds to the IPv4 address is not in the ARP cache, R1 sends an ARP request.",
       "R1 uses the destination MAC address of S1.",
