@@ -4,7 +4,9 @@ import type { Subject } from "../types/quiz";
 export function usesQuizOptions(subject: Subject): boolean {
   return (
     subject.name.startsWith("Networking 2") ||
-    subject.name.includes("Module Group Exam")
+    subject.name.includes("Module Group Exam") ||
+    subject.name === "API Types" ||
+    subject.questions.length >= 20
   );
 }
 
@@ -16,6 +18,8 @@ interface QuizSetupProps {
   onChangeQuestionLimit: (value: string) => void;
   timerEnabled: boolean;
   onToggleTimer: (value: boolean) => void;
+  missedCount?: number;
+  onStartReviewMissed?: () => void;
   onStart: () => void;
   onBack: () => void;
 }
@@ -28,6 +32,8 @@ export default function QuizSetup({
   onChangeQuestionLimit,
   timerEnabled,
   onToggleTimer,
+  missedCount = 0,
+  onStartReviewMissed,
   onStart,
   onBack,
 }: QuizSetupProps) {
@@ -82,6 +88,52 @@ export default function QuizSetup({
 
         {/* ADHD Friendly Option Cards */}
         <div className="space-y-4 mb-8">
+          {/* Option: Review Missed / Mistakes */}
+          {missedCount > 0 && onStartReviewMissed && (
+            <div
+              className="p-4 rounded-2xl border transition-all flex items-center justify-between gap-4"
+              style={{
+                backgroundColor: "var(--okay-soft)",
+                borderColor: "var(--okay)",
+              }}
+            >
+              <div className="flex items-center gap-3.5">
+                <span className="text-2xl">🎯</span>
+                <div>
+                  <div className="font-bold text-sm md:text-base text-[var(--ink)] flex items-center gap-2">
+                    <span>Review Mode: Missed Questions</span>
+                    <span
+                      className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full"
+                      style={{
+                        backgroundColor: "var(--okay)",
+                        color: "white",
+                      }}
+                    >
+                      {missedCount} item{missedCount > 1 ? "s" : ""}
+                    </span>
+                  </div>
+                  <div className="text-xs text-[var(--ink-muted)]">
+                    Target only questions you missed or skipped in your previous attempts.
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={onStartReviewMissed}
+                className="py-2.5 px-4 rounded-xl font-bold text-xs md:text-sm border transition-all active-press shrink-0 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-[var(--okay)] flex items-center gap-1.5"
+                style={{
+                  backgroundColor: "var(--surface)",
+                  borderColor: "var(--okay)",
+                  color: "var(--okay)",
+                }}
+              >
+                <span>Start Review</span>
+                <span>→</span>
+              </button>
+            </div>
+          )}
+
           {/* Option: Shuffle Questions */}
           <div
             onClick={() => onToggleShuffle(!shuffleQuestions)}

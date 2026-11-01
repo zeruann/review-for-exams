@@ -7,6 +7,7 @@ interface ResultsProps {
   totalCount: number;
   results: QuizResultItem[];
   onRetry: () => void;
+  onReviewMissed?: () => void;
   onBackToSubjects: () => void;
 }
 
@@ -46,6 +47,7 @@ export default function Results({
   totalCount,
   results,
   onRetry,
+  onReviewMissed,
   onBackToSubjects,
 }: ResultsProps) {
   const percent = Math.round((correctCount / totalCount) * 100);
@@ -308,6 +310,19 @@ export default function Results({
 
       {/* Bottom action strip */}
       <div className="flex flex-col sm:flex-row gap-3 pb-6">
+        {onReviewMissed && (wrongCount > 0 || skippedCount > 0) && (
+          <button
+            onClick={onReviewMissed}
+            className="flex-1 py-3.5 px-6 rounded-2xl font-bold text-sm transition-all active-press shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--okay)] flex items-center justify-center gap-2 border"
+            style={{
+              backgroundColor: "var(--okay-soft)",
+              borderColor: "var(--okay)",
+              color: "var(--okay)",
+            }}
+          >
+            <span>🎯 Review Missed Items ({wrongCount + skippedCount})</span>
+          </button>
+        )}
         <button
           onClick={onRetry}
           className="flex-1 py-3.5 px-6 rounded-2xl font-bold text-sm transition-all active-press shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] flex items-center justify-center gap-2"

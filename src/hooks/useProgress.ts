@@ -5,6 +5,7 @@ export interface SubjectProgress {
   attempted: number;
   correct: number;
   lastScorePercent: number | null;
+  missedQuestionIds?: string[];
 }
 
 type ProgressMap = Record<string, SubjectProgress>;
@@ -66,19 +67,30 @@ export function useProgress(
   }, [key, progress]);
 
   const recordAttempt = useCallback(
-    (subjectId: string, correctCount: number, totalCount: number) => {
+    (
+      subjectId: string,
+      correctCount: number,
+      totalCount: number,
+      missedQuestionIds?: string[]
+    ) => {
       setProgress((prev) => {
         const prevEntry = prev[subjectId] ?? {
           attempted: 0,
           correct: 0,
           lastScorePercent: null,
         };
+        // Merge missed questions, keeping unique IDs, or replace with latest set
+        const updatedMissed = missedQuestionIds !== undefined
+          ? Array.from(new Set(missedQuestionIds))
+          : prevEntry.missedQuestionIds;
+
         return {
           ...prev,
           [subjectId]: {
             attempted: prevEntry.attempted + totalCount,
             correct: prevEntry.correct + correctCount,
             lastScorePercent: Math.round((correctCount / totalCount) * 100),
+            missedQuestionIds: updatedMissed,
           },
         };
       });

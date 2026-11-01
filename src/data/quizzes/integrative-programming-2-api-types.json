@@ -1,0 +1,1322 @@
+[
+  {
+    "id": "quiz-ipt2-api-types-1",
+    "question": "Which statement best defines an Application Programming Interface (API)?",
+    "choices": [
+      "A database that stores web pages",
+      "A set of rules and endpoints that allows two software systems to communicate",
+      "A programming language used for server-side scripting",
+      "A tool used only for designing user interfaces"
+    ],
+    "answer": "A set of rules and endpoints that allows two software systems to communicate"
+  },
+  {
+    "id": "quiz-ipt2-api-types-2",
+    "question": "Which statement correctly describes a Public API?",
+    "choices": [
+      "It can be used only by employees inside the company.",
+      "It can be used only by specific partners who signed a contract.",
+      "It is available to any developer, usually after registration or by obtaining an API key.",
+      "It can be used only by the database administrator."
+    ],
+    "answer": "It is available to any developer, usually after registration or by obtaining an API key."
+  },
+  {
+    "id": "quiz-ipt2-api-types-3",
+    "question": "Which statement correctly describes a Private (Internal) API?",
+    "choices": [
+      "It is exposed to any anonymous user on the internet.",
+      "It is used within an organization to connect its own systems and teams.",
+      "It is shared only with outside business partners.",
+      "It is designed to combine several external APIs for the public."
+    ],
+    "answer": "It is used within an organization to connect its own systems and teams."
+  },
+  {
+    "id": "quiz-ipt2-api-types-4",
+    "question": "Which statement correctly describes a Partner API?",
+    "choices": [
+      "It is available to anyone without any restriction.",
+      "It is hidden from everyone, including the company's own developers.",
+      "It is shared with selected business partners under an agreement or authorization.",
+      "It is used only for testing on a local machine."
+    ],
+    "answer": "It is shared with selected business partners under an agreement or authorization."
+  },
+  {
+    "id": "quiz-ipt2-api-types-5",
+    "question": "Which statement correctly describes a Composite API?",
+    "choices": [
+      "It combines multiple API calls into a single request and response.",
+      "It is an API that has no endpoints.",
+      "It is an API that can return only plain text.",
+      "It is an API that is accessible only on localhost."
+    ],
+    "answer": "It combines multiple API calls into a single request and response."
+  },
+  {
+    "id": "quiz-ipt2-api-types-6",
+    "question": "A weather company allows any developer to sign up for a free API key and retrieve forecast data for their own apps. Which API type is this?",
+    "choices": [
+      "Private (Internal)",
+      "Partner",
+      "Public",
+      "Composite"
+    ],
+    "answer": "Public"
+  },
+  {
+    "id": "quiz-ipt2-api-types-7",
+    "question": "A hospital's billing system exposes endpoints that only the hospital's own developers use to connect its internal applications. Which API type is this?",
+    "choices": [
+      "Private (Internal)",
+      "Public",
+      "Partner",
+      "Composite"
+    ],
+    "answer": "Private (Internal)"
+  },
+  {
+    "id": "quiz-ipt2-api-types-8",
+    "question": "A logistics company gives only its approved shipping carriers access to tracking endpoints, and each carrier signs an agreement first. Which API type is this?",
+    "choices": [
+      "Public",
+      "Composite",
+      "Private (Internal)",
+      "Partner"
+    ],
+    "answer": "Partner"
+  },
+  {
+    "id": "quiz-ipt2-api-types-9",
+    "question": "A mobile app needs a user's profile, recent orders, and payment status. The backend team creates one endpoint that gathers all three and returns a single response. Which API type is this?",
+    "choices": [
+      "Composite",
+      "Public",
+      "Private (Internal)",
+      "Partner"
+    ],
+    "answer": "Composite"
+  },
+  {
+    "id": "quiz-ipt2-api-types-10",
+    "question": "Which API type is typically NOT exposed outside the organization and therefore has the narrowest set of consumers?",
+    "choices": [
+      "Public",
+      "Private (Internal)",
+      "Partner",
+      "Composite"
+    ],
+    "answer": "Private (Internal)"
+  },
+  {
+    "id": "quiz-ipt2-api-types-11",
+    "question": "Which API type usually requires an onboarding process or a formal agreement before access is granted?",
+    "choices": [
+      "Public",
+      "Private (Internal)",
+      "Partner",
+      "Composite"
+    ],
+    "answer": "Partner"
+  },
+  {
+    "id": "quiz-ipt2-api-types-12",
+    "question": "Which API type is mainly used to reduce the number of round trips between a client and the server?",
+    "choices": [
+      "Public",
+      "Composite",
+      "Private (Internal)",
+      "Partner"
+    ],
+    "answer": "Composite"
+  },
+  {
+    "id": "quiz-ipt2-api-types-13",
+    "question": "Which API type needs the most careful documentation, rate limiting, and abuse protection because its consumers are unknown to the provider?",
+    "choices": [
+      "Private (Internal)",
+      "Partner",
+      "Composite",
+      "Public"
+    ],
+    "answer": "Public"
+  },
+  {
+    "id": "quiz-ipt2-api-types-14",
+    "question": "Which of the following is NOT a characteristic of a Private (Internal) API?",
+    "choices": [
+      "It is used within an organization.",
+      "Its access is controlled by the organization.",
+      "It is open to any anonymous developer on the internet without restrictions.",
+      "It often supports communication between internal services."
+    ],
+    "answer": "It is open to any anonymous developer on the internet without restrictions."
+  },
+  {
+    "id": "quiz-ipt2-api-types-15",
+    "question": "Which statement about a Composite API is correct?",
+    "choices": [
+      "It is useful when one task requires data from several endpoints or services.",
+      "It can be used only inside a company and never by outside clients.",
+      "It is a type of database.",
+      "It cannot be consumed by mobile applications."
+    ],
+    "answer": "It is useful when one task requires data from several endpoints or services."
+  },
+  {
+    "id": "quiz-ipt2-api-types-16",
+    "question": "Which pairing of API type and intended audience is correct?",
+    "choices": [
+      "Public API: only the company's employees",
+      "Private API: any developer around the world",
+      "Partner API: selected business collaborators",
+      "Composite API: only one endpoint that performs no calls"
+    ],
+    "answer": "Partner API: selected business collaborators"
+  },
+  {
+    "id": "quiz-ipt2-api-types-17",
+    "question": "A company that runs a Private API for its own mobile app decides to open the API to outside developers. Which set of tasks is MOST necessary before turning it into a Public API?",
+    "choices": [
+      "Removing all authentication so anyone can connect easily",
+      "Preparing documentation, issuing API keys, applying rate limits, and planning versioning",
+      "Deleting all endpoints that return JSON",
+      "Switching all responses to plain text"
+    ],
+    "answer": "Preparing documentation, issuing API keys, applying rate limits, and planning versioning"
+  },
+  {
+    "id": "quiz-ipt2-api-types-18",
+    "question": "Which of the following is NOT an architectural constraint of REST?",
+    "choices": [
+      "Statelessness",
+      "Client-server separation",
+      "Cacheability",
+      "Mandatory use of XML for all responses"
+    ],
+    "answer": "Mandatory use of XML for all responses"
+  },
+  {
+    "id": "quiz-ipt2-api-types-19",
+    "question": "What does it mean for a RESTful API to be stateless?",
+    "choices": [
+      "The server never stores any data in a database.",
+      "Each request must contain all the information needed to process it, and the server keeps no client session context between requests.",
+      "The API cannot return status codes.",
+      "The API supports only GET requests."
+    ],
+    "answer": "Each request must contain all the information needed to process it, and the server keeps no client session context between requests."
+  },
+  {
+    "id": "quiz-ipt2-api-types-20",
+    "question": "Which is the best RESTful endpoint for retrieving the student with an ID of 5?",
+    "choices": [
+      "POST /fetchStudent",
+      "GET /student/get/5",
+      "GET /students/5",
+      "GET /getStudentById/5"
+    ],
+    "answer": "GET /students/5"
+  },
+  {
+    "id": "quiz-ipt2-api-types-21",
+    "question": "Which statement best describes the uniform interface constraint of REST?",
+    "choices": [
+      "Resources are identified by URIs and manipulated through a consistent set of standard methods.",
+      "Every endpoint must use a different naming style.",
+      "The server must remember each client between requests.",
+      "Responses must always be encrypted with a custom algorithm."
+    ],
+    "answer": "Resources are identified by URIs and manipulated through a consistent set of standard methods."
+  },
+  {
+    "id": "quiz-ipt2-api-types-22",
+    "question": "Which naming practice is recommended for REST endpoints?",
+    "choices": [
+      "Use verbs in the URL, such as /createUser",
+      "Use nouns, and use plural names for collections, such as /users",
+      "Use mixed uppercase and lowercase letters randomly",
+      "Include file extensions such as /users.php"
+    ],
+    "answer": "Use nouns, and use plural names for collections, such as /users"
+  },
+  {
+    "id": "quiz-ipt2-api-types-23",
+    "question": "In the Richardson Maturity Model, which level introduces hypermedia controls (HATEOAS)?",
+    "choices": [
+      "Level 0",
+      "Level 1",
+      "Level 3",
+      "Level 2"
+    ],
+    "answer": "Level 3"
+  },
+  {
+    "id": "quiz-ipt2-api-types-24",
+    "question": "In the Richardson Maturity Model, which level introduces the proper use of HTTP verbs and status codes?",
+    "choices": [
+      "Level 0",
+      "Level 2",
+      "Level 3",
+      "Level 1"
+    ],
+    "answer": "Level 2"
+  },
+  {
+    "id": "quiz-ipt2-api-types-25",
+    "question": "What does HATEOAS mean in a RESTful API?",
+    "choices": [
+      "Responses include links that guide the client to related resources or next possible actions.",
+      "The server hides all links from the client.",
+      "The client must hardcode every URL.",
+      "The API stores all passwords in the response."
+    ],
+    "answer": "Responses include links that guide the client to related resources or next possible actions."
+  },
+  {
+    "id": "quiz-ipt2-api-types-26",
+    "question": "Why is it a good practice to include a version in the API path, such as /api/v1/students?",
+    "choices": [
+      "To make the URL longer",
+      "To prevent the use of query strings",
+      "To allow changes to the API without breaking existing clients",
+      "To disable caching"
+    ],
+    "answer": "To allow changes to the API without breaking existing clients"
+  },
+  {
+    "id": "quiz-ipt2-api-types-27",
+    "question": "Which endpoint best represents the grades that belong to student 5?",
+    "choices": [
+      "/students/5/grades",
+      "/getGradesOfStudent5",
+      "/grades?student-delete=5",
+      "/student5grades.json"
+    ],
+    "answer": "/students/5/grades"
+  },
+  {
+    "id": "quiz-ipt2-api-types-28",
+    "question": "Which REST constraint allows responses to be marked as cacheable or non-cacheable to improve performance?",
+    "choices": [
+      "Statelessness",
+      "Layered system",
+      "Code on demand",
+      "Cacheability"
+    ],
+    "answer": "Cacheability"
+  },
+  {
+    "id": "quiz-ipt2-api-types-29",
+    "question": "Which HTTP method is typically used to create a new resource?",
+    "choices": [
+      "GET",
+      "POST",
+      "HEAD",
+      "OPTIONS"
+    ],
+    "answer": "POST"
+  },
+  {
+    "id": "quiz-ipt2-api-types-30",
+    "question": "Which HTTP method is both safe and idempotent?",
+    "choices": [
+      "POST",
+      "PATCH",
+      "GET",
+      "DELETE"
+    ],
+    "answer": "GET"
+  },
+  {
+    "id": "quiz-ipt2-api-types-31",
+    "question": "Which statement correctly differentiates PUT from PATCH?",
+    "choices": [
+      "PUT replaces the entire resource, while PATCH applies partial modifications.",
+      "PUT only reads data, while PATCH deletes data.",
+      "PUT creates a new server, while PATCH restarts it.",
+      "PUT and PATCH are exactly the same in all cases."
+    ],
+    "answer": "PUT replaces the entire resource, while PATCH applies partial modifications."
+  },
+  {
+    "id": "quiz-ipt2-api-types-32",
+    "question": "Which set contains only idempotent HTTP methods?",
+    "choices": [
+      "POST, PATCH",
+      "POST, GET",
+      "POST, DELETE",
+      "GET, PUT, DELETE"
+    ],
+    "answer": "GET, PUT, DELETE"
+  },
+  {
+    "id": "quiz-ipt2-api-types-33",
+    "question": "Which status code should be returned after successfully creating a resource?",
+    "choices": [
+      "200 OK",
+      "201 Created",
+      "204 No Content",
+      "302 Found"
+    ],
+    "answer": "201 Created"
+  },
+  {
+    "id": "quiz-ipt2-api-types-34",
+    "question": "Which status code is most appropriate when a resource is successfully deleted and there is no content to return?",
+    "choices": [
+      "200 OK",
+      "201 Created",
+      "204 No Content",
+      "400 Bad Request"
+    ],
+    "answer": "204 No Content"
+  },
+  {
+    "id": "quiz-ipt2-api-types-35",
+    "question": "Which status code is most appropriate when a client sends a request with invalid or missing data?",
+    "choices": [
+      "400 Bad Request",
+      "200 OK",
+      "301 Moved Permanently",
+      "500 Internal Server Error"
+    ],
+    "answer": "400 Bad Request"
+  },
+  {
+    "id": "quiz-ipt2-api-types-36",
+    "question": "Which status code means the client is not authenticated or has provided invalid credentials?",
+    "choices": [
+      "400",
+      "403",
+      "404",
+      "401"
+    ],
+    "answer": "401"
+  },
+  {
+    "id": "quiz-ipt2-api-types-37",
+    "question": "Which status code means the client is authenticated but does not have permission to access the resource?",
+    "choices": [
+      "401",
+      "403",
+      "404",
+      "500"
+    ],
+    "answer": "403"
+  },
+  {
+    "id": "quiz-ipt2-api-types-38",
+    "question": "Which status code should be returned when the requested resource does not exist?",
+    "choices": [
+      "200",
+      "201",
+      "404",
+      "503"
+    ],
+    "answer": "404"
+  },
+  {
+    "id": "quiz-ipt2-api-types-39",
+    "question": "Which status code is most appropriate when a client tries to register with an email that already exists?",
+    "choices": [
+      "409 Conflict",
+      "200 OK",
+      "301 Moved Permanently",
+      "500 Internal Server Error"
+    ],
+    "answer": "409 Conflict"
+  },
+  {
+    "id": "quiz-ipt2-api-types-40",
+    "question": "Which status code category indicates a server-side error?",
+    "choices": [
+      "2xx",
+      "3xx",
+      "4xx",
+      "5xx"
+    ],
+    "answer": "5xx"
+  },
+  {
+    "id": "quiz-ipt2-api-types-41",
+    "question": "What is the difference between 401 Unauthorized and 403 Forbidden?",
+    "choices": [
+      "They are identical.",
+      "401 means authentication is missing or invalid, while 403 means the client is authenticated but lacks permission.",
+      "401 is a server error, while 403 is a redirect.",
+      "401 means the resource does not exist, while 403 means it was deleted."
+    ],
+    "answer": "401 means authentication is missing or invalid, while 403 means the client is authenticated but lacks permission."
+  },
+  {
+    "id": "quiz-ipt2-api-types-42",
+    "question": "Which status code is commonly returned when a client exceeds the allowed number of requests (rate limit)?",
+    "choices": [
+      "204 No Content",
+      "301 Moved Permanently",
+      "429 Too Many Requests",
+      "201 Created"
+    ],
+    "answer": "429 Too Many Requests"
+  },
+  {
+    "id": "quiz-ipt2-api-types-43",
+    "question": "Which of the following is a valid JSON string?",
+    "choices": [
+      "{name: 'Ana'}",
+      "{'name': 'Ana'}",
+      "{\"name\": \"Ana\"}",
+      "{\"name\": \"Ana\",}"
+    ],
+    "answer": "{\"name\": \"Ana\"}"
+  },
+  {
+    "id": "quiz-ipt2-api-types-44",
+    "question": "Which of the following is NOT a valid JSON data type?",
+    "choices": [
+      "undefined",
+      "null",
+      "boolean",
+      "array"
+    ],
+    "answer": "undefined"
+  },
+  {
+    "id": "quiz-ipt2-api-types-45",
+    "question": "What does JSON.parse() do?",
+    "choices": [
+      "It converts a JavaScript object into a JSON string.",
+      "It deletes a JSON file.",
+      "It sends a JSON file to the server.",
+      "It converts a JSON string into a JavaScript object."
+    ],
+    "answer": "It converts a JSON string into a JavaScript object."
+  },
+  {
+    "id": "quiz-ipt2-api-types-46",
+    "question": "What does JSON.stringify() do?",
+    "choices": [
+      "It converts a JSON string into a JavaScript object.",
+      "It converts a JavaScript object into a JSON string.",
+      "It validates the HTTP status code.",
+      "It installs a package."
+    ],
+    "answer": "It converts a JavaScript object into a JSON string."
+  },
+  {
+    "id": "quiz-ipt2-api-types-47",
+    "question": "What is the output of the following code?\n\nconst obj = { name: \"Ana\", age: 20 };\nconsole.log(JSON.stringify(obj));",
+    "choices": [
+      "{ name: \"Ana\", age: 20 }",
+      "{name:\"Ana\",age:20}",
+      "{\"name\":\"Ana\",\"age\":20}",
+      "[object Object]"
+    ],
+    "answer": "{\"name\":\"Ana\",\"age\":20}"
+  },
+  {
+    "id": "quiz-ipt2-api-types-48",
+    "question": "What is the output of the following code?\n\nconst text = '{\"city\":\"Cagayan de Oro\"}';\nconst data = JSON.parse(text);\nconsole.log(data.city);",
+    "choices": [
+      "Cagayan de Oro",
+      "{\"city\":\"Cagayan de Oro\"}",
+      "undefined",
+      "SyntaxError"
+    ],
+    "answer": "Cagayan de Oro"
+  },
+  {
+    "id": "quiz-ipt2-api-types-49",
+    "question": "Which HTTP header tells the server that the request body is in JSON format?",
+    "choices": [
+      "Accept-Language: json",
+      "Content-Type: application/json",
+      "Authorization: json",
+      "Cache-Control: json"
+    ],
+    "answer": "Content-Type: application/json"
+  },
+  {
+    "id": "quiz-ipt2-api-types-50",
+    "question": "Which npm command creates a package.json file with default values without prompting?",
+    "choices": [
+      "npm start",
+      "npm install -y",
+      "node init",
+      "npm init -y"
+    ],
+    "answer": "npm init -y"
+  },
+  {
+    "id": "quiz-ipt2-api-types-51",
+    "question": "What is stored inside the node_modules folder?",
+    "choices": [
+      "The installed packages (dependencies) of a Node.js project",
+      "The HTML files of the front-end",
+      "The Postman collections",
+      "The operating system files"
+    ],
+    "answer": "The installed packages (dependencies) of a Node.js project"
+  },
+  {
+    "id": "quiz-ipt2-api-types-52",
+    "question": "Which file in a Node.js project lists its metadata, scripts, and dependencies?",
+    "choices": [
+      "server.exe",
+      "node_modules.json",
+      "package.json",
+      "index.css"
+    ],
+    "answer": "package.json"
+  },
+  {
+    "id": "quiz-ipt2-api-types-53",
+    "question": "Which command installs nodemon as a development-only dependency?",
+    "choices": [
+      "npm install nodemon --production",
+      "npm install --save-dev nodemon",
+      "npm uninstall nodemon",
+      "node install nodemon"
+    ],
+    "answer": "npm install --save-dev nodemon"
+  },
+  {
+    "id": "quiz-ipt2-api-types-54",
+    "question": "What is the purpose of the \"scripts\" section in package.json?",
+    "choices": [
+      "It stores the user's passwords.",
+      "It lists the HTML pages of the project.",
+      "It stores the project's images.",
+      "It defines shortcut commands, such as \"start\", that can be run with npm."
+    ],
+    "answer": "It defines shortcut commands, such as \"start\", that can be run with npm."
+  },
+  {
+    "id": "quiz-ipt2-api-types-55",
+    "question": "What is Postman mainly used for in API development?",
+    "choices": [
+      "Sending HTTP requests to an API and inspecting the responses without building a front-end",
+      "Writing CSS stylesheets",
+      "Compiling Java code",
+      "Hosting a production database"
+    ],
+    "answer": "Sending HTTP requests to an API and inspecting the responses without building a front-end"
+  },
+  {
+    "id": "quiz-ipt2-api-types-56",
+    "question": "Which setup is required in Postman to test a POST endpoint that accepts JSON?",
+    "choices": [
+      "Set the method to GET and leave the body empty.",
+      "Set the method to DELETE and add query strings only.",
+      "Set the method to POST, set the body to raw JSON, and include the Content-Type: application/json header.",
+      "Set the method to HEAD and upload an image."
+    ],
+    "answer": "Set the method to POST, set the body to raw JSON, and include the Content-Type: application/json header."
+  },
+  {
+    "id": "quiz-ipt2-api-types-57",
+    "question": "When using ChatGPT to create dummy JSON data for testing, which precaution is most appropriate?",
+    "choices": [
+      "Use real personal data of classmates for realistic testing.",
+      "Verify that the generated JSON is valid and avoid including real personal data.",
+      "Trust the output without checking it.",
+      "Paste real passwords into the prompt so the data looks real."
+    ],
+    "answer": "Verify that the generated JSON is valid and avoid including real personal data."
+  },
+  {
+    "id": "quiz-ipt2-api-types-58",
+    "question": "What is Node.js?",
+    "choices": [
+      "A relational database",
+      "A CSS framework",
+      "A web browser",
+      "A JavaScript runtime environment that allows JavaScript to run on the server side"
+    ],
+    "answer": "A JavaScript runtime environment that allows JavaScript to run on the server side"
+  },
+  {
+    "id": "quiz-ipt2-api-types-59",
+    "question": "What is NPM?",
+    "choices": [
+      "The package manager that is bundled with Node.js",
+      "A code editor",
+      "A testing tool for HTTP requests",
+      "A type of API"
+    ],
+    "answer": "The package manager that is bundled with Node.js"
+  },
+  {
+    "id": "quiz-ipt2-api-types-60",
+    "question": "What is Visual Studio Code (VS Code)?",
+    "choices": [
+      "A database server",
+      "A web browser",
+      "A source-code editor used to write and debug code",
+      "A hosting provider"
+    ],
+    "answer": "A source-code editor used to write and debug code"
+  },
+  {
+    "id": "quiz-ipt2-api-types-61",
+    "question": "Which statement correctly imports Express using CommonJS syntax?",
+    "choices": [
+      "import express from require;",
+      "const express = require('express');",
+      "const express = require(express);",
+      "include express;"
+    ],
+    "answer": "const express = require('express');"
+  },
+  {
+    "id": "quiz-ipt2-api-types-62",
+    "question": "Which statement correctly creates an Express application stored in a variable named app?",
+    "choices": [
+      "const app = express.create();",
+      "const app = express;",
+      "const app = require(app);",
+      "const app = express();"
+    ],
+    "answer": "const app = express();"
+  },
+  {
+    "id": "quiz-ipt2-api-types-63",
+    "question": "Which statement allows Express to parse incoming JSON request bodies?",
+    "choices": [
+      "app.use(express.json());",
+      "app.use(json.express());",
+      "app.get(express.json());",
+      "app.parse(express.json());"
+    ],
+    "answer": "app.use(express.json());"
+  },
+  {
+    "id": "quiz-ipt2-api-types-64",
+    "question": "Which option is a correct route that responds to GET /api/students with a 200 status and the students array in JSON?",
+    "choices": [
+      "app.get('/api/students', (req, res) => { res.status(200).json(students); });",
+      "app.get('/api/students') => { res.json(students); }",
+      "app.get(/api/students, (req, res) => { res.json(students); });",
+      "get.app('/api/students', (req, res) => { res.json(students); });"
+    ],
+    "answer": "app.get('/api/students', (req, res) => { res.status(200).json(students); });"
+  },
+  {
+    "id": "quiz-ipt2-api-types-65",
+    "question": "Which statement correctly makes the server listen on port 3000 and log a message?",
+    "choices": [
+      "listen.app(3000, () => console.log('Server running on port 3000'));",
+      "app.listen(3000, () => { console.log('Server running on port 3000'); });",
+      "app.listen[3000] => console.log('Server running on port 3000');",
+      "app.start(3000, () => { console.log('Server running on port 3000'); });"
+    ],
+    "answer": "app.listen(3000, () => { console.log('Server running on port 3000'); });"
+  },
+  {
+    "id": "quiz-ipt2-api-types-66",
+    "question": "For the route /api/students/:id, which statement correctly accesses the id value?",
+    "choices": [
+      "req.body.id",
+      "req.query.id",
+      "req.params.id",
+      "res.params.id"
+    ],
+    "answer": "req.params.id"
+  },
+  {
+    "id": "quiz-ipt2-api-types-67",
+    "question": "For the request /api/students?page=2, which statement correctly accesses the page value?",
+    "choices": [
+      "req.params.page",
+      "req.body.page",
+      "req.page",
+      "req.query.page"
+    ],
+    "answer": "req.query.page"
+  },
+  {
+    "id": "quiz-ipt2-api-types-68",
+    "question": "Which statement correctly returns a 404 status with a JSON message?",
+    "choices": [
+      "res.status(404).json({ message: 'Not found' });",
+      "res.json(404).status({ message: 'Not found' });",
+      "res.send.status(404)({ message: 'Not found' });",
+      "status.res(404).json({ message: 'Not found' });"
+    ],
+    "answer": "res.status(404).json({ message: 'Not found' });"
+  },
+  {
+    "id": "quiz-ipt2-api-types-69",
+    "question": "Which statement correctly returns the status 201 and the new student as JSON?",
+    "choices": [
+      "res.status(21).json(newStudent);",
+      "res.status(201).json(newStudent);",
+      "res.json(201).status(newStudent);",
+      "res.created(newStudent);"
+    ],
+    "answer": "res.status(201).json(newStudent);"
+  },
+  {
+    "id": "quiz-ipt2-api-types-70",
+    "question": "Which Express method handles the HTTP DELETE method?",
+    "choices": [
+      "app.remove()",
+      "app.destroy()",
+      "app.delete()",
+      "app.erase()"
+    ],
+    "answer": "app.delete()"
+  },
+  {
+    "id": "quiz-ipt2-api-types-71",
+    "question": "Which function is commonly used to convert req.params.id from a string to an integer before comparing it with a numeric ID?",
+    "choices": [
+      "toString()",
+      "stringify()",
+      "parse.json()",
+      "parseInt()"
+    ],
+    "answer": "parseInt()"
+  },
+  {
+    "id": "quiz-ipt2-api-types-72",
+    "question": "Why must req.params.id often be converted before being compared with a numeric ID using ===?",
+    "choices": [
+      "Because route parameters are received as strings.",
+      "Because route parameters are always booleans.",
+      "Because Express automatically deletes numeric IDs.",
+      "Because === works only with strings."
+    ],
+    "answer": "Because route parameters are received as strings."
+  },
+  {
+    "id": "quiz-ipt2-api-types-73",
+    "question": "The following code always returns undefined for req.body.name when a client sends JSON. What is the most likely cause?\n\nconst express = require('express');\nconst app = express();\napp.post('/api/users', (req, res) => {\n  res.json({ name: req.body.name });\n});\napp.listen(3000);",
+    "choices": [
+      "The route should use app.get instead.",
+      "The JSON-parsing middleware app.use(express.json()) is missing.",
+      "The port number must be 8080.",
+      "The variable app must be renamed to server."
+    ],
+    "answer": "The JSON-parsing middleware app.use(express.json()) is missing."
+  },
+  {
+    "id": "quiz-ipt2-api-types-74",
+    "question": "The following code throws Error [ERR_HTTP_HEADERS_SENT]. What is the cause?\n\napp.get('/api/items/:id', (req, res) => {\n  const item = items.find(i => i.id == req.params.id);\n  if (!item) {\n    res.status(404).json({ message: 'Not found' });\n  }\n  res.json(item);\n});",
+    "choices": [
+      "The find() method cannot be used inside a route.",
+      "The route parameter is misspelled.",
+      "A response is sent twice when the item is not found because there is no return before the first response.",
+      "The status code 404 is not valid."
+    ],
+    "answer": "A response is sent twice when the item is not found because there is no return before the first response."
+  },
+  {
+    "id": "quiz-ipt2-api-types-75",
+    "question": "A student writes const express = require(express); and receives ReferenceError: express is not defined. What is wrong?",
+    "choices": [
+      "The module name must be written as a string, as in require('express').",
+      "The keyword const must be replaced with var.",
+      "Express cannot be imported in Node.js.",
+      "The semicolon must be removed."
+    ],
+    "answer": "The module name must be written as a string, as in require('express')."
+  },
+  {
+    "id": "quiz-ipt2-api-types-76",
+    "question": "Running node app.js produces Error: Cannot find module 'express'. What is the most likely cause?",
+    "choices": [
+      "The port is already in use.",
+      "The JSON is malformed.",
+      "The status code is incorrect.",
+      "Express was not installed in the project, so npm install express is needed."
+    ],
+    "answer": "Express was not installed in the project, so npm install express is needed."
+  },
+  {
+    "id": "quiz-ipt2-api-types-77",
+    "question": "The server fails with Error: listen EADDRINUSE: address already in use :::3000. What does this mean?",
+    "choices": [
+      "The database password is wrong.",
+      "Another process is already using port 3000.",
+      "The JSON body is missing.",
+      "The route is not defined."
+    ],
+    "answer": "Another process is already using port 3000."
+  },
+  {
+    "id": "quiz-ipt2-api-types-78",
+    "question": "A client sends a request body and the server responds with a SyntaxError: Unexpected token } in JSON. What is the most likely cause?",
+    "choices": [
+      "The server has no routes.",
+      "The status code is 200.",
+      "The JSON is malformed, for example it has a trailing comma.",
+      "The npm package is outdated."
+    ],
+    "answer": "The JSON is malformed, for example it has a trailing comma."
+  },
+  {
+    "id": "quiz-ipt2-api-types-79",
+    "question": "In the code below, the route /api/students/active never runs. Why?\n\napp.get('/api/students/:id', handlerA);\napp.get('/api/students/active', handlerB);",
+    "choices": [
+      "The parameterized route is defined first and matches \"active\" as an id, so the specific route should be defined before it.",
+      "The word \"active\" is reserved in Express.",
+      "Two GET routes cannot exist in the same file.",
+      "handlerB must be defined using POST."
+    ],
+    "answer": "The parameterized route is defined first and matches \"active\" as an id, so the specific route should be defined before it."
+  },
+  {
+    "id": "quiz-ipt2-api-types-80",
+    "question": "A Postman request to POST /api/users returns 404, but the server defines app.post('/api/user', ...). What is the issue?",
+    "choices": [
+      "Postman cannot send POST requests.",
+      "The body is too large.",
+      "The server needs HTTPS.",
+      "The endpoint paths do not match because of /users versus /user."
+    ],
+    "answer": "The endpoint paths do not match because of /users versus /user."
+  },
+  {
+    "id": "quiz-ipt2-api-types-81",
+    "question": "The following route crashes the server when the database call fails. Which fix is most appropriate?\n\napp.get('/api/users', async (req, res) => {\n  const users = await db.getUsers();\n  res.json(users);\n});",
+    "choices": [
+      "Remove the async keyword only.",
+      "Wrap the await call in a try/catch block and return a 500 response in the catch block.",
+      "Change app.get to app.post.",
+      "Remove res.json."
+    ],
+    "answer": "Wrap the await call in a try/catch block and return a 500 response in the catch block."
+  },
+  {
+    "id": "quiz-ipt2-api-types-82",
+    "question": "Postman shows \"Cannot POST /api/students\" even though the server defines app.get('/api/students', ...). What is the cause?",
+    "choices": [
+      "The server is offline.",
+      "The JSON is invalid.",
+      "The route handles GET only, so a POST request has no matching route.",
+      "The students array is empty."
+    ],
+    "answer": "The route handles GET only, so a POST request has no matching route."
+  },
+  {
+    "id": "quiz-ipt2-api-types-83",
+    "question": "Which status code is most appropriate when a client submits a request with a missing required field?",
+    "choices": [
+      "400 Bad Request",
+      "200 OK",
+      "301 Moved Permanently",
+      "503 Service Unavailable"
+    ],
+    "answer": "400 Bad Request"
+  },
+  {
+    "id": "quiz-ipt2-api-types-84",
+    "question": "Express error-handling middleware is distinguished from regular middleware by having how many parameters?",
+    "choices": [
+      "One",
+      "Two",
+      "Three",
+      "Four, namely (err, req, res, next)"
+    ],
+    "answer": "Four, namely (err, req, res, next)"
+  },
+  {
+    "id": "quiz-ipt2-api-types-85",
+    "question": "Where should the global error-handling middleware be placed?",
+    "choices": [
+      "Before all routes",
+      "After all routes and other middleware",
+      "Inside package.json",
+      "Inside node_modules"
+    ],
+    "answer": "After all routes and other middleware"
+  },
+  {
+    "id": "quiz-ipt2-api-types-86",
+    "question": "What does calling next(err) do in an Express middleware or route?",
+    "choices": [
+      "It restarts the server.",
+      "It deletes the request.",
+      "It passes the error to the error-handling middleware.",
+      "It sends the response automatically as 200."
+    ],
+    "answer": "It passes the error to the error-handling middleware."
+  },
+  {
+    "id": "quiz-ipt2-api-types-87",
+    "question": "Why should an API avoid sending the full stack trace to clients in production?",
+    "choices": [
+      "It exposes internal file paths and logic that attackers can use.",
+      "It makes the response too colorful.",
+      "It prevents JSON from being valid.",
+      "It deletes the log files."
+    ],
+    "answer": "It exposes internal file paths and logic that attackers can use."
+  },
+  {
+    "id": "quiz-ipt2-api-types-88",
+    "question": "Which middleware returns a 404 JSON message for undefined routes when placed after all defined routes?",
+    "choices": [
+      "app.use((err, req, res, next) => { res.status(200).send('OK'); });",
+      "app.use((req, res) => { res.status(404).json({ message: 'Route not found' }); });",
+      "app.get('*', () => {});",
+      "app.use(express.static('404'));"
+    ],
+    "answer": "app.use((req, res) => { res.status(404).json({ message: 'Route not found' }); });"
+  },
+  {
+    "id": "quiz-ipt2-api-types-89",
+    "question": "Why is client-side validation alone not enough to protect an API?",
+    "choices": [
+      "Because browsers cannot validate input.",
+      "Because JSON cannot be validated.",
+      "Because client-side validation is illegal.",
+      "Because clients can be bypassed with tools such as Postman or curl, so the server must always validate input."
+    ],
+    "answer": "Because clients can be bypassed with tools such as Postman or curl, so the server must always validate input."
+  },
+  {
+    "id": "quiz-ipt2-api-types-90",
+    "question": "Which of the following is a commonly used validation library or middleware for Express?",
+    "choices": [
+      "nodemon",
+      "bcrypt",
+      "express-validator",
+      "dotenv"
+    ],
+    "answer": "express-validator"
+  },
+  {
+    "id": "quiz-ipt2-api-types-91",
+    "question": "Why is it recommended to use a consistent error response format, such as status, error, and message fields?",
+    "choices": [
+      "It makes it easier for clients to read and handle errors predictably.",
+      "It makes the server run faster than any other server.",
+      "It removes the need for status codes.",
+      "It prevents all errors from occurring."
+    ],
+    "answer": "It makes it easier for clients to read and handle errors predictably."
+  },
+  {
+    "id": "quiz-ipt2-api-types-92",
+    "question": "Which code correctly returns 400 if name is missing or is not a string?",
+    "choices": [
+      "if (req.body.name === null) { res.status(200); }",
+      "if (!req.body.name || typeof req.body.name !== 'string') { return res.status(400).json({ message: 'Name is required and must be a string' }); }",
+      "if (req.body.name) { return res.status(400); }",
+      "if (typeof req.body.name === 'string') { return res.status(500).json({}); }"
+    ],
+    "answer": "if (!req.body.name || typeof req.body.name !== 'string') { return res.status(400).json({ message: 'Name is required and must be a string' }); }"
+  },
+  {
+    "id": "quiz-ipt2-api-types-93",
+    "question": "What is the main purpose of HTTPS in API communication?",
+    "choices": [
+      "To make the API faster than HTTP",
+      "To remove the need for authentication",
+      "To encrypt data in transit and prevent eavesdropping and tampering",
+      "To store passwords in the database"
+    ],
+    "answer": "To encrypt data in transit and prevent eavesdropping and tampering"
+  },
+  {
+    "id": "quiz-ipt2-api-types-94",
+    "question": "What is the difference between authentication and authorization?",
+    "choices": [
+      "Authentication verifies who the user is, while authorization determines what that user is allowed to do.",
+      "Authentication determines permissions, while authorization verifies identity.",
+      "They mean exactly the same thing.",
+      "Authentication is for servers only, while authorization is for browsers only."
+    ],
+    "answer": "Authentication verifies who the user is, while authorization determines what that user is allowed to do."
+  },
+  {
+    "id": "quiz-ipt2-api-types-95",
+    "question": "In a request, where is a JSON Web Token (JWT) commonly sent?",
+    "choices": [
+      "In the URL path as /users/token",
+      "In the HTML title tag",
+      "In the package.json file",
+      "In the Authorization header as \"Bearer <token>\""
+    ],
+    "answer": "In the Authorization header as \"Bearer <token>\""
+  },
+  {
+    "id": "quiz-ipt2-api-types-96",
+    "question": "Why should passwords be hashed (for example, with bcrypt) instead of stored in plain text?",
+    "choices": [
+      "Hashing makes passwords shorter for display.",
+      "A database breach would not directly expose the actual passwords.",
+      "Hashing allows anyone to read the password later.",
+      "Plain text is slower to store."
+    ],
+    "answer": "A database breach would not directly expose the actual passwords."
+  },
+  {
+    "id": "quiz-ipt2-api-types-97",
+    "question": "Why should secrets such as API keys and database credentials be stored in environment variables, such as a .env file, instead of in source code?",
+    "choices": [
+      "Environment variables make the code run faster.",
+      "Source code cannot contain strings.",
+      "Hardcoded secrets can leak through version control, and the .env file should be listed in .gitignore.",
+      "Environment variables are visible to all users publicly."
+    ],
+    "answer": "Hardcoded secrets can leak through version control, and the .env file should be listed in .gitignore."
+  },
+  {
+    "id": "quiz-ipt2-api-types-98",
+    "question": "What does CORS stand for, and what does it control?",
+    "choices": [
+      "Cross-Origin Resource Sharing, which controls which outside origins may access the API from a browser",
+      "Central Online Routing System, which controls the database",
+      "Client-Only Request Server, which controls the CPU",
+      "Code Output Rendering Service, which controls CSS"
+    ],
+    "answer": "Cross-Origin Resource Sharing, which controls which outside origins may access the API from a browser"
+  },
+  {
+    "id": "quiz-ipt2-api-types-99",
+    "question": "What does the Helmet middleware do in an Express application?",
+    "choices": [
+      "It compresses images.",
+      "It encrypts the database.",
+      "It installs npm packages automatically.",
+      "It sets secure HTTP response headers to reduce common web vulnerabilities."
+    ],
+    "answer": "It sets secure HTTP response headers to reduce common web vulnerabilities."
+  },
+  {
+    "id": "quiz-ipt2-api-types-100",
+    "question": "A user changes /api/users/102 to /api/users/103 and is able to view another user's data. What vulnerability is this?",
+    "choices": [
+      "SQL injection",
+      "Broken Object Level Authorization (BOLA)",
+      "Cross-site scripting",
+      "Rate limiting"
+    ],
+    "answer": "Broken Object Level Authorization (BOLA)"
+  },
+  {
+    "id": "quiz-ipt2-api-types-101",
+    "question": "What is mass assignment in the context of API security?",
+    "choices": [
+      "Sending many requests at the same time",
+      "Assigning one role to many users in a spreadsheet",
+      "Blindly accepting all properties from the request body, such as isAdmin: true, and saving them to the data model",
+      "Compressing many files at once"
+    ],
+    "answer": "Blindly accepting all properties from the request body, such as isAdmin: true, and saving them to the data model"
+  },
+  {
+    "id": "quiz-ipt2-api-types-102",
+    "question": "What is excessive data exposure?",
+    "choices": [
+      "The API returns more data than the client needs, such as password hashes or internal fields.",
+      "The API returns an empty response.",
+      "The API returns only the id field.",
+      "The API refuses all requests."
+    ],
+    "answer": "The API returns more data than the client needs, such as password hashes or internal fields."
+  },
+  {
+    "id": "quiz-ipt2-api-types-103",
+    "question": "Why is it unsafe to place an API key or token in the URL query string?",
+    "choices": [
+      "Query strings cannot contain letters.",
+      "Query strings are always encrypted twice.",
+      "Query strings are not supported by HTTP.",
+      "URLs can be saved in browser history, server logs, and proxies, which can leak the credential."
+    ],
+    "answer": "URLs can be saved in browser history, server logs, and proxies, which can leak the credential."
+  },
+  {
+    "id": "quiz-ipt2-api-types-104",
+    "question": "What is the purpose of rate limiting?",
+    "choices": [
+      "To increase the size of the response",
+      "To restrict how many requests a client can make in a given time, helping reduce brute-force and denial-of-service attempts",
+      "To convert JSON to XML",
+      "To store sessions permanently"
+    ],
+    "answer": "To restrict how many requests a client can make in a given time, helping reduce brute-force and denial-of-service attempts"
+  },
+  {
+    "id": "quiz-ipt2-api-types-105",
+    "question": "Which statement best applies the principle of least privilege to a Partner API?",
+    "choices": [
+      "Give every partner full administrator access for convenience.",
+      "Give every partner the same password.",
+      "Give each partner only the minimum permissions needed for their tasks.",
+      "Remove authentication for trusted partners."
+    ],
+    "answer": "Give each partner only the minimum permissions needed for their tasks."
+  },
+  {
+    "id": "quiz-ipt2-api-types-106",
+    "question": "Which practice best protects an API database from SQL injection?",
+    "choices": [
+      "Use parameterized queries or prepared statements and validate input.",
+      "Concatenate user input directly into SQL strings.",
+      "Disable HTTPS.",
+      "Return detailed database errors to the client."
+    ],
+    "answer": "Use parameterized queries or prepared statements and validate input."
+  },
+  {
+    "id": "quiz-ipt2-api-types-107",
+    "question": "A teammate suggests using GET /deleteStudent/5 to delete a student. What is wrong with this design, and what is the better design?",
+    "choices": [
+      "Nothing is wrong with it.",
+      "It should be POST /deleteStudent/5.",
+      "It should be GET /students/delete?id=5.",
+      "It uses a verb in the URL and a GET request for a destructive action, so it should be DELETE /students/5."
+    ],
+    "answer": "It uses a verb in the URL and a GET request for a destructive action, so it should be DELETE /students/5."
+  },
+  {
+    "id": "quiz-ipt2-api-types-108",
+    "question": "A user sends POST /api/products with an empty body, and the server returns 200 and saves an empty record. What should be implemented?",
+    "choices": [
+      "Input validation that returns 400 Bad Request with a descriptive message",
+      "A larger database",
+      "A second server",
+      "A longer URL"
+    ],
+    "answer": "Input validation that returns 400 Bad Request with a descriptive message"
+  },
+  {
+    "id": "quiz-ipt2-api-types-109",
+    "question": "A mobile app receives a 403 response immediately after a successful login. What does this most likely indicate?",
+    "choices": [
+      "The server crashed.",
+      "The user does not exist.",
+      "The user is authenticated but lacks permission for that resource or action.",
+      "The JSON is invalid."
+    ],
+    "answer": "The user is authenticated but lacks permission for that resource or action."
+  },
+  {
+    "id": "quiz-ipt2-api-types-110",
+    "question": "Your API returns the password field in the response of GET /api/users. What is the issue and the fix?",
+    "choices": [
+      "Insufficient logging; add more console.log statements.",
+      "Excessive data exposure; exclude sensitive fields from responses and never store plain-text passwords.",
+      "Slow response time; add more servers.",
+      "Missing CORS; install Helmet."
+    ],
+    "answer": "Excessive data exposure; exclude sensitive fields from responses and never store plain-text passwords."
+  },
+  {
+    "id": "quiz-ipt2-api-types-111",
+    "question": "A client wants to update only the email field of a user without sending the full record. Which HTTP method is most appropriate?",
+    "choices": [
+      "PATCH",
+      "POST",
+      "HEAD",
+      "OPTIONS"
+    ],
+    "answer": "PATCH"
+  },
+  {
+    "id": "quiz-ipt2-api-types-112",
+    "question": "A website's requests to your API are blocked by the browser with a CORS error, but the same requests work in Postman. What is the likely cause?",
+    "choices": [
+      "Postman has a faster internet connection.",
+      "The JSON is too short.",
+      "The server database is empty.",
+      "The server does not send the proper CORS headers for that origin, and Postman is not subject to browser CORS rules."
+    ],
+    "answer": "The server does not send the proper CORS headers for that origin, and Postman is not subject to browser CORS rules."
+  },
+  {
+    "id": "quiz-ipt2-api-types-113",
+    "question": "A client must be able to safely retry a request after a network failure without causing duplicate results. Which methods are naturally safe to retry?",
+    "choices": [
+      "POST only",
+      "POST and PATCH",
+      "GET, PUT, and DELETE because they are idempotent",
+      "None of the HTTP methods"
+    ],
+    "answer": "GET, PUT, and DELETE because they are idempotent"
+  },
+  {
+    "id": "quiz-ipt2-api-types-114",
+    "question": "Choose the most appropriate status codes for the following: (1) a resource was deleted and there is nothing to return, (2) the request body has an invalid format, (3) the server crashed while processing, and (4) the requested student ID does not exist.",
+    "choices": [
+      "200, 200, 200, 200",
+      "204, 400, 500, 404",
+      "201, 401, 503, 302",
+      "404, 500, 400, 204"
+    ],
+    "answer": "204, 400, 500, 404"
+  },
+  {
+    "id": "quiz-ipt2-api-types-115",
+    "question": "A teammate pushes the project to GitHub including the .env file that contains the database password. What should be done?",
+    "choices": [
+      "Remove the file from the repository, add it to .gitignore, and rotate (change) the exposed credentials immediately",
+      "Do nothing because the repository name is secret",
+      "Rename the file to env.txt",
+      "Delete only the local copy"
+    ],
+    "answer": "Remove the file from the repository, add it to .gitignore, and rotate (change) the exposed credentials immediately"
+  },
+  {
+    "id": "quiz-ipt2-api-types-116",
+    "question": "A delivery partner reports that they can view customers' billing details even though they were only supposed to see order statuses. Which principle was violated?",
+    "choices": [
+      "Cacheability",
+      "Statelessness",
+      "Uniform interface",
+      "Least privilege"
+    ],
+    "answer": "Least privilege"
+  },
+  {
+    "id": "quiz-ipt2-api-types-117",
+    "question": "A checkout page needs data from the inventory, pricing, and shipping services. The team builds a single endpoint, /api/checkout-summary, that calls all three and merges the results. What is the main trade-off to prepare for?",
+    "choices": [
+      "The endpoint can no longer return JSON.",
+      "The endpoint becomes a Private API automatically.",
+      "If one of the underlying calls fails, the combined response may be incomplete or fail, so error handling is needed.",
+      "The endpoint will no longer need validation."
+    ],
+    "answer": "If one of the underlying calls fails, the combined response may be incomplete or fail, so error handling is needed."
+  },
+  {
+    "id": "quiz-ipt2-api-types-118",
+    "question": "A Public API without rate limiting is flooded with thousands of requests per second and slows down for everyone. What is the best fix?",
+    "choices": [
+      "Remove all authentication.",
+      "Implement rate limiting and return 429 Too Many Requests when the limit is exceeded.",
+      "Convert all responses to plain text.",
+      "Disable error handling."
+    ],
+    "answer": "Implement rate limiting and return 429 Too Many Requests when the limit is exceeded."
+  },
+  {
+    "id": "quiz-ipt2-api-types-119",
+    "question": "Postman returns 401 even though the request body is correct and the route exists. What should be checked first?",
+    "choices": [
+      "Whether the Authorization header or token is missing or invalid",
+      "Whether the students array is empty",
+      "Whether the port number has four digits",
+      "Whether the JSON has a comment"
+    ],
+    "answer": "Whether the Authorization header or token is missing or invalid"
+  },
+  {
+    "id": "quiz-ipt2-api-types-120",
+    "question": "Which set of practices best improves the security of an API before deployment?",
+    "choices": [
+      "Using HTTP only, trusting all input, and hardcoding secrets",
+      "Returning stack traces, disabling validation, and sharing one token for all users",
+      "Allowing all origins, removing authentication, and logging passwords",
+      "Using HTTPS, validating all input, storing secrets in environment variables, and applying rate limiting"
+    ],
+    "answer": "Using HTTPS, validating all input, storing secrets in environment variables, and applying rate limiting"
+  }
+]

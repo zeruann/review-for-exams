@@ -160,6 +160,30 @@ export default function App() {
     }
   };
 
+  const handleStartReviewMissed = (
+    subject: Subject,
+    parentSubject?: Subject
+  ) => {
+    const p = progress[subject.id];
+    const missedIds = new Set(p?.missedQuestionIds ?? []);
+    if (missedIds.size === 0) return;
+
+    const missedQuestions = subject.questions.filter((q) => missedIds.has(q.id));
+    if (missedQuestions.length === 0) return;
+
+    const reviewSubject: Subject = {
+      ...subject,
+      name: `${subject.name} (Review Missed)`,
+      questions: missedQuestions,
+    };
+
+    setView({
+      screen: "quiz",
+      subject: reviewSubject,
+      parentSubject,
+    });
+  };
+
   return (
     <div
       className="min-h-screen px-4 py-6 md:py-10 transition-colors duration-200"
@@ -243,6 +267,7 @@ export default function App() {
           progress={progress}
           period={effectivePeriod}
           onSelect={handleSelectSubject}
+          onReviewMissed={handleStartReviewMissed}
           onBackToPeriod={() => setView({ screen: "period" })}
           onChangePeriod={(p) => {
             if (p === "finals") return;
@@ -256,6 +281,7 @@ export default function App() {
           parentSubject={view.subject}
           progress={progress}
           onSelect={(subQuiz) => handleSelectSubQuiz(subQuiz, view.subject)}
+          onReviewMissed={(subQuiz) => handleStartReviewMissed(subQuiz, view.subject)}
           onBack={() => setView({ screen: "list" })}
         />
       )}
@@ -302,9 +328,14 @@ export default function App() {
               : setView({ screen: "list" })
           }
           onFinish={(correctCount, totalCount, results) => {
-            recordAttempt(view.subject.id, correctCount, totalCount);
+            const missedIds = results
+              .filter((r) => r.status === "wrong" || r.status === "skipped")
+              .map((r) => r.questionId)
+              .filter(Boolean) as string[];
+
+            recordAttempt(view.subject.id, correctCount, totalCount, missedIds);
             if (view.parentSubject) {
-              recordAttempt(view.parentSubject.id, correctCount, totalCount);
+              recordAttempt(view.parentSubject.id, correctCount, totalCount, missedIds);
             }
             setView({
               screen: "results",
@@ -327,6 +358,12 @@ export default function App() {
           onChangeQuestionLimit={setQuestionLimit}
           timerEnabled={timerEnabled}
           onToggleTimer={setTimerEnabled}
+          missedCount={
+            progress[view.subject.id]?.missedQuestionIds?.length ?? 0
+          }
+          onStartReviewMissed={() =>
+            handleStartReviewMissed(view.subject, view.parentSubject)
+          }
           onBack={() =>
             view.parentSubject
               ? setView({ screen: "subquizzes", subject: view.parentSubject })
@@ -355,6 +392,28 @@ export default function App() {
               parentSubject: view.parentSubject,
             })
           }
+          onReviewMissed={() => {
+            const missedIds = new Set(
+              view.results
+                .filter((r) => r.status === "wrong" || r.status === "skipped")
+                .map((r) => r.questionId)
+                .filter(Boolean) as string[]
+            );
+            const missedQuestions = view.subject.questions.filter((q) =>
+              missedIds.has(q.id)
+            );
+            if (missedQuestions.length > 0) {
+              setView({
+                screen: "quiz",
+                subject: {
+                  ...view.subject,
+                  name: `${view.subject.name} (Review Missed)`,
+                  questions: missedQuestions,
+                },
+                parentSubject: view.parentSubject,
+              });
+            }
+          }}
           onBackToSubjects={() =>
             view.parentSubject
               ? setView({ screen: "subquizzes", subject: view.parentSubject })

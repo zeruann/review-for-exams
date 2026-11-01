@@ -41,6 +41,7 @@ export interface Subject {
 export type ExamPeriod = "midterm" | "finals" | "quizzes";
 
 export interface QuizResultItem {
+  questionId?: string;
   questionText: string;
   /** 'correct' | 'wrong' | 'skipped' */
   status: "correct" | "wrong" | "skipped";

@@ -5,6 +5,7 @@ interface SubQuizListProps {
   parentSubject: Subject;
   progress: Record<string, SubjectProgress>;
   onSelect: (subQuiz: Subject) => void;
+  onReviewMissed?: (subQuiz: Subject) => void;
   onBack: () => void;
 }
 
@@ -40,6 +41,7 @@ export default function SubQuizList({
   parentSubject,
   progress,
   onSelect,
+  onReviewMissed,
   onBack,
 }: SubQuizListProps) {
   const subQuizzes = parentSubject.subQuizzes ?? [];
@@ -136,8 +138,19 @@ export default function SubQuizList({
                   </div>
                 </div>
 
-                <div className="text-xs md:text-sm text-[var(--ink-muted)] mb-3 pl-7">
-                  {subQuiz.questions.length} questions • Comprehensive module pool
+                <div className="text-xs md:text-sm text-[var(--ink-muted)] mb-3 pl-7 flex items-center gap-2 flex-wrap">
+                  <span>{subQuiz.questions.length} questions • Comprehensive module pool</span>
+                  {p?.missedQuestionIds && p.missedQuestionIds.length > 0 && (
+                    <span
+                      className="text-[11px] font-bold px-2 py-0.5 rounded-md"
+                      style={{
+                        backgroundColor: "var(--okay-soft)",
+                        color: "var(--okay)",
+                      }}
+                    >
+                      🎯 {p.missedQuestionIds.length} missed
+                    </span>
+                  )}
                 </div>
 
                 {score != null ? (
@@ -163,7 +176,26 @@ export default function SubQuizList({
                 )}
               </div>
 
-              <div className="flex items-center gap-3 shrink-0">
+              <div className="flex items-center gap-2 shrink-0">
+                {onReviewMissed && p?.missedQuestionIds && p.missedQuestionIds.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onReviewMissed(subQuiz);
+                    }}
+                    className="text-xs font-bold px-2.5 py-1.5 rounded-xl border transition-all active-press flex items-center gap-1 shadow-sm hover:opacity-90"
+                    style={{
+                      backgroundColor: "var(--okay-soft)",
+                      borderColor: "var(--okay)",
+                      color: "var(--okay)",
+                    }}
+                    title={`Review ${p.missedQuestionIds.length} missed questions`}
+                  >
+                    <span>🎯</span>
+                    <span className="hidden sm:inline">Review</span>
+                  </button>
+                )}
                 {meta ? (
                   <span
                     className={`flex items-center gap-1.5 text-xs md:text-sm font-bold rounded-xl px-3 py-1.5 border ${meta.chip}`}

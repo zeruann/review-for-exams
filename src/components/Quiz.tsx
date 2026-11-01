@@ -536,6 +536,7 @@ export default function Quiz({
       }
 
       return {
+        questionId: q.id,
         questionText: q.question,
         status,
         correctAnswer,

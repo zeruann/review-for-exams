@@ -24,6 +24,7 @@ import quizAdvancedDatabaseSystems from "./quizzes/advanced-database-systems.jso
 import quizPurposiveCommunication from "./quizzes/purposive-communication.json";
 import quizInformationAssuranceSecurity from "./quizzes/information-assurance-security.json";
 import quizIntegrativeProgramming2 from "./quizzes/integrative-programming-2.json";
+import quizIntegrativeProgramming2ApiTypes from "./quizzes/integrative-programming-2-api-types.json";
 import quizSystemsIntegrationArchitecture from "./quizzes/systems-integration-architecture.json";
 import quizScienceTechnologySociety from "./quizzes/science-technology-society.json";
 
@@ -101,6 +102,21 @@ export const finalsSubjects: Subject[] = [
 
 export const quizzesSubjects: Subject[] = [
   {
+    id: "integrative-programming-2",
+    name: "Integrative Programming and Technologies 2",
+    questions: [
+      ...(quizIntegrativeProgramming2 as Question[]),
+      ...(quizIntegrativeProgramming2ApiTypes as Question[]),
+    ],
+    subQuizzes: [
+      {
+        id: "integrative-programming-2-api-types",
+        name: "API Types",
+        questions: quizIntegrativeProgramming2ApiTypes as Question[],
+      },
+    ],
+  },
+  {
     id: "networking2",
     name: "Networking 2",
     questions: [
@@ -134,11 +150,6 @@ export const quizzesSubjects: Subject[] = [
     id: "information-assurance-security",
     name: "Information Assurance and Security",
     questions: quizInformationAssuranceSecurity as Question[],
-  },
-  {
-    id: "integrative-programming-2",
-    name: "Integrative Programming and Technologies 2",
-    questions: quizIntegrativeProgramming2 as Question[],
   },
   {
     id: "systems-integration-architecture",
